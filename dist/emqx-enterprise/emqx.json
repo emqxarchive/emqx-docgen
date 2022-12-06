@@ -1,0 +1,2448 @@
+[
+  {
+    "fields": [
+      {
+        "name": "listeners",
+        "type": {
+          "kind": "struct",
+          "name": "broker:listeners"
+        }
+      },
+      {
+        "desc": "A zone is a set of configs grouped by the zone <code>name</code>.\nFor flexible configuration mapping, the <code>name</code> can be set to a listener's <code>zone</code> config.\nNOTE: A built-in zone named <code>default</code> is auto created and can not be deleted.\n",
+        "name": "zones",
+        "type": {
+          "kind": "map",
+          "name": "name",
+          "values": {
+            "kind": "struct",
+            "name": "broker:zone"
+          }
+        }
+      },
+      {
+        "desc": "Global MQTT configuration.\nThe configs here work as default values which can be overridden in <code>zone</code> configs\n",
+        "name": "mqtt",
+        "type": {
+          "kind": "struct",
+          "name": "broker:mqtt"
+        }
+      },
+      {
+        "desc": "Default authentication configs for all MQTT listeners.\n\nFor per-listener overrides see <code>authentication</code> in listener configs\n\nThis option can be configured with:\n<ul>\n  <li><code>[]</code>: The default value, it allows *ALL* logins</li>\n  <li>one: For example <code>{enable:true,backend:\"built_in_database\",mechanism=\"password_based\"}</code></li>\n  <li>chain: An array of structs.</li>\n</ul>\n\nWhen a chain is configured, the login credentials are checked against the backends per the configured order, until an 'allow' or 'deny' decision can be made.\n\nIf there is no decision after a full chain exhaustion, the login is rejected.\n",
+        "name": "authentication",
+        "type": {
+          "elements": {
+            "kind": "union",
+            "members": [
+              {
+                "kind": "struct",
+                "name": "authn-builtin_db:authentication"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-mysql:authentication"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-postgresql:authentication"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-mongodb:standalone"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-mongodb:replica-set"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-mongodb:sharded-cluster"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-redis:standalone"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-redis:cluster"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-redis:sentinel"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-http:get"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-http:post"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-jwt:hmac-based"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-jwt:public-key"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-jwt:jwks"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-scram-builtin_db:authentication"
+              }
+            ]
+          },
+          "kind": "array"
+        }
+      },
+      {
+        "desc": "\nAuthorization a.k.a. ACL.<br/>\nIn EMQX, MQTT client access control is extremely flexible.<br/>\nAn out-of-the-box set of authorization data sources are supported.\nFor example,<br/>\n'file' source is to support concise and yet generic ACL rules in a file;<br/>\n'built_in_database' source can be used to store per-client customizable rule sets,\nnatively in the EMQX node;<br/>\n'http' source to make EMQX call an external HTTP API to make the decision;<br/>\n'PostgreSQL' etc. to look up clients or rules from external databases;<br/>\n",
+        "name": "authorization",
+        "type": {
+          "kind": "struct",
+          "name": "authorization"
+        }
+      },
+      {
+        "name": "node",
+        "type": {
+          "kind": "struct",
+          "name": "node"
+        }
+      },
+      {
+        "name": "cluster",
+        "type": {
+          "kind": "struct",
+          "name": "cluster"
+        }
+      },
+      {
+        "name": "log",
+        "type": {
+          "kind": "struct",
+          "name": "log"
+        }
+      },
+      {
+        "name": "rpc",
+        "type": {
+          "kind": "struct",
+          "name": "rpc"
+        }
+      },
+      {
+        "desc": "Message broker options.",
+        "name": "broker",
+        "type": {
+          "kind": "struct",
+          "name": "broker"
+        }
+      },
+      {
+        "desc": "System topics configuration.",
+        "name": "sys_topics",
+        "type": {
+          "kind": "struct",
+          "name": "broker:sys_topics"
+        }
+      },
+      {
+        "name": "force_shutdown",
+        "type": {
+          "kind": "struct",
+          "name": "broker:force_shutdown"
+        }
+      },
+      {
+        "name": "overload_protection",
+        "type": {
+          "kind": "struct",
+          "name": "broker:overload_protection"
+        }
+      },
+      {
+        "name": "force_gc",
+        "type": {
+          "kind": "struct",
+          "name": "broker:force_gc"
+        }
+      },
+      {
+        "name": "conn_congestion",
+        "type": {
+          "kind": "struct",
+          "name": "broker:conn_congestion"
+        }
+      },
+      {
+        "name": "stats",
+        "type": {
+          "kind": "struct",
+          "name": "broker:stats"
+        }
+      },
+      {
+        "name": "sysmon",
+        "type": {
+          "kind": "struct",
+          "name": "broker:sysmon"
+        }
+      },
+      {
+        "name": "alarm",
+        "type": {
+          "kind": "struct",
+          "name": "broker:alarm"
+        }
+      },
+      {
+        "name": "flapping_detect",
+        "type": {
+          "kind": "struct",
+          "name": "broker:flapping_detect"
+        }
+      },
+      {
+        "name": "persistent_session_store",
+        "type": {
+          "kind": "struct",
+          "name": "broker:persistent_session_store"
+        }
+      },
+      {
+        "name": "trace",
+        "type": {
+          "kind": "struct",
+          "name": "broker:trace"
+        }
+      },
+      {
+        "name": "bridges",
+        "type": {
+          "kind": "struct",
+          "name": "bridge:bridges"
+        }
+      },
+      {
+        "name": "retainer",
+        "type": {
+          "kind": "struct",
+          "name": "retainer"
+        }
+      },
+      {
+        "name": "statsd",
+        "type": {
+          "kind": "struct",
+          "name": "statsd"
+        }
+      },
+      {
+        "name": "auto_subscribe",
+        "type": {
+          "kind": "struct",
+          "name": "auto_subscribe"
+        }
+      },
+      {
+        "name": "delayed",
+        "type": {
+          "kind": "struct",
+          "name": "modules:delayed"
+        }
+      },
+      {
+        "name": "telemetry",
+        "type": {
+          "kind": "struct",
+          "name": "modules:telemetry"
+        }
+      },
+      {
+        "desc": "List of topic rewrite rules.",
+        "name": "rewrite",
+        "type": {
+          "elements": {
+            "kind": "struct",
+            "name": "modules:rewrite"
+          },
+          "kind": "array"
+        }
+      },
+      {
+        "desc": "List of topics whose metrics are reported.",
+        "name": "topic_metrics",
+        "type": {
+          "elements": {
+            "kind": "struct",
+            "name": "modules:topic_metrics"
+          },
+          "kind": "array"
+        }
+      },
+      {
+        "name": "plugins",
+        "type": {
+          "kind": "struct",
+          "name": "plugin:plugins"
+        }
+      },
+      {
+        "name": "dashboard",
+        "type": {
+          "kind": "struct",
+          "name": "dashboard"
+        }
+      },
+      {
+        "name": "gateway",
+        "type": {
+          "kind": "struct",
+          "name": "gateway"
+        }
+      },
+      {
+        "name": "prometheus",
+        "type": {
+          "kind": "struct",
+          "name": "prometheus"
+        }
+      },
+      {
+        "name": "rule_engine",
+        "type": {
+          "kind": "struct",
+          "name": "rule_engine"
+        }
+      },
+      {
+        "name": "exhook",
+        "type": {
+          "kind": "struct",
+          "name": "exhook"
+        }
+      },
+      {
+        "name": "psk_authentication",
+        "type": {
+          "kind": "struct",
+          "name": "authn-psk:psk_authentication"
+        }
+      },
+      {
+        "name": "limiter",
+        "type": {
+          "kind": "struct",
+          "name": "limiter"
+        }
+      },
+      {
+        "name": "connectors",
+        "type": {
+          "kind": "struct",
+          "name": "connector:connectors"
+        }
+      },
+      {
+        "name": "slow_subs",
+        "type": {
+          "kind": "struct",
+          "name": "slow_subs"
+        }
+      },
+      {
+        "desc": "Defines the EMQX Enterprise license. \n\n\nThe default license has 1000 connections limit, it is issued on 2022-04-19 and valid for 5 years (1825 days).\n\nEMQX comes with a default trial license.  For production use, please \nvisit https://www.emqx.com/apply-licenses/emqx to apply.",
+        "name": "license",
+        "type": {
+          "kind": "struct",
+          "name": "key_license"
+        }
+      }
+    ],
+    "full_name": "Root Config Keys",
+    "paths": [],
+    "tags": []
+  },
+  {
+    "desc": "Service discovery via DNS SRV records.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "\"localhost\"",
+          "oneliner": true
+        },
+        "desc": "The domain name from which to discover peer EMQX nodes' IP addresses.\nApplicable when <code>cluster.discovery_strategy = dns</code>\n",
+        "name": "name",
+        "raw_default": [
+          108,
+          111,
+          99,
+          97,
+          108,
+          104,
+          111,
+          115,
+          116
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "a",
+          "oneliner": true
+        },
+        "desc": "DNS record type. ",
+        "name": "record_type",
+        "raw_default": "a",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "a",
+            "srv"
+          ]
+        }
+      }
+    ],
+    "full_name": "cluster_dns",
+    "paths": [
+      "cluster.dns"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "Service discovery using 'etcd' service.",
+    "fields": [
+      {
+        "desc": "List of endpoint URLs of the etcd cluster",
+        "name": "server",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:comma_separated_list()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"emqxcl\"",
+          "oneliner": true
+        },
+        "desc": "Key prefix used for EMQX service discovery.",
+        "name": "prefix",
+        "raw_default": [
+          101,
+          109,
+          113,
+          120,
+          99,
+          108
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"1m\"",
+          "oneliner": true
+        },
+        "desc": "Expiration time of the etcd key associated with the node.\nIt is refreshed automatically, as long as the node is alive.\n          ",
+        "name": "node_ttl",
+        "raw_default": [
+          49,
+          109
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration()"
+        }
+      },
+      {
+        "desc": "Options for the TLS connection to the etcd cluster.",
+        "name": "ssl",
+        "type": {
+          "kind": "struct",
+          "name": "broker:ssl_client_opts"
+        }
+      }
+    ],
+    "full_name": "cluster_etcd",
+    "paths": [
+      "cluster.etcd"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "Service discovery via Kubernetes API server.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "\"http://10.110.111.204:8080\"",
+          "oneliner": true
+        },
+        "desc": "Kubernetes API endpoint URL.",
+        "name": "apiserver",
+        "raw_default": [
+          104,
+          116,
+          116,
+          112,
+          58,
+          47,
+          47,
+          49,
+          48,
+          46,
+          49,
+          49,
+          48,
+          46,
+          49,
+          49,
+          49,
+          46,
+          50,
+          48,
+          52,
+          58,
+          56,
+          48,
+          56,
+          48
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"emqx\"",
+          "oneliner": true
+        },
+        "desc": "EMQX broker service name.",
+        "name": "service_name",
+        "raw_default": [
+          101,
+          109,
+          113,
+          120
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "ip",
+          "oneliner": true
+        },
+        "desc": "Address type used for connecting to the discovered nodes.\nSetting <code>cluster.k8s.address_type</code> to <code>ip</code> will\nmake EMQX to discover IP addresses of peer nodes from Kubernetes API.\n",
+        "name": "address_type",
+        "raw_default": "ip",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "ip",
+            "dns",
+            "hostname"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"default\"",
+          "oneliner": true
+        },
+        "desc": "Kubernetes namespace.",
+        "name": "namespace",
+        "raw_default": [
+          100,
+          101,
+          102,
+          97,
+          117,
+          108,
+          116
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"pod.local\"",
+          "oneliner": true
+        },
+        "desc": "Node name suffix.<br/>\nNote: this parameter is only relevant when <code>address_type</code> is <code>dns</code>\nor <code>hostname</code>.",
+        "name": "suffix",
+        "raw_default": [
+          112,
+          111,
+          100,
+          46,
+          108,
+          111,
+          99,
+          97,
+          108
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      }
+    ],
+    "full_name": "cluster_k8s",
+    "paths": [
+      "cluster.k8s"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "Service discovery via UDP multicast.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "\"239.192.0.1\"",
+          "oneliner": true
+        },
+        "desc": "Multicast IPv4 address.",
+        "name": "addr",
+        "raw_default": [
+          50,
+          51,
+          57,
+          46,
+          49,
+          57,
+          50,
+          46,
+          48,
+          46,
+          49
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "[4369,4370]",
+          "oneliner": true
+        },
+        "desc": "List of UDP ports used for service discovery.<br/>\nNote: probe messages are broadcast to all the specified ports.\n          ",
+        "name": "ports",
+        "raw_default": [
+          4369,
+          4370
+        ],
+        "type": {
+          "elements": {
+            "kind": "primitive",
+            "name": "integer()"
+          },
+          "kind": "array"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"0.0.0.0\"",
+          "oneliner": true
+        },
+        "desc": "Local IP address the node discovery service needs to bind to.",
+        "name": "iface",
+        "raw_default": [
+          48,
+          46,
+          48,
+          46,
+          48,
+          46,
+          48
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "255",
+          "oneliner": true
+        },
+        "desc": "Time-to-live (TTL) for the outgoing UDP datagrams.",
+        "name": "ttl",
+        "raw_default": 255,
+        "type": {
+          "kind": "primitive",
+          "name": "0..255"
+        }
+      },
+      {
+        "default": {
+          "hocon": "true",
+          "oneliner": true
+        },
+        "desc": "If <code>true</code>, loop UDP datagrams back to the local socket.",
+        "name": "loop",
+        "raw_default": true,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"16KB\"",
+          "oneliner": true
+        },
+        "desc": "Size of the kernel-level buffer for outgoing datagrams.",
+        "name": "sndbuf",
+        "raw_default": [
+          49,
+          54,
+          75,
+          66
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:bytesize()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"16KB\"",
+          "oneliner": true
+        },
+        "desc": "Size of the kernel-level buffer for incoming datagrams.",
+        "name": "recbuf",
+        "raw_default": [
+          49,
+          54,
+          75,
+          66
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:bytesize()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"32KB\"",
+          "oneliner": true
+        },
+        "desc": "Size of the user-level buffer.",
+        "name": "buffer",
+        "raw_default": [
+          51,
+          50,
+          75,
+          66
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:bytesize()"
+        }
+      }
+    ],
+    "full_name": "cluster_mcast",
+    "paths": [
+      "cluster.mcast"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "Service discovery via static nodes.\nThe new node joins the cluster by connecting to one of the bootstrap nodes.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "[]",
+          "oneliner": true
+        },
+        "desc": "List EMQX node names in the static cluster. See <code>node.name</code>.",
+        "name": "seeds",
+        "raw_default": [],
+        "type": {
+          "elements": {
+            "kind": "primitive",
+            "name": "atom()"
+          },
+          "kind": "array"
+        }
+      }
+    ],
+    "full_name": "cluster_static",
+    "paths": [
+      "cluster.static"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "Settings that control client authorization.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "allow",
+          "oneliner": true
+        },
+        "desc": "\nDefault access control action if the user or client matches no ACL rules,\nor if no such user or client is found by the configurable authorization\nsources such as built_in_database, an HTTP API, or a query against PostgreSQL.\nFind more details in 'authorization.sources' config.\n",
+        "name": "no_match",
+        "raw_default": "allow",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "allow",
+            "deny"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "ignore",
+          "oneliner": true
+        },
+        "desc": "The action when the authorization check rejects an operation.",
+        "name": "deny_action",
+        "raw_default": "ignore",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "ignore",
+            "disconnect"
+          ]
+        }
+      },
+      {
+        "name": "cache",
+        "type": {
+          "kind": "struct",
+          "name": "broker:cache"
+        }
+      },
+      {
+        "default": {
+          "hocon": "[]",
+          "oneliner": true
+        },
+        "desc": "\nAuthorization data sources.<br/>\nAn array of authorization (ACL) data providers.\nIt is designed as an array, not a hash-map, so the sources can be\nordered to form a chain of access controls.<br/>\n\nWhen authorizing a 'publish' or 'subscribe' action, the configured\nsources are checked in order. When checking an ACL source,\nin case the client (identified by username or client ID) is not found,\nit moves on to the next source. And it stops immediately\nonce an 'allow' or 'deny' decision is returned.<br/>\n\nIf the client is not found in any of the sources,\nthe default action configured in 'authorization.no_match' is applied.<br/>\n\nNOTE:\nThe source elements are identified by their 'type'.\nIt is NOT allowed to configure two or more sources of the same type.\n",
+        "name": "sources",
+        "raw_default": [],
+        "type": {
+          "elements": {
+            "kind": "union",
+            "members": [
+              {
+                "kind": "struct",
+                "name": "authz:file"
+              },
+              {
+                "kind": "struct",
+                "name": "authz:http_get"
+              },
+              {
+                "kind": "struct",
+                "name": "authz:http_post"
+              },
+              {
+                "kind": "struct",
+                "name": "authz:mnesia"
+              },
+              {
+                "kind": "struct",
+                "name": "authz:mongo_single"
+              },
+              {
+                "kind": "struct",
+                "name": "authz:mongo_rs"
+              },
+              {
+                "kind": "struct",
+                "name": "authz:mongo_sharded"
+              },
+              {
+                "kind": "struct",
+                "name": "authz:mysql"
+              },
+              {
+                "kind": "struct",
+                "name": "authz:postgresql"
+              },
+              {
+                "kind": "struct",
+                "name": "authz:redis_single"
+              },
+              {
+                "kind": "struct",
+                "name": "authz:redis_sentinel"
+              },
+              {
+                "kind": "struct",
+                "name": "authz:redis_cluster"
+              }
+            ]
+          },
+          "kind": "array"
+        }
+      }
+    ],
+    "full_name": "authorization",
+    "paths": [
+      "authorization"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "EMQX nodes can form a cluster to scale up the total capacity.<br/>\n      Here holds the configs to instruct how individual nodes can discover each other.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "emqxcl",
+          "oneliner": true
+        },
+        "desc": "Human-friendly name of the EMQX cluster.",
+        "mapping": "ekka.cluster_name",
+        "name": "name",
+        "raw_default": "emqxcl",
+        "type": {
+          "kind": "primitive",
+          "name": "atom()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "manual",
+          "oneliner": true
+        },
+        "desc": "Service discovery method for the cluster nodes.",
+        "name": "discovery_strategy",
+        "raw_default": "manual",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "manual",
+            "static",
+            "mcast",
+            "dns",
+            "etcd",
+            "k8s"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "[]",
+          "oneliner": true
+        },
+        "desc": "\nList of core nodes that the replicant will connect to.<br/>\nNote: this parameter only takes effect when the <code>backend</code> is set\nto <code>rlog</code> and the <code>role</code> is set to <code>replicant</code>.<br/>\nThis value needs to be defined for manual or static cluster discovery mechanisms.<br/>\nIf an automatic cluster discovery mechanism is being used (such as <code>etcd</code>),\nthere is no need to set this value.\n",
+        "mapping": "mria.core_nodes",
+        "name": "core_nodes",
+        "raw_default": [],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:comma_separated_atoms()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"5m\"",
+          "oneliner": true
+        },
+        "desc": "Remove disconnected nodes from the cluster after this interval.",
+        "mapping": "ekka.cluster_autoclean",
+        "name": "autoclean",
+        "raw_default": [
+          53,
+          109
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "true",
+          "oneliner": true
+        },
+        "desc": "If <code>true</code>, the node will try to heal network partitions automatically.",
+        "mapping": "ekka.cluster_autoheal",
+        "name": "autoheal",
+        "raw_default": true,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "inet_tcp",
+          "oneliner": true
+        },
+        "desc": "The Erlang distribution protocol for the cluster.",
+        "mapping": "ekka.proto_dist",
+        "name": "proto_dist",
+        "raw_default": "inet_tcp",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "inet_tcp",
+            "inet6_tcp",
+            "inet_tls"
+          ]
+        }
+      },
+      {
+        "name": "static",
+        "type": {
+          "kind": "struct",
+          "name": "cluster_static"
+        }
+      },
+      {
+        "name": "mcast",
+        "type": {
+          "kind": "struct",
+          "name": "cluster_mcast"
+        }
+      },
+      {
+        "name": "dns",
+        "type": {
+          "kind": "struct",
+          "name": "cluster_dns"
+        }
+      },
+      {
+        "name": "etcd",
+        "type": {
+          "kind": "struct",
+          "name": "cluster_etcd"
+        }
+      },
+      {
+        "name": "k8s",
+        "type": {
+          "kind": "struct",
+          "name": "cluster_k8s"
+        }
+      }
+    ],
+    "full_name": "cluster",
+    "paths": [
+      "cluster"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "Options for the 'cluster call' feature that allows to execute a callback on all nodes in the cluster.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "\"1m\"",
+          "oneliner": true
+        },
+        "desc": "Time interval to retry after a failed call.",
+        "name": "retry_interval",
+        "raw_default": [
+          49,
+          109
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "100",
+          "oneliner": true
+        },
+        "desc": "Retain the maximum number of completed transactions (for queries).",
+        "name": "max_history",
+        "raw_default": 100,
+        "type": {
+          "kind": "primitive",
+          "name": "1..500"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"5m\"",
+          "oneliner": true
+        },
+        "desc": "Time interval to clear completed but stale transactions.\nEnsure that the number of completed transactions is less than the <code>max_history</code>.",
+        "name": "cleanup_interval",
+        "raw_default": [
+          53,
+          109
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration()"
+        }
+      }
+    ],
+    "full_name": "cluster_call",
+    "paths": [
+      "node.cluster_call"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "Log handler that prints log events to the EMQX console.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "false",
+          "oneliner": true
+        },
+        "desc": "Enable this log handler.",
+        "name": "enable",
+        "raw_default": false,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "warning",
+          "oneliner": true
+        },
+        "desc": "\nThe log level for the current log handler.\nDefaults to warning.\n",
+        "name": "level",
+        "raw_default": "warning",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_conf_schema:log_level()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"system\"",
+          "oneliner": true
+        },
+        "desc": "\nThe time offset to be used when formatting the timestamp.\nCan be one of:\n  - <code>system</code>: the time offset used by the local system\n  - <code>utc</code>: the UTC time offset\n  - <code>+-[hh]:[mm]</code>: user specified time offset, such as \"-02:00\" or \"+00:00\"\nDefaults to: <code>system</code>.\n",
+        "name": "time_offset",
+        "raw_default": [
+          115,
+          121,
+          115,
+          116,
+          101,
+          109
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "unlimited",
+          "oneliner": true
+        },
+        "desc": "\nSet the maximum length of a single log message. If this length is exceeded, the log message will be truncated.\nNOTE: Restrict char limiter if formatter is JSON , it will get a truncated incomplete JSON data, which is not recommended.\n",
+        "name": "chars_limit",
+        "raw_default": "unlimited",
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "singleton",
+              "name": "unlimited"
+            },
+            {
+              "kind": "primitive",
+              "name": "100..inf"
+            }
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "text",
+          "oneliner": true
+        },
+        "desc": "Choose log formatter. <code>text</code> for free text, and <code>json</code> for structured logging.",
+        "name": "formatter",
+        "raw_default": "text",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "text",
+            "json"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "true",
+          "oneliner": true
+        },
+        "desc": "Print logs in a single line if set to true. Otherwise, log messages may span multiple lines.",
+        "name": "single_line",
+        "raw_default": true,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "100",
+          "oneliner": true
+        },
+        "desc": "As long as the number of buffered log events is lower than this value,\nall log events are handled asynchronously. This means that the client process sending the log event,\nby calling a log function in the Logger API, does not wait for a response from the handler\nbut continues executing immediately after the event is sent.\nIt is not affected by the time it takes the handler to print the event to the log device.\nIf the message queue grows larger than this value,\nthe handler starts handling log events synchronously instead,\nmeaning that the client process sending the event must wait for a response.\nWhen the handler reduces the message queue to a level below the sync_mode_qlen threshold,\nasynchronous operation is resumed.\n",
+        "name": "sync_mode_qlen",
+        "raw_default": 100,
+        "type": {
+          "kind": "primitive",
+          "name": "non_neg_integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "3000",
+          "oneliner": true
+        },
+        "desc": "When the number of buffered log events is larger than this value, the new log events are dropped.\nWhen drop mode is activated or deactivated, a message is printed in the logs.",
+        "name": "drop_mode_qlen",
+        "raw_default": 3000,
+        "type": {
+          "kind": "primitive",
+          "name": "pos_integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "8000",
+          "oneliner": true
+        },
+        "desc": "If the number of buffered log events grows larger than this threshold, a flush (delete) operation takes place.\nTo flush events, the handler discards the buffered log messages without logging.",
+        "name": "flush_qlen",
+        "raw_default": 8000,
+        "type": {
+          "kind": "primitive",
+          "name": "pos_integer()"
+        }
+      },
+      {
+        "name": "overload_kill",
+        "type": {
+          "kind": "struct",
+          "name": "log_overload_kill"
+        }
+      },
+      {
+        "name": "burst_limit",
+        "type": {
+          "kind": "struct",
+          "name": "log_burst_limit"
+        }
+      },
+      {
+        "default": {
+          "hocon": "error",
+          "oneliner": true
+        },
+        "desc": "\nType of supervisor reports that are logged. Defaults to <code>error</code>\n  - <code>error</code>: only log errors in the Erlang processes.\n  - <code>progress</code>: log process startup.\n",
+        "name": "supervisor_reports",
+        "raw_default": "error",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "error",
+            "progress"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "100",
+          "oneliner": true
+        },
+        "desc": "Maximum depth for Erlang term log formatting and Erlang process message queue inspection.",
+        "name": "max_depth",
+        "raw_default": 100,
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "singleton",
+              "name": "unlimited"
+            },
+            {
+              "kind": "primitive",
+              "name": "non_neg_integer()"
+            }
+          ]
+        }
+      }
+    ],
+    "full_name": "console_handler",
+    "paths": [
+      "log.console_handler"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "EMQX logging supports multiple sinks for the log events.\nEach sink is represented by a _log handler_, which can be configured independently.",
+    "fields": [
+      {
+        "name": "console_handler",
+        "type": {
+          "kind": "struct",
+          "name": "console_handler"
+        }
+      },
+      {
+        "desc": "File-based log handlers.",
+        "name": "file_handlers",
+        "type": {
+          "kind": "map",
+          "name": "name",
+          "values": {
+            "kind": "struct",
+            "name": "log_file_handler"
+          }
+        }
+      }
+    ],
+    "full_name": "log",
+    "paths": [
+      "log"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "Large bursts of log events produced in a short time can potentially cause problems, such as:\n - Log files grow very large\n - Log files are rotated too quickly, and useful information gets overwritten\n - Overall performance impact on the system\n\nLog burst limit feature can temporarily disable logging to avoid these issues.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "true",
+          "oneliner": true
+        },
+        "desc": "Enable log burst control feature.",
+        "name": "enable",
+        "raw_default": true,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "10000",
+          "oneliner": true
+        },
+        "desc": "Maximum number of log events to handle within a `window_time` interval. After the limit is reached, successive events are dropped until the end of the `window_time`.",
+        "name": "max_count",
+        "raw_default": 10000,
+        "type": {
+          "kind": "primitive",
+          "name": "pos_integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"1s\"",
+          "oneliner": true
+        },
+        "desc": "See <code>max_count</code>.",
+        "name": "window_time",
+        "raw_default": [
+          49,
+          115
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration()"
+        }
+      }
+    ],
+    "full_name": "log_burst_limit",
+    "paths": [
+      "log.console_handler.burst_limit",
+      "log.file_handlers.$name.burst_limit"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "Log handler that prints log events to files.",
+    "fields": [
+      {
+        "desc": "Name the log file.",
+        "name": "file",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_conf_schema:file()"
+        }
+      },
+      {
+        "name": "rotation",
+        "type": {
+          "kind": "struct",
+          "name": "log_rotation"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"50MB\"",
+          "oneliner": true
+        },
+        "desc": "This parameter controls log file rotation. The value `infinity` means the log file will grow indefinitely, otherwise the log file will be rotated once it reaches `max_size` in bytes.",
+        "name": "max_size",
+        "raw_default": [
+          53,
+          48,
+          77,
+          66
+        ],
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "singleton",
+              "name": "infinity"
+            },
+            {
+              "kind": "primitive",
+              "name": "emqx_schema:bytesize()"
+            }
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "true",
+          "oneliner": true
+        },
+        "desc": "Enable this log handler.",
+        "name": "enable",
+        "raw_default": true,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "warning",
+          "oneliner": true
+        },
+        "desc": "\nThe log level for the current log handler.\nDefaults to warning.\n",
+        "name": "level",
+        "raw_default": "warning",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_conf_schema:log_level()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"system\"",
+          "oneliner": true
+        },
+        "desc": "\nThe time offset to be used when formatting the timestamp.\nCan be one of:\n  - <code>system</code>: the time offset used by the local system\n  - <code>utc</code>: the UTC time offset\n  - <code>+-[hh]:[mm]</code>: user specified time offset, such as \"-02:00\" or \"+00:00\"\nDefaults to: <code>system</code>.\n",
+        "name": "time_offset",
+        "raw_default": [
+          115,
+          121,
+          115,
+          116,
+          101,
+          109
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "unlimited",
+          "oneliner": true
+        },
+        "desc": "\nSet the maximum length of a single log message. If this length is exceeded, the log message will be truncated.\nNOTE: Restrict char limiter if formatter is JSON , it will get a truncated incomplete JSON data, which is not recommended.\n",
+        "name": "chars_limit",
+        "raw_default": "unlimited",
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "singleton",
+              "name": "unlimited"
+            },
+            {
+              "kind": "primitive",
+              "name": "100..inf"
+            }
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "text",
+          "oneliner": true
+        },
+        "desc": "Choose log formatter. <code>text</code> for free text, and <code>json</code> for structured logging.",
+        "name": "formatter",
+        "raw_default": "text",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "text",
+            "json"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "true",
+          "oneliner": true
+        },
+        "desc": "Print logs in a single line if set to true. Otherwise, log messages may span multiple lines.",
+        "name": "single_line",
+        "raw_default": true,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "100",
+          "oneliner": true
+        },
+        "desc": "As long as the number of buffered log events is lower than this value,\nall log events are handled asynchronously. This means that the client process sending the log event,\nby calling a log function in the Logger API, does not wait for a response from the handler\nbut continues executing immediately after the event is sent.\nIt is not affected by the time it takes the handler to print the event to the log device.\nIf the message queue grows larger than this value,\nthe handler starts handling log events synchronously instead,\nmeaning that the client process sending the event must wait for a response.\nWhen the handler reduces the message queue to a level below the sync_mode_qlen threshold,\nasynchronous operation is resumed.\n",
+        "name": "sync_mode_qlen",
+        "raw_default": 100,
+        "type": {
+          "kind": "primitive",
+          "name": "non_neg_integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "3000",
+          "oneliner": true
+        },
+        "desc": "When the number of buffered log events is larger than this value, the new log events are dropped.\nWhen drop mode is activated or deactivated, a message is printed in the logs.",
+        "name": "drop_mode_qlen",
+        "raw_default": 3000,
+        "type": {
+          "kind": "primitive",
+          "name": "pos_integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "8000",
+          "oneliner": true
+        },
+        "desc": "If the number of buffered log events grows larger than this threshold, a flush (delete) operation takes place.\nTo flush events, the handler discards the buffered log messages without logging.",
+        "name": "flush_qlen",
+        "raw_default": 8000,
+        "type": {
+          "kind": "primitive",
+          "name": "pos_integer()"
+        }
+      },
+      {
+        "name": "overload_kill",
+        "type": {
+          "kind": "struct",
+          "name": "log_overload_kill"
+        }
+      },
+      {
+        "name": "burst_limit",
+        "type": {
+          "kind": "struct",
+          "name": "log_burst_limit"
+        }
+      },
+      {
+        "default": {
+          "hocon": "error",
+          "oneliner": true
+        },
+        "desc": "\nType of supervisor reports that are logged. Defaults to <code>error</code>\n  - <code>error</code>: only log errors in the Erlang processes.\n  - <code>progress</code>: log process startup.\n",
+        "name": "supervisor_reports",
+        "raw_default": "error",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "error",
+            "progress"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "100",
+          "oneliner": true
+        },
+        "desc": "Maximum depth for Erlang term log formatting and Erlang process message queue inspection.",
+        "name": "max_depth",
+        "raw_default": 100,
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "singleton",
+              "name": "unlimited"
+            },
+            {
+              "kind": "primitive",
+              "name": "non_neg_integer()"
+            }
+          ]
+        }
+      }
+    ],
+    "full_name": "log_file_handler",
+    "paths": [
+      "log.file_handlers.$name"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "\nLog overload kill features an overload protection that activates when the log handlers use too much memory or have too many buffered log messages.<br/>\nWhen the overload is detected, the log handler is terminated and restarted after a cooldown period.\n",
+    "fields": [
+      {
+        "default": {
+          "hocon": "true",
+          "oneliner": true
+        },
+        "desc": "Enable log handler overload kill feature.",
+        "name": "enable",
+        "raw_default": true,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"30MB\"",
+          "oneliner": true
+        },
+        "desc": "Maximum memory size that the log handler process is allowed to use.",
+        "name": "mem_size",
+        "raw_default": [
+          51,
+          48,
+          77,
+          66
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:bytesize()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "20000",
+          "oneliner": true
+        },
+        "desc": "Maximum allowed queue length.",
+        "name": "qlen",
+        "raw_default": 20000,
+        "type": {
+          "kind": "primitive",
+          "name": "pos_integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"5s\"",
+          "oneliner": true
+        },
+        "desc": "If the handler is terminated, it restarts automatically after a delay specified in milliseconds. The value `infinity` prevents restarts.",
+        "name": "restart_after",
+        "raw_default": [
+          53,
+          115
+        ],
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "primitive",
+              "name": "emqx_schema:duration_ms()"
+            },
+            {
+              "kind": "singleton",
+              "name": "infinity"
+            }
+          ]
+        }
+      }
+    ],
+    "full_name": "log_overload_kill",
+    "paths": [
+      "log.console_handler.overload_kill",
+      "log.file_handlers.$name.overload_kill"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "\nBy default, the logs are stored in `./log` directory (for installation from zip file) or in `/var/log/emqx` (for binary installation).<br/>\nThis section of the configuration controls the number of files kept for each log handler.\n",
+    "fields": [
+      {
+        "default": {
+          "hocon": "true",
+          "oneliner": true
+        },
+        "desc": "Enable log rotation feature.",
+        "name": "enable",
+        "raw_default": true,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "10",
+          "oneliner": true
+        },
+        "desc": "Maximum number of log files.",
+        "name": "count",
+        "raw_default": 10,
+        "type": {
+          "kind": "primitive",
+          "name": "1..2048"
+        }
+      }
+    ],
+    "full_name": "log_rotation",
+    "paths": [
+      "log.file_handlers.$name.rotation"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "Node name, cookie, config & data directories and the Erlang virtual machine (BEAM) boot parameters.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "\"emqx@127.0.0.1\"",
+          "oneliner": true
+        },
+        "desc": "Unique name of the EMQX node. It must follow <code>%name%@FQDN</code> or\n<code>%name%@IPv4</code> format.\n          ",
+        "name": "name",
+        "raw_default": [
+          101,
+          109,
+          113,
+          120,
+          64,
+          49,
+          50,
+          55,
+          46,
+          48,
+          46,
+          48,
+          46,
+          49
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "desc": "Secret cookie is a random string that should be the same on all nodes in\nthe given EMQX cluster, but unique per EMQX cluster. It is used to prevent EMQX nodes that\nbelong to different clusters from accidentally connecting to each other.",
+        "mapping": "vm_args.-setcookie",
+        "name": "cookie",
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "2097152",
+          "oneliner": true
+        },
+        "desc": "Maximum number of simultaneously existing processes for this Erlang system.\nThe actual maximum chosen may be much larger than the Number passed.\nFor more information, see: https://www.erlang.org/doc/man/erl.html\n          ",
+        "mapping": "vm_args.+P",
+        "name": "process_limit",
+        "raw_default": 2097152,
+        "type": {
+          "kind": "primitive",
+          "name": "1024..134217727"
+        }
+      },
+      {
+        "default": {
+          "hocon": "1048576",
+          "oneliner": true
+        },
+        "desc": "Maximum number of simultaneously existing ports for this Erlang system.\nThe actual maximum chosen may be much larger than the Number passed.\nFor more information, see: https://www.erlang.org/doc/man/erl.html\n          ",
+        "mapping": "vm_args.+Q",
+        "name": "max_ports",
+        "raw_default": 1048576,
+        "type": {
+          "kind": "primitive",
+          "name": "1024..134217727"
+        }
+      },
+      {
+        "default": {
+          "hocon": "8192",
+          "oneliner": true
+        },
+        "desc": "Erlang's distribution buffer busy limit in kilobytes.",
+        "mapping": "vm_args.+zdbbl",
+        "name": "dist_buffer_size",
+        "raw_default": 8192,
+        "type": {
+          "kind": "primitive",
+          "name": "1..2097151"
+        }
+      },
+      {
+        "default": {
+          "hocon": "262144",
+          "oneliner": true
+        },
+        "desc": "Max number of ETS tables",
+        "mapping": "vm_args.+e",
+        "name": "max_ets_tables",
+        "raw_default": 262144,
+        "type": {
+          "kind": "primitive",
+          "name": "pos_integer()"
+        }
+      },
+      {
+        "desc": "\nPath to the persistent data directory.<br/>\nPossible auto-created subdirectories are:<br/>\n- `mnesia/<node_name>`: EMQX's built-in database directory.<br/>\nFor example, `mnesia/emqx@127.0.0.1`.<br/>\nThere should be only one such subdirectory.<br/>\nMeaning, in case the node is to be renamed (to e.g. `emqx@10.0.1.1`),<br/>\nthe old dir should be deleted first.<br/>\n- `configs`: Generated configs at boot time, and cluster/local override configs.<br/>\n- `patches`: Hot-patch beam files are to be placed here.<br/>\n- `trace`: Trace log files.<br/>\n\n**NOTE**: One data dir cannot be shared by two or more EMQX nodes.\n",
+        "mapping": "emqx.data_dir",
+        "name": "data_dir",
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "desc": "List of configuration files that are read during startup. The order is\nsignificant: later configuration files override the previous ones.\n          ",
+        "mapping": "emqx.config_files",
+        "name": "config_files",
+        "type": {
+          "kind": "primitive",
+          "name": "[string()]"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"15m\"",
+          "oneliner": true
+        },
+        "desc": "Periodic garbage collection interval. Set to <code>disabled</code> to have it disabled.",
+        "mapping": "emqx_machine.global_gc_interval",
+        "name": "global_gc_interval",
+        "raw_default": [
+          49,
+          53,
+          109
+        ],
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "singleton",
+              "name": "disabled"
+            },
+            {
+              "kind": "primitive",
+              "name": "emqx_schema:duration()"
+            }
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"log/erl_crash.dump\"",
+          "oneliner": true
+        },
+        "desc": "Location of the crash dump file.",
+        "mapping": "vm_args.-env ERL_CRASH_DUMP",
+        "name": "crash_dump_file",
+        "raw_default": [
+          108,
+          111,
+          103,
+          47,
+          101,
+          114,
+          108,
+          95,
+          99,
+          114,
+          97,
+          115,
+          104,
+          46,
+          100,
+          117,
+          109,
+          112
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_conf_schema:file()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"30s\"",
+          "oneliner": true
+        },
+        "desc": "The number of seconds that the broker is allowed to spend writing a crash dump.",
+        "mapping": "vm_args.-env ERL_CRASH_DUMP_SECONDS",
+        "name": "crash_dump_seconds",
+        "raw_default": [
+          51,
+          48,
+          115
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration_s()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"100MB\"",
+          "oneliner": true
+        },
+        "desc": "The maximum size of a crash dump file in bytes.",
+        "mapping": "vm_args.-env ERL_CRASH_DUMP_BYTES",
+        "name": "crash_dump_bytes",
+        "raw_default": [
+          49,
+          48,
+          48,
+          77,
+          66
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:bytesize()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"2m\"",
+          "oneliner": true
+        },
+        "desc": "This is the approximate time an EMQX node may be unresponsive until it is considered down and thereby disconnected.",
+        "mapping": "vm_args.-kernel net_ticktime",
+        "name": "dist_net_ticktime",
+        "raw_default": [
+          50,
+          109
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration_s()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "23",
+          "oneliner": true
+        },
+        "desc": "Maximum depth of the call stack printed in error messages and\n<code>process_info</code>.\n          ",
+        "mapping": "emqx_machine.backtrace_depth",
+        "name": "backtrace_depth",
+        "raw_default": 23,
+        "type": {
+          "kind": "primitive",
+          "name": "integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "[]",
+          "oneliner": true
+        },
+        "desc": "List of Erlang applications that shall be rebooted when the EMQX broker joins the cluster.\n          ",
+        "mapping": "emqx_machine.applications",
+        "name": "applications",
+        "raw_default": [],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:comma_separated_atoms()"
+        }
+      },
+      {
+        "desc": "Deprecated since 5.0.8.",
+        "name": "etc_dir",
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "name": "cluster_call",
+        "type": {
+          "kind": "struct",
+          "name": "cluster_call"
+        }
+      },
+      {
+        "default": {
+          "hocon": "rlog",
+          "oneliner": true
+        },
+        "desc": "\nSelect the backend for the embedded database.<br/>\n<code>rlog</code> is the default backend,\nthat is suitable for very large clusters.<br/>\n<code>mnesia</code> is a backend that offers decent performance in small clusters.\n",
+        "mapping": "mria.db_backend",
+        "name": "db_backend",
+        "raw_default": "rlog",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "mnesia",
+            "rlog"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "core",
+          "oneliner": true
+        },
+        "desc": "\nSelect a node role.<br/>\n<code>core</code> nodes provide durability of the data, and take care of writes.\nIt is recommended to place core nodes in different racks or different availability zones.<br/>\n<code>replicant</code> nodes are ephemeral worker nodes. Removing them from the cluster\ndoesn't affect database redundancy<br/>\nIt is recommended to have more replicant nodes than core nodes.<br/>\nNote: this parameter only takes effect when the <code>backend</code> is set\nto <code>rlog</code>.\n",
+        "mapping": "mria.node_role",
+        "name": "db_role",
+        "raw_default": "core",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "core",
+            "replicant"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "gen_rpc",
+          "oneliner": true
+        },
+        "desc": "Protocol used for pushing transaction logs to the replicant nodes.",
+        "mapping": "mria.rlog_rpc_module",
+        "name": "rpc_module",
+        "raw_default": "gen_rpc",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "gen_rpc",
+            "rpc"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "async",
+          "oneliner": true
+        },
+        "desc": "\nIn sync mode the core node waits for an ack from the replicant nodes before sending the next\ntransaction log entry.\n",
+        "mapping": "mria.tlog_push_mode",
+        "name": "tlog_push_mode",
+        "raw_default": "async",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "sync",
+            "async"
+          ]
+        }
+      }
+    ],
+    "full_name": "node",
+    "paths": [
+      "node"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  },
+  {
+    "desc": "EMQX uses a library called <code>gen_rpc</code> for inter-broker communication.<br/>\nMost of the time the default config should work,\nbut in case you need to do performance fine-tuning or experiment a bit,\nthis is where to look.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "async",
+          "oneliner": true
+        },
+        "desc": "In <code>sync</code> mode the sending side waits for the ack from the receiving side.",
+        "name": "mode",
+        "raw_default": "async",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "sync",
+            "async"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "tcp",
+          "oneliner": true
+        },
+        "desc": "Transport protocol used for inter-broker communication",
+        "mapping": "gen_rpc.driver",
+        "name": "driver",
+        "raw_default": "tcp",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "tcp",
+            "ssl"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "256",
+          "oneliner": true
+        },
+        "desc": "The maximum number of batch messages sent in asynchronous mode.\n      Note that this configuration does not work in synchronous mode.\n      ",
+        "mapping": "gen_rpc.max_batch_size",
+        "name": "async_batch_size",
+        "raw_default": 256,
+        "type": {
+          "kind": "primitive",
+          "name": "integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "stateless",
+          "oneliner": true
+        },
+        "desc": "<code>manual</code>: discover ports by <code>tcp_server_port</code>.<br/>\n<code>stateless</code>: discover ports in a stateless manner, using the following algorithm.\nIf node name is <code>emqxN@127.0.0.1</code>, where the N is an integer,\nthen the listening port will be 5370 + N.",
+        "mapping": "gen_rpc.port_discovery",
+        "name": "port_discovery",
+        "raw_default": "stateless",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "manual",
+            "stateless"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "5369",
+          "oneliner": true
+        },
+        "desc": "Listening port used by RPC local service.<br/>\nNote that this config only takes effect when rpc.port_discovery is set to manual.",
+        "mapping": "gen_rpc.tcp_server_port",
+        "name": "tcp_server_port",
+        "raw_default": 5369,
+        "type": {
+          "kind": "primitive",
+          "name": "integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "5369",
+          "oneliner": true
+        },
+        "desc": "Listening port used by RPC local service.<br/>\nNote that this config only takes effect when rpc.port_discovery is set to manual\nand <code>driver</code> is set to <code>ssl</code>.",
+        "mapping": "gen_rpc.ssl_server_port",
+        "name": "ssl_server_port",
+        "raw_default": 5369,
+        "type": {
+          "kind": "primitive",
+          "name": "integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "10",
+          "oneliner": true
+        },
+        "desc": "Set the maximum number of RPC communication channels initiated by this node to each remote node.",
+        "name": "tcp_client_num",
+        "raw_default": 10,
+        "type": {
+          "kind": "primitive",
+          "name": "1..256"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"5s\"",
+          "oneliner": true
+        },
+        "desc": "Timeout for establishing an RPC connection.",
+        "mapping": "gen_rpc.connect_timeout",
+        "name": "connect_timeout",
+        "raw_default": [
+          53,
+          115
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration()"
+        }
+      },
+      {
+        "desc": "Path to TLS certificate file used to validate identity of the cluster nodes.\nNote that this config only takes effect when <code>rpc.driver</code> is set to <code>ssl</code>.\n      ",
+        "mapping": "gen_rpc.certfile",
+        "name": "certfile",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_conf_schema:file()"
+        }
+      },
+      {
+        "desc": "Path to the private key file for the <code>rpc.certfile</code>.<br/>\nNote: contents of this file are secret, so it's necessary to set permissions to 600.",
+        "mapping": "gen_rpc.keyfile",
+        "name": "keyfile",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_conf_schema:file()"
+        }
+      },
+      {
+        "desc": "Path to certification authority TLS certificate file used to validate <code>rpc.certfile</code>.<br/>\nNote: certificates of all nodes in the cluster must be signed by the same CA.",
+        "mapping": "gen_rpc.cacertfile",
+        "name": "cacertfile",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_conf_schema:file()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"5s\"",
+          "oneliner": true
+        },
+        "desc": "Timeout for sending the RPC request.",
+        "mapping": "gen_rpc.send_timeout",
+        "name": "send_timeout",
+        "raw_default": [
+          53,
+          115
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"5s\"",
+          "oneliner": true
+        },
+        "desc": "Timeout for the remote node authentication.",
+        "mapping": "gen_rpc.authentication_timeout",
+        "name": "authentication_timeout",
+        "raw_default": [
+          53,
+          115
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"15s\"",
+          "oneliner": true
+        },
+        "desc": "Timeout for the reply to a synchronous RPC.",
+        "mapping": "gen_rpc.call_receive_timeout",
+        "name": "call_receive_timeout",
+        "raw_default": [
+          49,
+          53,
+          115
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"15m\"",
+          "oneliner": true
+        },
+        "desc": "How long the connections between the brokers should remain open after the last message is sent.",
+        "mapping": "gen_rpc.socket_keepalive_idle",
+        "name": "socket_keepalive_idle",
+        "raw_default": [
+          49,
+          53,
+          109
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration_s()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"75s\"",
+          "oneliner": true
+        },
+        "desc": "The interval between keepalive messages.",
+        "mapping": "gen_rpc.socket_keepalive_interval",
+        "name": "socket_keepalive_interval",
+        "raw_default": [
+          55,
+          53,
+          115
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration_s()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "9",
+          "oneliner": true
+        },
+        "desc": "How many times the keepalive probe message can fail to receive a reply\nuntil the RPC connection is considered lost.",
+        "mapping": "gen_rpc.socket_keepalive_count",
+        "name": "socket_keepalive_count",
+        "raw_default": 9,
+        "type": {
+          "kind": "primitive",
+          "name": "integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"1MB\"",
+          "oneliner": true
+        },
+        "desc": "TCP tuning parameters. TCP sending buffer size.",
+        "mapping": "gen_rpc.socket_sndbuf",
+        "name": "socket_sndbuf",
+        "raw_default": [
+          49,
+          77,
+          66
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:bytesize()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"1MB\"",
+          "oneliner": true
+        },
+        "desc": "TCP tuning parameters. TCP receiving buffer size.",
+        "mapping": "gen_rpc.socket_recbuf",
+        "name": "socket_recbuf",
+        "raw_default": [
+          49,
+          77,
+          66
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:bytesize()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"1MB\"",
+          "oneliner": true
+        },
+        "desc": "TCP tuning parameters. Socket buffer size in user mode.",
+        "mapping": "gen_rpc.socket_buffer",
+        "name": "socket_buffer",
+        "raw_default": [
+          49,
+          77,
+          66
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:bytesize()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "true",
+          "oneliner": true
+        },
+        "desc": "Enable compatibility with old RPC authentication.",
+        "mapping": "gen_rpc.insecure_auth_fallback_allowed",
+        "name": "insecure_fallback",
+        "raw_default": true,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      }
+    ],
+    "full_name": "rpc",
+    "paths": [
+      "rpc"
+    ],
+    "tags": [
+      "EMQX"
+    ]
+  }
+]

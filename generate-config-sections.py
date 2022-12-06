@@ -114,11 +114,12 @@ def main(argv):
     }
     assert_non_empty(special_sections)
     special_tags = list(special_sections_tags.values())
-    generic_section = get_structs_without_tags(full_schema, special_tags)
+    root, *generic_section = get_structs_without_tags(full_schema, special_tags)
     all_sections = {**special_sections, "others": generic_section}
+    all_sections["emqx"] = [root] + all_sections["emqx"]
     for slug, subjson in all_sections.items():
         output_dir = args.output_dir / args.profile
-        output = output_dir / f"config-{slug}.json"
+        output = output_dir / f"{slug}.json"
         ensure_dir(output_dir)
         print(f"writing output to {output}")
         with open(output, "w") as f:
