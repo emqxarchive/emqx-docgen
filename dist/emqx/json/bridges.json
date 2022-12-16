@@ -10,7 +10,7 @@
           "name": "name",
           "values": {
             "kind": "struct",
-            "name": "bridge:config"
+            "name": "bridge_webhook:config"
           }
         }
       },
@@ -21,17 +21,8 @@
           "kind": "map",
           "name": "name",
           "values": {
-            "kind": "union",
-            "members": [
-              {
-                "kind": "struct",
-                "name": "ingress"
-              },
-              {
-                "kind": "struct",
-                "name": "egress"
-              }
-            ]
+            "kind": "struct",
+            "name": "bridge_mqtt:config"
           }
         }
       }

@@ -1587,6 +1587,8 @@ Configuration of authenticator using Redis (Cluster) as authentication data sour
 
 
 - redis_type: <code>cluster</code>
+  * default: 
+  `cluster`
 
   Cluster mode
 
@@ -1599,12 +1601,6 @@ Configuration of authenticator using Redis (Cluster) as authentication data sour
 - password: <code>binary()</code>
 
   EMQX's password in the external database.
-
-- database: <code>integer()</code>
-  * default: 
-  `0`
-
-  Redis database ID.
 
 - auto_reconnect: <code>boolean()</code>
   * default: 
@@ -1712,6 +1708,8 @@ Configuration of authenticator using Redis (Sentinel) as authentication data sou
 
 
 - redis_type: <code>sentinel</code>
+  * default: 
+  `sentinel`
 
   Sentinel mode
 
@@ -1840,6 +1838,8 @@ Configuration of authenticator using Redis (Standalone) as authentication data s
 
 
 - redis_type: <code>single</code>
+  * default: 
+  `single`
 
   Single mode
 

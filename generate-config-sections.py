@@ -118,7 +118,7 @@ def main(argv):
     all_sections = {**special_sections, "others": generic_section}
     all_sections["emqx"] = [root] + all_sections["emqx"]
     for slug, subjson in all_sections.items():
-        output_dir = args.output_dir / args.profile
+        output_dir = args.output_dir / args.profile / "json"
         output = output_dir / f"{slug}.json"
         ensure_dir(output_dir)
         print(f"writing output to {output}")

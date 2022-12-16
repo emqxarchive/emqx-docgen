@@ -2197,13 +2197,16 @@
         }
       },
       {
+        "default": {
+          "hocon": "cluster",
+          "oneliner": true
+        },
         "desc": "Cluster mode",
         "name": "redis_type",
+        "raw_default": "cluster",
         "type": {
-          "kind": "enum",
-          "symbols": [
-            "cluster"
-          ]
+          "kind": "singleton",
+          "name": "cluster"
         }
       },
       {
@@ -2225,19 +2228,6 @@
         "type": {
           "kind": "primitive",
           "name": "binary()"
-        }
-      },
-      {
-        "default": {
-          "hocon": "0",
-          "oneliner": true
-        },
-        "desc": "Redis database ID.",
-        "name": "database",
-        "raw_default": 0,
-        "type": {
-          "kind": "primitive",
-          "name": "integer()"
         }
       },
       {
@@ -2376,13 +2366,16 @@
         }
       },
       {
+        "default": {
+          "hocon": "sentinel",
+          "oneliner": true
+        },
         "desc": "Sentinel mode",
         "name": "redis_type",
+        "raw_default": "sentinel",
         "type": {
-          "kind": "enum",
-          "symbols": [
-            "sentinel"
-          ]
+          "kind": "singleton",
+          "name": "sentinel"
         }
       },
       {
@@ -2563,13 +2556,16 @@
         }
       },
       {
+        "default": {
+          "hocon": "single",
+          "oneliner": true
+        },
         "desc": "Single mode",
         "name": "redis_type",
+        "raw_default": "single",
         "type": {
-          "kind": "enum",
-          "symbols": [
-            "single"
-          ]
+          "kind": "singleton",
+          "name": "single"
         }
       },
       {

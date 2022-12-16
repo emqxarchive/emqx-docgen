@@ -772,6 +772,8 @@ Authorization using a Redis cluster.
 
 
 - redis_type: <code>cluster</code>
+  * default: 
+  `cluster`
 
   Cluster mode
 
@@ -784,12 +786,6 @@ Authorization using a Redis cluster.
 - password: <code>binary()</code>
 
   EMQX's password in the external database.
-
-- database: <code>integer()</code>
-  * default: 
-  `0`
-
-  Redis database ID.
 
 - auto_reconnect: <code>boolean()</code>
   * default: 
@@ -845,6 +841,8 @@ Authorization using a Redis Sentinel.
 
 
 - redis_type: <code>sentinel</code>
+  * default: 
+  `sentinel`
 
   Sentinel mode
 
@@ -921,6 +919,8 @@ Authorization using a single Redis instance.
 
 
 - redis_type: <code>single</code>
+  * default: 
+  `single`
 
   Single mode
 

@@ -503,10 +503,6 @@ ciphers =
 
 
 
-- connectors: <code>[connector:connectors](#connector-connectors)</code>
-
-
-
 - slow_subs: <code>[slow_subs](#slow_subs)</code>
 
 

@@ -319,6 +319,195 @@ ciphers =
   ]
 ```
 
+## Root Config Keys
+
+
+
+
+**Fields**
+
+- listeners: <code>[broker:listeners](#broker-listeners)</code>
+
+
+
+- zones: <code>{$name -> [broker:zone](#broker-zone)}</code>
+
+  A zone is a set of configs grouped by the zone <code>name</code>.
+  For flexible configuration mapping, the <code>name</code> can be set to a listener's <code>zone</code> config.
+  NOTE: A built-in zone named <code>default</code> is auto created and can not be deleted.
+
+
+- mqtt: <code>[broker:mqtt](#broker-mqtt)</code>
+
+  Global MQTT configuration.
+  The configs here work as default values which can be overridden in <code>zone</code> configs
+
+
+- authentication: <code>[[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)]</code>
+
+  Default authentication configs for all MQTT listeners.
+
+  For per-listener overrides see <code>authentication</code> in listener configs
+
+  This option can be configured with:
+  <ul>
+    <li><code>[]</code>: The default value, it allows *ALL* logins</li>
+    <li>one: For example <code>{enable:true,backend:"built_in_database",mechanism="password_based"}</code></li>
+    <li>chain: An array of structs.</li>
+  </ul>
+
+  When a chain is configured, the login credentials are checked against the backends per the configured order, until an 'allow' or 'deny' decision can be made.
+
+  If there is no decision after a full chain exhaustion, the login is rejected.
+
+
+- authorization: <code>[authorization](#authorization)</code>
+
+
+  Authorization a.k.a. ACL.<br/>
+  In EMQX, MQTT client access control is extremely flexible.<br/>
+  An out-of-the-box set of authorization data sources are supported.
+  For example,<br/>
+  'file' source is to support concise and yet generic ACL rules in a file;<br/>
+  'built_in_database' source can be used to store per-client customizable rule sets,
+  natively in the EMQX node;<br/>
+  'http' source to make EMQX call an external HTTP API to make the decision;<br/>
+  'PostgreSQL' etc. to look up clients or rules from external databases;<br/>
+
+
+- node: <code>[node](#node)</code>
+
+
+
+- cluster: <code>[cluster](#cluster)</code>
+
+
+
+- log: <code>[log](#log)</code>
+
+
+
+- rpc: <code>[rpc](#rpc)</code>
+
+
+
+- broker: <code>[broker](#broker)</code>
+
+  Message broker options.
+
+- sys_topics: <code>[broker:sys_topics](#broker-sys_topics)</code>
+
+  System topics configuration.
+
+- force_shutdown: <code>[broker:force_shutdown](#broker-force_shutdown)</code>
+
+
+
+- overload_protection: <code>[broker:overload_protection](#broker-overload_protection)</code>
+
+
+
+- force_gc: <code>[broker:force_gc](#broker-force_gc)</code>
+
+
+
+- conn_congestion: <code>[broker:conn_congestion](#broker-conn_congestion)</code>
+
+
+
+- stats: <code>[broker:stats](#broker-stats)</code>
+
+
+
+- sysmon: <code>[broker:sysmon](#broker-sysmon)</code>
+
+
+
+- alarm: <code>[broker:alarm](#broker-alarm)</code>
+
+
+
+- flapping_detect: <code>[broker:flapping_detect](#broker-flapping_detect)</code>
+
+
+
+- persistent_session_store: <code>[broker:persistent_session_store](#broker-persistent_session_store)</code>
+
+
+
+- trace: <code>[broker:trace](#broker-trace)</code>
+
+
+
+- bridges: <code>[bridge:bridges](#bridge-bridges)</code>
+
+
+
+- retainer: <code>[retainer](#retainer)</code>
+
+
+
+- statsd: <code>[statsd](#statsd)</code>
+
+
+
+- auto_subscribe: <code>[auto_subscribe](#auto_subscribe)</code>
+
+
+
+- delayed: <code>[modules:delayed](#modules-delayed)</code>
+
+
+
+- telemetry: <code>[modules:telemetry](#modules-telemetry)</code>
+
+
+
+- rewrite: <code>[[modules:rewrite](#modules-rewrite)]</code>
+
+  List of topic rewrite rules.
+
+- topic_metrics: <code>[[modules:topic_metrics](#modules-topic_metrics)]</code>
+
+  List of topics whose metrics are reported.
+
+- plugins: <code>[plugin:plugins](#plugin-plugins)</code>
+
+
+
+- dashboard: <code>[dashboard](#dashboard)</code>
+
+
+
+- gateway: <code>[gateway](#gateway)</code>
+
+
+
+- prometheus: <code>[prometheus](#prometheus)</code>
+
+
+
+- rule_engine: <code>[rule_engine](#rule_engine)</code>
+
+
+
+- exhook: <code>[exhook](#exhook)</code>
+
+
+
+- psk_authentication: <code>[authn-psk:psk_authentication](#authn-psk-psk_authentication)</code>
+
+
+
+- limiter: <code>[limiter](#limiter)</code>
+
+
+
+- slow_subs: <code>[slow_subs](#slow_subs)</code>
+
+
+
+
 ## cluster_dns
 Service discovery via DNS SRV records.
 

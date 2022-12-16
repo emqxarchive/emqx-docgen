@@ -65,8 +65,8 @@ sections_ee =
       }
     ] ++ generic_section
 
-dist_dir_ce = "dist/emqx"
-dist_dir_ee = "dist/emqx-enterprise"
+dist_dir_ce = "dist/emqx/"
+dist_dir_ee = "dist/emqx-enterprise/"
 
 [
   {dist_dir_ce, sections_ce},
@@ -77,13 +77,13 @@ dist_dir_ee = "dist/emqx-enterprise"
     body = Map.get(section, :body, "")
 
     md =
-      dist_dir
-      |> Path.join("#{slug}.json")
+      [dist_dir, "json", "#{slug}.json"]
+      |> Path.join()
       |> File.read!()
       |> Jason.decode!(keys: :atoms)
       |> :hocon_schema_md.gen_from_structs(%{title: "# #{title}", body: body, env_prefix: "EMQX_"})
 
-    outfile = Path.join(dist_dir, "#{slug}.md")
+    outfile = Path.join([dist_dir, "md", "#{slug}.md"])
     File.write!(outfile, md)
   end)
 end)

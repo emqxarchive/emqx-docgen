@@ -862,6 +862,23 @@
       },
       {
         "default": {
+          "hocon": "\"15s\"",
+          "oneliner": true
+        },
+        "desc": "\nMaximum time duration allowed for the handshake to complete\n",
+        "name": "handshake_timeout",
+        "raw_default": [
+          49,
+          53,
+          115
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration()"
+        }
+      },
+      {
+        "default": {
           "hocon": "false",
           "oneliner": true
         },
@@ -1845,7 +1862,7 @@
           "hocon": "true",
           "oneliner": true
         },
-        "desc": "\nSet <code>true</code> (default) to enable client authentication on this listener, the authentication\nprocess goes through the configured authentication chain.\nWhen set to <code>false</code> to allow any clients with or without authentication information such as username or password to log in.\nWhen set to <code>quick_deny_anonymous<code>, it behaves like when set to <code>true</code> but clients will be\ndenied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off\nanonymous clients early.\n",
+        "desc": "\nSet <code>true</code> (default) to enable client authentication on this listener, the authentication\nprocess goes through the configured authentication chain.\nWhen set to <code>false</code> to allow any clients with or without authentication information such as username or password to log in.\nWhen set to <code>quick_deny_anonymous</code>, it behaves like when set to <code>true</code> but clients will be\ndenied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off\nanonymous clients early.\n",
         "name": "enable_authn",
         "raw_default": true,
         "type": {
@@ -1986,7 +2003,7 @@
           "hocon": "true",
           "oneliner": true
         },
-        "desc": "\nSet <code>true</code> (default) to enable client authentication on this listener, the authentication\nprocess goes through the configured authentication chain.\nWhen set to <code>false</code> to allow any clients with or without authentication information such as username or password to log in.\nWhen set to <code>quick_deny_anonymous<code>, it behaves like when set to <code>true</code> but clients will be\ndenied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off\nanonymous clients early.\n",
+        "desc": "\nSet <code>true</code> (default) to enable client authentication on this listener, the authentication\nprocess goes through the configured authentication chain.\nWhen set to <code>false</code> to allow any clients with or without authentication information such as username or password to log in.\nWhen set to <code>quick_deny_anonymous</code>, it behaves like when set to <code>true</code> but clients will be\ndenied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off\nanonymous clients early.\n",
         "name": "enable_authn",
         "raw_default": true,
         "type": {
@@ -2260,7 +2277,7 @@
           "hocon": "true",
           "oneliner": true
         },
-        "desc": "\nSet <code>true</code> (default) to enable client authentication on this listener, the authentication\nprocess goes through the configured authentication chain.\nWhen set to <code>false</code> to allow any clients with or without authentication information such as username or password to log in.\nWhen set to <code>quick_deny_anonymous<code>, it behaves like when set to <code>true</code> but clients will be\ndenied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off\nanonymous clients early.\n",
+        "desc": "\nSet <code>true</code> (default) to enable client authentication on this listener, the authentication\nprocess goes through the configured authentication chain.\nWhen set to <code>false</code> to allow any clients with or without authentication information such as username or password to log in.\nWhen set to <code>quick_deny_anonymous</code>, it behaves like when set to <code>true</code> but clients will be\ndenied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off\nanonymous clients early.\n",
         "name": "enable_authn",
         "raw_default": true,
         "type": {
@@ -2527,7 +2544,7 @@
           "hocon": "true",
           "oneliner": true
         },
-        "desc": "\nSet <code>true</code> (default) to enable client authentication on this listener, the authentication\nprocess goes through the configured authentication chain.\nWhen set to <code>false</code> to allow any clients with or without authentication information such as username or password to log in.\nWhen set to <code>quick_deny_anonymous<code>, it behaves like when set to <code>true</code> but clients will be\ndenied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off\nanonymous clients early.\n",
+        "desc": "\nSet <code>true</code> (default) to enable client authentication on this listener, the authentication\nprocess goes through the configured authentication chain.\nWhen set to <code>false</code> to allow any clients with or without authentication information such as username or password to log in.\nWhen set to <code>quick_deny_anonymous</code>, it behaves like when set to <code>true</code> but clients will be\ndenied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off\nanonymous clients early.\n",
         "name": "enable_authn",
         "raw_default": true,
         "type": {
@@ -2801,7 +2818,7 @@
           "hocon": "true",
           "oneliner": true
         },
-        "desc": "\nSet <code>true</code> (default) to enable client authentication on this listener, the authentication\nprocess goes through the configured authentication chain.\nWhen set to <code>false</code> to allow any clients with or without authentication information such as username or password to log in.\nWhen set to <code>quick_deny_anonymous<code>, it behaves like when set to <code>true</code> but clients will be\ndenied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off\nanonymous clients early.\n",
+        "desc": "\nSet <code>true</code> (default) to enable client authentication on this listener, the authentication\nprocess goes through the configured authentication chain.\nWhen set to <code>false</code> to allow any clients with or without authentication information such as username or password to log in.\nWhen set to <code>quick_deny_anonymous</code>, it behaves like when set to <code>true</code> but clients will be\ndenied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off\nanonymous clients early.\n",
         "name": "enable_authn",
         "raw_default": true,
         "type": {
@@ -3447,10 +3464,9 @@
     "paths": [
       "authentication.$INDEX.ssl",
       "authorization.sources.$INDEX.ssl",
-      "bridges.mqtt.$name.connector.ssl",
+      "bridges.mqtt.$name.ssl",
       "bridges.webhook.$name.ssl",
       "cluster.etcd.ssl",
-      "connectors.mqtt.$name.ssl",
       "gateway.coap.authentication.ssl",
       "gateway.coap.listeners.dtls.$name.authentication.ssl",
       "gateway.coap.listeners.udp.$name.authentication.ssl",
@@ -4560,28 +4576,6 @@
     "full_name": "broker:zone",
     "paths": [
       "zones.$name"
-    ],
-    "tags": []
-  },
-  {
-    "desc": "\nConfiguration for EMQX connectors.<br/>\nA connector maintains the data related to the external resources, such as MySQL database.\n",
-    "fields": [
-      {
-        "desc": "MQTT bridges.",
-        "name": "mqtt",
-        "type": {
-          "kind": "map",
-          "name": "name",
-          "values": {
-            "kind": "struct",
-            "name": "connector-mqtt:connector"
-          }
-        }
-      }
-    ],
-    "full_name": "connector:connectors",
-    "paths": [
-      "connectors"
     ],
     "tags": []
   },
@@ -6401,266 +6395,6 @@
     "tags": []
   },
   {
-    "desc": "Configuration for MQTT bridge.",
-    "fields": [
-      {
-        "default": {
-          "hocon": "egress",
-          "oneliner": true
-        },
-        "desc": "The direction of the bridge. Can be one of 'ingress' or 'egress'.<br/>\nThe egress config defines how this bridge forwards messages from the local broker to the remote\nbroker.<br/>Template with variables is allowed in 'remote_topic', 'qos', 'retain', 'payload'.<br/>NOTE: if this bridge is used as the action of a rule (emqx rule engine), and also local_topic\nis configured, then both the data got from the rule and the MQTT messages that matches\nlocal_topic will be forwarded.\n",
-        "name": "direction",
-        "raw_default": "egress",
-        "type": {
-          "kind": "singleton",
-          "name": "egress"
-        }
-      },
-      {
-        "default": {
-          "hocon": "true",
-          "oneliner": true
-        },
-        "desc": "Enable or disable this bridge",
-        "name": "enable",
-        "raw_default": true,
-        "type": {
-          "kind": "primitive",
-          "name": "boolean()"
-        }
-      },
-      {
-        "desc": "\nThe ID or the configs of the connector to be used for this bridge. Connector IDs must be of format:\n<code>{type}:{name}</code>.<br/>\nIn config files, you can find the corresponding config entry for a connector by such path:\n'connectors.{type}.{name}'.<br/>\n",
-        "examples": [
-          "mqtt:my_mqtt_connector"
-        ],
-        "name": "connector",
-        "type": {
-          "kind": "union",
-          "members": [
-            {
-              "kind": "primitive",
-              "name": "binary()"
-            },
-            {
-              "kind": "struct",
-              "name": "connector-mqtt:connector"
-            }
-          ]
-        }
-      },
-      {
-        "desc": "The local topic to be forwarded to the remote broker",
-        "name": "local_topic",
-        "type": {
-          "kind": "primitive",
-          "name": "binary()"
-        }
-      },
-      {
-        "desc": "\nForward to which topic of the remote broker.<br/>\nTemplate with variables is allowed.\n",
-        "name": "remote_topic",
-        "type": {
-          "kind": "primitive",
-          "name": "binary()"
-        }
-      },
-      {
-        "desc": "\nThe QoS of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
-        "name": "remote_qos",
-        "type": {
-          "kind": "union",
-          "members": [
-            {
-              "kind": "primitive",
-              "name": "qos()"
-            },
-            {
-              "kind": "primitive",
-              "name": "binary()"
-            }
-          ]
-        }
-      },
-      {
-        "desc": "\nThe 'retain' flag of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
-        "name": "retain",
-        "type": {
-          "kind": "union",
-          "members": [
-            {
-              "kind": "primitive",
-              "name": "boolean()"
-            },
-            {
-              "kind": "primitive",
-              "name": "binary()"
-            }
-          ]
-        }
-      },
-      {
-        "desc": "\nThe payload of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
-        "name": "payload",
-        "type": {
-          "kind": "primitive",
-          "name": "binary()"
-        }
-      }
-    ],
-    "full_name": "egress",
-    "paths": [
-      "bridges.mqtt.$name"
-    ],
-    "tags": []
-  },
-  {
-    "desc": "Configuration for MQTT bridge.",
-    "fields": [
-      {
-        "default": {
-          "hocon": "egress",
-          "oneliner": true
-        },
-        "desc": "The direction of the bridge. Can be one of 'ingress' or 'egress'.<br/>\nThe ingress config defines how this bridge receive messages from the remote MQTT broker, and then\nsend them to the local broker.<br/>Template with variables is allowed in 'local_topic', 'remote_qos', 'qos', 'retain',\n'payload'.<br/>NOTE: if this bridge is used as the input of a rule (emqx rule engine), and also local_topic is\nconfigured, then messages got from the remote broker will be sent to both the 'local_topic' and\nthe rule.\n",
-        "name": "direction",
-        "raw_default": "egress",
-        "type": {
-          "kind": "singleton",
-          "name": "ingress"
-        }
-      },
-      {
-        "default": {
-          "hocon": "true",
-          "oneliner": true
-        },
-        "desc": "Enable or disable this bridge",
-        "name": "enable",
-        "raw_default": true,
-        "type": {
-          "kind": "primitive",
-          "name": "boolean()"
-        }
-      },
-      {
-        "desc": "\nThe ID or the configs of the connector to be used for this bridge. Connector IDs must be of format:\n<code>{type}:{name}</code>.<br/>\nIn config files, you can find the corresponding config entry for a connector by such path:\n'connectors.{type}.{name}'.<br/>\n",
-        "examples": [
-          "mqtt:my_mqtt_connector"
-        ],
-        "name": "connector",
-        "type": {
-          "kind": "union",
-          "members": [
-            {
-              "kind": "primitive",
-              "name": "binary()"
-            },
-            {
-              "kind": "struct",
-              "name": "connector-mqtt:connector"
-            }
-          ]
-        }
-      },
-      {
-        "desc": "Receive messages from which topic of the remote broker",
-        "name": "remote_topic",
-        "type": {
-          "kind": "primitive",
-          "name": "binary()"
-        }
-      },
-      {
-        "default": {
-          "hocon": "1",
-          "oneliner": true
-        },
-        "desc": "The QoS level to be used when subscribing to the remote broker",
-        "name": "remote_qos",
-        "raw_default": 1,
-        "type": {
-          "kind": "union",
-          "members": [
-            {
-              "kind": "primitive",
-              "name": "qos()"
-            },
-            {
-              "kind": "primitive",
-              "name": "binary()"
-            }
-          ]
-        }
-      },
-      {
-        "desc": "\nSend messages to which topic of the local broker.<br/>\nTemplate with variables is allowed.\n",
-        "name": "local_topic",
-        "type": {
-          "kind": "primitive",
-          "name": "binary()"
-        }
-      },
-      {
-        "default": {
-          "hocon": "\"${qos}\"",
-          "oneliner": true
-        },
-        "desc": "\nThe QoS of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
-        "name": "local_qos",
-        "raw_default": "${qos}",
-        "type": {
-          "kind": "union",
-          "members": [
-            {
-              "kind": "primitive",
-              "name": "qos()"
-            },
-            {
-              "kind": "primitive",
-              "name": "binary()"
-            }
-          ]
-        }
-      },
-      {
-        "default": {
-          "hocon": "\"${retain}\"",
-          "oneliner": true
-        },
-        "desc": "\nThe 'retain' flag of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
-        "name": "retain",
-        "raw_default": "${retain}",
-        "type": {
-          "kind": "union",
-          "members": [
-            {
-              "kind": "primitive",
-              "name": "boolean()"
-            },
-            {
-              "kind": "primitive",
-              "name": "binary()"
-            }
-          ]
-        }
-      },
-      {
-        "desc": "\nThe payload of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
-        "name": "payload",
-        "type": {
-          "kind": "primitive",
-          "name": "binary()"
-        }
-      }
-    ],
-    "full_name": "ingress",
-    "paths": [
-      "bridges.mqtt.$name"
-    ],
-    "tags": []
-  },
-  {
     "desc": "Topology of MongoDB.",
     "fields": [
       {
@@ -7692,6 +7426,333 @@
     "tags": []
   },
   {
+    "desc": "The config for MQTT Bridges.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "true",
+          "oneliner": true
+        },
+        "desc": "Enable or disable this bridge",
+        "name": "enable",
+        "raw_default": true,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "{}",
+          "oneliner": true
+        },
+        "desc": "Resource options.",
+        "name": "resource_opts",
+        "raw_default": {},
+        "type": {
+          "kind": "struct",
+          "name": "bridge_mqtt:creation_opts"
+        }
+      },
+      {
+        "default": {
+          "hocon": "cluster_shareload",
+          "oneliner": true
+        },
+        "desc": "\nThe mode of the MQTT Bridge.<br/>\n\n- cluster_shareload: create an MQTT connection on each node in the emqx cluster.<br/>\nIn 'cluster_shareload' mode, the incoming load from the remote broker is shared by\nusing shared subscription.<br/>\nNote that the 'clientid' is suffixed by the node name, this is to avoid\nclientid conflicts between different nodes. And we can only use shared subscription\ntopic filters for <code>remote.topic</code> of ingress connections.\n",
+        "name": "mode",
+        "raw_default": "cluster_shareload",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "cluster_shareload"
+          ]
+        }
+      },
+      {
+        "desc": "The host and port of the remote MQTT broker",
+        "name": "server",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:host_port()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"15s\"",
+          "oneliner": true
+        },
+        "desc": "Reconnect interval. Delay for the MQTT bridge to retry establishing the connection in case of transportation failure. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,\n- `s` for seconds,\n- `m` for minutes,\n- `h` for hours;\n<br/>or combination of whereof: `1h5m0s`",
+        "name": "reconnect_interval",
+        "raw_default": [
+          49,
+          53,
+          115
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "v4",
+          "oneliner": true
+        },
+        "desc": "The MQTT protocol version",
+        "name": "proto_ver",
+        "raw_default": "v4",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "v3",
+            "v4",
+            "v5"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "false",
+          "oneliner": true
+        },
+        "desc": "\nIf enable bridge mode.\nNOTE: This setting is only for MQTT protocol version older than 5.0, and the remote MQTT\nbroker MUST support this feature.\n    ",
+        "name": "bridge_mode",
+        "raw_default": false,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "desc": "The username of the MQTT protocol",
+        "name": "username",
+        "type": {
+          "kind": "primitive",
+          "name": "binary()"
+        }
+      },
+      {
+        "desc": "The password of the MQTT protocol",
+        "name": "password",
+        "type": {
+          "kind": "primitive",
+          "name": "binary()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "true",
+          "oneliner": true
+        },
+        "desc": "The clean-start or the clean-session of the MQTT protocol",
+        "name": "clean_start",
+        "raw_default": true,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"300s\"",
+          "oneliner": true
+        },
+        "desc": "MQTT Keepalive. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,\n- `s` for seconds,\n- `m` for minutes,\n- `h` for hours;\n<br/>or combination of whereof: `1h5m0s`",
+        "name": "keepalive",
+        "raw_default": [
+          51,
+          48,
+          48,
+          115
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"15s\"",
+          "oneliner": true
+        },
+        "desc": "Message retry interval. Delay for the MQTT bridge to retry sending the QoS1/QoS2 messages in case of ACK not received. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,\n- `s` for seconds,\n- `m` for minutes,\n- `h` for hours;\n<br/>or combination of whereof: `1h5m0s`",
+        "name": "retry_interval",
+        "raw_default": [
+          49,
+          53,
+          115
+        ],
+        "type": {
+          "kind": "primitive",
+          "name": "string()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "32",
+          "oneliner": true
+        },
+        "desc": "Max inflight (sent, but un-acked) messages of the MQTT protocol",
+        "name": "max_inflight",
+        "raw_default": 32,
+        "type": {
+          "kind": "primitive",
+          "name": "non_neg_integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "{enable = false}",
+          "oneliner": true
+        },
+        "desc": "SSL connection settings.",
+        "name": "ssl",
+        "raw_default": {
+          "enable": false
+        },
+        "type": {
+          "kind": "struct",
+          "name": "broker:ssl_client_opts"
+        }
+      },
+      {
+        "desc": "The ingress config defines how this bridge receive messages from the remote MQTT broker, and then\n        send them to the local broker.<br/>\n        Template with variables is allowed in 'remote.qos', 'local.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>\n        NOTE: if this bridge is used as the input of a rule, and also 'local.topic' is\n        configured, then messages got from the remote broker will be sent to both the 'local.topic' and\n        the rule.",
+        "name": "ingress",
+        "type": {
+          "kind": "struct",
+          "name": "connector-mqtt:ingress"
+        }
+      },
+      {
+        "desc": "The egress config defines how this bridge forwards messages from the local broker to the remote broker.<br/>\nTemplate with variables is allowed in 'remote.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>\nNOTE: if this bridge is used as the action of a rule, and also 'local.topic'\nis configured, then both the data got from the rule and the MQTT messages that matches\n'local.topic' will be forwarded.",
+        "name": "egress",
+        "type": {
+          "kind": "struct",
+          "name": "connector-mqtt:egress"
+        }
+      }
+    ],
+    "full_name": "bridge_mqtt:config",
+    "paths": [
+      "bridges.mqtt.$name"
+    ],
+    "tags": []
+  },
+  {
+    "desc": "Creation options.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "16",
+          "oneliner": true
+        },
+        "desc": "Resource worker pool size.",
+        "name": "worker_pool_size",
+        "raw_default": 16,
+        "type": {
+          "kind": "primitive",
+          "name": "pos_integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"15s\"",
+          "oneliner": true
+        },
+        "desc": "Health check interval, in milliseconds.",
+        "name": "health_check_interval",
+        "raw_default": "15s",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration_ms()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"60s\"",
+          "oneliner": true
+        },
+        "desc": "The auto restart interval after the resource is disconnected, in milliseconds.",
+        "name": "auto_restart_interval",
+        "raw_default": "60s",
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "singleton",
+              "name": "infinity"
+            },
+            {
+              "kind": "primitive",
+              "name": "emqx_schema:duration_ms()"
+            }
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "async",
+          "oneliner": true
+        },
+        "desc": "Query mode. Optional 'sync/async', default 'sync'.",
+        "name": "query_mode",
+        "raw_default": "async",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "sync",
+            "async"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "100",
+          "oneliner": true
+        },
+        "desc": "Async query inflight window.",
+        "name": "async_inflight_window",
+        "raw_default": 100,
+        "type": {
+          "kind": "primitive",
+          "name": "pos_integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "false",
+          "oneliner": true
+        },
+        "desc": "Queue mode enabled.",
+        "name": "enable_queue",
+        "raw_default": false,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"100MB\"",
+          "oneliner": true
+        },
+        "desc": "Maximum queue storage.",
+        "name": "max_queue_bytes",
+        "raw_default": "100MB",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:bytesize()"
+        }
+      }
+    ],
+    "full_name": "bridge_mqtt:creation_opts",
+    "paths": [
+      "bridges.mqtt.$name.resource_opts"
+    ],
+    "tags": []
+  },
+  {
     "desc": "Configuration for an HTTP bridge.",
     "fields": [
       {
@@ -7709,15 +7770,15 @@
       },
       {
         "default": {
-          "hocon": "egress",
+          "hocon": "{}",
           "oneliner": true
         },
-        "desc": "The direction of this bridge, MUST be 'egress'",
-        "name": "direction",
-        "raw_default": "egress",
+        "desc": "Resource options.",
+        "name": "resource_opts",
+        "raw_default": {},
         "type": {
-          "kind": "singleton",
-          "name": "egress"
+          "kind": "struct",
+          "name": "bridge_webhook:creation_opts"
         }
       },
       {
@@ -7900,9 +7961,122 @@
         }
       }
     ],
-    "full_name": "bridge:config",
+    "full_name": "bridge_webhook:config",
     "paths": [
       "bridges.webhook.$name"
+    ],
+    "tags": []
+  },
+  {
+    "desc": "Creation options.",
+    "fields": [
+      {
+        "default": {
+          "hocon": "16",
+          "oneliner": true
+        },
+        "desc": "Resource worker pool size.",
+        "name": "worker_pool_size",
+        "raw_default": 16,
+        "type": {
+          "kind": "primitive",
+          "name": "pos_integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"15s\"",
+          "oneliner": true
+        },
+        "desc": "Health check interval, in milliseconds.",
+        "name": "health_check_interval",
+        "raw_default": "15s",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:duration_ms()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"60s\"",
+          "oneliner": true
+        },
+        "desc": "The auto restart interval after the resource is disconnected, in milliseconds.",
+        "name": "auto_restart_interval",
+        "raw_default": "60s",
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "singleton",
+              "name": "infinity"
+            },
+            {
+              "kind": "primitive",
+              "name": "emqx_schema:duration_ms()"
+            }
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "async",
+          "oneliner": true
+        },
+        "desc": "Query mode. Optional 'sync/async', default 'sync'.",
+        "name": "query_mode",
+        "raw_default": "async",
+        "type": {
+          "kind": "enum",
+          "symbols": [
+            "sync",
+            "async"
+          ]
+        }
+      },
+      {
+        "default": {
+          "hocon": "100",
+          "oneliner": true
+        },
+        "desc": "Async query inflight window.",
+        "name": "async_inflight_window",
+        "raw_default": 100,
+        "type": {
+          "kind": "primitive",
+          "name": "pos_integer()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "false",
+          "oneliner": true
+        },
+        "desc": "Queue mode enabled.",
+        "name": "enable_queue",
+        "raw_default": false,
+        "type": {
+          "kind": "primitive",
+          "name": "boolean()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"100MB\"",
+          "oneliner": true
+        },
+        "desc": "Maximum queue storage.",
+        "name": "max_queue_bytes",
+        "raw_default": "100MB",
+        "type": {
+          "kind": "primitive",
+          "name": "emqx_schema:bytesize()"
+        }
+      }
+    ],
+    "full_name": "bridge_webhook:creation_opts",
+    "paths": [
+      "bridges.webhook.$name.resource_opts"
     ],
     "tags": []
   },
@@ -7913,13 +8087,8 @@
         "desc": "HTTP method.",
         "name": "method",
         "type": {
-          "kind": "enum",
-          "symbols": [
-            "post",
-            "put",
-            "get",
-            "delete"
-          ]
+          "kind": "primitive",
+          "name": "binary()"
         }
       },
       {
@@ -7993,191 +8162,80 @@
     "tags": []
   },
   {
-    "desc": "Generic configuration for the connector.",
+    "desc": "The egress config defines how this bridge forwards messages from the local broker to the remote broker.<br/>\nTemplate with variables is allowed in 'remote.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>\nNOTE: if this bridge is used as the action of a rule, and also 'local.topic'\nis configured, then both the data got from the rule and the MQTT messages that matches\n'local.topic' will be forwarded.",
     "fields": [
       {
-        "default": {
-          "hocon": "cluster_shareload",
-          "oneliner": true
-        },
-        "desc": "\nThe mode of the MQTT Bridge.<br/>\n\n- cluster_shareload: create an MQTT connection on each node in the emqx cluster.<br/>\nIn 'cluster_shareload' mode, the incoming load from the remote broker is shared by\nusing shared subscription.<br/>\nNote that the 'clientid' is suffixed by the node name, this is to avoid\nclientid conflicts between different nodes. And we can only use shared subscription\ntopic filters for <code>remote_topic</code> of ingress connections.\n",
-        "name": "mode",
-        "raw_default": "cluster_shareload",
-        "type": {
-          "kind": "enum",
-          "symbols": [
-            "cluster_shareload"
-          ]
-        }
-      },
-      {
-        "desc": "The host and port of the remote MQTT broker",
-        "name": "server",
-        "type": {
-          "kind": "primitive",
-          "name": "emqx_schema:host_port()"
-        }
-      },
-      {
-        "default": {
-          "hocon": "\"15s\"",
-          "oneliner": true
-        },
-        "desc": "Reconnect interval. Delay for the MQTT bridge to retry establishing the connection in case of transportation failure. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,\n- `s` for seconds,\n- `m` for minutes,\n- `h` for hours;\n<br/>or combination of whereof: `1h5m0s`",
-        "name": "reconnect_interval",
-        "raw_default": [
-          49,
-          53,
-          115
-        ],
-        "type": {
-          "kind": "primitive",
-          "name": "string()"
-        }
-      },
-      {
-        "default": {
-          "hocon": "v4",
-          "oneliner": true
-        },
-        "desc": "The MQTT protocol version",
-        "name": "proto_ver",
-        "raw_default": "v4",
-        "type": {
-          "kind": "enum",
-          "symbols": [
-            "v3",
-            "v4",
-            "v5"
-          ]
-        }
-      },
-      {
-        "default": {
-          "hocon": "false",
-          "oneliner": true
-        },
-        "desc": "\nIf enable bridge mode.\nNOTE: This setting is only for MQTT protocol version older than 5.0, and the remote MQTT\nbroker MUST support this feature.\n    ",
-        "name": "bridge_mode",
-        "raw_default": false,
-        "type": {
-          "kind": "primitive",
-          "name": "boolean()"
-        }
-      },
-      {
-        "desc": "The username of the MQTT protocol",
-        "name": "username",
-        "type": {
-          "kind": "primitive",
-          "name": "binary()"
-        }
-      },
-      {
-        "desc": "The password of the MQTT protocol",
-        "name": "password",
-        "type": {
-          "kind": "primitive",
-          "name": "binary()"
-        }
-      },
-      {
-        "default": {
-          "hocon": "true",
-          "oneliner": true
-        },
-        "desc": "The clean-start or the clean-session of the MQTT protocol",
-        "name": "clean_start",
-        "raw_default": true,
-        "type": {
-          "kind": "primitive",
-          "name": "boolean()"
-        }
-      },
-      {
-        "default": {
-          "hocon": "\"300s\"",
-          "oneliner": true
-        },
-        "desc": "MQTT Keepalive. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,\n- `s` for seconds,\n- `m` for minutes,\n- `h` for hours;\n<br/>or combination of whereof: `1h5m0s`",
-        "name": "keepalive",
-        "raw_default": [
-          51,
-          48,
-          48,
-          115
-        ],
-        "type": {
-          "kind": "primitive",
-          "name": "string()"
-        }
-      },
-      {
-        "default": {
-          "hocon": "\"15s\"",
-          "oneliner": true
-        },
-        "desc": "Message retry interval. Delay for the MQTT bridge to retry sending the QoS1/QoS2 messages in case of ACK not received. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,\n- `s` for seconds,\n- `m` for minutes,\n- `h` for hours;\n<br/>or combination of whereof: `1h5m0s`",
-        "name": "retry_interval",
-        "raw_default": [
-          49,
-          53,
-          115
-        ],
-        "type": {
-          "kind": "primitive",
-          "name": "string()"
-        }
-      },
-      {
-        "default": {
-          "hocon": "32",
-          "oneliner": true
-        },
-        "desc": "Max inflight (sent, but un-acked) messages of the MQTT protocol",
-        "name": "max_inflight",
-        "raw_default": 32,
-        "type": {
-          "kind": "primitive",
-          "name": "non_neg_integer()"
-        }
-      },
-      {
-        "name": "replayq",
+        "desc": "The configs about receiving messages from local broker.",
+        "name": "local",
         "type": {
           "kind": "struct",
-          "name": "connector-mqtt:replayq"
+          "name": "connector-mqtt:egress_local"
         }
       },
       {
-        "default": {
-          "hocon": "{enable = false}",
-          "oneliner": true
-        },
-        "desc": "SSL connection settings.",
-        "name": "ssl",
-        "raw_default": {
-          "enable": false
-        },
+        "desc": "The configs about sending message to the remote broker.",
+        "name": "remote",
         "type": {
           "kind": "struct",
-          "name": "broker:ssl_client_opts"
+          "name": "connector-mqtt:egress_remote"
         }
       }
     ],
-    "full_name": "connector-mqtt:connector",
+    "full_name": "connector-mqtt:egress",
     "paths": [
-      "bridges.mqtt.$name.connector",
-      "connectors.mqtt.$name"
+      "bridges.mqtt.$name.egress"
     ],
     "tags": []
   },
   {
-    "desc": "Queue messages in disk files.",
+    "desc": "The configs about receiving messages from local broker.",
     "fields": [
       {
-        "desc": "\nThe dir where the replayq file saved.<br/>\nSet to 'false' disables the replayq feature.\n",
-        "name": "dir",
+        "desc": "The local topic to be forwarded to the remote broker",
+        "name": "topic",
+        "type": {
+          "kind": "primitive",
+          "name": "binary()"
+        }
+      }
+    ],
+    "full_name": "connector-mqtt:egress_local",
+    "paths": [
+      "bridges.mqtt.$name.egress.local"
+    ],
+    "tags": []
+  },
+  {
+    "desc": "The configs about sending message to the remote broker.",
+    "fields": [
+      {
+        "desc": "\nForward to which topic of the remote broker.<br/>\nTemplate with variables is allowed.\n",
+        "name": "topic",
+        "type": {
+          "kind": "primitive",
+          "name": "binary()"
+        }
+      },
+      {
+        "desc": "\nThe QoS of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
+        "name": "qos",
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "primitive",
+              "name": "qos()"
+            },
+            {
+              "kind": "primitive",
+              "name": "binary()"
+            }
+          ]
+        }
+      },
+      {
+        "desc": "\nThe 'retain' flag of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
+        "name": "retain",
         "type": {
           "kind": "union",
           "members": [
@@ -8187,48 +8245,159 @@
             },
             {
               "kind": "primitive",
-              "name": "string()"
+              "name": "binary()"
+            }
+          ]
+        }
+      },
+      {
+        "desc": "\nThe payload of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
+        "name": "payload",
+        "type": {
+          "kind": "primitive",
+          "name": "binary()"
+        }
+      }
+    ],
+    "full_name": "connector-mqtt:egress_remote",
+    "paths": [
+      "bridges.mqtt.$name.egress.remote"
+    ],
+    "tags": []
+  },
+  {
+    "desc": "The ingress config defines how this bridge receive messages from the remote MQTT broker, and then\n        send them to the local broker.<br/>\n        Template with variables is allowed in 'remote.qos', 'local.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>\n        NOTE: if this bridge is used as the input of a rule, and also 'local.topic' is\n        configured, then messages got from the remote broker will be sent to both the 'local.topic' and\n        the rule.",
+    "fields": [
+      {
+        "desc": "The configs about subscribing to the remote broker.",
+        "name": "remote",
+        "type": {
+          "kind": "struct",
+          "name": "connector-mqtt:ingress_remote"
+        }
+      },
+      {
+        "desc": "The configs about sending message to the local broker.",
+        "name": "local",
+        "type": {
+          "kind": "struct",
+          "name": "connector-mqtt:ingress_local"
+        }
+      }
+    ],
+    "full_name": "connector-mqtt:ingress",
+    "paths": [
+      "bridges.mqtt.$name.ingress"
+    ],
+    "tags": []
+  },
+  {
+    "desc": "The configs about sending message to the local broker.",
+    "fields": [
+      {
+        "desc": "\nSend messages to which topic of the local broker.<br/>\nTemplate with variables is allowed.\n",
+        "name": "topic",
+        "type": {
+          "kind": "primitive",
+          "name": "binary()"
+        }
+      },
+      {
+        "default": {
+          "hocon": "\"${qos}\"",
+          "oneliner": true
+        },
+        "desc": "\nThe QoS of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
+        "name": "qos",
+        "raw_default": "${qos}",
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "primitive",
+              "name": "qos()"
+            },
+            {
+              "kind": "primitive",
+              "name": "binary()"
             }
           ]
         }
       },
       {
         "default": {
-          "hocon": "\"100MB\"",
+          "hocon": "\"${retain}\"",
           "oneliner": true
         },
-        "desc": "\nThe size in bytes of a single segment.<br/>\nA segment is mapping to a file in the replayq dir. If the current segment is full, a new segment\n(file) will be opened to write.\n",
-        "name": "seg_bytes",
-        "raw_default": [
-          49,
-          48,
-          48,
-          77,
-          66
-        ],
+        "desc": "\nThe 'retain' flag of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
+        "name": "retain",
+        "raw_default": "${retain}",
+        "type": {
+          "kind": "union",
+          "members": [
+            {
+              "kind": "primitive",
+              "name": "boolean()"
+            },
+            {
+              "kind": "primitive",
+              "name": "binary()"
+            }
+          ]
+        }
+      },
+      {
+        "desc": "\nThe payload of the MQTT message to be sent.<br/>\nTemplate with variables is allowed.\n",
+        "name": "payload",
         "type": {
           "kind": "primitive",
-          "name": "emqx_schema:bytesize()"
+          "name": "binary()"
+        }
+      }
+    ],
+    "full_name": "connector-mqtt:ingress_local",
+    "paths": [
+      "bridges.mqtt.$name.ingress.local"
+    ],
+    "tags": []
+  },
+  {
+    "desc": "The configs about subscribing to the remote broker.",
+    "fields": [
+      {
+        "desc": "Receive messages from which topic of the remote broker",
+        "name": "topic",
+        "type": {
+          "kind": "primitive",
+          "name": "binary()"
         }
       },
       {
         "default": {
-          "hocon": "false",
+          "hocon": "1",
           "oneliner": true
         },
-        "desc": "\nIn offload mode, the disk queue is only used to offload queue tail segments.<br/>\nThe messages are cached in the memory first, then it writes to the replayq files after the size of\nthe memory cache reaches 'seg_bytes'.\n",
-        "name": "offload",
-        "raw_default": false,
+        "desc": "The QoS level to be used when subscribing to the remote broker",
+        "name": "qos",
+        "raw_default": 1,
         "type": {
-          "kind": "primitive",
-          "name": "boolean()"
+          "kind": "union",
+          "members": [
+            {
+              "kind": "primitive",
+              "name": "qos()"
+            },
+            {
+              "kind": "primitive",
+              "name": "binary()"
+            }
+          ]
         }
       }
     ],
-    "full_name": "connector-mqtt:replayq",
+    "full_name": "connector-mqtt:ingress_remote",
     "paths": [
-      "bridges.mqtt.$name.connector.replayq",
-      "connectors.mqtt.$name.replayq"
+      "bridges.mqtt.$name.ingress.remote"
     ],
     "tags": []
   },

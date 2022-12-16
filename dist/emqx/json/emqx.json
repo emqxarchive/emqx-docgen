@@ -1,5 +1,360 @@
 [
   {
+    "fields": [
+      {
+        "name": "listeners",
+        "type": {
+          "kind": "struct",
+          "name": "broker:listeners"
+        }
+      },
+      {
+        "desc": "A zone is a set of configs grouped by the zone <code>name</code>.\nFor flexible configuration mapping, the <code>name</code> can be set to a listener's <code>zone</code> config.\nNOTE: A built-in zone named <code>default</code> is auto created and can not be deleted.\n",
+        "name": "zones",
+        "type": {
+          "kind": "map",
+          "name": "name",
+          "values": {
+            "kind": "struct",
+            "name": "broker:zone"
+          }
+        }
+      },
+      {
+        "desc": "Global MQTT configuration.\nThe configs here work as default values which can be overridden in <code>zone</code> configs\n",
+        "name": "mqtt",
+        "type": {
+          "kind": "struct",
+          "name": "broker:mqtt"
+        }
+      },
+      {
+        "desc": "Default authentication configs for all MQTT listeners.\n\nFor per-listener overrides see <code>authentication</code> in listener configs\n\nThis option can be configured with:\n<ul>\n  <li><code>[]</code>: The default value, it allows *ALL* logins</li>\n  <li>one: For example <code>{enable:true,backend:\"built_in_database\",mechanism=\"password_based\"}</code></li>\n  <li>chain: An array of structs.</li>\n</ul>\n\nWhen a chain is configured, the login credentials are checked against the backends per the configured order, until an 'allow' or 'deny' decision can be made.\n\nIf there is no decision after a full chain exhaustion, the login is rejected.\n",
+        "name": "authentication",
+        "type": {
+          "elements": {
+            "kind": "union",
+            "members": [
+              {
+                "kind": "struct",
+                "name": "authn-builtin_db:authentication"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-mysql:authentication"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-postgresql:authentication"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-mongodb:standalone"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-mongodb:replica-set"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-mongodb:sharded-cluster"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-redis:standalone"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-redis:cluster"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-redis:sentinel"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-http:get"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-http:post"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-jwt:hmac-based"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-jwt:public-key"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-jwt:jwks"
+              },
+              {
+                "kind": "struct",
+                "name": "authn-scram-builtin_db:authentication"
+              }
+            ]
+          },
+          "kind": "array"
+        }
+      },
+      {
+        "desc": "\nAuthorization a.k.a. ACL.<br/>\nIn EMQX, MQTT client access control is extremely flexible.<br/>\nAn out-of-the-box set of authorization data sources are supported.\nFor example,<br/>\n'file' source is to support concise and yet generic ACL rules in a file;<br/>\n'built_in_database' source can be used to store per-client customizable rule sets,\nnatively in the EMQX node;<br/>\n'http' source to make EMQX call an external HTTP API to make the decision;<br/>\n'PostgreSQL' etc. to look up clients or rules from external databases;<br/>\n",
+        "name": "authorization",
+        "type": {
+          "kind": "struct",
+          "name": "authorization"
+        }
+      },
+      {
+        "name": "node",
+        "type": {
+          "kind": "struct",
+          "name": "node"
+        }
+      },
+      {
+        "name": "cluster",
+        "type": {
+          "kind": "struct",
+          "name": "cluster"
+        }
+      },
+      {
+        "name": "log",
+        "type": {
+          "kind": "struct",
+          "name": "log"
+        }
+      },
+      {
+        "name": "rpc",
+        "type": {
+          "kind": "struct",
+          "name": "rpc"
+        }
+      },
+      {
+        "desc": "Message broker options.",
+        "name": "broker",
+        "type": {
+          "kind": "struct",
+          "name": "broker"
+        }
+      },
+      {
+        "desc": "System topics configuration.",
+        "name": "sys_topics",
+        "type": {
+          "kind": "struct",
+          "name": "broker:sys_topics"
+        }
+      },
+      {
+        "name": "force_shutdown",
+        "type": {
+          "kind": "struct",
+          "name": "broker:force_shutdown"
+        }
+      },
+      {
+        "name": "overload_protection",
+        "type": {
+          "kind": "struct",
+          "name": "broker:overload_protection"
+        }
+      },
+      {
+        "name": "force_gc",
+        "type": {
+          "kind": "struct",
+          "name": "broker:force_gc"
+        }
+      },
+      {
+        "name": "conn_congestion",
+        "type": {
+          "kind": "struct",
+          "name": "broker:conn_congestion"
+        }
+      },
+      {
+        "name": "stats",
+        "type": {
+          "kind": "struct",
+          "name": "broker:stats"
+        }
+      },
+      {
+        "name": "sysmon",
+        "type": {
+          "kind": "struct",
+          "name": "broker:sysmon"
+        }
+      },
+      {
+        "name": "alarm",
+        "type": {
+          "kind": "struct",
+          "name": "broker:alarm"
+        }
+      },
+      {
+        "name": "flapping_detect",
+        "type": {
+          "kind": "struct",
+          "name": "broker:flapping_detect"
+        }
+      },
+      {
+        "name": "persistent_session_store",
+        "type": {
+          "kind": "struct",
+          "name": "broker:persistent_session_store"
+        }
+      },
+      {
+        "name": "trace",
+        "type": {
+          "kind": "struct",
+          "name": "broker:trace"
+        }
+      },
+      {
+        "name": "bridges",
+        "type": {
+          "kind": "struct",
+          "name": "bridge:bridges"
+        }
+      },
+      {
+        "name": "retainer",
+        "type": {
+          "kind": "struct",
+          "name": "retainer"
+        }
+      },
+      {
+        "name": "statsd",
+        "type": {
+          "kind": "struct",
+          "name": "statsd"
+        }
+      },
+      {
+        "name": "auto_subscribe",
+        "type": {
+          "kind": "struct",
+          "name": "auto_subscribe"
+        }
+      },
+      {
+        "name": "delayed",
+        "type": {
+          "kind": "struct",
+          "name": "modules:delayed"
+        }
+      },
+      {
+        "name": "telemetry",
+        "type": {
+          "kind": "struct",
+          "name": "modules:telemetry"
+        }
+      },
+      {
+        "desc": "List of topic rewrite rules.",
+        "name": "rewrite",
+        "type": {
+          "elements": {
+            "kind": "struct",
+            "name": "modules:rewrite"
+          },
+          "kind": "array"
+        }
+      },
+      {
+        "desc": "List of topics whose metrics are reported.",
+        "name": "topic_metrics",
+        "type": {
+          "elements": {
+            "kind": "struct",
+            "name": "modules:topic_metrics"
+          },
+          "kind": "array"
+        }
+      },
+      {
+        "name": "plugins",
+        "type": {
+          "kind": "struct",
+          "name": "plugin:plugins"
+        }
+      },
+      {
+        "name": "dashboard",
+        "type": {
+          "kind": "struct",
+          "name": "dashboard"
+        }
+      },
+      {
+        "name": "gateway",
+        "type": {
+          "kind": "struct",
+          "name": "gateway"
+        }
+      },
+      {
+        "name": "prometheus",
+        "type": {
+          "kind": "struct",
+          "name": "prometheus"
+        }
+      },
+      {
+        "name": "rule_engine",
+        "type": {
+          "kind": "struct",
+          "name": "rule_engine"
+        }
+      },
+      {
+        "name": "exhook",
+        "type": {
+          "kind": "struct",
+          "name": "exhook"
+        }
+      },
+      {
+        "name": "psk_authentication",
+        "type": {
+          "kind": "struct",
+          "name": "authn-psk:psk_authentication"
+        }
+      },
+      {
+        "name": "limiter",
+        "type": {
+          "kind": "struct",
+          "name": "limiter"
+        }
+      },
+      {
+        "name": "slow_subs",
+        "type": {
+          "kind": "struct",
+          "name": "slow_subs"
+        }
+      }
+    ],
+    "full_name": "Root Config Keys",
+    "paths": [],
+    "tags": []
+  },
+  {
     "desc": "Service discovery via DNS SRV records.",
     "fields": [
       {

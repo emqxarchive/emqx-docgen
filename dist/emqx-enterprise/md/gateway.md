@@ -424,6 +424,14 @@ Settings for the DTLS protocol.
   the number of messages the underlying cipher suite can encipher.
 
 
+- handshake_timeout: <code>emqx_schema:duration()</code>
+  * default: 
+  `"15s"`
+
+
+  Maximum time duration allowed for the handshake to complete
+
+
 - gc_after_handshake: <code>boolean()</code>
   * default: 
   `false`
