@@ -8,17 +8,14 @@ Configuration for a built-in action.
 
  - <code>rule_engine.rules.$id.actions.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX</code>
 
 
-
 **Fields**
 
 - function: <code>console</code>
-
   Print the actions to the console
 
 
@@ -30,17 +27,14 @@ Configuration for a built-in action.
 
  - <code>rule_engine.rules.$id.actions.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX</code>
 
 
-
 **Fields**
 
 - function: <code>republish</code>
-
   Republish the message as a new MQTT message
 
 - args: <code>[rule_engine:republish_args](#rule_engine-republish_args)</code>
@@ -74,59 +68,47 @@ payload = `msg: hello`, and `qos = 1`.
 
  - <code>rule_engine.rules.$id.actions.$INDEX.args</code>
 
-
 **Env overrides**
 
  - <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX__ARGS</code>
 
 
-
 **Fields**
 
 - topic: <code>binary()</code>
-
-
   The target topic of message to be re-published.
   Template with variables is allowed, see description of the 'republish_args'.
-
 
 - qos: <code>qos() | binary()</code>
   * default: 
   `"${qos}"`
-
 
   The qos of the message to be re-published.
   Template with variables is allowed, see description of the 'republish_args'.
   Defaults to ${qos}. If variable ${qos} is not found from the selected result of the rule,
   0 is used.
 
-
 - retain: <code>boolean() | binary()</code>
   * default: 
   `"${retain}"`
-
 
   The 'retain' flag of the message to be re-published.
   Template with variables is allowed, see description of the 'republish_args'.
   Defaults to ${retain}. If variable ${retain} is not found from the selected result
   of the rule, false is used.
 
-
 - payload: <code>binary()</code>
   * default: 
   `"${payload}"`
-
 
   The payload of the message to be re-published.
   Template with variables is allowed, see description of the 'republish_args'.
   Defaults to ${payload}. If variable ${payload} is not found from the selected result
   of the rule, then the string "undefined" is used.
 
-
 - user_properties: <code>binary()</code>
   * default: 
   `"${user_properties}"`
-
 
   From which variable should the MQTT message's User-Property pairs be taken from.
   The value must be a map.
@@ -139,7 +121,6 @@ payload = `msg: hello`, and `qos = 1`.
   NOTE: MQTT spec allows duplicated user property names, but EMQX Rule-Engine does not.
 
 
-
 ## rule_engine
 Configuration for the EMQX Rule Engine.
 
@@ -148,11 +129,9 @@ Configuration for the EMQX Rule Engine.
 
  - <code>rule_engine</code>
 
-
 **Env overrides**
 
  - <code>EMQX_RULE_ENGINE</code>
-
 
 
 **Fields**
@@ -178,6 +157,7 @@ Configuration for the EMQX Rule Engine.
 - jq_implementation_module: <code>jq_nif | jq_port</code>
   * default: 
   `jq_nif`
+
   * mapping: 
   `jq.jq_implementation_module`
 
@@ -192,11 +172,9 @@ Configuration for a rule.
 
  - <code>rule_engine.rules.$id</code>
 
-
 **Env overrides**
 
  - <code>EMQX_RULE_ENGINE__RULES__$ID</code>
-
 
 
 **Fields**
@@ -208,16 +186,12 @@ Configuration for a rule.
   The name of the rule
 
 - sql: <code>binary()</code>
-
-
   SQL query to transform the messages.
   Example: <code>SELECT * FROM "test/topic" WHERE payload.x = 1</code>
-
 
 - actions: <code>[binary() | [rule_engine:builtin_action_republish](#rule_engine-builtin_action_republish) | [rule_engine:builtin_action_console](#rule_engine-builtin_action_console) | [rule_engine:user_provided_function](#rule_engine-user_provided_function)]</code>
   * default: 
   `[]`
-
 
   A list of actions of the rule.
   An action can be a string that refers to the channel ID of an EMQX bridge, or an object
@@ -232,7 +206,6 @@ Configuration for a rule.
   If there's any error when running an action, there will be an error message, and the 'failure'
   counter of the function action or the bridge channel will increase.
 
-
 - enable: <code>boolean()</code>
   * default: 
   `true`
@@ -246,7 +219,6 @@ Configuration for a rule.
   The description of the rule
 
 - metadata: <code>map()</code>
-
   Rule metadata, do not change manually
 
 
@@ -258,34 +230,25 @@ Configuration for a built-in action.
 
  - <code>rule_engine.rules.$id.actions.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX</code>
 
 
-
 **Fields**
 
 - function: <code>binary()</code>
-
-
   The user provided function. Should be in the format: '{module}:{function}'.
   Where {module} is the Erlang callback module and {function} is the Erlang function.
-
   To write your own function, checkout the function <code>console</code> and
   <code>republish</code> in the source file:
   <code>apps/emqx_rule_engine/src/emqx_rule_actions.erl</code> as an example.
-
 
 - args: <code>map()</code>
   * default: 
   `{}`
 
-
   The args will be passed as the 3rd argument to module:function/3,
   checkout the function <code>console</code> and <code>republish</code> in the source file:
   <code>apps/emqx_rule_engine/src/emqx_rule_actions.erl</code> as an example.
-
-
 

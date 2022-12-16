@@ -8,17 +8,14 @@ Authorization using a static file.
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>file</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -28,17 +25,13 @@ Authorization using a static file.
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 - path: <code>string()</code>
-
-
   Path to the file which contains the ACL rules.
   If the file provisioned before starting EMQX node,
   it can be placed anywhere as long as EMQX has read access to it.
   That is, EMQX will treat it as read only.
-
   In case the rule-set is created or updated from EMQX Dashboard or HTTP API,
   a new file will be created and placed in `authz` subdirectory inside EMQX's `data_dir`,
   and the old file will not be used anymore.
-
 
 
 ## authz:http_get
@@ -49,17 +42,14 @@ Authorization using an external HTTP server (via GET requests).
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>http</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -69,7 +59,6 @@ Authorization using an external HTTP server (via GET requests).
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 - url: <code>binary()</code>
-
   URL of the auth server.
 
 - request_timeout: <code>string()</code>
@@ -79,7 +68,6 @@ Authorization using an external HTTP server (via GET requests).
   HTTP request timeout.
 
 - body: <code>map()</code>
-
   HTTP request body.
 
 - connect_timeout: <code>emqx_schema:duration_ms()</code>
@@ -95,7 +83,6 @@ Authorization using an external HTTP server (via GET requests).
   A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
 
 - max_retries: <code>non_neg_integer()</code>
-
   Deprecated since 5.0.4.
 
 - pool_size: <code>pos_integer()</code>
@@ -105,14 +92,10 @@ Authorization using an external HTTP server (via GET requests).
   The pool size.
 
 - request: <code>[connector-http:request](#connector-http-request)</code>
-
-
   If the request is provided, the caller can send HTTP requests via
   <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
-
 - retry_interval: <code>emqx_schema:duration()</code>
-
   Deprecated since 5.0.4.
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -129,7 +112,6 @@ Authorization using an external HTTP server (via GET requests).
 
 - headers: <code>[{binary(), binary()}]</code>
   * default: 
-
   ```
   {
     accept = "application/json"
@@ -150,17 +132,14 @@ Authorization using an external HTTP server (via POST requests).
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>http</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -170,7 +149,6 @@ Authorization using an external HTTP server (via POST requests).
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 - url: <code>binary()</code>
-
   URL of the auth server.
 
 - request_timeout: <code>string()</code>
@@ -180,7 +158,6 @@ Authorization using an external HTTP server (via POST requests).
   HTTP request timeout.
 
 - body: <code>map()</code>
-
   HTTP request body.
 
 - connect_timeout: <code>emqx_schema:duration_ms()</code>
@@ -196,7 +173,6 @@ Authorization using an external HTTP server (via POST requests).
   A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
 
 - max_retries: <code>non_neg_integer()</code>
-
   Deprecated since 5.0.4.
 
 - pool_size: <code>pos_integer()</code>
@@ -206,14 +182,10 @@ Authorization using an external HTTP server (via POST requests).
   The pool size.
 
 - request: <code>[connector-http:request](#connector-http-request)</code>
-
-
   If the request is provided, the caller can send HTTP requests via
   <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
-
 - retry_interval: <code>emqx_schema:duration()</code>
-
   Deprecated since 5.0.4.
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -230,7 +202,6 @@ Authorization using an external HTTP server (via POST requests).
 
 - headers: <code>[{binary(), binary()}]</code>
   * default: 
-
   ```
   {
     accept = "application/json"
@@ -252,17 +223,14 @@ Authorization using a built-in database (mnesia).
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>built_in_database</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -280,17 +248,14 @@ Authorization using a MongoDB replica set.
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>mongodb</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -300,19 +265,16 @@ Authorization using a MongoDB replica set.
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 - collection: <code>atom()</code>
-
   `MongoDB` collection containing the authorization data.
 
 - filter: <code>map()</code>
   * default: 
   `{}`
 
-
   Conditional expression that defines the filter condition in the query.
   Filter supports the following placeholders:
    - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
    - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
 
 - mongo_type: <code>rs</code>
   * default: 
@@ -321,13 +283,10 @@ Authorization using a MongoDB replica set.
   Replica set.
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - w_mode: <code>unsafe | safe</code>
   * default: 
@@ -342,7 +301,6 @@ Authorization using a MongoDB replica set.
   Read mode.
 
 - replica_set_name: <code>binary()</code>
-
   Name of the replica set.
 
 - srv_record: <code>boolean()</code>
@@ -358,23 +316,18 @@ Authorization using a MongoDB replica set.
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auth_source: <code>binary()</code>
-
   Database name associated with the user's credentials.
 
 - database: <code>binary()</code>
-
   Database name.
 
 - topology: <code>[topology](#topology)</code>
-
 
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -392,17 +345,14 @@ Authorization using a sharded MongoDB cluster.
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>mongodb</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -412,19 +362,16 @@ Authorization using a sharded MongoDB cluster.
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 - collection: <code>atom()</code>
-
   `MongoDB` collection containing the authorization data.
 
 - filter: <code>map()</code>
   * default: 
   `{}`
 
-
   Conditional expression that defines the filter condition in the query.
   Filter supports the following placeholders:
    - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
    - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
 
 - mongo_type: <code>sharded</code>
   * default: 
@@ -433,13 +380,10 @@ Authorization using a sharded MongoDB cluster.
   Sharded cluster.
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - w_mode: <code>unsafe | safe</code>
   * default: 
@@ -460,23 +404,18 @@ Authorization using a sharded MongoDB cluster.
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auth_source: <code>binary()</code>
-
   Database name associated with the user's credentials.
 
 - database: <code>binary()</code>
-
   Database name.
 
 - topology: <code>[topology](#topology)</code>
-
 
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -494,17 +433,14 @@ Authorization using a single MongoDB instance.
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>mongodb</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -514,19 +450,16 @@ Authorization using a single MongoDB instance.
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 - collection: <code>atom()</code>
-
   `MongoDB` collection containing the authorization data.
 
 - filter: <code>map()</code>
   * default: 
   `{}`
 
-
   Conditional expression that defines the filter condition in the query.
   Filter supports the following placeholders:
    - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
    - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
 
 - mongo_type: <code>single</code>
   * default: 
@@ -535,12 +468,9 @@ Authorization using a single MongoDB instance.
   Standalone instance.
 
 - server: <code>emqx_schema:host_port()</code>
-
-
   The IPv4 or IPv6 address or the hostname to connect to.<br/>
   A host entry has the following form: `Host[:Port]`.<br/>
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - w_mode: <code>unsafe | safe</code>
   * default: 
@@ -561,23 +491,18 @@ Authorization using a single MongoDB instance.
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auth_source: <code>binary()</code>
-
   Database name associated with the user's credentials.
 
 - database: <code>binary()</code>
-
   Database name.
 
 - topology: <code>[topology](#topology)</code>
-
 
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -595,17 +520,14 @@ Authorization using a MySQL database.
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>mysql</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -615,15 +537,11 @@ Authorization using a MySQL database.
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 - server: <code>emqx_schema:host_port()</code>
-
-
   The IPv4 or IPv6 address or the hostname to connect to.<br/>
   A host entry has the following form: `Host[:Port]`.<br/>
   The MySQL default port 3306 is used if `[:Port]` is not specified.
 
-
 - database: <code>binary()</code>
-
   Database name.
 
 - pool_size: <code>pos_integer()</code>
@@ -633,11 +551,9 @@ Authorization using a MySQL database.
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auto_reconnect: <code>boolean()</code>
@@ -653,11 +569,9 @@ Authorization using a MySQL database.
   SSL connection settings.
 
 - prepare_statement: <code>map()</code>
-
   Key-value list of SQL prepared statements.
 
 - query: <code>binary()</code>
-
   Database query used to retrieve authorization data.
 
 
@@ -669,17 +583,14 @@ Authorization using a PostgreSQL database.
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>postgresql</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -689,15 +600,11 @@ Authorization using a PostgreSQL database.
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 - server: <code>emqx_schema:host_port()</code>
-
-
   The IPv4 or IPv6 address or the hostname to connect to.<br/>
   A host entry has the following form: `Host[:Port]`.<br/>
   The PostgreSQL default port 5432 is used if `[:Port]` is not specified.
 
-
 - database: <code>binary()</code>
-
   Database name.
 
 - pool_size: <code>pos_integer()</code>
@@ -707,11 +614,9 @@ Authorization using a PostgreSQL database.
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auto_reconnect: <code>boolean()</code>
@@ -727,11 +632,9 @@ Authorization using a PostgreSQL database.
   SSL connection settings.
 
 - prepare_statement: <code>map()</code>
-
   Key-value list of SQL prepared statements.
 
 - query: <code>binary()</code>
-
   Database query used to retrieve authorization data.
 
 
@@ -743,17 +646,14 @@ Authorization using a Redis cluster.
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>redis</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -763,13 +663,10 @@ Authorization using a Redis cluster.
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - redis_type: <code>cluster</code>
   * default: 
@@ -784,7 +681,6 @@ Authorization using a Redis cluster.
   Size of the connection pool.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auto_reconnect: <code>boolean()</code>
@@ -800,7 +696,6 @@ Authorization using a Redis cluster.
   SSL connection settings.
 
 - cmd: <code>binary()</code>
-
   Database query used to retrieve authorization data.
 
 
@@ -812,17 +707,14 @@ Authorization using a Redis Sentinel.
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>redis</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -832,13 +724,10 @@ Authorization using a Redis Sentinel.
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - redis_type: <code>sentinel</code>
   * default: 
@@ -847,7 +736,6 @@ Authorization using a Redis Sentinel.
   Sentinel mode
 
 - sentinel: <code>string()</code>
-
   The cluster name in Redis sentinel mode.
 
 - pool_size: <code>pos_integer()</code>
@@ -857,7 +745,6 @@ Authorization using a Redis Sentinel.
   Size of the connection pool.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - database: <code>integer()</code>
@@ -879,7 +766,6 @@ Authorization using a Redis Sentinel.
   SSL connection settings.
 
 - cmd: <code>binary()</code>
-
   Database query used to retrieve authorization data.
 
 
@@ -891,17 +777,14 @@ Authorization using a single Redis instance.
 
  - <code>authorization.sources.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
 
 
-
 **Fields**
 
 - type: <code>redis</code>
-
   Backend type.
 
 - enable: <code>boolean()</code>
@@ -911,12 +794,9 @@ Authorization using a single Redis instance.
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 - server: <code>emqx_schema:host_port()</code>
-
-
   The IPv4 or IPv6 address or the hostname to connect to.<br/>
   A host entry has the following form: `Host[:Port]`.<br/>
   The Redis default port 6379 is used if `[:Port]` is not specified.
-
 
 - redis_type: <code>single</code>
   * default: 
@@ -931,7 +811,6 @@ Authorization using a single Redis instance.
   Size of the connection pool.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - database: <code>integer()</code>
@@ -953,7 +832,5 @@ Authorization using a single Redis instance.
   SSL connection settings.
 
 - cmd: <code>binary()</code>
-
   Database query used to retrieve authorization data.
-
 

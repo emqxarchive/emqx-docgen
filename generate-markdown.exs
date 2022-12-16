@@ -7,6 +7,9 @@ Mix.install([
 ])
 
 defmodule Main do
+  Code.require_file("md.exs")
+  Code.require_file("schema_md.exs")
+
   def parse_args!(args) do
     lang =
       case OptionParser.parse!(args, strict: [lang: :string]) do
@@ -81,9 +84,9 @@ defmodule Main do
     entries =
       sections
       |> Enum.map(fn %{slug: slug, title: title} ->
-        link(title, "./#{slug}.md")
+        MD.link(title, "./#{slug}.md")
       end)
-      |> ul()
+      |> MD.ul()
 
     """
     #{preamble}
@@ -92,13 +95,6 @@ defmodule Main do
 
     #{entries}
     """
-  end
-
-  def link(text, path), do: "[#{text}](#{path})"
-  def ul(items) do
-    items
-    |> Enum.map(& "- #{&1}")
-    |> Enum.join("\n")
   end
 
   def generate_markdown(opts) do
@@ -127,7 +123,7 @@ defmodule Main do
           |> Path.join()
           |> File.read!()
           |> Jason.decode!(keys: :atoms)
-          |> :hocon_schema_md.gen_from_structs(%{title: "# #{title}", body: body, env_prefix: "EMQX_"})
+          |> SchemaMD.gen_from_structs(%{title: "# #{title}", body: body, env_prefix: "EMQX_"})
 
         outfile = Path.join([dist_dir, "md", "#{slug}.md"])
         File.write!(outfile, md)

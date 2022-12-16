@@ -8,11 +8,9 @@ Settings for the alarms.
 
  - <code>alarm</code>
 
-
 **Env overrides**
 
  - <code>EMQX_ALARM</code>
-
 
 
 **Fields**
@@ -33,14 +31,12 @@ Settings for the alarms.
 
   The maximum total number of deactivated alarms to keep as history.<br/>When this limit is exceeded, the oldest deactivated alarms are deleted to cap the total number.
 
-
 - validity_period: <code>emqx_schema:duration()</code>
   * default: 
   `"24h"`
 
   Retention time of deactivated alarms. Alarms are not deleted immediately
   when deactivated, but after the retention time.
-
 
 
 ## broker
@@ -51,11 +47,9 @@ Message broker options.
 
  - <code>broker</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BROKER</code>
-
 
 
 **Fields**
@@ -76,7 +70,6 @@ Message broker options.
     - `quorum`: select some nodes to lock the session
     - `all`: lock the session on all the nodes in the cluster
 
-
 - shared_subscription_strategy: <code>random | round_robin | round_robin_per_group | sticky | local | hash_topic | hash_clientid</code>
   * default: 
   `round_robin`
@@ -87,14 +80,12 @@ Message broker options.
     - `sticky`: always use the last selected subscriber to dispatch, until the subscriber disconnects.
     - `hash`: select the subscribers by the hash of `clientIds`
 
-
 - shared_dispatch_ack_enabled: <code>boolean()</code>
   * default: 
   `false`
 
   Enable/disable shared dispatch acknowledgement for QoS 1 and QoS 2 messages.
   This should allow messages to be dispatched to a different subscriber in the group in case the picked (based on `shared_subscription_strategy`) subscriber is offline.
-
 
 - route_batch_clean: <code>boolean()</code>
   * default: 
@@ -105,14 +96,11 @@ Message broker options.
 - perf: <code>[broker:broker_perf](#broker-broker_perf)</code>
 
 
-
 - shared_subscription_group: <code>{$name -> [broker:shared_subscription_group](#broker-shared_subscription_group)}</code>
-
   Per group dispatch strategy for shared subscription.
   This config is a map from shared subscription group name to the strategy
   name. The group name should be of format `[A-Za-z0-9]`. i.e. no
   special characters are allowed.
-
 
 
 ## broker:broker_perf
@@ -123,11 +111,9 @@ Broker performance tuning parameters.
 
  - <code>broker.perf</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BROKER__PERF</code>
-
 
 
 **Fields**
@@ -138,12 +124,10 @@ Broker performance tuning parameters.
 
   Performance tuning for subscribing/unsubscribing a wildcard topic.
   Change this parameter only when there are many wildcard topics.
-
   NOTE: when changing from/to `global` lock, it requires all nodes in the cluster to be stopped before the change.
     - `key`: mnesia transactional updates with per-key locks. Recommended for a single-node setup.
     - `tab`: mnesia transactional updates with table lock. Recommended for a cluster setup.
     - `global`: updates are protected with a global lock. Recommended for large clusters.
-
 
 - trie_compaction: <code>boolean()</code>
   * default: 
@@ -152,9 +136,7 @@ Broker performance tuning parameters.
   Enable trie path compaction.
   Enabling it significantly improves wildcard topic subscribe rate, if wildcard topics have unique prefixes like: 'sensor/{{id}}/+/', where ID is unique per subscriber.
   Topic match performance (when publishing) may degrade if messages are mostly published to topics with large number of levels.
-
   NOTE: This is a cluster-wide configuration. It requires all nodes to be stopped before changing it.
-
 
 
 ## broker:cache
@@ -165,11 +147,9 @@ Settings for the authorization cache.
 
  - <code>authorization.cache</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION__CACHE</code>
-
 
 
 **Fields**
@@ -214,11 +194,9 @@ and `<Username>` is the username or `unknown_user`.
 
  - <code>conn_congestion</code>
 
-
 **Env overrides**
 
  - <code>EMQX_CONN_CONGESTION</code>
-
 
 
 **Fields**
@@ -245,28 +223,23 @@ Compression options.
  - <code>listeners.ws.$name.websocket.deflate_opts</code>
  - <code>listeners.wss.$name.websocket.deflate_opts</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS__WS__$NAME__WEBSOCKET__DEFLATE_OPTS</code>
  - <code>EMQX_LISTENERS__WSS__$NAME__WEBSOCKET__DEFLATE_OPTS</code>
 
 
-
 **Fields**
 
 - level: <code>none | default | best_compression | best_speed</code>
-
   Compression level. 
 
 - mem_level: <code>1..9</code>
   * default: 
   `8`
 
-
   Specifies the size of the compression state.<br/>
   Lower values decrease memory usage per connection.
-
 
 - strategy: <code>default | filtered | huffman_only | rle</code>
   * default: 
@@ -317,11 +290,9 @@ are distinguished by the topic prefix:
 
  - <code>sys_topics.sys_event_messages</code>
 
-
 **Env overrides**
 
  - <code>EMQX_SYS_TOPICS__SYS_EVENT_MESSAGES</code>
-
 
 
 **Fields**
@@ -362,11 +333,9 @@ After the limit is reached, successive `CONNECT` requests are forbidden
 
  - <code>flapping_detect</code>
 
-
 **Env overrides**
 
  - <code>EMQX_FLAPPING_DETECT</code>
-
 
 
 **Fields**
@@ -405,11 +374,9 @@ Force garbage collection in MQTT connection process after
 
  - <code>force_gc</code>
 
-
 **Env overrides**
 
  - <code>EMQX_FORCE_GC</code>
-
 
 
 **Fields**
@@ -445,11 +412,9 @@ of the Erlang process, not the `mqueue` of QoS 1 and QoS 2.
 
  - <code>force_shutdown</code>
 
-
 **Env overrides**
 
  - <code>EMQX_FORCE_SHUTDOWN</code>
-
 
 
 **Fields**
@@ -483,7 +448,6 @@ Socket options for SSL connections.
  - <code>gateway.stomp.listeners.ssl.$name.ssl_options</code>
  - <code>listeners.ssl.$name.ssl_options</code>
 
-
 **Env overrides**
 
  - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__SSL_OPTIONS</code>
@@ -491,12 +455,9 @@ Socket options for SSL connections.
  - <code>EMQX_LISTENERS__SSL__$NAME__SSL_OPTIONS</code>
 
 
-
 **Fields**
 
 - cacertfile: <code>binary()</code>
-
-
   Trusted PEM format CA certificates bundle file.<br/>
   The certificates in this file are used to verify the TLS peer's certificates.
   Append new certificates to the file if new CAs are to be trusted.
@@ -505,10 +466,7 @@ Socket options for SSL connections.
   NOTE: invalidating (deleting) a certificate from the file will not affect
   already established connections.
 
-
 - certfile: <code>binary()</code>
-
-
   PEM format certificates chain file.<br/>
   The certificates in this file should be in reversed order of the certificate
   issue chain. That is, the host's certificate should be placed in the beginning
@@ -516,9 +474,7 @@ Socket options for SSL connections.
   Although the root CA certificate is optional, it should be placed at the end of
   the file if it is to be added.
 
-
 - keyfile: <code>binary()</code>
-
   PEM format private key file. 
 
 - verify: <code>verify_peer | verify_none</code>
@@ -537,35 +493,27 @@ Socket options for SSL connections.
   * default: 
   `10`
 
-
   Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
   So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
   if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
   if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
 
-
 - password: <code>string()</code>
-
-
   String containing the user's password.
   Only used if the private key file is password-protected.
-
 
 - versions: <code>[atom()]</code>
   * default: 
   `[tlsv1.3, tlsv1.2, tlsv1.1, tlsv1]`
-
 
   All TLS/DTLS versions to be supported.<br/>
   NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
   In case PSK cipher suites are intended, make sure to configure
   <code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-
 - ciphers: <code>[string()]</code>
   * default: 
   `[]`
-
 
   This config holds TLS cipher suite names separated by comma,
   or as an array of strings. e.g.
@@ -576,25 +524,21 @@ Socket options for SSL connections.
   client and server encrypts information over the network connection.
   Selecting a good cipher suite is critical for the
   application's data security, confidentiality and performance.
-
   The names should be in OpenSSL string format (not RFC format).
   All default values and examples provided by EMQX config
   documentation are all in OpenSSL format.<br/>
-
   NOTE: Certain cipher suites are only compatible with
   specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
   incompatible cipher suites will be silently dropped.
   For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
   configuring cipher suites for other versions will have no effect.
   <br/>
-
   NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
   If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
   PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
   RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
   RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
   RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
-
 
 - user_lookup_fun: <code>string()</code>
   * default: 
@@ -606,27 +550,21 @@ Socket options for SSL connections.
   * default: 
   `true`
 
-
   SSL parameter renegotiation is a feature that allows a client and a server
   to renegotiate the parameters of the SSL connection on the fly.
   RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
   you drop support for the insecure renegotiation, prone to MitM attacks.
 
-
 - dhfile: <code>string()</code>
-
-
   Path to a file containing PEM-encoded Diffie-Hellman parameters
   to be used by the server if a cipher suite using Diffie-Hellman
   key exchange is negotiated. If not specified, default parameters
   are used.<br/>
   NOTE: The <code>dhfile</code> option is not supported by TLS 1.3.
 
-
 - fail_if_no_peer_cert: <code>boolean()</code>
   * default: 
   `false`
-
 
   Used together with {verify, verify_peer} by an TLS/DTLS server.
   If set to true, the server fails if the client does not have a
@@ -634,22 +572,18 @@ Socket options for SSL connections.
   If set to false, it fails only if the client sends an invalid
   certificate (an empty certificate is considered valid).
 
-
 - honor_cipher_order: <code>boolean()</code>
   * default: 
   `true`
-
 
   An important security setting, it forces the cipher to be set based
    on the server-specified order instead of the client-specified order,
    hence enforcing the (usually more properly configured) security
    ordering of the server administrator.
 
-
 - client_renegotiation: <code>boolean()</code>
   * default: 
   `true`
-
 
   In protocols that support client-initiated renegotiation,
   the cost of resources of such an operation is higher for the server than the client.
@@ -660,23 +594,18 @@ Socket options for SSL connections.
   long-lived connections becoming unusable due to limits on
   the number of messages the underlying cipher suite can encipher.
 
-
 - handshake_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"15s"`
 
-
   Maximum time duration allowed for the handshake to complete
-
 
 - gc_after_handshake: <code>boolean()</code>
   * default: 
   `false`
 
-
   Memory usage tuning. If enabled, will immediately perform a garbage collection after
   the TLS/SSL handshake.
-
 
 
 ## broker:listener_wss_opts
@@ -687,18 +616,14 @@ Socket options for WebSocket/SSL connections.
 
  - <code>listeners.wss.$name.ssl_options</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS__WSS__$NAME__SSL_OPTIONS</code>
 
 
-
 **Fields**
 
 - cacertfile: <code>binary()</code>
-
-
   Trusted PEM format CA certificates bundle file.<br/>
   The certificates in this file are used to verify the TLS peer's certificates.
   Append new certificates to the file if new CAs are to be trusted.
@@ -707,10 +632,7 @@ Socket options for WebSocket/SSL connections.
   NOTE: invalidating (deleting) a certificate from the file will not affect
   already established connections.
 
-
 - certfile: <code>binary()</code>
-
-
   PEM format certificates chain file.<br/>
   The certificates in this file should be in reversed order of the certificate
   issue chain. That is, the host's certificate should be placed in the beginning
@@ -718,9 +640,7 @@ Socket options for WebSocket/SSL connections.
   Although the root CA certificate is optional, it should be placed at the end of
   the file if it is to be added.
 
-
 - keyfile: <code>binary()</code>
-
   PEM format private key file. 
 
 - verify: <code>verify_peer | verify_none</code>
@@ -739,35 +659,27 @@ Socket options for WebSocket/SSL connections.
   * default: 
   `10`
 
-
   Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
   So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
   if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
   if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
 
-
 - password: <code>string()</code>
-
-
   String containing the user's password.
   Only used if the private key file is password-protected.
-
 
 - versions: <code>[atom()]</code>
   * default: 
   `[tlsv1.3, tlsv1.2, tlsv1.1, tlsv1]`
-
 
   All TLS/DTLS versions to be supported.<br/>
   NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
   In case PSK cipher suites are intended, make sure to configure
   <code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-
 - ciphers: <code>[string()]</code>
   * default: 
   `[]`
-
 
   This config holds TLS cipher suite names separated by comma,
   or as an array of strings. e.g.
@@ -778,25 +690,21 @@ Socket options for WebSocket/SSL connections.
   client and server encrypts information over the network connection.
   Selecting a good cipher suite is critical for the
   application's data security, confidentiality and performance.
-
   The names should be in OpenSSL string format (not RFC format).
   All default values and examples provided by EMQX config
   documentation are all in OpenSSL format.<br/>
-
   NOTE: Certain cipher suites are only compatible with
   specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
   incompatible cipher suites will be silently dropped.
   For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
   configuring cipher suites for other versions will have no effect.
   <br/>
-
   NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
   If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
   PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
   RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
   RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
   RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
-
 
 - user_lookup_fun: <code>string()</code>
   * default: 
@@ -808,27 +716,21 @@ Socket options for WebSocket/SSL connections.
   * default: 
   `true`
 
-
   SSL parameter renegotiation is a feature that allows a client and a server
   to renegotiate the parameters of the SSL connection on the fly.
   RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
   you drop support for the insecure renegotiation, prone to MitM attacks.
 
-
 - dhfile: <code>string()</code>
-
-
   Path to a file containing PEM-encoded Diffie-Hellman parameters
   to be used by the server if a cipher suite using Diffie-Hellman
   key exchange is negotiated. If not specified, default parameters
   are used.<br/>
   NOTE: The <code>dhfile</code> option is not supported by TLS 1.3.
 
-
 - fail_if_no_peer_cert: <code>boolean()</code>
   * default: 
   `false`
-
 
   Used together with {verify, verify_peer} by an TLS/DTLS server.
   If set to true, the server fails if the client does not have a
@@ -836,22 +738,18 @@ Socket options for WebSocket/SSL connections.
   If set to false, it fails only if the client sends an invalid
   certificate (an empty certificate is considered valid).
 
-
 - honor_cipher_order: <code>boolean()</code>
   * default: 
   `true`
-
 
   An important security setting, it forces the cipher to be set based
    on the server-specified order instead of the client-specified order,
    hence enforcing the (usually more properly configured) security
    ordering of the server administrator.
 
-
 - client_renegotiation: <code>boolean()</code>
   * default: 
   `true`
-
 
   In protocols that support client-initiated renegotiation,
   the cost of resources of such an operation is higher for the server than the client.
@@ -862,14 +760,11 @@ Socket options for WebSocket/SSL connections.
   long-lived connections becoming unusable due to limits on
   the number of messages the underlying cipher suite can encipher.
 
-
 - handshake_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"15s"`
 
-
   Maximum time duration allowed for the handshake to complete
-
 
 
 ## broker:listeners
@@ -880,33 +775,26 @@ MQTT listeners identified by their protocol type and assigned names
 
  - <code>listeners</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS</code>
 
 
-
 **Fields**
 
 - tcp: <code>{$name -> [broker:mqtt_tcp_listener](#broker-mqtt_tcp_listener)}</code>
-
   TCP listeners.
 
 - ssl: <code>{$name -> [broker:mqtt_ssl_listener](#broker-mqtt_ssl_listener)}</code>
-
   SSL listeners.
 
 - ws: <code>{$name -> [broker:mqtt_ws_listener](#broker-mqtt_ws_listener)}</code>
-
   HTTP websocket listeners.
 
 - wss: <code>{$name -> [broker:mqtt_wss_listener](#broker-mqtt_wss_listener)}</code>
-
   HTTPS websocket listeners.
 
 - quic: <code>{$name -> [broker:mqtt_quic_listener](#broker-mqtt_quic_listener)}</code>
-
   QUIC listeners.
 
 
@@ -919,11 +807,9 @@ in <code>zone</code> configs
 
  - <code>mqtt</code>
 
-
 **Env overrides**
 
  - <code>EMQX_MQTT</code>
-
 
 
 **Fields**
@@ -1073,14 +959,11 @@ in <code>zone</code> configs
 
   Topic priorities. Priority number [1-255]
   There's no priority table by default, hence all messages are treated equal.
-
   **NOTE**: Comma and equal signs are not allowed for priority topic names.
   **NOTE**: Messages for topics not in the priority table are treated as either highest or lowest priority depending on the configured value for <code>mqtt.mqueue_default_priority</code>.
-
   **Examples**:
   To configure <code>"topic/1" > "topic/2"</code>:
   <code>mqueue_priorities: {"topic/1": 10, "topic/2": 8}</code>
-
 
 - mqueue_default_priority: <code>highest | lowest</code>
   * default: 
@@ -1101,7 +984,6 @@ in <code>zone</code> configs
   Whether to user Client ID as Username.
   This setting takes effect later than <code>Use Peer Certificate as Username</code> (<code>peer_cert_as_username</code>) and <code>Use peer certificate as Client ID</code> (<code>peer_cert_as_clientid</code>).
 
-
 - peer_cert_as_username: <code>disabled | cn | dn | crt | pem | md5</code>
   * default: 
   `disabled`
@@ -1113,7 +995,6 @@ in <code>zone</code> configs
   - <code>crt</code>: Take the content of the <code>DER</code> or <code>PEM</code> certificate as Username
   - <code>pem</code>: Convert <code>DER</code> certificate content to <code>PEM</code> format as Username
   - <code>md5</code>: Take the MD5 value of the content of the <code>DER</code> or <code>PEM</code> certificate as Username
-
 
 - peer_cert_as_clientid: <code>disabled | cn | dn | crt | pem | md5</code>
   * default: 
@@ -1128,7 +1009,6 @@ in <code>zone</code> configs
   - <code>md5</code>: Take the MD5 value of the content of the <code>DER</code> or <code>PEM</code> certificate as Client ID
 
 
-
 ## broker:mqtt_quic_listener
 Settings for the MQTT over QUIC listener.
 
@@ -1137,27 +1017,22 @@ Settings for the MQTT over QUIC listener.
 
  - <code>listeners.quic.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS__QUIC__$NAME</code>
 
 
-
 **Fields**
 
 - certfile: <code>string()</code>
-
   Path to the certificate file.
 
 - keyfile: <code>string()</code>
-
   Path to the secret key file. 
 
 - ciphers: <code>[string()]</code>
   * default: 
   `["TLS_AES_256_GCM_SHA384", "TLS_AES_128_GCM_SHA256", "TLS_CHACHA20_POLY1305_SHA256"]`
-
 
   This config holds TLS cipher suite names separated by comma,
   or as an array of strings. e.g.
@@ -1168,27 +1043,22 @@ Settings for the MQTT over QUIC listener.
   client and server encrypts information over the network connection.
   Selecting a good cipher suite is critical for the
   application's data security, confidentiality and performance.
-
   The names should be in OpenSSL string format (not RFC format).
   All default values and examples provided by EMQX config
   documentation are all in OpenSSL format.<br/>
-
   NOTE: Certain cipher suites are only compatible with
   specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
   incompatible cipher suites will be silently dropped.
   For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
   configuring cipher suites for other versions will have no effect.
   <br/>
-
   NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
   If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
   PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
   RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
   RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
   RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
-
   NOTE: QUIC listener supports only 'tlsv1.3' ciphers<br/>
-
 
 - idle_timeout: <code>emqx_schema:duration_ms()</code>
   * default: 
@@ -1206,9 +1076,7 @@ Settings for the MQTT over QUIC listener.
   * default: 
   `0`
 
-
   How often to send PING frames to keep a connection alive. 0 means disabled.
-
 
 - enabled: <code>boolean()</code>
   * default: 
@@ -1220,9 +1088,7 @@ Settings for the MQTT over QUIC listener.
   * default: 
   `14567`
 
-
   IP address and port for the listening socket.
-
 
 - acceptors: <code>pos_integer()</code>
   * default: 
@@ -1240,7 +1106,6 @@ Settings for the MQTT over QUIC listener.
   * default: 
   `""`
 
-
   When publishing or subscribing, prefix all topics with a mountpoint string.
   The prefixed string will be removed from the topic name when the message
   is delivered to the subscriber. The mountpoint is a way that users can use
@@ -1252,37 +1117,29 @@ Settings for the MQTT over QUIC listener.
   to all the clients subscribed `some_tenant/t`, so client A will receive the
   message, with topic name `t`.<br/>
   Set to `""` to disable the feature.<br/>
-
   Variables in mountpoint string:
     - <code>${clientid}</code>: clientid
     - <code>${username}</code>: username
-
 
 - zone: <code>atom()</code>
   * default: 
   `default`
 
-
   The configuration zone to which the listener belongs.
-
 
 - limiter: <code>[limiter:listener_fields](#limiter-listener_fields)</code>
   * default: 
-
   ```
   {
     connection {capacity = 1000, rate = "1000/s"}
   }
   ```
 
-
   Type of the rate limit.
-
 
 - enable_authn: <code>true | false | quick_deny_anonymous</code>
   * default: 
   `true`
-
 
   Set <code>true</code> (default) to enable client authentication on this listener, the authentication
   process goes through the configured authentication chain.
@@ -1290,7 +1147,6 @@ Settings for the MQTT over QUIC listener.
   When set to <code>quick_deny_anonymous</code>, it behaves like when set to <code>true</code> but clients will be
   denied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off
   anonymous clients early.
-
 
 
 ## broker:mqtt_ssl_listener
@@ -1301,11 +1157,9 @@ Settings for the MQTT over SSL listener.
 
  - <code>listeners.ssl.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS__SSL__$NAME</code>
-
 
 
 **Fields**
@@ -1320,9 +1174,7 @@ Settings for the MQTT over SSL listener.
   * default: 
   `8883`
 
-
   IP address and port for the listening socket.
-
 
 - acceptors: <code>pos_integer()</code>
   * default: 
@@ -1340,7 +1192,6 @@ Settings for the MQTT over SSL listener.
   * default: 
   `""`
 
-
   When publishing or subscribing, prefix all topics with a mountpoint string.
   The prefixed string will be removed from the topic name when the message
   is delivered to the subscriber. The mountpoint is a way that users can use
@@ -1352,37 +1203,29 @@ Settings for the MQTT over SSL listener.
   to all the clients subscribed `some_tenant/t`, so client A will receive the
   message, with topic name `t`.<br/>
   Set to `""` to disable the feature.<br/>
-
   Variables in mountpoint string:
     - <code>${clientid}</code>: clientid
     - <code>${username}</code>: username
-
 
 - zone: <code>atom()</code>
   * default: 
   `default`
 
-
   The configuration zone to which the listener belongs.
-
 
 - limiter: <code>[limiter:listener_fields](#limiter-listener_fields)</code>
   * default: 
-
   ```
   {
     connection {capacity = 1000, rate = "1000/s"}
   }
   ```
 
-
   Type of the rate limit.
-
 
 - enable_authn: <code>true | false | quick_deny_anonymous</code>
   * default: 
   `true`
-
 
   Set <code>true</code> (default) to enable client authentication on this listener, the authentication
   process goes through the configured authentication chain.
@@ -1391,47 +1234,34 @@ Settings for the MQTT over SSL listener.
   denied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off
   anonymous clients early.
 
-
 - access_rules: <code>[string()]</code>
   * default: 
   `["allow all"]`
 
-
   The access control rules for this listener.<br/>See: https://github.com/emqtt/esockd#allowdeny
-
 
 - proxy_protocol: <code>boolean()</code>
   * default: 
   `false`
 
-
   Enable the Proxy Protocol V1/2 if the EMQX cluster is deployed behind HAProxy or Nginx.<br/>
   See: https://www.haproxy.com/blog/haproxy/proxy-protocol/
-
 
 - proxy_protocol_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"3s"`
 
-
   Timeout for proxy protocol. EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
 
-
 - authentication: <code>[[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)]</code>
-
-
   Per-listener authentication override.
   Authentication can be one single authenticator instance or a chain of authenticators as an array.
   When authenticating a login (username, client ID, etc.) the authenticators are checked in the configured order.<br/>
 
-
-
 - tcp_options: <code>[broker:tcp_opts](#broker-tcp_opts)</code>
 
 
-
 - ssl_options: <code>[broker:listener_ssl_opts](#broker-listener_ssl_opts)</code>
-
 
 
 
@@ -1443,11 +1273,9 @@ Settings for the MQTT over TCP listener.
 
  - <code>listeners.tcp.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS__TCP__$NAME</code>
-
 
 
 **Fields**
@@ -1462,9 +1290,7 @@ Settings for the MQTT over TCP listener.
   * default: 
   `1883`
 
-
   IP address and port for the listening socket.
-
 
 - acceptors: <code>pos_integer()</code>
   * default: 
@@ -1482,7 +1308,6 @@ Settings for the MQTT over TCP listener.
   * default: 
   `""`
 
-
   When publishing or subscribing, prefix all topics with a mountpoint string.
   The prefixed string will be removed from the topic name when the message
   is delivered to the subscriber. The mountpoint is a way that users can use
@@ -1494,37 +1319,29 @@ Settings for the MQTT over TCP listener.
   to all the clients subscribed `some_tenant/t`, so client A will receive the
   message, with topic name `t`.<br/>
   Set to `""` to disable the feature.<br/>
-
   Variables in mountpoint string:
     - <code>${clientid}</code>: clientid
     - <code>${username}</code>: username
-
 
 - zone: <code>atom()</code>
   * default: 
   `default`
 
-
   The configuration zone to which the listener belongs.
-
 
 - limiter: <code>[limiter:listener_fields](#limiter-listener_fields)</code>
   * default: 
-
   ```
   {
     connection {capacity = 1000, rate = "1000/s"}
   }
   ```
 
-
   Type of the rate limit.
-
 
 - enable_authn: <code>true | false | quick_deny_anonymous</code>
   * default: 
   `true`
-
 
   Set <code>true</code> (default) to enable client authentication on this listener, the authentication
   process goes through the configured authentication chain.
@@ -1533,43 +1350,31 @@ Settings for the MQTT over TCP listener.
   denied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off
   anonymous clients early.
 
-
 - access_rules: <code>[string()]</code>
   * default: 
   `["allow all"]`
 
-
   The access control rules for this listener.<br/>See: https://github.com/emqtt/esockd#allowdeny
-
 
 - proxy_protocol: <code>boolean()</code>
   * default: 
   `false`
 
-
   Enable the Proxy Protocol V1/2 if the EMQX cluster is deployed behind HAProxy or Nginx.<br/>
   See: https://www.haproxy.com/blog/haproxy/proxy-protocol/
-
 
 - proxy_protocol_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"3s"`
 
-
   Timeout for proxy protocol. EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
 
-
 - authentication: <code>[[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)]</code>
-
-
   Per-listener authentication override.
   Authentication can be one single authenticator instance or a chain of authenticators as an array.
   When authenticating a login (username, client ID, etc.) the authenticators are checked in the configured order.<br/>
 
-
-
 - tcp_options: <code>[broker:tcp_opts](#broker-tcp_opts)</code>
-
 
 
 
@@ -1581,11 +1386,9 @@ Settings for the MQTT over WebSocket listener.
 
  - <code>listeners.ws.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS__WS__$NAME</code>
-
 
 
 **Fields**
@@ -1600,9 +1403,7 @@ Settings for the MQTT over WebSocket listener.
   * default: 
   `8083`
 
-
   IP address and port for the listening socket.
-
 
 - acceptors: <code>pos_integer()</code>
   * default: 
@@ -1620,7 +1421,6 @@ Settings for the MQTT over WebSocket listener.
   * default: 
   `""`
 
-
   When publishing or subscribing, prefix all topics with a mountpoint string.
   The prefixed string will be removed from the topic name when the message
   is delivered to the subscriber. The mountpoint is a way that users can use
@@ -1632,37 +1432,29 @@ Settings for the MQTT over WebSocket listener.
   to all the clients subscribed `some_tenant/t`, so client A will receive the
   message, with topic name `t`.<br/>
   Set to `""` to disable the feature.<br/>
-
   Variables in mountpoint string:
     - <code>${clientid}</code>: clientid
     - <code>${username}</code>: username
-
 
 - zone: <code>atom()</code>
   * default: 
   `default`
 
-
   The configuration zone to which the listener belongs.
-
 
 - limiter: <code>[limiter:listener_fields](#limiter-listener_fields)</code>
   * default: 
-
   ```
   {
     connection {capacity = 1000, rate = "1000/s"}
   }
   ```
 
-
   Type of the rate limit.
-
 
 - enable_authn: <code>true | false | quick_deny_anonymous</code>
   * default: 
   `true`
-
 
   Set <code>true</code> (default) to enable client authentication on this listener, the authentication
   process goes through the configured authentication chain.
@@ -1671,47 +1463,34 @@ Settings for the MQTT over WebSocket listener.
   denied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off
   anonymous clients early.
 
-
 - access_rules: <code>[string()]</code>
   * default: 
   `["allow all"]`
 
-
   The access control rules for this listener.<br/>See: https://github.com/emqtt/esockd#allowdeny
-
 
 - proxy_protocol: <code>boolean()</code>
   * default: 
   `false`
 
-
   Enable the Proxy Protocol V1/2 if the EMQX cluster is deployed behind HAProxy or Nginx.<br/>
   See: https://www.haproxy.com/blog/haproxy/proxy-protocol/
-
 
 - proxy_protocol_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"3s"`
 
-
   Timeout for proxy protocol. EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
 
-
 - authentication: <code>[[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)]</code>
-
-
   Per-listener authentication override.
   Authentication can be one single authenticator instance or a chain of authenticators as an array.
   When authenticating a login (username, client ID, etc.) the authenticators are checked in the configured order.<br/>
 
-
-
 - tcp_options: <code>[broker:tcp_opts](#broker-tcp_opts)</code>
 
 
-
 - websocket: <code>[broker:ws_opts](#broker-ws_opts)</code>
-
 
 
 
@@ -1723,11 +1502,9 @@ Settings for the MQTT over WebSocket/SSL listener.
 
  - <code>listeners.wss.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS__WSS__$NAME</code>
-
 
 
 **Fields**
@@ -1742,9 +1519,7 @@ Settings for the MQTT over WebSocket/SSL listener.
   * default: 
   `8084`
 
-
   IP address and port for the listening socket.
-
 
 - acceptors: <code>pos_integer()</code>
   * default: 
@@ -1762,7 +1537,6 @@ Settings for the MQTT over WebSocket/SSL listener.
   * default: 
   `""`
 
-
   When publishing or subscribing, prefix all topics with a mountpoint string.
   The prefixed string will be removed from the topic name when the message
   is delivered to the subscriber. The mountpoint is a way that users can use
@@ -1774,37 +1548,29 @@ Settings for the MQTT over WebSocket/SSL listener.
   to all the clients subscribed `some_tenant/t`, so client A will receive the
   message, with topic name `t`.<br/>
   Set to `""` to disable the feature.<br/>
-
   Variables in mountpoint string:
     - <code>${clientid}</code>: clientid
     - <code>${username}</code>: username
-
 
 - zone: <code>atom()</code>
   * default: 
   `default`
 
-
   The configuration zone to which the listener belongs.
-
 
 - limiter: <code>[limiter:listener_fields](#limiter-listener_fields)</code>
   * default: 
-
   ```
   {
     connection {capacity = 1000, rate = "1000/s"}
   }
   ```
 
-
   Type of the rate limit.
-
 
 - enable_authn: <code>true | false | quick_deny_anonymous</code>
   * default: 
   `true`
-
 
   Set <code>true</code> (default) to enable client authentication on this listener, the authentication
   process goes through the configured authentication chain.
@@ -1813,51 +1579,37 @@ Settings for the MQTT over WebSocket/SSL listener.
   denied immediately without going through any authenticators if <code>username</code> is not provided. This is useful to fence off
   anonymous clients early.
 
-
 - access_rules: <code>[string()]</code>
   * default: 
   `["allow all"]`
 
-
   The access control rules for this listener.<br/>See: https://github.com/emqtt/esockd#allowdeny
-
 
 - proxy_protocol: <code>boolean()</code>
   * default: 
   `false`
 
-
   Enable the Proxy Protocol V1/2 if the EMQX cluster is deployed behind HAProxy or Nginx.<br/>
   See: https://www.haproxy.com/blog/haproxy/proxy-protocol/
-
 
 - proxy_protocol_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"3s"`
 
-
   Timeout for proxy protocol. EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
 
-
 - authentication: <code>[[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)]</code>
-
-
   Per-listener authentication override.
   Authentication can be one single authenticator instance or a chain of authenticators as an array.
   When authenticating a login (username, client ID, etc.) the authenticators are checked in the configured order.<br/>
 
-
-
 - tcp_options: <code>[broker:tcp_opts](#broker-tcp_opts)</code>
-
 
 
 - ssl_options: <code>[broker:listener_wss_opts](#broker-listener_wss_opts)</code>
 
 
-
 - websocket: <code>[broker:ws_opts](#broker-ws_opts)</code>
-
 
 
 
@@ -1870,11 +1622,9 @@ disables some features (such as accepting new connections) when the load is high
 
  - <code>overload_protection</code>
 
-
 **Env overrides**
 
  - <code>EMQX_OVERLOAD_PROTECTION</code>
-
 
 
 **Fields**
@@ -1918,11 +1668,9 @@ Settings for the built-in storage engine of persistent messages.
 
  - <code>persistent_session_store.backend</code>
 
-
 **Env overrides**
 
  - <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND</code>
-
 
 
 **Fields**
@@ -1934,15 +1682,12 @@ Settings for the built-in storage engine of persistent messages.
 
 
 - session: <code>[broker:persistent_table_mria_opts](#broker-persistent_table_mria_opts)</code>
-
   Performance tuning options for built-in session table.
 
 - session_messages: <code>[broker:persistent_table_mria_opts](#broker-persistent_table_mria_opts)</code>
-
   Performance tuning options for built-in session messages table.
 
 - messages: <code>[broker:persistent_table_mria_opts](#broker-persistent_table_mria_opts)</code>
-
   Performance tuning options for built-in messages table.
 
 
@@ -1954,11 +1699,9 @@ Settings for message persistence.
 
  - <code>persistent_session_store</code>
 
-
 **Env overrides**
 
  - <code>EMQX_PERSISTENT_SESSION_STORE</code>
-
 
 
 **Fields**
@@ -1970,7 +1713,6 @@ Settings for message persistence.
   Use the database to store information about persistent sessions.
   This makes it possible to migrate a client connection to another
   cluster node if a node is stopped.
-
 
 - on_disc: <code>boolean()</code>
   * default: 
@@ -1988,7 +1730,6 @@ Settings for message persistence.
 
 - backend: <code>[broker:persistent_session_builtin](#broker-persistent_session_builtin)</code>
   * default: 
-
   ```
   {
     messages {ram_cache = "false"}
@@ -2009,7 +1750,6 @@ Settings for message persistence.
   is stored before being garbage collected if the node the previous
   session was handled on restarts of is stopped.
 
-
 - message_gc_interval: <code>emqx_schema:duration()</code>
   * default: 
   `"1h"`
@@ -2018,7 +1758,6 @@ Settings for message persistence.
   a persistent session. This affects how often the "max_retain_undelivered"
   is checked for removal.
 
-
 - session_message_gc_interval: <code>emqx_schema:duration()</code>
   * default: 
   `"1m"`
@@ -2026,7 +1765,6 @@ Settings for message persistence.
   The starting interval for garbage collection of transient data for
   persistent session messages. This does not affect the lifetime length
   of persistent session messages.
-
 
 
 ## broker:persistent_table_mria_opts
@@ -2039,13 +1777,11 @@ Tuning options for the mria table.
  - <code>persistent_session_store.backend.session</code>
  - <code>persistent_session_store.backend.session_messages</code>
 
-
 **Env overrides**
 
  - <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND__MESSAGES</code>
  - <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND__SESSION</code>
  - <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND__SESSION_MESSAGES</code>
-
 
 
 **Fields**
@@ -2065,11 +1801,9 @@ Per group dispatch strategy for shared subscription
 
  - <code>broker.shared_subscription_group.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BROKER__SHARED_SUBSCRIPTION_GROUP__$NAME</code>
-
 
 
 **Fields**
@@ -2087,7 +1821,6 @@ Per group dispatch strategy for shared subscription
   - `hash`: select the subscribers by the hash of `clientIds`
   - `local`: send to a random local subscriber. If local
   subscriber was not found, send to a random subscriber cluster-wide
-
 
 
 ## broker:ssl_client_opts
@@ -2134,7 +1867,6 @@ Socket options for SSL clients.
  - <code>listeners.ws.$name.authentication.$INDEX.ssl</code>
  - <code>listeners.wss.$name.authentication.$INDEX.ssl</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX__SSL</code>
@@ -2176,12 +1908,9 @@ Socket options for SSL clients.
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__SSL</code>
 
 
-
 **Fields**
 
 - cacertfile: <code>binary()</code>
-
-
   Trusted PEM format CA certificates bundle file.<br/>
   The certificates in this file are used to verify the TLS peer's certificates.
   Append new certificates to the file if new CAs are to be trusted.
@@ -2190,10 +1919,7 @@ Socket options for SSL clients.
   NOTE: invalidating (deleting) a certificate from the file will not affect
   already established connections.
 
-
 - certfile: <code>binary()</code>
-
-
   PEM format certificates chain file.<br/>
   The certificates in this file should be in reversed order of the certificate
   issue chain. That is, the host's certificate should be placed in the beginning
@@ -2201,9 +1927,7 @@ Socket options for SSL clients.
   Although the root CA certificate is optional, it should be placed at the end of
   the file if it is to be added.
 
-
 - keyfile: <code>binary()</code>
-
   PEM format private key file. 
 
 - verify: <code>verify_peer | verify_none</code>
@@ -2222,35 +1946,27 @@ Socket options for SSL clients.
   * default: 
   `10`
 
-
   Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
   So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
   if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
   if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
 
-
 - password: <code>string()</code>
-
-
   String containing the user's password.
   Only used if the private key file is password-protected.
-
 
 - versions: <code>[atom()]</code>
   * default: 
   `[tlsv1.3, tlsv1.2, tlsv1.1, tlsv1]`
-
 
   All TLS/DTLS versions to be supported.<br/>
   NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
   In case PSK cipher suites are intended, make sure to configure
   <code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-
 - ciphers: <code>[string()]</code>
   * default: 
   `[]`
-
 
   This config holds TLS cipher suite names separated by comma,
   or as an array of strings. e.g.
@@ -2261,25 +1977,21 @@ Socket options for SSL clients.
   client and server encrypts information over the network connection.
   Selecting a good cipher suite is critical for the
   application's data security, confidentiality and performance.
-
   The names should be in OpenSSL string format (not RFC format).
   All default values and examples provided by EMQX config
   documentation are all in OpenSSL format.<br/>
-
   NOTE: Certain cipher suites are only compatible with
   specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
   incompatible cipher suites will be silently dropped.
   For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
   configuring cipher suites for other versions will have no effect.
   <br/>
-
   NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
   If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
   PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
   RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
   RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
   RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
-
 
 - user_lookup_fun: <code>string()</code>
   * default: 
@@ -2291,12 +2003,10 @@ Socket options for SSL clients.
   * default: 
   `true`
 
-
   SSL parameter renegotiation is a feature that allows a client and a server
   to renegotiate the parameters of the SSL connection on the fly.
   RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
   you drop support for the insecure renegotiation, prone to MitM attacks.
-
 
 - enable: <code>boolean()</code>
   * default: 
@@ -2305,8 +2015,6 @@ Socket options for SSL clients.
   Enable TLS. 
 
 - server_name_indication: <code>disable | string()</code>
-
-
   Specify the host name to be used in TLS Server Name Indication extension.<br/>
   For instance, when connecting to "server.example.net", the genuine server
   which accepts the connection and performs TLS handshake may differ from the
@@ -2320,7 +2028,6 @@ Socket options for SSL clients.
   verification check.
 
 
-
 ## broker:stats
 Enable/disable statistic data collection.
 Statistic data such as message receive/send count/rate etc. It provides insights of system performance and helps to diagnose issues. You can find statistic data from the dashboard, or from the '/stats' API.
@@ -2330,11 +2037,9 @@ Statistic data such as message receive/send count/rate etc. It provides insights
 
  - <code>stats</code>
 
-
 **Env overrides**
 
  - <code>EMQX_STATS</code>
-
 
 
 **Fields**
@@ -2357,11 +2062,9 @@ The following options control the behavior of `$SYS` topics.
 
  - <code>sys_topics</code>
 
-
 **Env overrides**
 
  - <code>EMQX_SYS_TOPICS</code>
-
 
 
 **Fields**
@@ -2380,9 +2083,7 @@ The following options control the behavior of `$SYS` topics.
     - `$SYS/brokers/<node>/uptime`
     - `$SYS/brokers/<node>/datetime`
 
-
 - sys_event_messages: <code>[broker:event_names](#broker-event_names)</code>
-
   Client events messages.
 
 
@@ -2394,11 +2095,9 @@ Features related to system monitoring and introspection.
 
  - <code>sysmon</code>
 
-
 **Env overrides**
 
  - <code>EMQX_SYSMON</code>
-
 
 
 **Fields**
@@ -2406,13 +2105,10 @@ Features related to system monitoring and introspection.
 - vm: <code>[broker:sysmon_vm](#broker-sysmon_vm)</code>
 
 
-
 - os: <code>[broker:sysmon_os](#broker-sysmon_os)</code>
 
 
-
 - top: <code>[broker:sysmon_top](#broker-sysmon_top)</code>
-
 
 
 
@@ -2425,11 +2121,9 @@ This part of the configuration is responsible for monitoring
 
  - <code>sysmon.os</code>
 
-
 **Env overrides**
 
  - <code>EMQX_SYSMON__OS</code>
-
 
 
 **Fields**
@@ -2486,11 +2180,9 @@ This part of the configuration is responsible for monitoring
 
  - <code>sysmon.top</code>
 
-
 **Env overrides**
 
  - <code>EMQX_SYSMON__TOP</code>
-
 
 
 **Fields**
@@ -2498,6 +2190,7 @@ This part of the configuration is responsible for monitoring
 - num_items: <code>non_neg_integer()</code>
   * default: 
   `10`
+
   * mapping: 
   `system_monitor.top_num_items`
 
@@ -2506,6 +2199,7 @@ This part of the configuration is responsible for monitoring
 - sample_interval: <code>emqx_schema:duration()</code>
   * default: 
   `"2s"`
+
   * mapping: 
   `system_monitor.top_sample_interval`
 
@@ -2514,6 +2208,7 @@ This part of the configuration is responsible for monitoring
 - max_procs: <code>non_neg_integer()</code>
   * default: 
   `1000000`
+
   * mapping: 
   `system_monitor.top_max_procs`
 
@@ -2523,6 +2218,7 @@ This part of the configuration is responsible for monitoring
 - db_hostname: <code>string()</code>
   * default: 
   `[]`
+
   * mapping: 
   `system_monitor.db_hostname`
 
@@ -2531,6 +2227,7 @@ This part of the configuration is responsible for monitoring
 - db_port: <code>integer()</code>
   * default: 
   `5432`
+
   * mapping: 
   `system_monitor.db_port`
 
@@ -2539,6 +2236,7 @@ This part of the configuration is responsible for monitoring
 - db_username: <code>string()</code>
   * default: 
   `"system_monitor"`
+
   * mapping: 
   `system_monitor.db_username`
 
@@ -2547,6 +2245,7 @@ This part of the configuration is responsible for monitoring
 - db_password: <code>binary()</code>
   * default: 
   `"system_monitor_password"`
+
   * mapping: 
   `system_monitor.db_password`
 
@@ -2555,6 +2254,7 @@ This part of the configuration is responsible for monitoring
 - db_name: <code>string()</code>
   * default: 
   `"postgres"`
+
   * mapping: 
   `system_monitor.db_name`
 
@@ -2571,11 +2271,9 @@ This part of the configuration is responsible for collecting
 
  - <code>sysmon.vm</code>
 
-
 **Env overrides**
 
  - <code>EMQX_SYSMON__VM</code>
-
 
 
 **Fields**
@@ -2648,7 +2346,6 @@ TCP listener options.
  - <code>listeners.ws.$name.tcp_options</code>
  - <code>listeners.wss.$name.tcp_options</code>
 
-
 **Env overrides**
 
  - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__TCP_OPTIONS</code>
@@ -2661,26 +2358,21 @@ TCP listener options.
  - <code>EMQX_LISTENERS__WSS__$NAME__TCP_OPTIONS</code>
 
 
-
 **Fields**
 
 - active_n: <code>integer()</code>
   * default: 
   `100`
 
-
   Specify the {active, N} option for this Socket.<br/>
   See: https://erlang.org/doc/man/inet.html#setopts-2
-
 
 - backlog: <code>pos_integer()</code>
   * default: 
   `1024`
 
-
   TCP backlog defines the maximum length that the queue of
    pending connections can grow to.
-
 
 - send_timeout: <code>emqx_schema:duration()</code>
   * default: 
@@ -2692,54 +2384,38 @@ TCP listener options.
   * default: 
   `true`
 
-
   Close the connection if send timeout.
 
-
 - recbuf: <code>emqx_schema:bytesize()</code>
-
-
   The TCP receive buffer (OS kernel) for the connections.
 
-
 - sndbuf: <code>emqx_schema:bytesize()</code>
-
-
   The TCP send buffer (OS kernel) for the connections.
-
 
 - buffer: <code>emqx_schema:bytesize()</code>
   * default: 
   `"4KB"`
 
-
   The size of the user-space buffer used by the driver.
-
 
 - high_watermark: <code>emqx_schema:bytesize()</code>
   * default: 
   `"1MB"`
 
-
   The socket is set to a busy state when the amount of data queued internally
     by the VM socket implementation reaches this limit.
-
 
 - nodelay: <code>boolean()</code>
   * default: 
   `true`
 
-
   The TCP_NODELAY flag for the connections.
-
 
 - reuseaddr: <code>boolean()</code>
   * default: 
   `true`
 
-
   The SO_REUSEADDR flag for the connections.
-
 
 
 ## broker:trace
@@ -2750,11 +2426,9 @@ Real-time filtering logs for the ClientID or Topic or IP for debugging.
 
  - <code>trace</code>
 
-
 **Env overrides**
 
  - <code>EMQX_TRACE</code>
-
 
 
 **Fields**
@@ -2763,14 +2437,11 @@ Real-time filtering logs for the ClientID or Topic or IP for debugging.
   * default: 
   `text`
 
-
   Determine the format of the payload format in the trace file.<br/>
   `text`: Text-based protocol or plain text protocol.
    It is recommended when payload is JSON encoded.<br/>
   `hex`: Binary hexadecimal encode. It is recommended when payload is a custom binary protocol.<br/>
   `hidden`: payload is obfuscated as `******`
-
-
 
 
 ## broker:ws_opts
@@ -2782,12 +2453,10 @@ WebSocket listener options.
  - <code>listeners.ws.$name.websocket</code>
  - <code>listeners.wss.$name.websocket</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS__WS__$NAME__WEBSOCKET</code>
  - <code>EMQX_LISTENERS__WSS__$NAME__WEBSOCKET</code>
-
 
 
 **Fields**
@@ -2796,111 +2465,86 @@ WebSocket listener options.
   * default: 
   `"/mqtt"`
 
-
   WebSocket's MQTT protocol path. So the address of EMQX Broker's WebSocket is:
   <code>ws://{ip}:{port}/mqtt</code>
-
 
 - mqtt_piggyback: <code>single | multiple</code>
   * default: 
   `multiple`
 
-
   Whether a WebSocket message is allowed to contain multiple MQTT packets.
-
 
 - compress: <code>boolean()</code>
   * default: 
   `false`
 
-
   If <code>true</code>, compress WebSocket messages using <code>zlib</code>.<br/>
   The configuration items under <code>deflate_opts</code> belong to the compression-related parameter configuration.
-
 
 - idle_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"7200s"`
 
-
   Close transport-layer connections from the clients that have not sent MQTT CONNECT
   message within this interval.
-
 
 - max_frame_size: <code>infinity | integer()</code>
   * default: 
   `infinity`
 
-
   The maximum length of a single MQTT packet.
-
 
 - fail_if_no_subprotocol: <code>boolean()</code>
   * default: 
   `true`
 
-
   If <code>true</code>, the server will return an error when
    the client does not carry the <code>Sec-WebSocket-Protocol</code> field.
    <br/>Note: WeChat applet needs to disable this verification.
-
 
 - supported_subprotocols: <code>emqx_schema:comma_separated_list()</code>
   * default: 
   `"mqtt, mqtt-v3, mqtt-v3.1.1, mqtt-v5"`
 
-
   Comma-separated list of supported subprotocols.
-
 
 - check_origin_enable: <code>boolean()</code>
   * default: 
   `false`
 
-
   If <code>true</code>, <code>origin</code> HTTP header will be
    validated against the list of allowed origins configured in <code>check_origins</code>
    parameter.
-
 
 - allow_origin_absence: <code>boolean()</code>
   * default: 
   `true`
 
-
   If <code>false</code> and <code>check_origin_enable</code> is
    <code>true</code>, the server will reject requests that don't have <code>origin</code>
    HTTP header.
-
 
 - check_origins: <code>emqx_schema:comma_separated_binary()</code>
   * default: 
   `"http://localhost:18083, http://127.0.0.1:18083"`
 
-
   List of allowed origins.<br/>See <code>check_origin_enable</code>.
-
 
 - proxy_address_header: <code>string()</code>
   * default: 
   `"x-forwarded-for"`
 
-
   HTTP header used to pass information about the client IP address.
   Relevant when the EMQX cluster is deployed behind a load-balancer.
-
 
 - proxy_port_header: <code>string()</code>
   * default: 
   `"x-forwarded-port"`
 
-
   HTTP header used to pass information about the client port.
   Relevant when the EMQX cluster is deployed behind a load-balancer.
 
-
 - deflate_opts: <code>[broker:deflate_opts](#broker-deflate_opts)</code>
-
 
 
 
@@ -2944,11 +2588,9 @@ All the global configs that can be overridden in zones are:
 
  - <code>zones.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_ZONES__$NAME</code>
-
 
 
 **Fields**
@@ -2956,29 +2598,22 @@ All the global configs that can be overridden in zones are:
 - mqtt: <code>[zone:mqtt](#zone-mqtt)</code>
 
 
-
 - stats: <code>[zone:stats](#zone-stats)</code>
-
 
 
 - flapping_detect: <code>[zone:flapping_detect](#zone-flapping_detect)</code>
 
 
-
 - force_shutdown: <code>[zone:force_shutdown](#zone-force_shutdown)</code>
-
 
 
 - conn_congestion: <code>[zone:conn_congestion](#zone-conn_congestion)</code>
 
 
-
 - force_gc: <code>[zone:force_gc](#zone-force_gc)</code>
 
 
-
 - overload_protection: <code>[zone:overload_protection](#zone-overload_protection)</code>
-
 
 
 
@@ -2990,29 +2625,23 @@ HStreamDB connection config
 
  - <code>bridges.hstreamdb.$name.connector</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__HSTREAMDB__$NAME__CONNECTOR</code>
 
 
-
 **Fields**
 
 - url: <code>binary()</code>
-
   HStreamDB Server URL
 
 - stream: <code>binary()</code>
-
   HStreamDB Stream Name
 
 - ordering_key: <code>binary()</code>
-
   HStreamDB Ordering Key
 
 - pool_size: <code>pos_integer()</code>
-
   HStreamDB Pool Size
 
 
@@ -3024,17 +2653,14 @@ Configuration for EMQX dashboard.
 
  - <code>dashboard</code>
 
-
 **Env overrides**
 
  - <code>EMQX_DASHBOARD</code>
 
 
-
 **Fields**
 
 - listeners: <code>[dashboard:listeners](#dashboard-listeners)</code>
-
   HTTP(s) listeners are identified by their protocol type and are
   used to serve dashboard UI and restful HTTP API.
   Listeners must have a unique combination of port number and IP address.
@@ -3084,7 +2710,6 @@ Configuration for EMQX dashboard.
   Internationalization language support.
 
 - bootstrap_users_file: <code>binary()</code>
-
   Initialize users file.
 
 
@@ -3096,11 +2721,9 @@ Configuration for the dashboard listener (plaintext).
 
  - <code>dashboard.listeners.http</code>
 
-
 **Env overrides**
 
  - <code>EMQX_DASHBOARD__LISTENERS__HTTP</code>
-
 
 
 **Fields**
@@ -3162,11 +2785,9 @@ Configuration for the dashboard listener (TLS).
 
  - <code>dashboard.listeners.https</code>
 
-
 **Env overrides**
 
  - <code>EMQX_DASHBOARD__LISTENERS__HTTPS</code>
-
 
 
 **Fields**
@@ -3220,8 +2841,6 @@ Configuration for the dashboard listener (TLS).
   Disable IPv4-to-IPv6 mapping for the listener.
 
 - cacertfile: <code>binary()</code>
-
-
   Trusted PEM format CA certificates bundle file.<br/>
   The certificates in this file are used to verify the TLS peer's certificates.
   Append new certificates to the file if new CAs are to be trusted.
@@ -3230,10 +2849,7 @@ Configuration for the dashboard listener (TLS).
   NOTE: invalidating (deleting) a certificate from the file will not affect
   already established connections.
 
-
 - certfile: <code>binary()</code>
-
-
   PEM format certificates chain file.<br/>
   The certificates in this file should be in reversed order of the certificate
   issue chain. That is, the host's certificate should be placed in the beginning
@@ -3241,9 +2857,7 @@ Configuration for the dashboard listener (TLS).
   Although the root CA certificate is optional, it should be placed at the end of
   the file if it is to be added.
 
-
 - keyfile: <code>binary()</code>
-
   PEM format private key file. 
 
 - verify: <code>verify_peer | verify_none</code>
@@ -3262,35 +2876,27 @@ Configuration for the dashboard listener (TLS).
   * default: 
   `10`
 
-
   Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
   So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
   if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
   if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
 
-
 - password: <code>string()</code>
-
-
   String containing the user's password.
   Only used if the private key file is password-protected.
-
 
 - versions: <code>[atom()]</code>
   * default: 
   `[tlsv1.3, tlsv1.2, tlsv1.1, tlsv1]`
-
 
   All TLS/DTLS versions to be supported.<br/>
   NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
   In case PSK cipher suites are intended, make sure to configure
   <code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-
 - ciphers: <code>[string()]</code>
   * default: 
   `[]`
-
 
   This config holds TLS cipher suite names separated by comma,
   or as an array of strings. e.g.
@@ -3301,25 +2907,21 @@ Configuration for the dashboard listener (TLS).
   client and server encrypts information over the network connection.
   Selecting a good cipher suite is critical for the
   application's data security, confidentiality and performance.
-
   The names should be in OpenSSL string format (not RFC format).
   All default values and examples provided by EMQX config
   documentation are all in OpenSSL format.<br/>
-
   NOTE: Certain cipher suites are only compatible with
   specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
   incompatible cipher suites will be silently dropped.
   For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
   configuring cipher suites for other versions will have no effect.
   <br/>
-
   NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
   If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
   PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
   RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
   RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
   RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
-
 
 - user_lookup_fun: <code>string()</code>
   * default: 
@@ -3331,38 +2933,30 @@ Configuration for the dashboard listener (TLS).
   * default: 
   `true`
 
-
   SSL parameter renegotiation is a feature that allows a client and a server
   to renegotiate the parameters of the SSL connection on the fly.
   RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
   you drop support for the insecure renegotiation, prone to MitM attacks.
 
-
 - dhfile: <code>string()</code>
-
-
   Path to a file containing PEM-encoded Diffie-Hellman parameters
   to be used by the server if a cipher suite using Diffie-Hellman
   key exchange is negotiated. If not specified, default parameters
   are used.<br/>
   NOTE: The <code>dhfile</code> option is not supported by TLS 1.3.
 
-
 - honor_cipher_order: <code>boolean()</code>
   * default: 
   `true`
-
 
   An important security setting, it forces the cipher to be set based
    on the server-specified order instead of the client-specified order,
    hence enforcing the (usually more properly configured) security
    ordering of the server administrator.
 
-
 - client_renegotiation: <code>boolean()</code>
   * default: 
   `true`
-
 
   In protocols that support client-initiated renegotiation,
   the cost of resources of such an operation is higher for the server than the client.
@@ -3373,14 +2967,11 @@ Configuration for the dashboard listener (TLS).
   long-lived connections becoming unusable due to limits on
   the number of messages the underlying cipher suite can encipher.
 
-
 - handshake_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"15s"`
 
-
   Maximum time duration allowed for the handshake to complete
-
 
 
 ## dashboard:listeners
@@ -3391,21 +2982,17 @@ Configuration for the dashboard listener.
 
  - <code>dashboard.listeners</code>
 
-
 **Env overrides**
 
  - <code>EMQX_DASHBOARD__LISTENERS</code>
 
 
-
 **Fields**
 
 - http: <code>[dashboard:http](#dashboard-http)</code>
-
   TCP listeners
 
 - https: <code>[dashboard:https](#dashboard-https)</code>
-
   SSL listeners
 
 
@@ -3417,11 +3004,9 @@ External hook (exhook) configuration.
 
  - <code>exhook</code>
 
-
 **Env overrides**
 
  - <code>EMQX_EXHOOK</code>
-
 
 
 **Fields**
@@ -3441,17 +3026,14 @@ gRPC server configuration.
 
  - <code>exhook.servers.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_EXHOOK__SERVERS__$INDEX</code>
 
 
-
 **Fields**
 
 - name: <code>binary()</code>
-
   Name of the exhook server
 
 - enable: <code>boolean()</code>
@@ -3461,7 +3043,6 @@ gRPC server configuration.
   Enable this Exhook server
 
 - url: <code>binary()</code>
-
   URL of the gRPC server
 
 - request_timeout: <code>emqx_schema:duration()</code>
@@ -3477,7 +3058,6 @@ gRPC server configuration.
   The value that is returned when the request to the gRPC server fails for any reason
 
 - ssl: <code>[exhook:ssl_conf](#exhook-ssl_conf)</code>
-
 
 
 - socket_options: <code>[exhook:socket_options](#exhook-socket_options)</code>
@@ -3508,11 +3088,9 @@ Connection socket options
 
  - <code>exhook.servers.$INDEX.socket_options</code>
 
-
 **Env overrides**
 
  - <code>EMQX_EXHOOK__SERVERS__$INDEX__SOCKET_OPTIONS</code>
-
 
 
 **Fields**
@@ -3532,11 +3110,9 @@ Connection socket options
   which means that also small amounts of data are sent immediately
 
 - recbuf: <code>emqx_schema:bytesize()</code>
-
   The minimum size of receive buffer to use for the socket
 
 - sndbuf: <code>emqx_schema:bytesize()</code>
-
   The minimum size of send buffer to use for the socket
 
 
@@ -3548,18 +3124,14 @@ SSL client configuration.
 
  - <code>exhook.servers.$INDEX.ssl</code>
 
-
 **Env overrides**
 
  - <code>EMQX_EXHOOK__SERVERS__$INDEX__SSL</code>
 
 
-
 **Fields**
 
 - cacertfile: <code>binary()</code>
-
-
   Trusted PEM format CA certificates bundle file.<br/>
   The certificates in this file are used to verify the TLS peer's certificates.
   Append new certificates to the file if new CAs are to be trusted.
@@ -3568,10 +3140,7 @@ SSL client configuration.
   NOTE: invalidating (deleting) a certificate from the file will not affect
   already established connections.
 
-
 - certfile: <code>binary()</code>
-
-
   PEM format certificates chain file.<br/>
   The certificates in this file should be in reversed order of the certificate
   issue chain. That is, the host's certificate should be placed in the beginning
@@ -3579,9 +3148,7 @@ SSL client configuration.
   Although the root CA certificate is optional, it should be placed at the end of
   the file if it is to be added.
 
-
 - keyfile: <code>binary()</code>
-
   PEM format private key file. 
 
 - verify: <code>verify_peer | verify_none</code>
@@ -3600,35 +3167,27 @@ SSL client configuration.
   * default: 
   `10`
 
-
   Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
   So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
   if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
   if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
 
-
 - password: <code>string()</code>
-
-
   String containing the user's password.
   Only used if the private key file is password-protected.
-
 
 - versions: <code>[atom()]</code>
   * default: 
   `[tlsv1.3, tlsv1.2, tlsv1.1, tlsv1]`
-
 
   All TLS/DTLS versions to be supported.<br/>
   NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
   In case PSK cipher suites are intended, make sure to configure
   <code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-
 - ciphers: <code>[string()]</code>
   * default: 
   `[]`
-
 
   This config holds TLS cipher suite names separated by comma,
   or as an array of strings. e.g.
@@ -3639,18 +3198,15 @@ SSL client configuration.
   client and server encrypts information over the network connection.
   Selecting a good cipher suite is critical for the
   application's data security, confidentiality and performance.
-
   The names should be in OpenSSL string format (not RFC format).
   All default values and examples provided by EMQX config
   documentation are all in OpenSSL format.<br/>
-
   NOTE: Certain cipher suites are only compatible with
   specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
   incompatible cipher suites will be silently dropped.
   For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
   configuring cipher suites for other versions will have no effect.
   <br/>
-
   NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
   If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
   PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
@@ -3658,17 +3214,14 @@ SSL client configuration.
   RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
   RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
 
-
 - secure_renegotiate: <code>boolean()</code>
   * default: 
   `true`
-
 
   SSL parameter renegotiation is a feature that allows a client and a server
   to renegotiate the parameters of the SSL connection on the fly.
   RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
   you drop support for the insecure renegotiation, prone to MitM attacks.
-
 
 - enable: <code>boolean()</code>
   * default: 
@@ -3677,8 +3230,6 @@ SSL client configuration.
   Enable TLS. 
 
 - server_name_indication: <code>disable | string()</code>
-
-
   Specify the host name to be used in TLS Server Name Indication extension.<br/>
   For instance, when connecting to "server.example.net", the genuine server
   which accepts the connection and performs TLS handshake may differ from the
@@ -3690,7 +3241,6 @@ SSL client configuration.
   certificate.<br/> The special value 'disable' prevents the Server Name
   Indication extension from being sent and disables the hostname
   verification check.
-
 
 
 ## limiter:bucket_opts
@@ -3720,7 +3270,6 @@ Settings for the bucket.
  - <code>listeners.wss.$name.limiter.message_in</code>
  - <code>listeners.wss.$name.limiter.message_routing</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__BYTES_IN</code>
@@ -3743,7 +3292,6 @@ Settings for the bucket.
  - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CONNECTION</code>
  - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__MESSAGE_IN</code>
  - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__MESSAGE_ROUTING</code>
-
 
 
 **Fields**
@@ -3775,11 +3323,9 @@ Fields of the client level.
 
  - <code>limiter.client</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LIMITER__CLIENT</code>
-
 
 
 **Fields**
@@ -3856,7 +3402,6 @@ Settings for the client in bucket level.
  - <code>listeners.wss.$name.limiter.client.message_routing</code>
  - <code>retainer.flow_control.batch_deliver_limiter.client</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LIMITER__CLIENT__BYTES_IN</code>
@@ -3885,7 +3430,6 @@ Settings for the client in bucket level.
  - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT__MESSAGE_IN</code>
  - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT__MESSAGE_ROUTING</code>
  - <code>EMQX_RETAINER__FLOW_CONTROL__BATCH_DELIVER_LIMITER__CLIENT</code>
-
 
 
 **Fields**
@@ -3942,11 +3486,9 @@ Internal limiter.
 
  - <code>retainer.flow_control.batch_deliver_limiter</code>
 
-
 **Env overrides**
 
  - <code>EMQX_RETAINER__FLOW_CONTROL__BATCH_DELIVER_LIMITER</code>
-
 
 
 **Fields**
@@ -3970,7 +3512,6 @@ Internal limiter.
   The initial number of tokens for this bucket.
 
 - client: <code>[limiter:client_opts](#limiter-client_opts)</code>
-
   The rate limit for each user of the bucket
 
 
@@ -3982,11 +3523,9 @@ Settings for the rate limiter.
 
  - <code>limiter</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LIMITER</code>
-
 
 
 **Fields**
@@ -4031,7 +3570,6 @@ Settings for the rate limiter.
 
 - client: <code>[limiter:client_fields](#limiter-client_fields)</code>
   * default: 
-
   ```
   {
     bytes_in {}
@@ -4057,7 +3595,6 @@ Fields of the client level of the listener.
  - <code>listeners.ws.$name.limiter.client</code>
  - <code>listeners.wss.$name.limiter.client</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CLIENT</code>
@@ -4067,29 +3604,24 @@ Fields of the client level of the listener.
  - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT</code>
 
 
-
 **Fields**
 
 - bytes_in: <code>[limiter:client_opts](#limiter-client_opts)</code>
-
   The bytes_in limiter.
   This is used to limit the inbound bytes rate for this EMQX node.
   Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
 - message_in: <code>[limiter:client_opts](#limiter-client_opts)</code>
-
   The message in limiter.
   This is used to limit the inbound message numbers for this EMQX node
   Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
 - connection: <code>[limiter:client_opts](#limiter-client_opts)</code>
-
   The connection limiter.
   This is used to limit the connection rate for this EMQX node.
   Once the limit is reached, new connections will be refused
 
 - message_routing: <code>[limiter:client_opts](#limiter-client_opts)</code>
-
   The message routing limiter.
   This is used to limit the forwarding rate for this EMQX node.
   Once the limit is reached, new publish will be refused
@@ -4107,7 +3639,6 @@ Fields of the listener.
  - <code>listeners.ws.$name.limiter</code>
  - <code>listeners.wss.$name.limiter</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER</code>
@@ -4117,35 +3648,29 @@ Fields of the listener.
  - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER</code>
 
 
-
 **Fields**
 
 - bytes_in: <code>[limiter:bucket_opts](#limiter-bucket_opts)</code>
-
   The bytes_in limiter.
   This is used to limit the inbound bytes rate for this EMQX node.
   Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
 - message_in: <code>[limiter:bucket_opts](#limiter-bucket_opts)</code>
-
   The message in limiter.
   This is used to limit the inbound message numbers for this EMQX node
   Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
 - connection: <code>[limiter:bucket_opts](#limiter-bucket_opts)</code>
-
   The connection limiter.
   This is used to limit the connection rate for this EMQX node.
   Once the limit is reached, new connections will be refused
 
 - message_routing: <code>[limiter:bucket_opts](#limiter-bucket_opts)</code>
-
   The message routing limiter.
   This is used to limit the forwarding rate for this EMQX node.
   Once the limit is reached, new publish will be refused
 
 - client: <code>[limiter:listener_client_fields](#limiter-listener_client_fields)</code>
-
   The rate limit for each user of the bucket
 
 
@@ -4161,7 +3686,6 @@ Settings for the limiter of the node level.
  - <code>limiter.message_in</code>
  - <code>limiter.message_routing</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LIMITER__BYTES_IN</code>
@@ -4169,7 +3693,6 @@ Settings for the limiter of the node level.
  - <code>EMQX_LIMITER__INTERNAL</code>
  - <code>EMQX_LIMITER__MESSAGE_IN</code>
  - <code>EMQX_LIMITER__MESSAGE_ROUTING</code>
-
 
 
 **Fields**
@@ -4196,11 +3719,9 @@ Settings for the delayed module.
 
  - <code>delayed</code>
 
-
 **Env overrides**
 
  - <code>EMQX_DELAYED</code>
-
 
 
 **Fields**
@@ -4236,32 +3757,26 @@ Therefore, users need to carefully design MQTT message topics and topic rewritin
 
  - <code>rewrite.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_REWRITE__$INDEX</code>
 
 
-
 **Fields**
 
 - action: <code>subscribe | publish | all</code>
-
   Topic rewriting takes effect on the type of operation:
     - `subscribe`: Rewrite topic when client do subscribe.
     - `publish`: Rewrite topic when client do publish.
     - `all`: Both
 
 - source_topic: <code>binary()</code>
-
   Source topic, specified by the client.
 
 - dest_topic: <code>binary()</code>
-
   Destination topic.
 
 - re: <code>binary()</code>
-
   Regular expressions
 
 
@@ -4273,11 +3788,9 @@ Settings for the telemetry module.
 
  - <code>telemetry</code>
 
-
 **Env overrides**
 
  - <code>EMQX_TELEMETRY</code>
-
 
 
 **Fields**
@@ -4297,17 +3810,14 @@ Settings for the telemetry module.
 
  - <code>topic_metrics.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_TOPIC_METRICS__$INDEX</code>
 
 
-
 **Fields**
 
 - topic: <code>binary()</code>
-
   Collect metrics for the topic.
 
 
@@ -4344,7 +3854,6 @@ Topology of MongoDB.
  - <code>listeners.ws.$name.authentication.$INDEX.topology</code>
  - <code>listeners.wss.$name.authentication.$INDEX.topology</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX__TOPOLOGY</code>
@@ -4375,7 +3884,6 @@ Topology of MongoDB.
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__TOPOLOGY</code>
 
 
-
 **Fields**
 
 - pool_size: <code>pos_integer()</code>
@@ -4391,39 +3899,30 @@ Topology of MongoDB.
   Max Overflow.
 
 - overflow_ttl: <code>emqx_schema:duration_ms()</code>
-
   Time interval, such as timeout or TTL.
 
 - overflow_check_period: <code>emqx_schema:duration_ms()</code>
-
   Time interval, such as timeout or TTL.
 
 - local_threshold_ms: <code>emqx_schema:duration_ms()</code>
-
   Time interval, such as timeout or TTL.
 
 - connect_timeout_ms: <code>emqx_schema:duration_ms()</code>
-
   Time interval, such as timeout or TTL.
 
 - socket_timeout_ms: <code>emqx_schema:duration_ms()</code>
-
   Time interval, such as timeout or TTL.
 
 - server_selection_timeout_ms: <code>emqx_schema:duration_ms()</code>
-
   Time interval, such as timeout or TTL.
 
 - wait_queue_timeout_ms: <code>emqx_schema:duration_ms()</code>
-
   Time interval, such as timeout or TTL.
 
 - heartbeat_frequency_ms: <code>emqx_schema:duration_ms()</code>
-
   Time interval, such as timeout or TTL.
 
 - min_heartbeat_frequency_ms: <code>emqx_schema:duration_ms()</code>
-
   Time interval, such as timeout or TTL.
 
 
@@ -4448,21 +3947,17 @@ and `<Username>` is the username or `unknown_user`.
 
  - <code>zones.$name.conn_congestion</code>
 
-
 **Env overrides**
 
  - <code>EMQX_ZONES__$NAME__CONN_CONGESTION</code>
 
 
-
 **Fields**
 
 - enable_alarm: <code>boolean()</code>
-
   Enable or disable connection congestion alarm.
 
 - min_alarm_sustain_duration: <code>emqx_schema:duration()</code>
-
   Minimal time before clearing the alarm.<br/>The alarm is cleared only when there's no pending data in<br/>the queue, and at least <code>min_alarm_sustain_duration</code>milliseconds passed since the last time we considered the connection 'congested'.<br/>This is to avoid clearing and raising the alarm again too often.
 
 
@@ -4477,29 +3972,23 @@ After the limit is reached, successive `CONNECT` requests are forbidden
 
  - <code>zones.$name.flapping_detect</code>
 
-
 **Env overrides**
 
  - <code>EMQX_ZONES__$NAME__FLAPPING_DETECT</code>
 
 
-
 **Fields**
 
 - enable: <code>boolean()</code>
-
   Enable flapping connection detection feature.
 
 - max_count: <code>integer()</code>
-
   The maximum number of disconnects allowed for a MQTT Client in `window_time`
 
 - window_time: <code>emqx_schema:duration()</code>
-
   The time window for flapping detection.
 
 - ban_time: <code>emqx_schema:duration()</code>
-
   How long the flapping clientid will be banned.
 
 
@@ -4512,25 +4001,20 @@ Force garbage collection in MQTT connection process after
 
  - <code>zones.$name.force_gc</code>
 
-
 **Env overrides**
 
  - <code>EMQX_ZONES__$NAME__FORCE_GC</code>
 
 
-
 **Fields**
 
 - enable: <code>boolean()</code>
-
   Enable forced garbage collection.
 
 - count: <code>0..inf</code>
-
   GC the process after this many received messages.
 
 - bytes: <code>emqx_schema:bytesize()</code>
-
   GC the process after specified number of bytes have passed through.
 
 
@@ -4546,25 +4030,20 @@ of the Erlang process, not the `mqueue` of QoS 1 and QoS 2.
 
  - <code>zones.$name.force_shutdown</code>
 
-
 **Env overrides**
 
  - <code>EMQX_ZONES__$NAME__FORCE_SHUTDOWN</code>
 
 
-
 **Fields**
 
 - enable: <code>boolean()</code>
-
   Enable `force_shutdown` feature.
 
 - max_message_queue_len: <code>0..inf</code>
-
   Maximum message queue length.
 
 - max_heap_size: <code>emqx_schema:wordsize()</code>
-
   Total heap size
 
 
@@ -4577,137 +4056,103 @@ in <code>zone</code> configs
 
  - <code>zones.$name.mqtt</code>
 
-
 **Env overrides**
 
  - <code>EMQX_ZONES__$NAME__MQTT</code>
 
 
-
 **Fields**
 
 - idle_timeout: <code>infinity | emqx_schema:duration()</code>
-
   After the TCP connection is established, if the MQTT CONNECT packet from the client is not received within the time specified by <code>idle_timeout</code>, the connection will be disconnected.
 
 - max_packet_size: <code>emqx_schema:bytesize()</code>
-
   Maximum MQTT packet size allowed.
 
 - max_clientid_len: <code>23..65535</code>
-
   Maximum allowed length of MQTT Client ID.
 
 - max_topic_levels: <code>1..65535</code>
-
   Maximum topic levels allowed.
 
 - max_qos_allowed: <code>qos()</code>
-
   Maximum QoS allowed.
 
 - max_topic_alias: <code>0..65535</code>
-
   Maximum topic alias, 0 means no topic alias supported.
 
 - retain_available: <code>boolean()</code>
-
   Whether to enable support for MQTT retained message.
 
 - wildcard_subscription: <code>boolean()</code>
-
   Whether to enable support for MQTT wildcard subscription.
 
 - shared_subscription: <code>boolean()</code>
-
   Whether to enable support for MQTT shared subscription.
 
 - exclusive_subscription: <code>boolean()</code>
-
   Whether to enable support for MQTT exclusive subscription.
 
 - ignore_loop_deliver: <code>boolean()</code>
-
   Ignore loop delivery of messages for MQTT v3.1.1/v3.1.0, similar to <code>No Local</code> subscription option in MQTT 5.0.
 
 - strict_mode: <code>boolean()</code>
-
   Parse MQTT messages in strict mode.
   When set to true, invalid utf8 strings in for example client ID, topic name, etc. will cause the client to be disconnected
 
 - response_information: <code>string()</code>
-
   Specify the response information returned to the client. This feature is disabled if is set to "". Applies only to clients using MQTT 5.0.
 
 - server_keepalive: <code>integer() | disabled</code>
-
   The keep alive that EMQX requires the client to use. If configured as <code>disabled</code>, it means that the keep alive specified by the client will be used. Requires <code>Server Keep Alive</code> in MQTT 5.0, so it is only applicable to clients using MQTT 5.0 protocol.
 
 - keepalive_backoff: <code>number()</code>
-
   The backoff multiplier used by the broker to determine the client keep alive timeout. If EMQX doesn't receive any packet in <code>Keep Alive * Backoff * 2</code> seconds, EMQX will close the current connection.
 
 - max_subscriptions: <code>1..inf | infinity</code>
-
   Maximum number of subscriptions allowed per client.
 
 - upgrade_qos: <code>boolean()</code>
-
   Force upgrade of QoS level according to subscription.
 
 - max_inflight: <code>1..65535</code>
-
   Maximum number of QoS 1 and QoS 2 messages that are allowed to be delivered simultaneously before completing the acknowledgment.
 
 - retry_interval: <code>emqx_schema:duration()</code>
-
   Retry interval for QoS 1/2 message delivering.
 
 - max_awaiting_rel: <code>integer() | infinity</code>
-
   For each publisher session, the maximum number of outstanding QoS 2 messages pending on the client to send PUBREL. After reaching this limit, new QoS 2 PUBLISH requests will be rejected with `147(0x93)` until either PUBREL is received or timed out.
 
 - await_rel_timeout: <code>emqx_schema:duration()</code>
-
   For client to broker QoS 2 message, the time limit for the broker to wait before the `PUBREL` message is received. The wait is aborted after timed out, meaning the packet ID is freed for new `PUBLISH` requests. Receiving a stale `PUBREL` causes a warning level log. Note, the message is delivered to subscribers before entering the wait for PUBREL.
 
 - session_expiry_interval: <code>emqx_schema:duration()</code>
-
   Specifies how long the session will expire after the connection is disconnected, only for non-MQTT 5.0 connections.
 
 - max_mqueue_len: <code>non_neg_integer() | infinity</code>
-
   Maximum queue length. Enqueued messages when persistent client disconnected, or inflight window is full.
 
 - mqueue_priorities: <code>map() | disabled</code>
-
   Topic priorities. Priority number [1-255]
   There's no priority table by default, hence all messages are treated equal.
-
   **NOTE**: Comma and equal signs are not allowed for priority topic names.
   **NOTE**: Messages for topics not in the priority table are treated as either highest or lowest priority depending on the configured value for <code>mqtt.mqueue_default_priority</code>.
-
   **Examples**:
   To configure <code>"topic/1" > "topic/2"</code>:
   <code>mqueue_priorities: {"topic/1": 10, "topic/2": 8}</code>
 
-
 - mqueue_default_priority: <code>highest | lowest</code>
-
   Default topic priority, which will be used by topics not in <code>Topic Priorities</code> (<code>mqueue_priorities</code>).
 
 - mqueue_store_qos0: <code>boolean()</code>
-
   Specifies whether to store QoS 0 messages in the message queue while the connection is down but the session remains.
 
 - use_username_as_clientid: <code>boolean()</code>
-
   Whether to user Client ID as Username.
   This setting takes effect later than <code>Use Peer Certificate as Username</code> (<code>peer_cert_as_username</code>) and <code>Use peer certificate as Client ID</code> (<code>peer_cert_as_clientid</code>).
 
-
 - peer_cert_as_username: <code>disabled | cn | dn | crt | pem | md5</code>
-
   Use the CN, DN field in the peer certificate or the entire certificate content as Username. Only works for the TLS connection.
   Supported configurations are the following:
   - <code>cn</code>: Take the CN field of the certificate as Username
@@ -4716,9 +4161,7 @@ in <code>zone</code> configs
   - <code>pem</code>: Convert <code>DER</code> certificate content to <code>PEM</code> format as Username
   - <code>md5</code>: Take the MD5 value of the content of the <code>DER</code> or <code>PEM</code> certificate as Username
 
-
 - peer_cert_as_clientid: <code>disabled | cn | dn | crt | pem | md5</code>
-
   Use the CN, DN field in the peer certificate or the entire certificate content as Client ID. Only works for the TLS connection.
   Supported configurations are the following:
   - <code>cn</code>: Take the CN field of the certificate as Client ID
@@ -4726,7 +4169,6 @@ in <code>zone</code> configs
   - <code>crt</code>: Take the content of the <code>DER</code> or <code>PEM</code> certificate as Client ID
   - <code>pem</code>: Convert <code>DER</code> certificate content to <code>PEM</code> format as Client ID
   - <code>md5</code>: Take the MD5 value of the content of the <code>DER</code> or <code>PEM</code> certificate as Client ID
-
 
 
 ## zone:overload_protection
@@ -4738,33 +4180,26 @@ disables some features (such as accepting new connections) when the load is high
 
  - <code>zones.$name.overload_protection</code>
 
-
 **Env overrides**
 
  - <code>EMQX_ZONES__$NAME__OVERLOAD_PROTECTION</code>
 
 
-
 **Fields**
 
 - enable: <code>boolean()</code>
-
   React on system overload or not.
 
 - backoff_delay: <code>0..inf</code>
-
   When at high load, some unimportant tasks could be delayed for execution, here set the duration in milliseconds precision.
 
 - backoff_gc: <code>boolean()</code>
-
   When at high load, skip forceful GC.
 
 - backoff_hibernation: <code>boolean()</code>
-
   When at high load, skip process hibernation.
 
 - backoff_new_conn: <code>boolean()</code>
-
   When at high load, close new incoming connections.
 
 
@@ -4777,17 +4212,14 @@ Statistic data such as message receive/send count/rate etc. It provides insights
 
  - <code>zones.$name.stats</code>
 
-
 **Env overrides**
 
  - <code>EMQX_ZONES__$NAME__STATS</code>
 
 
-
 **Fields**
 
 - enable: <code>boolean()</code>
-
   Enable/disable statistic data collection.
 
 
@@ -4820,7 +4252,6 @@ Settings for bcrypt password hashing algorithm.
  - <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code>
  - <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
@@ -4847,11 +4278,9 @@ Settings for bcrypt password hashing algorithm.
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
 
 
-
 **Fields**
 
 - name: <code>bcrypt</code>
-
   BCRYPT password hashing.
 
 
@@ -4884,7 +4313,6 @@ Settings for bcrypt password hashing algorithm (for DB backends with write capab
  - <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code>
  - <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
@@ -4911,11 +4339,9 @@ Settings for bcrypt password hashing algorithm (for DB backends with write capab
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
 
 
-
 **Fields**
 
 - name: <code>bcrypt</code>
-
   BCRYPT password hashing.
 
 - salt_rounds: <code>integer()</code>
@@ -4954,7 +4380,6 @@ Settings for other password hashing algorithms.
  - <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code>
  - <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
@@ -4981,11 +4406,9 @@ Settings for other password hashing algorithms.
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
 
 
-
 **Fields**
 
 - name: <code>plain | md5 | sha | sha256 | sha512</code>
-
   Simple password hashing algorithm.
 
 - salt_position: <code>disable | prefix | suffix</code>
@@ -5024,7 +4447,6 @@ Settings for PBKDF2 password hashing algorithm.
  - <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code>
  - <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
@@ -5051,23 +4473,18 @@ Settings for PBKDF2 password hashing algorithm.
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
 
 
-
 **Fields**
 
 - name: <code>pbkdf2</code>
-
   PBKDF2 password hashing.
 
 - mac_fun: <code>md4 | md5 | ripemd160 | sha | sha224 | sha256 | sha384 | sha512</code>
-
   Specifies mac_fun for PBKDF2 hashing algorithm.
 
 - iterations: <code>integer()</code>
-
   Iteration count for PBKDF2 hashing algorithm.
 
 - dk_length: <code>integer()</code>
-
   Derived length for PBKDF2 hashing algorithm. If not specified, calculated automatically based on `mac_fun`.
 
 
@@ -5088,11 +4505,9 @@ The IDs and secrets can be provided from a file which is configurable by the <co
 
  - <code>psk_authentication</code>
 
-
 **Env overrides**
 
  - <code>EMQX_PSK_AUTHENTICATION</code>
-
 
 
 **Fields**
@@ -5104,7 +4519,6 @@ The IDs and secrets can be provided from a file which is configurable by the <co
   Whether to enable TLS PSK support
 
 - init_file: <code>binary()</code>
-
   If init_file is specified, EMQX will import PSKs from the file into the built-in database at startup for use by the runtime.
   The file has to be structured line-by-line, each line must be in the format of <code>PSKIdentity:SharedSecret</code>.
   For example: <code>mydevice1:c2VjcmV0</code>
@@ -5130,11 +4544,9 @@ After the device logs in successfully, the subscription is automatically complet
 
  - <code>auto_subscribe</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTO_SUBSCRIBE</code>
-
 
 
 **Fields**
@@ -5155,17 +4567,14 @@ Required field, and cannot be empty string
 
  - <code>auto_subscribe.topics.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTO_SUBSCRIBE__TOPICS__$INDEX</code>
 
 
-
 **Fields**
 
 - topic: <code>binary()</code>
-
   Topic name, placeholders are supported. For example: client/${clientid}/username/${username}/host/${host}/port/${port}
   Required field, and cannot be empty string
 
@@ -5210,11 +4619,9 @@ Configuration for a GCP PubSub bridge.
 
  - <code>bridges.gcp_pubsub.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__GCP_PUBSUB__$NAME</code>
-
 
 
 **Fields**
@@ -5268,20 +4675,16 @@ Configuration for a GCP PubSub bridge.
   The template for formatting the outgoing messages.  If undefined, will send all the available context in JSON format.
 
 - local_topic: <code>binary()</code>
-
   The MQTT topic filter to be forwarded to GCP PubSub. All MQTT 'PUBLISH' messages with the topic
   matching `local_topic` will be forwarded.</br>
   NOTE: if this bridge is used as the action of a rule (EMQX rule engine), and also local_topic is
   configured, then both the data got from the rule and the MQTT messages that match local_topic
   will be forwarded.
 
-
 - pubsub_topic: <code>binary()</code>
-
   The GCP PubSub topic to publish messages to.
 
 - service_account_json: <code>emqx_ee_bridge_gcp_pubsub:service_account_json()</code>
-
   JSON containing the GCP Service Account credentials to be used with PubSub.
   When a GCP Service Account is created (as described in https://developers.google.com/identity/protocols/oauth2/service-account#creatinganaccount), you have the option of downloading the credentials in JSON form.  That's the file needed.
 
@@ -5294,11 +4697,9 @@ Configuration for an HStreamDB bridge.
 
  - <code>bridges.hstreamdb.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__HSTREAMDB__$NAME</code>
-
 
 
 **Fields**
@@ -5316,14 +4717,11 @@ Configuration for an HStreamDB bridge.
   The direction of this bridge, MUST be 'egress'
 
 - local_topic: <code>binary()</code>
-
-
   The MQTT topic filter to be forwarded to the HStreamDB. All MQTT 'PUBLISH' messages with the topic
   matching the local_topic will be forwarded.</br>
   NOTE: if this bridge is used as the action of a rule (EMQX rule engine), and also local_topic is
   configured, then both the data got from the rule and the MQTT messages that match local_topic
   will be forwarded.
-
 
 - payload: <code>binary()</code>
   * default: 
@@ -5332,7 +4730,6 @@ Configuration for an HStreamDB bridge.
   The payload to be forwarded to the HStreamDB. Placeholders supported.
 
 - connector: <code>binary() | [connector_hstreamdb:config](#connector_hstreamdb-config)</code>
-
   Generic configuration for the connector.
 
 
@@ -5344,11 +4741,9 @@ InfluxDB's protocol. Support InfluxDB v1.8 and before.
 
  - <code>bridges.influxdb_api_v1.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__INFLUXDB_API_V1__$NAME</code>
-
 
 
 **Fields**
@@ -5360,16 +4755,13 @@ InfluxDB's protocol. Support InfluxDB v1.8 and before.
   Enable or disable this bridge
 
 - local_topic: <code>binary()</code>
-
   The MQTT topic filter to be forwarded to the InfluxDB. All MQTT 'PUBLISH' messages with the topic
   matching the local_topic will be forwarded.</br>
   NOTE: if this bridge is used as the action of a rule (EMQX rule engine), and also local_topic is
   configured, then both the data got from the rule and the MQTT messages that match local_topic
   will be forwarded.
 
-
 - write_syntax: <code>emqx_ee_bridge_influxdb:write_syntax()</code>
-
   Conf of InfluxDB line protocol to write data points. It is a text-based format that provides the measurement, tag set, field set, and timestamp of a data point, and placeholder supported.
   See also [InfluxDB 2.3 Line Protocol](https://docs.influxdata.com/influxdb/v2.3/reference/syntax/line-protocol/) and
   [InfluxDB 1.8 Line Protocol](https://docs.influxdata.com/influxdb/v1.8/write_protocols/line_protocol_tutorial/) </br>
@@ -5377,7 +4769,6 @@ InfluxDB's protocol. Support InfluxDB v1.8 and before.
   ```
   <measurement>[,<tag_key>=<tag_value>[,<tag_key>=<tag_value>]] <field_key>=<field_value>[,<field_key>=<field_value>] [<timestamp>]
   ```
-
 
 - resource_opts: <code>[resource_schema:creation_opts](#resource_schema-creation_opts)</code>
   * default: 
@@ -5393,7 +4784,6 @@ InfluxDB's protocol. Support InfluxDB v1.8 and before.
   A host entry has the following form: `Host[:Port]`.</br>
   The InfluxDB default port 8086 is used if `[:Port]` is not specified.
 
-
 - precision: <code>ns | us | ms | s | m | h</code>
   * default: 
   `ms`
@@ -5401,15 +4791,12 @@ InfluxDB's protocol. Support InfluxDB v1.8 and before.
   InfluxDB time precision.
 
 - database: <code>binary()</code>
-
   InfluxDB database.
 
 - username: <code>binary()</code>
-
   InfluxDB username.
 
 - password: <code>binary()</code>
-
   InfluxDB password.
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -5427,11 +4814,9 @@ InfluxDB's protocol. Support InfluxDB v2.0 and after.
 
  - <code>bridges.influxdb_api_v2.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__INFLUXDB_API_V2__$NAME</code>
-
 
 
 **Fields**
@@ -5443,16 +4828,13 @@ InfluxDB's protocol. Support InfluxDB v2.0 and after.
   Enable or disable this bridge
 
 - local_topic: <code>binary()</code>
-
   The MQTT topic filter to be forwarded to the InfluxDB. All MQTT 'PUBLISH' messages with the topic
   matching the local_topic will be forwarded.</br>
   NOTE: if this bridge is used as the action of a rule (EMQX rule engine), and also local_topic is
   configured, then both the data got from the rule and the MQTT messages that match local_topic
   will be forwarded.
 
-
 - write_syntax: <code>emqx_ee_bridge_influxdb:write_syntax()</code>
-
   Conf of InfluxDB line protocol to write data points. It is a text-based format that provides the measurement, tag set, field set, and timestamp of a data point, and placeholder supported.
   See also [InfluxDB 2.3 Line Protocol](https://docs.influxdata.com/influxdb/v2.3/reference/syntax/line-protocol/) and
   [InfluxDB 1.8 Line Protocol](https://docs.influxdata.com/influxdb/v1.8/write_protocols/line_protocol_tutorial/) </br>
@@ -5460,7 +4842,6 @@ InfluxDB's protocol. Support InfluxDB v2.0 and after.
   ```
   <measurement>[,<tag_key>=<tag_value>[,<tag_key>=<tag_value>]] <field_key>=<field_value>[,<field_key>=<field_value>] [<timestamp>]
   ```
-
 
 - resource_opts: <code>[resource_schema:creation_opts](#resource_schema-creation_opts)</code>
   * default: 
@@ -5476,7 +4857,6 @@ InfluxDB's protocol. Support InfluxDB v2.0 and after.
   A host entry has the following form: `Host[:Port]`.</br>
   The InfluxDB default port 8086 is used if `[:Port]` is not specified.
 
-
 - precision: <code>ns | us | ms | s | m | h</code>
   * default: 
   `ms`
@@ -5484,15 +4864,12 @@ InfluxDB's protocol. Support InfluxDB v2.0 and after.
   InfluxDB time precision.
 
 - bucket: <code>binary()</code>
-
   InfluxDB bucket name.
 
 - org: <code>binary()</code>
-
   Organization name of InfluxDB.
 
 - token: <code>binary()</code>
-
   InfluxDB token.
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -5510,21 +4887,17 @@ Use GSSAPI/Kerberos authentication.
 
  - <code>bridges.kafka.$name.authentication</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__KAFKA__$NAME__AUTHENTICATION</code>
 
 
-
 **Fields**
 
 - kerberos_principal: <code>binary()</code>
-
   SASL GSSAPI authentication Kerberos principal. For example <code>client_name@MY.KERBEROS.REALM.MYDOMAIN.COM</code>, NOTE: The realm in use has to be configured in /etc/krb5.conf in EMQX nodes.
 
 - kerberos_keytab_file: <code>binary()</code>
-
   SASL GSSAPI authentication Kerberos keytab file path. NOTE: This file has to be placed in EMQX nodes, and the EMQX service runner user requires read permission.
 
 
@@ -5536,25 +4909,20 @@ Username/password based authentication.
 
  - <code>bridges.kafka.$name.authentication</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__KAFKA__$NAME__AUTHENTICATION</code>
 
 
-
 **Fields**
 
 - mechanism: <code>plain | scram_sha_256 | scram_sha_512</code>
-
   SASL authentication mechanism.
 
 - username: <code>binary()</code>
-
   SASL authentication username.
 
 - password: <code>binary()</code>
-
   SASL authentication password.
 
 
@@ -5566,11 +4934,9 @@ Template to render a Kafka message.
 
  - <code>bridges.kafka.$name.producer.kafka.message</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__KAFKA__MESSAGE</code>
-
 
 
 **Fields**
@@ -5606,11 +4972,9 @@ Tell Kafka producer how to buffer messages when EMQX has more messages to send t
 
  - <code>bridges.kafka.$name.producer.kafka.buffer</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__KAFKA__BUFFER</code>
-
 
 
 **Fields**
@@ -5620,7 +4984,6 @@ Tell Kafka producer how to buffer messages when EMQX has more messages to send t
   `memory`
 
   Message buffer mode.
-
   <code>memory</code>: Buffer all messages in memory. The messages will be lost in case of EMQX node restart
   <code>disc</code>: Buffer all messages on disk. The messages on disk are able to survive EMQX node restart.
   <code>hybrid</code>: Buffer message in memory first, when up to certain limit (see <code>segment_bytes</code> config for more information), then start offloading messages to disk, Like <code>memory</code> mode, the messages will be lost in case of EMQX node restart.
@@ -5654,21 +5017,17 @@ Kafka producer configs.
 
  - <code>bridges.kafka.$name.producer.kafka</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__KAFKA</code>
 
 
-
 **Fields**
 
 - topic: <code>string()</code>
-
   Kafka topic name
 
 - message: <code>[bridge_kafka:kafka_message](#bridge_kafka-kafka_message)</code>
-
   Template to render a Kafka message.
 
 - max_batch_bytes: <code>emqx_schema:bytesize()</code>
@@ -5688,21 +5047,17 @@ Kafka producer configs.
   `random`
 
   Partition strategy is to tell the producer how to dispatch messages to Kafka partitions.
-
   <code>random</code>: Randomly pick a partition for each message
   <code>key_dispatch</code>: Hash Kafka message key to a partition number
-
 
 - required_acks: <code>all_isr | leader_only | none</code>
   * default: 
   `all_isr`
 
   Required acknowledgements for Kafka partition leader to wait for its followers before it sends back the acknowledgement to EMQX Kafka producer
-
   <code>all_isr</code>: Require all in-sync replicas to acknowledge.
   <code>leader_only</code>: Require only the partition-leader's acknowledgement.
   <code>none</code>: No need for Kafka to acknowledge at all.
-
 
 - partition_count_refresh_interval: <code>emqx_schema:duration_s()</code>
   * default: 
@@ -5719,12 +5074,8 @@ Kafka producer configs.
   Maximum number of batches allowed for Kafka producer (per-partition) to send before receiving acknowledgement from Kafka. Greater value typically means better throughput. However, there can be a risk of message reordering when this value is greater than 1.
 
 - buffer: <code>[bridge_kafka:producer_buffer](#bridge_kafka-producer_buffer)</code>
-
   Configure producer message buffer.
-
   Tell Kafka producer how to buffer messages when EMQX has more messages to send than Kafka can keep up, or when Kafka is down.
-
-
 
 
 ## bridge_kafka:producer_mqtt_opts
@@ -5735,17 +5086,14 @@ MQTT data source. Optional when used as a rule-engine action.
 
  - <code>bridges.kafka.$name.producer.mqtt</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__MQTT</code>
 
 
-
 **Fields**
 
 - topic: <code>binary()</code>
-
   MQTT topic or topic as data source (bridge input).
 
 
@@ -5757,21 +5105,17 @@ Local MQTT data source and Kafka bridge configs.
 
  - <code>bridges.kafka.$name.producer</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER</code>
 
 
-
 **Fields**
 
 - mqtt: <code>[bridge_kafka:producer_mqtt_opts](#bridge_kafka-producer_mqtt_opts)</code>
-
   MQTT data source. Optional when used as a rule-engine action.
 
 - kafka: <code>[bridge_kafka:producer_kafka_opts](#bridge_kafka-producer_kafka_opts)</code>
-
   Kafka producer configs.
 
 
@@ -5783,11 +5127,9 @@ Extra socket options.
 
  - <code>bridges.kafka.$name.socket_opts</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__KAFKA__$NAME__SOCKET_OPTS</code>
-
 
 
 **Fields**
@@ -5819,11 +5161,9 @@ Configuration for a Kafka bridge.
 
  - <code>bridges.kafka.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__KAFKA__$NAME</code>
-
 
 
 **Fields**
@@ -5835,7 +5175,6 @@ Configuration for a Kafka bridge.
   Enable (true) or disable (false) this Kafka bridge.
 
 - bootstrap_hosts: <code>binary()</code>
-
   A comma separated list of Kafka <code>host:port</code> endpoints to bootstrap the client.
 
 - connect_timeout: <code>emqx_schema:duration_ms()</code>
@@ -5863,11 +5202,9 @@ Configuration for a Kafka bridge.
   Authentication configs.
 
 - producer: <code>none | [bridge_kafka:producer_opts](#bridge_kafka-producer_opts)</code>
-
   Local MQTT data source and Kafka bridge configs.
 
 - socket_opts: <code>[bridge_kafka:socket_opts](#bridge_kafka-socket_opts)</code>
-
   Extra socket options.
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -5885,11 +5222,9 @@ MongoDB (Replica Set) configuration
 
  - <code>bridges.mongodb_rs.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MONGODB_RS__$NAME</code>
-
 
 
 **Fields**
@@ -5901,13 +5236,10 @@ MongoDB (Replica Set) configuration
   Replica set.
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - w_mode: <code>unsafe | safe</code>
   * default: 
@@ -5922,7 +5254,6 @@ MongoDB (Replica Set) configuration
   Read mode.
 
 - replica_set_name: <code>binary()</code>
-
   Name of the replica set.
 
 - srv_record: <code>boolean()</code>
@@ -5938,23 +5269,18 @@ MongoDB (Replica Set) configuration
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auth_source: <code>binary()</code>
-
   Database name associated with the user's credentials.
 
 - database: <code>binary()</code>
-
   Database name.
 
 - topology: <code>[topology](#topology)</code>
-
 
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -5984,11 +5310,9 @@ MongoDB (Sharded) configuration
 
  - <code>bridges.mongodb_sharded.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MONGODB_SHARDED__$NAME</code>
-
 
 
 **Fields**
@@ -6000,13 +5324,10 @@ MongoDB (Sharded) configuration
   Sharded cluster.
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - w_mode: <code>unsafe | safe</code>
   * default: 
@@ -6027,23 +5348,18 @@ MongoDB (Sharded) configuration
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auth_source: <code>binary()</code>
-
   Database name associated with the user's credentials.
 
 - database: <code>binary()</code>
-
   Database name.
 
 - topology: <code>[topology](#topology)</code>
-
 
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -6073,11 +5389,9 @@ MongoDB (Standalone) configuration
 
  - <code>bridges.mongodb_single.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MONGODB_SINGLE__$NAME</code>
-
 
 
 **Fields**
@@ -6089,12 +5403,9 @@ MongoDB (Standalone) configuration
   Standalone instance.
 
 - server: <code>emqx_schema:host_port()</code>
-
-
   The IPv4 or IPv6 address or the hostname to connect to.<br/>
   A host entry has the following form: `Host[:Port]`.<br/>
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - w_mode: <code>unsafe | safe</code>
   * default: 
@@ -6115,23 +5426,18 @@ MongoDB (Standalone) configuration
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auth_source: <code>binary()</code>
-
   Database name associated with the user's credentials.
 
 - database: <code>binary()</code>
-
   Database name.
 
 - topology: <code>[topology](#topology)</code>
-
 
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -6161,11 +5467,9 @@ The config for MQTT Bridges.
 
  - <code>bridges.mqtt.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MQTT__$NAME</code>
-
 
 
 **Fields**
@@ -6186,9 +5490,7 @@ The config for MQTT Bridges.
   * default: 
   `cluster_shareload`
 
-
   The mode of the MQTT Bridge.<br/>
-
   - cluster_shareload: create an MQTT connection on each node in the emqx cluster.<br/>
   In 'cluster_shareload' mode, the incoming load from the remote broker is shared by
   using shared subscription.<br/>
@@ -6196,9 +5498,7 @@ The config for MQTT Bridges.
   clientid conflicts between different nodes. And we can only use shared subscription
   topic filters for <code>remote.topic</code> of ingress connections.
 
-
 - server: <code>emqx_schema:host_port()</code>
-
   The host and port of the remote MQTT broker
 
 - reconnect_interval: <code>string()</code>
@@ -6221,18 +5521,15 @@ The config for MQTT Bridges.
   * default: 
   `false`
 
-
   If enable bridge mode.
   NOTE: This setting is only for MQTT protocol version older than 5.0, and the remote MQTT
   broker MUST support this feature.
       
 
 - username: <code>binary()</code>
-
   The username of the MQTT protocol
 
 - password: <code>binary()</code>
-
   The password of the MQTT protocol
 
 - clean_start: <code>boolean()</code>
@@ -6274,7 +5571,6 @@ The config for MQTT Bridges.
   SSL connection settings.
 
 - ingress: <code>[connector-mqtt:ingress](#connector-mqtt-ingress)</code>
-
   The ingress config defines how this bridge receive messages from the remote MQTT broker, and then
           send them to the local broker.<br/>
           Template with variables is allowed in 'remote.qos', 'local.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>
@@ -6283,7 +5579,6 @@ The config for MQTT Bridges.
           the rule.
 
 - egress: <code>[connector-mqtt:egress](#connector-mqtt-egress)</code>
-
   The egress config defines how this bridge forwards messages from the local broker to the remote broker.<br/>
   Template with variables is allowed in 'remote.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>
   NOTE: if this bridge is used as the action of a rule, and also 'local.topic'
@@ -6299,11 +5594,9 @@ Creation options.
 
  - <code>bridges.mqtt.$name.resource_opts</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MQTT__$NAME__RESOURCE_OPTS</code>
-
 
 
 **Fields**
@@ -6359,11 +5652,9 @@ Configuration for an HStreamDB bridge.
 
  - <code>bridges.mysql.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MYSQL__$NAME</code>
-
 
 
 **Fields**
@@ -6381,13 +5672,11 @@ Configuration for an HStreamDB bridge.
   SQL Template
 
 - local_topic: <code>binary()</code>
-
   The MQTT topic filter to be forwarded to MySQL. All MQTT 'PUBLISH' messages with the topic
   matching the local_topic will be forwarded.</br>
   NOTE: if this bridge is used as the action of a rule (EMQX rule engine), and also local_topic is
   configured, then both the data got from the rule and the MQTT messages that match local_topic
   will be forwarded.
-
 
 - resource_opts: <code>[bridge_mysql:creation_opts](#bridge_mysql-creation_opts)</code>
   * default: 
@@ -6396,15 +5685,11 @@ Configuration for an HStreamDB bridge.
   Resource options.
 
 - server: <code>emqx_schema:host_port()</code>
-
-
   The IPv4 or IPv6 address or the hostname to connect to.<br/>
   A host entry has the following form: `Host[:Port]`.<br/>
   The MySQL default port 3306 is used if `[:Port]` is not specified.
 
-
 - database: <code>binary()</code>
-
   Database name.
 
 - pool_size: <code>pos_integer()</code>
@@ -6414,11 +5699,9 @@ Configuration for an HStreamDB bridge.
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auto_reconnect: <code>boolean()</code>
@@ -6442,11 +5725,9 @@ Creation options.
 
  - <code>bridges.mysql.$name.resource_opts</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MYSQL__$NAME__RESOURCE_OPTS</code>
-
 
 
 **Fields**
@@ -6514,11 +5795,9 @@ Cluster mode
 
  - <code>bridges.redis_cluster.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__REDIS_CLUSTER__$NAME</code>
-
 
 
 **Fields**
@@ -6530,16 +5809,13 @@ Cluster mode
   Enable or disable this bridge
 
 - local_topic: <code>binary()</code>
-
   The MQTT topic filter to be forwarded to Redis. All MQTT 'PUBLISH' messages with the topic
   matching the local_topic will be forwarded.</br>
   NOTE: if this bridge is used as the action of a rule (EMQX rule engine), and also local_topic is
   configured, then both the data got from the rule and the MQTT messages that match local_topic
   will be forwarded.
 
-
 - command_template: <code>[binary()]</code>
-
   Redis Command Template
 
 - resource_opts: <code>[resource_schema:creation_opts](#resource_schema-creation_opts)</code>
@@ -6549,13 +5825,10 @@ Cluster mode
   Resource options.
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - redis_type: <code>cluster</code>
   * default: 
@@ -6570,7 +5843,6 @@ Cluster mode
   Size of the connection pool.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auto_reconnect: <code>boolean()</code>
@@ -6594,11 +5866,9 @@ Sentinel mode
 
  - <code>bridges.redis_sentinel.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__REDIS_SENTINEL__$NAME</code>
-
 
 
 **Fields**
@@ -6610,16 +5880,13 @@ Sentinel mode
   Enable or disable this bridge
 
 - local_topic: <code>binary()</code>
-
   The MQTT topic filter to be forwarded to Redis. All MQTT 'PUBLISH' messages with the topic
   matching the local_topic will be forwarded.</br>
   NOTE: if this bridge is used as the action of a rule (EMQX rule engine), and also local_topic is
   configured, then both the data got from the rule and the MQTT messages that match local_topic
   will be forwarded.
 
-
 - command_template: <code>[binary()]</code>
-
   Redis Command Template
 
 - resource_opts: <code>[resource_schema:creation_opts](#resource_schema-creation_opts)</code>
@@ -6629,13 +5896,10 @@ Sentinel mode
   Resource options.
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - redis_type: <code>sentinel</code>
   * default: 
@@ -6644,7 +5908,6 @@ Sentinel mode
   Sentinel mode
 
 - sentinel: <code>string()</code>
-
   The cluster name in Redis sentinel mode.
 
 - pool_size: <code>pos_integer()</code>
@@ -6654,7 +5917,6 @@ Sentinel mode
   Size of the connection pool.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - database: <code>integer()</code>
@@ -6684,11 +5946,9 @@ Single mode
 
  - <code>bridges.redis_single.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__REDIS_SINGLE__$NAME</code>
-
 
 
 **Fields**
@@ -6700,16 +5960,13 @@ Single mode
   Enable or disable this bridge
 
 - local_topic: <code>binary()</code>
-
   The MQTT topic filter to be forwarded to Redis. All MQTT 'PUBLISH' messages with the topic
   matching the local_topic will be forwarded.</br>
   NOTE: if this bridge is used as the action of a rule (EMQX rule engine), and also local_topic is
   configured, then both the data got from the rule and the MQTT messages that match local_topic
   will be forwarded.
 
-
 - command_template: <code>[binary()]</code>
-
   Redis Command Template
 
 - resource_opts: <code>[resource_schema:creation_opts](#resource_schema-creation_opts)</code>
@@ -6719,12 +5976,9 @@ Single mode
   Resource options.
 
 - server: <code>emqx_schema:host_port()</code>
-
-
   The IPv4 or IPv6 address or the hostname to connect to.<br/>
   A host entry has the following form: `Host[:Port]`.<br/>
   The Redis default port 6379 is used if `[:Port]` is not specified.
-
 
 - redis_type: <code>single</code>
   * default: 
@@ -6739,7 +5993,6 @@ Single mode
   Size of the connection pool.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - database: <code>integer()</code>
@@ -6769,11 +6022,9 @@ Configuration for an HTTP bridge.
 
  - <code>bridges.webhook.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__WEBHOOK__$NAME</code>
-
 
 
 **Fields**
@@ -6797,7 +6048,6 @@ Configuration for an HTTP bridge.
   The timeout when connecting to the HTTP server.
 
 - retry_interval: <code>emqx_schema:duration()</code>
-
   Deprecated since 5.0.4.
 
 - pool_type: <code>emqx_connector_http:pool_type()</code>
@@ -6819,11 +6069,8 @@ Configuration for an HTTP bridge.
   A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
 
 - request: <code>[connector-http:request](#connector-http-request)</code>
-
-
   If the request is provided, the caller can send HTTP requests via
   <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
-
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
   * default: 
@@ -6832,8 +6079,6 @@ Configuration for an HTTP bridge.
   SSL connection settings.
 
 - url: <code>binary()</code>
-
-
   The URL of the HTTP Bridge.<br/>
   Template with variables is allowed in the path, but variables cannot be used in the scheme, host,
   or port part.<br/>
@@ -6841,29 +6086,22 @@ Configuration for an HTTP bridge.
   <code> http://${host}:9901/message </code> or <code> http://localhost:${port}/message </code>
   is not allowed.
 
-
 - local_topic: <code>binary()</code>
-
-
   The MQTT topic filter to be forwarded to the HTTP server. All MQTT 'PUBLISH' messages with the topic
   matching the local_topic will be forwarded.<br/>
   NOTE: if this bridge is used as the action of a rule (EMQX rule engine), and also local_topic is
   configured, then both the data got from the rule and the MQTT messages that match local_topic
   will be forwarded.
 
-
 - method: <code>post | put | get | delete</code>
   * default: 
   `post`
 
-
   The method of the HTTP request. All the available methods are: post, put, get, delete.<br/>
   Template with variables is allowed.<br/>
 
-
 - headers: <code>map()</code>
   * default: 
-
   ```
   {
     accept = "application/json"
@@ -6874,19 +6112,15 @@ Configuration for an HTTP bridge.
   }
   ```
 
-
   The headers of the HTTP request.<br/>
   Template with variables is allowed.
-
 
 - body: <code>binary()</code>
   * default: 
   `"${payload}"`
 
-
   The body of the HTTP request.<br/>
   Template with variables is allowed.
-
 
 - max_retries: <code>non_neg_integer()</code>
   * default: 
@@ -6909,11 +6143,9 @@ Creation options.
 
  - <code>bridges.webhook.$name.resource_opts</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__WEBHOOK__$NAME__RESOURCE_OPTS</code>
-
 
 
 **Fields**
@@ -6992,7 +6224,6 @@ Creation options.
  - <code>listeners.ws.$name.authentication.$INDEX.request</code>
  - <code>listeners.wss.$name.authentication.$INDEX.request</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX__REQUEST</code>
@@ -7021,31 +6252,24 @@ Creation options.
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__REQUEST</code>
 
 
-
 **Fields**
 
 - method: <code>binary()</code>
-
   HTTP method.
 
 - path: <code>binary()</code>
-
   URL path.
 
 - body: <code>binary()</code>
-
   HTTP request body.
 
 - headers: <code>map()</code>
-
   List of HTTP headers.
 
 - max_retries: <code>non_neg_integer()</code>
-
   Max retry times if error on sending request.
 
 - request_timeout: <code>emqx_schema:duration_ms()</code>
-
   HTTP request timeout.
 
 
@@ -7061,21 +6285,17 @@ is configured, then both the data got from the rule and the MQTT messages that m
 
  - <code>bridges.mqtt.$name.egress</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MQTT__$NAME__EGRESS</code>
 
 
-
 **Fields**
 
 - local: <code>[connector-mqtt:egress_local](#connector-mqtt-egress_local)</code>
-
   The configs about receiving messages from local broker.
 
 - remote: <code>[connector-mqtt:egress_remote](#connector-mqtt-egress_remote)</code>
-
   The configs about sending message to the remote broker.
 
 
@@ -7087,17 +6307,14 @@ The configs about receiving messages from local broker.
 
  - <code>bridges.mqtt.$name.egress.local</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MQTT__$NAME__EGRESS__LOCAL</code>
 
 
-
 **Fields**
 
 - topic: <code>binary()</code>
-
   The local topic to be forwarded to the remote broker
 
 
@@ -7109,42 +6326,28 @@ The configs about sending message to the remote broker.
 
  - <code>bridges.mqtt.$name.egress.remote</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MQTT__$NAME__EGRESS__REMOTE</code>
 
 
-
 **Fields**
 
 - topic: <code>binary()</code>
-
-
   Forward to which topic of the remote broker.<br/>
   Template with variables is allowed.
 
-
 - qos: <code>qos() | binary()</code>
-
-
   The QoS of the MQTT message to be sent.<br/>
   Template with variables is allowed.
 
-
 - retain: <code>boolean() | binary()</code>
-
-
   The 'retain' flag of the MQTT message to be sent.<br/>
   Template with variables is allowed.
 
-
 - payload: <code>binary()</code>
-
-
   The payload of the MQTT message to be sent.<br/>
   Template with variables is allowed.
-
 
 
 ## connector-mqtt:ingress
@@ -7160,21 +6363,17 @@ The ingress config defines how this bridge receive messages from the remote MQTT
 
  - <code>bridges.mqtt.$name.ingress</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MQTT__$NAME__INGRESS</code>
 
 
-
 **Fields**
 
 - remote: <code>[connector-mqtt:ingress_remote](#connector-mqtt-ingress_remote)</code>
-
   The configs about subscribing to the remote broker.
 
 - local: <code>[connector-mqtt:ingress_local](#connector-mqtt-ingress_local)</code>
-
   The configs about sending message to the local broker.
 
 
@@ -7186,46 +6385,34 @@ The configs about sending message to the local broker.
 
  - <code>bridges.mqtt.$name.ingress.local</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MQTT__$NAME__INGRESS__LOCAL</code>
 
 
-
 **Fields**
 
 - topic: <code>binary()</code>
-
-
   Send messages to which topic of the local broker.<br/>
   Template with variables is allowed.
-
 
 - qos: <code>qos() | binary()</code>
   * default: 
   `"${qos}"`
 
-
   The QoS of the MQTT message to be sent.<br/>
   Template with variables is allowed.
-
 
 - retain: <code>boolean() | binary()</code>
   * default: 
   `"${retain}"`
 
-
   The 'retain' flag of the MQTT message to be sent.<br/>
   Template with variables is allowed.
 
-
 - payload: <code>binary()</code>
-
-
   The payload of the MQTT message to be sent.<br/>
   Template with variables is allowed.
-
 
 
 ## connector-mqtt:ingress_remote
@@ -7236,17 +6423,14 @@ The configs about subscribing to the remote broker.
 
  - <code>bridges.mqtt.$name.ingress.remote</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__MQTT__$NAME__INGRESS__REMOTE</code>
 
 
-
 **Fields**
 
 - topic: <code>binary()</code>
-
   Receive messages from which topic of the remote broker
 
 - qos: <code>qos() | binary()</code>
@@ -7270,11 +6454,9 @@ The standalone-installed plugins are referred to as 'external' plugins.
 
  - <code>plugins</code>
 
-
 **Env overrides**
 
  - <code>EMQX_PLUGINS</code>
-
 
 
 **Fields**
@@ -7290,7 +6472,6 @@ The standalone-installed plugins are referred to as 'external' plugins.
   * default: 
   `"plugins"`
 
-
   The installation directory for the external plugins.
   The plugin beam files and configuration files should reside in
   the subdirectory named as <code>emqx_foo_bar-0.1.0</code>.
@@ -7298,14 +6479,12 @@ The standalone-installed plugins are referred to as 'external' plugins.
   NOTE: For security reasons, this directory should **NOT** be writable
   by anyone except <code>emqx</code> (or any user which runs EMQX).
 
-
 - check_interval: <code>emqx_schema:duration()</code>
   * default: 
   `"5s"`
 
   Check interval: check if the status of the plugins in the cluster is consistent, <br/>
   if the results of 3 consecutive checks are not consistent, then alarm.
-
 
 
 ## plugin:state
@@ -7316,24 +6495,19 @@ A per-plugin config to describe the desired state of the plugin.
 
  - <code>plugins.states.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_PLUGINS__STATES__$INDEX</code>
 
 
-
 **Fields**
 
 - name_vsn: <code>string()</code>
-
   The {name}-{version} of the plugin.<br/>
   It should match the plugin application name-version as the for the plugin release package name<br/>
   For example: my_plugin-0.1.0.
 
-
 - enable: <code>boolean()</code>
-
   Set to 'true' to enable this plugin
 
 
@@ -7345,11 +6519,9 @@ Settings for reporting metrics to Prometheus
 
  - <code>prometheus</code>
 
-
 **Env overrides**
 
  - <code>EMQX_PROMETHEUS</code>
-
 
 
 **Fields**
@@ -7386,7 +6558,6 @@ Creation options.
  - <code>bridges.redis_sentinel.$name.resource_opts</code>
  - <code>bridges.redis_single.$name.resource_opts</code>
 
-
 **Env overrides**
 
  - <code>EMQX_BRIDGES__GCP_PUBSUB__$NAME__RESOURCE_OPTS</code>
@@ -7395,7 +6566,6 @@ Creation options.
  - <code>EMQX_BRIDGES__REDIS_CLUSTER__$NAME__RESOURCE_OPTS</code>
  - <code>EMQX_BRIDGES__REDIS_SENTINEL__$NAME__RESOURCE_OPTS</code>
  - <code>EMQX_BRIDGES__REDIS_SINGLE__$NAME__RESOURCE_OPTS</code>
-
 
 
 **Fields**
@@ -7469,11 +6639,9 @@ Retainer batching and rate limiting.
 
  - <code>retainer.flow_control</code>
 
-
 **Env overrides**
 
  - <code>EMQX_RETAINER__FLOW_CONTROL</code>
-
 
 
 **Fields**
@@ -7491,7 +6659,6 @@ Retainer batching and rate limiting.
   The number of retained messages can be delivered per batch.
 
 - batch_deliver_limiter: <code>[limiter:internal](#limiter-internal)</code>
-
   The rate limiter name for retained messages' delivery.
   Limiter helps to avoid delivering too many messages to the client at once, which may cause the client to block or crash, or drop messages due to exceeding the size of the message queue.
   The names of the available rate limiters are taken from the existing rate limiters under `limiter.batch`.
@@ -7506,11 +6673,9 @@ Configuration of the internal database storing retained messages.
 
  - <code>retainer.backend</code>
 
-
 **Env overrides**
 
  - <code>EMQX_RETAINER__BACKEND</code>
-
 
 
 **Fields**
@@ -7535,7 +6700,6 @@ Configuration of the internal database storing retained messages.
 
 - index_specs: <code>[[integer()]]</code>
   * default: 
-
   ```
   [
     [1, 2, 3],
@@ -7556,11 +6720,9 @@ Configuration related to handling `PUBLISH` packets with a `retain` flag set to 
 
  - <code>retainer</code>
 
-
 **Env overrides**
 
  - <code>EMQX_RETAINER</code>
-
 
 
 **Fields**
@@ -7607,7 +6769,6 @@ Configuration related to handling `PUBLISH` packets with a `retain` flag set to 
   http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718038
 
 - backend: <code>[retainer:mnesia_config](#retainer-mnesia_config)</code>
-
   Settings for the database storing the retained messages.
 
 
@@ -7619,11 +6780,9 @@ Configuration for `slow_subs` feature.
 
  - <code>slow_subs</code>
 
-
 **Env overrides**
 
  - <code>EMQX_SLOW_SUBS</code>
-
 
 
 **Fields**
@@ -7667,11 +6826,9 @@ StatsD metrics collection and push configuration.
 
  - <code>statsd</code>
 
-
 **Env overrides**
 
  - <code>EMQX_STATSD</code>
-
 
 
 **Fields**
@@ -7705,5 +6862,4 @@ StatsD metrics collection and push configuration.
   `{}`
 
   The tags for metrics.
-
 

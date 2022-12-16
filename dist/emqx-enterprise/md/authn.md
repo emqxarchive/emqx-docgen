@@ -29,7 +29,6 @@ Configuration of authenticator using built-in database as data source.
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -56,15 +55,12 @@ Configuration of authenticator using built-in database as data source.
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - mechanism: <code>password_based</code>
-
   Authentication mechanism.
 
 - backend: <code>built_in_database</code>
-
   Backend type.
 
 - user_id_type: <code>clientid | username</code>
@@ -115,7 +111,6 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -142,7 +137,6 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - method: <code>get</code>
@@ -153,7 +147,6 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
 
 - headers: <code>map()</code>
   * default: 
-
   ```
   {
     accept = "application/json"
@@ -166,19 +159,15 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
   List of HTTP headers (without <code>content-type</code>).
 
 - mechanism: <code>password_based</code>
-
   Authentication mechanism.
 
 - backend: <code>http</code>
-
   Backend type.
 
 - url: <code>binary()</code>
-
   URL of the HTTP server.
 
 - body: <code>#{term() => binary()}</code>
-
   HTTP request body.
 
 - request_timeout: <code>emqx_schema:duration_ms()</code>
@@ -206,7 +195,6 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
   A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
 
 - max_retries: <code>non_neg_integer()</code>
-
   Deprecated since 5.0.4.
 
 - pool_size: <code>pos_integer()</code>
@@ -216,14 +204,10 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
   The pool size.
 
 - request: <code>[connector-http:request](#connector-http-request)</code>
-
-
   If the request is provided, the caller can send HTTP requests via
   <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
-
 - retry_interval: <code>emqx_schema:duration()</code>
-
   Deprecated since 5.0.4.
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -262,7 +246,6 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -289,7 +272,6 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - method: <code>post</code>
@@ -300,7 +282,6 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
 
 - headers: <code>map()</code>
   * default: 
-
   ```
   {
     accept = "application/json"
@@ -314,19 +295,15 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
   List of HTTP Headers.
 
 - mechanism: <code>password_based</code>
-
   Authentication mechanism.
 
 - backend: <code>http</code>
-
   Backend type.
 
 - url: <code>binary()</code>
-
   URL of the HTTP server.
 
 - body: <code>#{term() => binary()}</code>
-
   HTTP request body.
 
 - request_timeout: <code>emqx_schema:duration_ms()</code>
@@ -354,7 +331,6 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
   A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
 
 - max_retries: <code>non_neg_integer()</code>
-
   Deprecated since 5.0.4.
 
 - pool_size: <code>pos_integer()</code>
@@ -364,14 +340,10 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
   The pool size.
 
 - request: <code>[connector-http:request](#connector-http-request)</code>
-
-
   If the request is provided, the caller can send HTTP requests via
   <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
-
 - retry_interval: <code>emqx_schema:duration()</code>
-
   Deprecated since 5.0.4.
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -410,7 +382,6 @@ Configuration when the JWT for authentication is issued using the HMAC algorithm
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -437,19 +408,15 @@ Configuration when the JWT for authentication is issued using the HMAC algorithm
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - use_jwks: <code>false</code>
-
   Whether to use JWKS.
 
 - algorithm: <code>hmac-based</code>
-
   JWT signing algorithm, Supports HMAC (configured as <code>hmac-based</code>) and RSA, ECDSA (configured as <code>public-key</code>).
 
 - secret: <code>binary()</code>
-
   The key to verify the JWT using HMAC algorithm.
 
 - secret_base64_encoded: <code>boolean()</code>
@@ -459,7 +426,6 @@ Configuration when the JWT for authentication is issued using the HMAC algorithm
   Whether secret is base64 encoded.
 
 - mechanism: <code>jwt</code>
-
   Authentication mechanism.
 
 - acl_claim_name: <code>binary()</code>
@@ -472,13 +438,11 @@ Configuration when the JWT for authentication is issued using the HMAC algorithm
   * default: 
   `{}`
 
-
   A list of custom claims to validate, which is a list of name/value pairs.
   Values can use the following placeholders:
   - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
   - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
   Authentication will verify that the value of claims in the JWT (taken from the Password field) matches what is required in <code>verify_claims</code>.
-
 
 - from: <code>username | password</code>
   * default: 
@@ -522,7 +486,6 @@ Configuration when JWTs used for authentication need to be fetched from the JWKS
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -549,15 +512,12 @@ Configuration when JWTs used for authentication need to be fetched from the JWKS
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - use_jwks: <code>true</code>
-
   Whether to use JWKS.
 
 - endpoint: <code>string()</code>
-
   JWKS endpoint, it's a read-only endpoint that returns the server's public key set in the JWKS format.
 
 - pool_size: <code>pos_integer()</code>
@@ -579,7 +539,6 @@ Configuration when JWTs used for authentication need to be fetched from the JWKS
   SSL options.
 
 - mechanism: <code>jwt</code>
-
   Authentication mechanism.
 
 - acl_claim_name: <code>binary()</code>
@@ -592,13 +551,11 @@ Configuration when JWTs used for authentication need to be fetched from the JWKS
   * default: 
   `{}`
 
-
   A list of custom claims to validate, which is a list of name/value pairs.
   Values can use the following placeholders:
   - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
   - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
   Authentication will verify that the value of claims in the JWT (taken from the Password field) matches what is required in <code>verify_claims</code>.
-
 
 - from: <code>username | password</code>
   * default: 
@@ -642,7 +599,6 @@ Configuration when the JWT for authentication is issued using RSA or ECDSA algor
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -669,23 +625,18 @@ Configuration when the JWT for authentication is issued using RSA or ECDSA algor
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - use_jwks: <code>false</code>
-
   Whether to use JWKS.
 
 - algorithm: <code>public-key</code>
-
   JWT signing algorithm, Supports HMAC (configured as <code>hmac-based</code>) and RSA, ECDSA (configured as <code>public-key</code>).
 
 - public_key: <code>string()</code>
-
   The public key used to verify the JWT.
 
 - mechanism: <code>jwt</code>
-
   Authentication mechanism.
 
 - acl_claim_name: <code>binary()</code>
@@ -698,13 +649,11 @@ Configuration when the JWT for authentication is issued using RSA or ECDSA algor
   * default: 
   `{}`
 
-
   A list of custom claims to validate, which is a list of name/value pairs.
   Values can use the following placeholders:
   - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
   - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
   Authentication will verify that the value of claims in the JWT (taken from the Password field) matches what is required in <code>verify_claims</code>.
-
 
 - from: <code>username | password</code>
   * default: 
@@ -748,7 +697,6 @@ Configuration of authenticator using MongoDB (Replica Set) as authentication dat
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -775,31 +723,25 @@ Configuration of authenticator using MongoDB (Replica Set) as authentication dat
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - mechanism: <code>password_based</code>
-
   Authentication mechanism.
 
 - backend: <code>mongodb</code>
-
   Backend type.
 
 - collection: <code>binary()</code>
-
   Collection used to store authentication data.
 
 - filter: <code>map()</code>
   * default: 
   `{}`
 
-
   Conditional expression that defines the filter condition in the query.
   Filter supports the following placeholders:
   - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
   - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
 
 - password_hash_field: <code>binary()</code>
   * default: 
@@ -838,13 +780,10 @@ Configuration of authenticator using MongoDB (Replica Set) as authentication dat
   Replica set.
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - w_mode: <code>unsafe | safe</code>
   * default: 
@@ -859,7 +798,6 @@ Configuration of authenticator using MongoDB (Replica Set) as authentication dat
   Read mode.
 
 - replica_set_name: <code>binary()</code>
-
   Name of the replica set.
 
 - srv_record: <code>boolean()</code>
@@ -875,23 +813,18 @@ Configuration of authenticator using MongoDB (Replica Set) as authentication dat
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auth_source: <code>binary()</code>
-
   Database name associated with the user's credentials.
 
 - database: <code>binary()</code>
-
   Database name.
 
 - topology: <code>[topology](#topology)</code>
-
 
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -930,7 +863,6 @@ Configuration of authenticator using MongoDB (Sharded Cluster) as authentication
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -957,31 +889,25 @@ Configuration of authenticator using MongoDB (Sharded Cluster) as authentication
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - mechanism: <code>password_based</code>
-
   Authentication mechanism.
 
 - backend: <code>mongodb</code>
-
   Backend type.
 
 - collection: <code>binary()</code>
-
   Collection used to store authentication data.
 
 - filter: <code>map()</code>
   * default: 
   `{}`
 
-
   Conditional expression that defines the filter condition in the query.
   Filter supports the following placeholders:
   - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
   - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
 
 - password_hash_field: <code>binary()</code>
   * default: 
@@ -1020,13 +946,10 @@ Configuration of authenticator using MongoDB (Sharded Cluster) as authentication
   Sharded cluster.
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - w_mode: <code>unsafe | safe</code>
   * default: 
@@ -1047,23 +970,18 @@ Configuration of authenticator using MongoDB (Sharded Cluster) as authentication
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auth_source: <code>binary()</code>
-
   Database name associated with the user's credentials.
 
 - database: <code>binary()</code>
-
   Database name.
 
 - topology: <code>[topology](#topology)</code>
-
 
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -1102,7 +1020,6 @@ Configuration of authenticator using MongoDB (Standalone) as authentication data
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -1129,31 +1046,25 @@ Configuration of authenticator using MongoDB (Standalone) as authentication data
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - mechanism: <code>password_based</code>
-
   Authentication mechanism.
 
 - backend: <code>mongodb</code>
-
   Backend type.
 
 - collection: <code>binary()</code>
-
   Collection used to store authentication data.
 
 - filter: <code>map()</code>
   * default: 
   `{}`
 
-
   Conditional expression that defines the filter condition in the query.
   Filter supports the following placeholders:
   - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
   - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
 
 - password_hash_field: <code>binary()</code>
   * default: 
@@ -1192,12 +1103,9 @@ Configuration of authenticator using MongoDB (Standalone) as authentication data
   Standalone instance.
 
 - server: <code>emqx_schema:host_port()</code>
-
-
   The IPv4 or IPv6 address or the hostname to connect to.<br/>
   A host entry has the following form: `Host[:Port]`.<br/>
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - w_mode: <code>unsafe | safe</code>
   * default: 
@@ -1218,23 +1126,18 @@ Configuration of authenticator using MongoDB (Standalone) as authentication data
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auth_source: <code>binary()</code>
-
   Database name associated with the user's credentials.
 
 - database: <code>binary()</code>
-
   Database name.
 
 - topology: <code>[topology](#topology)</code>
-
 
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
@@ -1273,7 +1176,6 @@ Configuration of authenticator using MySQL as authentication data source.
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -1300,15 +1202,12 @@ Configuration of authenticator using MySQL as authentication data source.
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - mechanism: <code>password_based</code>
-
   Authentication mechanism.
 
 - backend: <code>mysql</code>
-
   Backend type.
 
 - password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
@@ -1318,7 +1217,6 @@ Configuration of authenticator using MySQL as authentication data source.
   Options for password hash verification.
 
 - query: <code>string()</code>
-
   SQL used to query data for authentication, such as password hash.
 
 - query_timeout: <code>emqx_schema:duration_ms()</code>
@@ -1334,15 +1232,11 @@ Configuration of authenticator using MySQL as authentication data source.
   Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
 - server: <code>emqx_schema:host_port()</code>
-
-
   The IPv4 or IPv6 address or the hostname to connect to.<br/>
   A host entry has the following form: `Host[:Port]`.<br/>
   The MySQL default port 3306 is used if `[:Port]` is not specified.
 
-
 - database: <code>binary()</code>
-
   Database name.
 
 - pool_size: <code>pos_integer()</code>
@@ -1352,11 +1246,9 @@ Configuration of authenticator using MySQL as authentication data source.
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auto_reconnect: <code>boolean()</code>
@@ -1401,7 +1293,6 @@ Configuration of authenticator using PostgreSQL as authentication data source.
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -1428,15 +1319,12 @@ Configuration of authenticator using PostgreSQL as authentication data source.
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - mechanism: <code>password_based</code>
-
   Authentication mechanism.
 
 - backend: <code>postgresql</code>
-
   Backend type.
 
 - password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
@@ -1446,7 +1334,6 @@ Configuration of authenticator using PostgreSQL as authentication data source.
   Options for password hash verification.
 
 - query: <code>string()</code>
-
   SQL used to query data for authentication, such as password hash.
 
 - enable: <code>boolean()</code>
@@ -1456,15 +1343,11 @@ Configuration of authenticator using PostgreSQL as authentication data source.
   Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
 - server: <code>emqx_schema:host_port()</code>
-
-
   The IPv4 or IPv6 address or the hostname to connect to.<br/>
   A host entry has the following form: `Host[:Port]`.<br/>
   The PostgreSQL default port 5432 is used if `[:Port]` is not specified.
 
-
 - database: <code>binary()</code>
-
   Database name.
 
 - pool_size: <code>pos_integer()</code>
@@ -1474,11 +1357,9 @@ Configuration of authenticator using PostgreSQL as authentication data source.
   Size of the connection pool.
 
 - username: <code>binary()</code>
-
   EMQX's username in the external database.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auto_reconnect: <code>boolean()</code>
@@ -1523,7 +1404,6 @@ Configuration of authenticator using Redis (Cluster) as authentication data sour
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -1550,19 +1430,15 @@ Configuration of authenticator using Redis (Cluster) as authentication data sour
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - mechanism: <code>password_based</code>
-
   Authentication mechanism.
 
 - backend: <code>redis</code>
-
   Backend type.
 
 - cmd: <code>string()</code>
-
   The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
 
 - password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
@@ -1578,13 +1454,10 @@ Configuration of authenticator using Redis (Cluster) as authentication data sour
   Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - redis_type: <code>cluster</code>
   * default: 
@@ -1599,7 +1472,6 @@ Configuration of authenticator using Redis (Cluster) as authentication data sour
   Size of the connection pool.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - auto_reconnect: <code>boolean()</code>
@@ -1644,7 +1516,6 @@ Configuration of authenticator using Redis (Sentinel) as authentication data sou
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -1671,19 +1542,15 @@ Configuration of authenticator using Redis (Sentinel) as authentication data sou
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - mechanism: <code>password_based</code>
-
   Authentication mechanism.
 
 - backend: <code>redis</code>
-
   Backend type.
 
 - cmd: <code>string()</code>
-
   The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
 
 - password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
@@ -1699,13 +1566,10 @@ Configuration of authenticator using Redis (Sentinel) as authentication data sou
   Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
 - servers: <code>[term()]</code>
-
-
   A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
   For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
   A host entry has the following form: `Host[:Port]`.
   The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
 
 - redis_type: <code>sentinel</code>
   * default: 
@@ -1714,7 +1578,6 @@ Configuration of authenticator using Redis (Sentinel) as authentication data sou
   Sentinel mode
 
 - sentinel: <code>string()</code>
-
   The cluster name in Redis sentinel mode.
 
 - pool_size: <code>pos_integer()</code>
@@ -1724,7 +1587,6 @@ Configuration of authenticator using Redis (Sentinel) as authentication data sou
   Size of the connection pool.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - database: <code>integer()</code>
@@ -1775,7 +1637,6 @@ Configuration of authenticator using Redis (Standalone) as authentication data s
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -1802,19 +1663,15 @@ Configuration of authenticator using Redis (Standalone) as authentication data s
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - mechanism: <code>password_based</code>
-
   Authentication mechanism.
 
 - backend: <code>redis</code>
-
   Backend type.
 
 - cmd: <code>string()</code>
-
   The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
 
 - password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
@@ -1830,12 +1687,9 @@ Configuration of authenticator using Redis (Standalone) as authentication data s
   Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
 - server: <code>emqx_schema:host_port()</code>
-
-
   The IPv4 or IPv6 address or the hostname to connect to.<br/>
   A host entry has the following form: `Host[:Port]`.<br/>
   The Redis default port 6379 is used if `[:Port]` is not specified.
-
 
 - redis_type: <code>single</code>
   * default: 
@@ -1850,7 +1704,6 @@ Configuration of authenticator using Redis (Standalone) as authentication data s
   Size of the connection pool.
 
 - password: <code>binary()</code>
-
   EMQX's password in the external database.
 
 - database: <code>integer()</code>
@@ -1902,7 +1755,6 @@ Settings for Salted Challenge Response Authentication Mechanism
  - <code>listeners.ws.$name.authentication.$INDEX</code>
  - <code>listeners.wss.$name.authentication.$INDEX</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHENTICATION__$INDEX</code>
@@ -1929,15 +1781,12 @@ Settings for Salted Challenge Response Authentication Mechanism
  - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
 
 
-
 **Fields**
 
 - mechanism: <code>scram</code>
-
   Authentication mechanism.
 
 - backend: <code>built_in_database</code>
-
   Backend type.
 
 - algorithm: <code>sha256 | sha512</code>
@@ -1957,5 +1806,4 @@ Settings for Salted Challenge Response Authentication Mechanism
   `true`
 
   Set to <code>true</code> or <code>false</code> to disable this auth provider.
-
 

@@ -10,41 +10,28 @@
 - listeners: <code>[broker:listeners](#broker-listeners)</code>
 
 
-
 - zones: <code>{$name -> [broker:zone](#broker-zone)}</code>
-
   A zone is a set of configs grouped by the zone <code>name</code>.
   For flexible configuration mapping, the <code>name</code> can be set to a listener's <code>zone</code> config.
   NOTE: A built-in zone named <code>default</code> is auto created and can not be deleted.
 
-
 - mqtt: <code>[broker:mqtt](#broker-mqtt)</code>
-
   Global MQTT configuration.
   The configs here work as default values which can be overridden in <code>zone</code> configs
 
-
 - authentication: <code>[[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)]</code>
-
   Default authentication configs for all MQTT listeners.
-
   For per-listener overrides see <code>authentication</code> in listener configs
-
   This option can be configured with:
   <ul>
     <li><code>[]</code>: The default value, it allows *ALL* logins</li>
     <li>one: For example <code>{enable:true,backend:"built_in_database",mechanism="password_based"}</code></li>
     <li>chain: An array of structs.</li>
   </ul>
-
   When a chain is configured, the login credentials are checked against the backends per the configured order, until an 'allow' or 'deny' decision can be made.
-
   If there is no decision after a full chain exhaustion, the login is rejected.
 
-
 - authorization: <code>[authorization](#authorization)</code>
-
-
   Authorization a.k.a. ACL.<br/>
   In EMQX, MQTT client access control is extremely flexible.<br/>
   An out-of-the-box set of authorization data sources are supported.
@@ -55,137 +42,103 @@
   'http' source to make EMQX call an external HTTP API to make the decision;<br/>
   'PostgreSQL' etc. to look up clients or rules from external databases;<br/>
 
-
 - node: <code>[node](#node)</code>
-
 
 
 - cluster: <code>[cluster](#cluster)</code>
 
 
-
 - log: <code>[log](#log)</code>
-
 
 
 - rpc: <code>[rpc](#rpc)</code>
 
 
-
 - broker: <code>[broker](#broker)</code>
-
   Message broker options.
 
 - sys_topics: <code>[broker:sys_topics](#broker-sys_topics)</code>
-
   System topics configuration.
 
 - force_shutdown: <code>[broker:force_shutdown](#broker-force_shutdown)</code>
 
 
-
 - overload_protection: <code>[broker:overload_protection](#broker-overload_protection)</code>
-
 
 
 - force_gc: <code>[broker:force_gc](#broker-force_gc)</code>
 
 
-
 - conn_congestion: <code>[broker:conn_congestion](#broker-conn_congestion)</code>
-
 
 
 - stats: <code>[broker:stats](#broker-stats)</code>
 
 
-
 - sysmon: <code>[broker:sysmon](#broker-sysmon)</code>
-
 
 
 - alarm: <code>[broker:alarm](#broker-alarm)</code>
 
 
-
 - flapping_detect: <code>[broker:flapping_detect](#broker-flapping_detect)</code>
-
 
 
 - persistent_session_store: <code>[broker:persistent_session_store](#broker-persistent_session_store)</code>
 
 
-
 - trace: <code>[broker:trace](#broker-trace)</code>
-
 
 
 - bridges: <code>[bridge:bridges](#bridge-bridges)</code>
 
 
-
 - retainer: <code>[retainer](#retainer)</code>
-
 
 
 - statsd: <code>[statsd](#statsd)</code>
 
 
-
 - auto_subscribe: <code>[auto_subscribe](#auto_subscribe)</code>
-
 
 
 - delayed: <code>[modules:delayed](#modules-delayed)</code>
 
 
-
 - telemetry: <code>[modules:telemetry](#modules-telemetry)</code>
 
 
-
 - rewrite: <code>[[modules:rewrite](#modules-rewrite)]</code>
-
   List of topic rewrite rules.
 
 - topic_metrics: <code>[[modules:topic_metrics](#modules-topic_metrics)]</code>
-
   List of topics whose metrics are reported.
 
 - plugins: <code>[plugin:plugins](#plugin-plugins)</code>
 
 
-
 - dashboard: <code>[dashboard](#dashboard)</code>
-
 
 
 - gateway: <code>[gateway](#gateway)</code>
 
 
-
 - prometheus: <code>[prometheus](#prometheus)</code>
-
 
 
 - rule_engine: <code>[rule_engine](#rule_engine)</code>
 
 
-
 - exhook: <code>[exhook](#exhook)</code>
-
 
 
 - psk_authentication: <code>[authn-psk:psk_authentication](#authn-psk-psk_authentication)</code>
 
 
-
 - limiter: <code>[limiter](#limiter)</code>
 
 
-
 - slow_subs: <code>[slow_subs](#slow_subs)</code>
-
 
 
 
@@ -197,11 +150,9 @@ Service discovery via DNS SRV records.
 
  - <code>cluster.dns</code>
 
-
 **Env overrides**
 
  - <code>EMQX_CLUSTER__DNS</code>
-
 
 
 **Fields**
@@ -212,7 +163,6 @@ Service discovery via DNS SRV records.
 
   The domain name from which to discover peer EMQX nodes' IP addresses.
   Applicable when <code>cluster.discovery_strategy = dns</code>
-
 
 - record_type: <code>a | srv</code>
   * default: 
@@ -229,17 +179,14 @@ Service discovery using 'etcd' service.
 
  - <code>cluster.etcd</code>
 
-
 **Env overrides**
 
  - <code>EMQX_CLUSTER__ETCD</code>
 
 
-
 **Fields**
 
 - server: <code>emqx_schema:comma_separated_list()</code>
-
   List of endpoint URLs of the etcd cluster
 
 - prefix: <code>string()</code>
@@ -257,7 +204,6 @@ Service discovery using 'etcd' service.
             
 
 - ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
-
   Options for the TLS connection to the etcd cluster.
 
 
@@ -269,11 +215,9 @@ Service discovery via Kubernetes API server.
 
  - <code>cluster.k8s</code>
 
-
 **Env overrides**
 
  - <code>EMQX_CLUSTER__K8S</code>
-
 
 
 **Fields**
@@ -298,7 +242,6 @@ Service discovery via Kubernetes API server.
   Setting <code>cluster.k8s.address_type</code> to <code>ip</code> will
   make EMQX to discover IP addresses of peer nodes from Kubernetes API.
 
-
 - namespace: <code>string()</code>
   * default: 
   `"default"`
@@ -322,11 +265,9 @@ Service discovery via UDP multicast.
 
  - <code>cluster.mcast</code>
 
-
 **Env overrides**
 
  - <code>EMQX_CLUSTER__MCAST</code>
-
 
 
 **Fields**
@@ -391,11 +332,9 @@ The new node joins the cluster by connecting to one of the bootstrap nodes.
 
  - <code>cluster.static</code>
 
-
 **Env overrides**
 
  - <code>EMQX_CLUSTER__STATIC</code>
-
 
 
 **Fields**
@@ -415,11 +354,9 @@ Settings that control client authorization.
 
  - <code>authorization</code>
 
-
 **Env overrides**
 
  - <code>EMQX_AUTHORIZATION</code>
-
 
 
 **Fields**
@@ -428,12 +365,10 @@ Settings that control client authorization.
   * default: 
   `allow`
 
-
   Default access control action if the user or client matches no ACL rules,
   or if no such user or client is found by the configurable authorization
   sources such as built_in_database, an HTTP API, or a query against PostgreSQL.
   Find more details in 'authorization.sources' config.
-
 
 - deny_action: <code>ignore | disconnect</code>
   * default: 
@@ -444,30 +379,24 @@ Settings that control client authorization.
 - cache: <code>[broker:cache](#broker-cache)</code>
 
 
-
 - sources: <code>[[authz:file](#authz-file) | [authz:http_get](#authz-http_get) | [authz:http_post](#authz-http_post) | [authz:mnesia](#authz-mnesia) | [authz:mongo_single](#authz-mongo_single) | [authz:mongo_rs](#authz-mongo_rs) | [authz:mongo_sharded](#authz-mongo_sharded) | [authz:mysql](#authz-mysql) | [authz:postgresql](#authz-postgresql) | [authz:redis_single](#authz-redis_single) | [authz:redis_sentinel](#authz-redis_sentinel) | [authz:redis_cluster](#authz-redis_cluster)]</code>
   * default: 
   `[]`
-
 
   Authorization data sources.<br/>
   An array of authorization (ACL) data providers.
   It is designed as an array, not a hash-map, so the sources can be
   ordered to form a chain of access controls.<br/>
-
   When authorizing a 'publish' or 'subscribe' action, the configured
   sources are checked in order. When checking an ACL source,
   in case the client (identified by username or client ID) is not found,
   it moves on to the next source. And it stops immediately
   once an 'allow' or 'deny' decision is returned.<br/>
-
   If the client is not found in any of the sources,
   the default action configured in 'authorization.no_match' is applied.<br/>
-
   NOTE:
   The source elements are identified by their 'type'.
   It is NOT allowed to configure two or more sources of the same type.
-
 
 
 ## cluster
@@ -479,11 +408,9 @@ EMQX nodes can form a cluster to scale up the total capacity.<br/>
 
  - <code>cluster</code>
 
-
 **Env overrides**
 
  - <code>EMQX_CLUSTER</code>
-
 
 
 **Fields**
@@ -491,6 +418,7 @@ EMQX nodes can form a cluster to scale up the total capacity.<br/>
 - name: <code>atom()</code>
   * default: 
   `emqxcl`
+
   * mapping: 
   `ekka.cluster_name`
 
@@ -505,9 +433,9 @@ EMQX nodes can form a cluster to scale up the total capacity.<br/>
 - core_nodes: <code>emqx_schema:comma_separated_atoms()</code>
   * default: 
   `[]`
+
   * mapping: 
   `mria.core_nodes`
-
 
   List of core nodes that the replicant will connect to.<br/>
   Note: this parameter only takes effect when the <code>backend</code> is set
@@ -516,10 +444,10 @@ EMQX nodes can form a cluster to scale up the total capacity.<br/>
   If an automatic cluster discovery mechanism is being used (such as <code>etcd</code>),
   there is no need to set this value.
 
-
 - autoclean: <code>emqx_schema:duration()</code>
   * default: 
   `"5m"`
+
   * mapping: 
   `ekka.cluster_autoclean`
 
@@ -528,6 +456,7 @@ EMQX nodes can form a cluster to scale up the total capacity.<br/>
 - autoheal: <code>boolean()</code>
   * default: 
   `true`
+
   * mapping: 
   `ekka.cluster_autoheal`
 
@@ -536,6 +465,7 @@ EMQX nodes can form a cluster to scale up the total capacity.<br/>
 - proto_dist: <code>inet_tcp | inet6_tcp | inet_tls</code>
   * default: 
   `inet_tcp`
+
   * mapping: 
   `ekka.proto_dist`
 
@@ -544,21 +474,16 @@ EMQX nodes can form a cluster to scale up the total capacity.<br/>
 - static: <code>[cluster_static](#cluster_static)</code>
 
 
-
 - mcast: <code>[cluster_mcast](#cluster_mcast)</code>
-
 
 
 - dns: <code>[cluster_dns](#cluster_dns)</code>
 
 
-
 - etcd: <code>[cluster_etcd](#cluster_etcd)</code>
 
 
-
 - k8s: <code>[cluster_k8s](#cluster_k8s)</code>
-
 
 
 
@@ -570,11 +495,9 @@ Options for the 'cluster call' feature that allows to execute a callback on all 
 
  - <code>node.cluster_call</code>
 
-
 **Env overrides**
 
  - <code>EMQX_NODE__CLUSTER_CALL</code>
-
 
 
 **Fields**
@@ -607,11 +530,9 @@ Log handler that prints log events to the EMQX console.
 
  - <code>log.console_handler</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LOG__CONSOLE_HANDLER</code>
-
 
 
 **Fields**
@@ -626,15 +547,12 @@ Log handler that prints log events to the EMQX console.
   * default: 
   `warning`
 
-
   The log level for the current log handler.
   Defaults to warning.
-
 
 - time_offset: <code>string()</code>
   * default: 
   `"system"`
-
 
   The time offset to be used when formatting the timestamp.
   Can be one of:
@@ -643,15 +561,12 @@ Log handler that prints log events to the EMQX console.
     - <code>+-[hh]:[mm]</code>: user specified time offset, such as "-02:00" or "+00:00"
   Defaults to: <code>system</code>.
 
-
 - chars_limit: <code>unlimited | 100..inf</code>
   * default: 
   `unlimited`
 
-
   Set the maximum length of a single log message. If this length is exceeded, the log message will be truncated.
   NOTE: Restrict char limiter if formatter is JSON , it will get a truncated incomplete JSON data, which is not recommended.
-
 
 - formatter: <code>text | json</code>
   * default: 
@@ -680,7 +595,6 @@ Log handler that prints log events to the EMQX console.
   When the handler reduces the message queue to a level below the sync_mode_qlen threshold,
   asynchronous operation is resumed.
 
-
 - drop_mode_qlen: <code>pos_integer()</code>
   * default: 
   `3000`
@@ -698,20 +612,16 @@ Log handler that prints log events to the EMQX console.
 - overload_kill: <code>[log_overload_kill](#log_overload_kill)</code>
 
 
-
 - burst_limit: <code>[log_burst_limit](#log_burst_limit)</code>
-
 
 
 - supervisor_reports: <code>error | progress</code>
   * default: 
   `error`
 
-
   Type of supervisor reports that are logged. Defaults to <code>error</code>
     - <code>error</code>: only log errors in the Erlang processes.
     - <code>progress</code>: log process startup.
-
 
 - max_depth: <code>unlimited | non_neg_integer()</code>
   * default: 
@@ -729,11 +639,9 @@ Each sink is represented by a _log handler_, which can be configured independent
 
  - <code>log</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LOG</code>
-
 
 
 **Fields**
@@ -741,9 +649,7 @@ Each sink is represented by a _log handler_, which can be configured independent
 - console_handler: <code>[console_handler](#console_handler)</code>
 
 
-
 - file_handlers: <code>{$name -> [log_file_handler](#log_file_handler)}</code>
-
   File-based log handlers.
 
 
@@ -761,12 +667,10 @@ Log burst limit feature can temporarily disable logging to avoid these issues.
  - <code>log.console_handler.burst_limit</code>
  - <code>log.file_handlers.$name.burst_limit</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LOG__CONSOLE_HANDLER__BURST_LIMIT</code>
  - <code>EMQX_LOG__FILE_HANDLERS__$NAME__BURST_LIMIT</code>
-
 
 
 **Fields**
@@ -798,21 +702,17 @@ Log handler that prints log events to files.
 
  - <code>log.file_handlers.$name</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LOG__FILE_HANDLERS__$NAME</code>
 
 
-
 **Fields**
 
 - file: <code>emqx_conf_schema:file()</code>
-
   Name the log file.
 
 - rotation: <code>[log_rotation](#log_rotation)</code>
-
 
 
 - max_size: <code>infinity | emqx_schema:bytesize()</code>
@@ -831,15 +731,12 @@ Log handler that prints log events to files.
   * default: 
   `warning`
 
-
   The log level for the current log handler.
   Defaults to warning.
-
 
 - time_offset: <code>string()</code>
   * default: 
   `"system"`
-
 
   The time offset to be used when formatting the timestamp.
   Can be one of:
@@ -848,15 +745,12 @@ Log handler that prints log events to files.
     - <code>+-[hh]:[mm]</code>: user specified time offset, such as "-02:00" or "+00:00"
   Defaults to: <code>system</code>.
 
-
 - chars_limit: <code>unlimited | 100..inf</code>
   * default: 
   `unlimited`
 
-
   Set the maximum length of a single log message. If this length is exceeded, the log message will be truncated.
   NOTE: Restrict char limiter if formatter is JSON , it will get a truncated incomplete JSON data, which is not recommended.
-
 
 - formatter: <code>text | json</code>
   * default: 
@@ -885,7 +779,6 @@ Log handler that prints log events to files.
   When the handler reduces the message queue to a level below the sync_mode_qlen threshold,
   asynchronous operation is resumed.
 
-
 - drop_mode_qlen: <code>pos_integer()</code>
   * default: 
   `3000`
@@ -903,20 +796,16 @@ Log handler that prints log events to files.
 - overload_kill: <code>[log_overload_kill](#log_overload_kill)</code>
 
 
-
 - burst_limit: <code>[log_burst_limit](#log_burst_limit)</code>
-
 
 
 - supervisor_reports: <code>error | progress</code>
   * default: 
   `error`
 
-
   Type of supervisor reports that are logged. Defaults to <code>error</code>
     - <code>error</code>: only log errors in the Erlang processes.
     - <code>progress</code>: log process startup.
-
 
 - max_depth: <code>unlimited | non_neg_integer()</code>
   * default: 
@@ -937,12 +826,10 @@ When the overload is detected, the log handler is terminated and restarted after
  - <code>log.console_handler.overload_kill</code>
  - <code>log.file_handlers.$name.overload_kill</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LOG__CONSOLE_HANDLER__OVERLOAD_KILL</code>
  - <code>EMQX_LOG__FILE_HANDLERS__$NAME__OVERLOAD_KILL</code>
-
 
 
 **Fields**
@@ -983,11 +870,9 @@ This section of the configuration controls the number of files kept for each log
 
  - <code>log.file_handlers.$name.rotation</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LOG__FILE_HANDLERS__$NAME__ROTATION</code>
-
 
 
 **Fields**
@@ -1013,11 +898,9 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 
  - <code>node</code>
 
-
 **Env overrides**
 
  - <code>EMQX_NODE</code>
-
 
 
 **Fields**
@@ -1041,6 +924,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - process_limit: <code>1024..134217727</code>
   * default: 
   `2097152`
+
   * mapping: 
   `vm_args.+P`
 
@@ -1052,6 +936,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - max_ports: <code>1024..134217727</code>
   * default: 
   `1048576`
+
   * mapping: 
   `vm_args.+Q`
 
@@ -1063,6 +948,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - dist_buffer_size: <code>1..2097151</code>
   * default: 
   `8192`
+
   * mapping: 
   `vm_args.+zdbbl`
 
@@ -1071,6 +957,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - max_ets_tables: <code>pos_integer()</code>
   * default: 
   `262144`
+
   * mapping: 
   `vm_args.+e`
 
@@ -1079,7 +966,6 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - data_dir: <code>string()</code>
   * mapping: 
   `emqx.data_dir`
-
 
   Path to the persistent data directory.<br/>
   Possible auto-created subdirectories are:<br/>
@@ -1091,9 +977,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
   - `configs`: Generated configs at boot time, and cluster/local override configs.<br/>
   - `patches`: Hot-patch beam files are to be placed here.<br/>
   - `trace`: Trace log files.<br/>
-
   **NOTE**: One data dir cannot be shared by two or more EMQX nodes.
-
 
 - config_files: <code>[string()]</code>
   * mapping: 
@@ -1106,6 +990,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - global_gc_interval: <code>disabled | emqx_schema:duration()</code>
   * default: 
   `"15m"`
+
   * mapping: 
   `emqx_machine.global_gc_interval`
 
@@ -1114,6 +999,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - crash_dump_file: <code>emqx_conf_schema:file()</code>
   * default: 
   `"log/erl_crash.dump"`
+
   * mapping: 
   `vm_args.-env ERL_CRASH_DUMP`
 
@@ -1122,6 +1008,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - crash_dump_seconds: <code>emqx_schema:duration_s()</code>
   * default: 
   `"30s"`
+
   * mapping: 
   `vm_args.-env ERL_CRASH_DUMP_SECONDS`
 
@@ -1130,6 +1017,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - crash_dump_bytes: <code>emqx_schema:bytesize()</code>
   * default: 
   `"100MB"`
+
   * mapping: 
   `vm_args.-env ERL_CRASH_DUMP_BYTES`
 
@@ -1138,6 +1026,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - dist_net_ticktime: <code>emqx_schema:duration_s()</code>
   * default: 
   `"2m"`
+
   * mapping: 
   `vm_args.-kernel net_ticktime`
 
@@ -1146,6 +1035,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - backtrace_depth: <code>integer()</code>
   * default: 
   `23`
+
   * mapping: 
   `emqx_machine.backtrace_depth`
 
@@ -1156,6 +1046,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - applications: <code>emqx_schema:comma_separated_atoms()</code>
   * default: 
   `[]`
+
   * mapping: 
   `emqx_machine.applications`
 
@@ -1163,32 +1054,29 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
             
 
 - etc_dir: <code>string()</code>
-
   Deprecated since 5.0.8.
 
 - cluster_call: <code>[cluster_call](#cluster_call)</code>
 
 
-
 - db_backend: <code>mnesia | rlog</code>
   * default: 
   `rlog`
+
   * mapping: 
   `mria.db_backend`
-
 
   Select the backend for the embedded database.<br/>
   <code>rlog</code> is the default backend,
   that is suitable for very large clusters.<br/>
   <code>mnesia</code> is a backend that offers decent performance in small clusters.
 
-
 - db_role: <code>core | replicant</code>
   * default: 
   `core`
+
   * mapping: 
   `mria.node_role`
-
 
   Select a node role.<br/>
   <code>core</code> nodes provide durability of the data, and take care of writes.
@@ -1199,10 +1087,10 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
   Note: this parameter only takes effect when the <code>backend</code> is set
   to <code>rlog</code>.
 
-
 - rpc_module: <code>gen_rpc | rpc</code>
   * default: 
   `gen_rpc`
+
   * mapping: 
   `mria.rlog_rpc_module`
 
@@ -1211,13 +1099,12 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
 - tlog_push_mode: <code>sync | async</code>
   * default: 
   `async`
+
   * mapping: 
   `mria.tlog_push_mode`
 
-
   In sync mode the core node waits for an ack from the replicant nodes before sending the next
   transaction log entry.
-
 
 
 ## rpc
@@ -1231,11 +1118,9 @@ this is where to look.
 
  - <code>rpc</code>
 
-
 **Env overrides**
 
  - <code>EMQX_RPC</code>
-
 
 
 **Fields**
@@ -1249,6 +1134,7 @@ this is where to look.
 - driver: <code>tcp | ssl</code>
   * default: 
   `tcp`
+
   * mapping: 
   `gen_rpc.driver`
 
@@ -1257,6 +1143,7 @@ this is where to look.
 - async_batch_size: <code>integer()</code>
   * default: 
   `256`
+
   * mapping: 
   `gen_rpc.max_batch_size`
 
@@ -1267,6 +1154,7 @@ this is where to look.
 - port_discovery: <code>manual | stateless</code>
   * default: 
   `stateless`
+
   * mapping: 
   `gen_rpc.port_discovery`
 
@@ -1278,6 +1166,7 @@ this is where to look.
 - tcp_server_port: <code>integer()</code>
   * default: 
   `5369`
+
   * mapping: 
   `gen_rpc.tcp_server_port`
 
@@ -1287,6 +1176,7 @@ this is where to look.
 - ssl_server_port: <code>integer()</code>
   * default: 
   `5369`
+
   * mapping: 
   `gen_rpc.ssl_server_port`
 
@@ -1303,6 +1193,7 @@ this is where to look.
 - connect_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"5s"`
+
   * mapping: 
   `gen_rpc.connect_timeout`
 
@@ -1333,6 +1224,7 @@ this is where to look.
 - send_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"5s"`
+
   * mapping: 
   `gen_rpc.send_timeout`
 
@@ -1341,6 +1233,7 @@ this is where to look.
 - authentication_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"5s"`
+
   * mapping: 
   `gen_rpc.authentication_timeout`
 
@@ -1349,6 +1242,7 @@ this is where to look.
 - call_receive_timeout: <code>emqx_schema:duration()</code>
   * default: 
   `"15s"`
+
   * mapping: 
   `gen_rpc.call_receive_timeout`
 
@@ -1357,6 +1251,7 @@ this is where to look.
 - socket_keepalive_idle: <code>emqx_schema:duration_s()</code>
   * default: 
   `"15m"`
+
   * mapping: 
   `gen_rpc.socket_keepalive_idle`
 
@@ -1365,6 +1260,7 @@ this is where to look.
 - socket_keepalive_interval: <code>emqx_schema:duration_s()</code>
   * default: 
   `"75s"`
+
   * mapping: 
   `gen_rpc.socket_keepalive_interval`
 
@@ -1373,6 +1269,7 @@ this is where to look.
 - socket_keepalive_count: <code>integer()</code>
   * default: 
   `9`
+
   * mapping: 
   `gen_rpc.socket_keepalive_count`
 
@@ -1382,6 +1279,7 @@ this is where to look.
 - socket_sndbuf: <code>emqx_schema:bytesize()</code>
   * default: 
   `"1MB"`
+
   * mapping: 
   `gen_rpc.socket_sndbuf`
 
@@ -1390,6 +1288,7 @@ this is where to look.
 - socket_recbuf: <code>emqx_schema:bytesize()</code>
   * default: 
   `"1MB"`
+
   * mapping: 
   `gen_rpc.socket_recbuf`
 
@@ -1398,6 +1297,7 @@ this is where to look.
 - socket_buffer: <code>emqx_schema:bytesize()</code>
   * default: 
   `"1MB"`
+
   * mapping: 
   `gen_rpc.socket_buffer`
 
@@ -1406,9 +1306,9 @@ this is where to look.
 - insecure_fallback: <code>boolean()</code>
   * default: 
   `true`
+
   * mapping: 
   `gen_rpc.insecure_auth_fallback_allowed`
 
   Enable compatibility with old RPC authentication.
-
 
