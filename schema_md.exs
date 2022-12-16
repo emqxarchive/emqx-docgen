@@ -19,13 +19,32 @@ defmodule SchemaMD do
       MD.h(weight, full_name, %{id: MD.anchor(full_name)}),
       Map.get(item, :desc, ""),
       "\n\n",
-      format_paths(paths),
-      format_envs(paths, opts),
+      # format_paths(paths),
+      # format_envs(paths, opts),
+      format_paths_envs_table(paths, opts),
       "\n\n**Fields**\n\n",
       Enum.map(fields, & format_field(&1, opts))
     ]
   end
 
+  def format_paths_envs_table([], _opts) do
+    []
+  end
+  def format_paths_envs_table(paths, opts) do
+    headers = {"Config paths", "Env overrides"}
+    paths_envs =
+      paths
+      |> Stream.map(&MD.code/1)
+      |> Enum.zip(Stream.map(paths, fn path ->
+           path
+           |> format_env(opts)
+           |> Enum.join("")
+           |> MD.code()
+         end))
+    MD.table(headers, paths_envs)
+  end
+
+  # old formatting
   def format_paths([]), do: []
   def format_paths(paths) do
     [

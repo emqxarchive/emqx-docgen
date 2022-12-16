@@ -3,14 +3,9 @@
 ## key_license <a id='key_license'></a>
 License provisioned as a string.
 
-
-**Config paths**
-
- - <code>license</code>
-
-**Env overrides**
-
- - <code>EMQX_LICENSE</code>
+| Config paths | Env overrides |
+|----------------------|---------------------------|
+|  <code>license</code> | <code>EMQX_LICENSE</code>  |
 
 
 **Fields**

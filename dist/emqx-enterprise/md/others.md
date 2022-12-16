@@ -3,14 +3,9 @@
 ## connector_hstreamdb:config <a id='connector_hstreamdb-config'></a>
 HStreamDB connection config
 
-
-**Config paths**
-
- - <code>bridges.hstreamdb.$name.connector</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__HSTREAMDB__$NAME__CONNECTOR</code>
+| Config paths | Env overrides |
+|------------------------------------------------|--------------------------------------------------------|
+|  <code>bridges.hstreamdb.$name.connector</code> | <code>EMQX_BRIDGES__HSTREAMDB__$NAME__CONNECTOR</code>  |
 
 
 **Fields**
@@ -31,14 +26,9 @@ HStreamDB connection config
 ## dashboard <a id='dashboard'></a>
 Configuration for EMQX dashboard.
 
-
-**Config paths**
-
- - <code>dashboard</code>
-
-**Env overrides**
-
- - <code>EMQX_DASHBOARD</code>
+| Config paths | Env overrides |
+|------------------------|-----------------------------|
+|  <code>dashboard</code> | <code>EMQX_DASHBOARD</code>  |
 
 
 **Fields**
@@ -99,14 +89,9 @@ Configuration for EMQX dashboard.
 ## dashboard:http <a id='dashboard-http'></a>
 Configuration for the dashboard listener (plaintext).
 
-
-**Config paths**
-
- - <code>dashboard.listeners.http</code>
-
-**Env overrides**
-
- - <code>EMQX_DASHBOARD__LISTENERS__HTTP</code>
+| Config paths | Env overrides |
+|---------------------------------------|----------------------------------------------|
+|  <code>dashboard.listeners.http</code> | <code>EMQX_DASHBOARD__LISTENERS__HTTP</code>  |
 
 
 **Fields**
@@ -163,14 +148,9 @@ Configuration for the dashboard listener (plaintext).
 ## dashboard:https <a id='dashboard-https'></a>
 Configuration for the dashboard listener (TLS).
 
-
-**Config paths**
-
- - <code>dashboard.listeners.https</code>
-
-**Env overrides**
-
- - <code>EMQX_DASHBOARD__LISTENERS__HTTPS</code>
+| Config paths | Env overrides |
+|----------------------------------------|-----------------------------------------------|
+|  <code>dashboard.listeners.https</code> | <code>EMQX_DASHBOARD__LISTENERS__HTTPS</code>  |
 
 
 **Fields**
@@ -360,14 +340,9 @@ Configuration for the dashboard listener (TLS).
 ## dashboard:listeners <a id='dashboard-listeners'></a>
 Configuration for the dashboard listener.
 
-
-**Config paths**
-
- - <code>dashboard.listeners</code>
-
-**Env overrides**
-
- - <code>EMQX_DASHBOARD__LISTENERS</code>
+| Config paths | Env overrides |
+|----------------------------------|----------------------------------------|
+|  <code>dashboard.listeners</code> | <code>EMQX_DASHBOARD__LISTENERS</code>  |
 
 
 **Fields**
@@ -382,14 +357,9 @@ Configuration for the dashboard listener.
 ## exhook <a id='exhook'></a>
 External hook (exhook) configuration.
 
-
-**Config paths**
-
- - <code>exhook</code>
-
-**Env overrides**
-
- - <code>EMQX_EXHOOK</code>
+| Config paths | Env overrides |
+|---------------------|--------------------------|
+|  <code>exhook</code> | <code>EMQX_EXHOOK</code>  |
 
 
 **Fields**
@@ -404,14 +374,9 @@ External hook (exhook) configuration.
 ## exhook:server <a id='exhook-server'></a>
 gRPC server configuration.
 
-
-**Config paths**
-
- - <code>exhook.servers.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_EXHOOK__SERVERS__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------|-------------------------------------------|
+|  <code>exhook.servers.$INDEX</code> | <code>EMQX_EXHOOK__SERVERS__$INDEX</code>  |
 
 
 **Fields**
@@ -466,14 +431,9 @@ gRPC server configuration.
 ## exhook:socket_options <a id='exhook-socket_options'></a>
 Connection socket options
 
-
-**Config paths**
-
- - <code>exhook.servers.$INDEX.socket_options</code>
-
-**Env overrides**
-
- - <code>EMQX_EXHOOK__SERVERS__$INDEX__SOCKET_OPTIONS</code>
+| Config paths | Env overrides |
+|---------------------------------------------------|-----------------------------------------------------------|
+|  <code>exhook.servers.$INDEX.socket_options</code> | <code>EMQX_EXHOOK__SERVERS__$INDEX__SOCKET_OPTIONS</code>  |
 
 
 **Fields**
@@ -502,14 +462,9 @@ Connection socket options
 ## exhook:ssl_conf <a id='exhook-ssl_conf'></a>
 SSL client configuration.
 
-
-**Config paths**
-
- - <code>exhook.servers.$INDEX.ssl</code>
-
-**Env overrides**
-
- - <code>EMQX_EXHOOK__SERVERS__$INDEX__SSL</code>
+| Config paths | Env overrides |
+|----------------------------------------|------------------------------------------------|
+|  <code>exhook.servers.$INDEX.ssl</code> | <code>EMQX_EXHOOK__SERVERS__$INDEX__SSL</code>  |
 
 
 **Fields**
@@ -629,52 +584,28 @@ SSL client configuration.
 ## limiter:bucket_opts <a id='limiter-bucket_opts'></a>
 Settings for the bucket.
 
-
-**Config paths**
-
- - <code>listeners.quic.$name.limiter.bytes_in</code>
- - <code>listeners.quic.$name.limiter.connection</code>
- - <code>listeners.quic.$name.limiter.message_in</code>
- - <code>listeners.quic.$name.limiter.message_routing</code>
- - <code>listeners.ssl.$name.limiter.bytes_in</code>
- - <code>listeners.ssl.$name.limiter.connection</code>
- - <code>listeners.ssl.$name.limiter.message_in</code>
- - <code>listeners.ssl.$name.limiter.message_routing</code>
- - <code>listeners.tcp.$name.limiter.bytes_in</code>
- - <code>listeners.tcp.$name.limiter.connection</code>
- - <code>listeners.tcp.$name.limiter.message_in</code>
- - <code>listeners.tcp.$name.limiter.message_routing</code>
- - <code>listeners.ws.$name.limiter.bytes_in</code>
- - <code>listeners.ws.$name.limiter.connection</code>
- - <code>listeners.ws.$name.limiter.message_in</code>
- - <code>listeners.ws.$name.limiter.message_routing</code>
- - <code>listeners.wss.$name.limiter.bytes_in</code>
- - <code>listeners.wss.$name.limiter.connection</code>
- - <code>listeners.wss.$name.limiter.message_in</code>
- - <code>listeners.wss.$name.limiter.message_routing</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__BYTES_IN</code>
- - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CONNECTION</code>
- - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__MESSAGE_IN</code>
- - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__MESSAGE_ROUTING</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__BYTES_IN</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CONNECTION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__MESSAGE_IN</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__MESSAGE_ROUTING</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__BYTES_IN</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CONNECTION</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__MESSAGE_IN</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__MESSAGE_ROUTING</code>
- - <code>EMQX_LISTENERS__WS__$NAME__LIMITER__BYTES_IN</code>
- - <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CONNECTION</code>
- - <code>EMQX_LISTENERS__WS__$NAME__LIMITER__MESSAGE_IN</code>
- - <code>EMQX_LISTENERS__WS__$NAME__LIMITER__MESSAGE_ROUTING</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__BYTES_IN</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CONNECTION</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__MESSAGE_IN</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__MESSAGE_ROUTING</code>
+| Config paths | Env overrides |
+|-----------------------------------------------------------|--------------------------------------------------------------------|
+|  <code>listeners.quic.$name.limiter.bytes_in</code> | <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__BYTES_IN</code>  |
+|  <code>listeners.quic.$name.limiter.connection</code> | <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CONNECTION</code>  |
+|  <code>listeners.quic.$name.limiter.message_in</code> | <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__MESSAGE_IN</code>  |
+|  <code>listeners.quic.$name.limiter.message_routing</code> | <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__MESSAGE_ROUTING</code>  |
+|  <code>listeners.ssl.$name.limiter.bytes_in</code> | <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__BYTES_IN</code>  |
+|  <code>listeners.ssl.$name.limiter.connection</code> | <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CONNECTION</code>  |
+|  <code>listeners.ssl.$name.limiter.message_in</code> | <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__MESSAGE_IN</code>  |
+|  <code>listeners.ssl.$name.limiter.message_routing</code> | <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__MESSAGE_ROUTING</code>  |
+|  <code>listeners.tcp.$name.limiter.bytes_in</code> | <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__BYTES_IN</code>  |
+|  <code>listeners.tcp.$name.limiter.connection</code> | <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CONNECTION</code>  |
+|  <code>listeners.tcp.$name.limiter.message_in</code> | <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__MESSAGE_IN</code>  |
+|  <code>listeners.tcp.$name.limiter.message_routing</code> | <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__MESSAGE_ROUTING</code>  |
+|  <code>listeners.ws.$name.limiter.bytes_in</code> | <code>EMQX_LISTENERS__WS__$NAME__LIMITER__BYTES_IN</code>  |
+|  <code>listeners.ws.$name.limiter.connection</code> | <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CONNECTION</code>  |
+|  <code>listeners.ws.$name.limiter.message_in</code> | <code>EMQX_LISTENERS__WS__$NAME__LIMITER__MESSAGE_IN</code>  |
+|  <code>listeners.ws.$name.limiter.message_routing</code> | <code>EMQX_LISTENERS__WS__$NAME__LIMITER__MESSAGE_ROUTING</code>  |
+|  <code>listeners.wss.$name.limiter.bytes_in</code> | <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__BYTES_IN</code>  |
+|  <code>listeners.wss.$name.limiter.connection</code> | <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CONNECTION</code>  |
+|  <code>listeners.wss.$name.limiter.message_in</code> | <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__MESSAGE_IN</code>  |
+|  <code>listeners.wss.$name.limiter.message_routing</code> | <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__MESSAGE_ROUTING</code>  |
 
 
 **Fields**
@@ -701,14 +632,9 @@ Settings for the bucket.
 ## limiter:client_fields <a id='limiter-client_fields'></a>
 Fields of the client level.
 
-
-**Config paths**
-
- - <code>limiter.client</code>
-
-**Env overrides**
-
- - <code>EMQX_LIMITER__CLIENT</code>
+| Config paths | Env overrides |
+|-----------------------------|-----------------------------------|
+|  <code>limiter.client</code> | <code>EMQX_LIMITER__CLIENT</code>  |
 
 
 **Fields**
@@ -755,64 +681,34 @@ Fields of the client level.
 ## limiter:client_opts <a id='limiter-client_opts'></a>
 Settings for the client in bucket level.
 
-
-**Config paths**
-
- - <code>limiter.client.bytes_in</code>
- - <code>limiter.client.connection</code>
- - <code>limiter.client.internal</code>
- - <code>limiter.client.message_in</code>
- - <code>limiter.client.message_routing</code>
- - <code>listeners.quic.$name.limiter.client.bytes_in</code>
- - <code>listeners.quic.$name.limiter.client.connection</code>
- - <code>listeners.quic.$name.limiter.client.message_in</code>
- - <code>listeners.quic.$name.limiter.client.message_routing</code>
- - <code>listeners.ssl.$name.limiter.client.bytes_in</code>
- - <code>listeners.ssl.$name.limiter.client.connection</code>
- - <code>listeners.ssl.$name.limiter.client.message_in</code>
- - <code>listeners.ssl.$name.limiter.client.message_routing</code>
- - <code>listeners.tcp.$name.limiter.client.bytes_in</code>
- - <code>listeners.tcp.$name.limiter.client.connection</code>
- - <code>listeners.tcp.$name.limiter.client.message_in</code>
- - <code>listeners.tcp.$name.limiter.client.message_routing</code>
- - <code>listeners.ws.$name.limiter.client.bytes_in</code>
- - <code>listeners.ws.$name.limiter.client.connection</code>
- - <code>listeners.ws.$name.limiter.client.message_in</code>
- - <code>listeners.ws.$name.limiter.client.message_routing</code>
- - <code>listeners.wss.$name.limiter.client.bytes_in</code>
- - <code>listeners.wss.$name.limiter.client.connection</code>
- - <code>listeners.wss.$name.limiter.client.message_in</code>
- - <code>listeners.wss.$name.limiter.client.message_routing</code>
- - <code>retainer.flow_control.batch_deliver_limiter.client</code>
-
-**Env overrides**
-
- - <code>EMQX_LIMITER__CLIENT__BYTES_IN</code>
- - <code>EMQX_LIMITER__CLIENT__CONNECTION</code>
- - <code>EMQX_LIMITER__CLIENT__INTERNAL</code>
- - <code>EMQX_LIMITER__CLIENT__MESSAGE_IN</code>
- - <code>EMQX_LIMITER__CLIENT__MESSAGE_ROUTING</code>
- - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CLIENT__BYTES_IN</code>
- - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CLIENT__CONNECTION</code>
- - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CLIENT__MESSAGE_IN</code>
- - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CLIENT__MESSAGE_ROUTING</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CLIENT__BYTES_IN</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CLIENT__CONNECTION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CLIENT__MESSAGE_IN</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CLIENT__MESSAGE_ROUTING</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CLIENT__BYTES_IN</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CLIENT__CONNECTION</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CLIENT__MESSAGE_IN</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CLIENT__MESSAGE_ROUTING</code>
- - <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CLIENT__BYTES_IN</code>
- - <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CLIENT__CONNECTION</code>
- - <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CLIENT__MESSAGE_IN</code>
- - <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CLIENT__MESSAGE_ROUTING</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT__BYTES_IN</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT__CONNECTION</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT__MESSAGE_IN</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT__MESSAGE_ROUTING</code>
- - <code>EMQX_RETAINER__FLOW_CONTROL__BATCH_DELIVER_LIMITER__CLIENT</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>limiter.client.bytes_in</code> | <code>EMQX_LIMITER__CLIENT__BYTES_IN</code>  |
+|  <code>limiter.client.connection</code> | <code>EMQX_LIMITER__CLIENT__CONNECTION</code>  |
+|  <code>limiter.client.internal</code> | <code>EMQX_LIMITER__CLIENT__INTERNAL</code>  |
+|  <code>limiter.client.message_in</code> | <code>EMQX_LIMITER__CLIENT__MESSAGE_IN</code>  |
+|  <code>limiter.client.message_routing</code> | <code>EMQX_LIMITER__CLIENT__MESSAGE_ROUTING</code>  |
+|  <code>listeners.quic.$name.limiter.client.bytes_in</code> | <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CLIENT__BYTES_IN</code>  |
+|  <code>listeners.quic.$name.limiter.client.connection</code> | <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CLIENT__CONNECTION</code>  |
+|  <code>listeners.quic.$name.limiter.client.message_in</code> | <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CLIENT__MESSAGE_IN</code>  |
+|  <code>listeners.quic.$name.limiter.client.message_routing</code> | <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CLIENT__MESSAGE_ROUTING</code>  |
+|  <code>listeners.ssl.$name.limiter.client.bytes_in</code> | <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CLIENT__BYTES_IN</code>  |
+|  <code>listeners.ssl.$name.limiter.client.connection</code> | <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CLIENT__CONNECTION</code>  |
+|  <code>listeners.ssl.$name.limiter.client.message_in</code> | <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CLIENT__MESSAGE_IN</code>  |
+|  <code>listeners.ssl.$name.limiter.client.message_routing</code> | <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CLIENT__MESSAGE_ROUTING</code>  |
+|  <code>listeners.tcp.$name.limiter.client.bytes_in</code> | <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CLIENT__BYTES_IN</code>  |
+|  <code>listeners.tcp.$name.limiter.client.connection</code> | <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CLIENT__CONNECTION</code>  |
+|  <code>listeners.tcp.$name.limiter.client.message_in</code> | <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CLIENT__MESSAGE_IN</code>  |
+|  <code>listeners.tcp.$name.limiter.client.message_routing</code> | <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CLIENT__MESSAGE_ROUTING</code>  |
+|  <code>listeners.ws.$name.limiter.client.bytes_in</code> | <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CLIENT__BYTES_IN</code>  |
+|  <code>listeners.ws.$name.limiter.client.connection</code> | <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CLIENT__CONNECTION</code>  |
+|  <code>listeners.ws.$name.limiter.client.message_in</code> | <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CLIENT__MESSAGE_IN</code>  |
+|  <code>listeners.ws.$name.limiter.client.message_routing</code> | <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CLIENT__MESSAGE_ROUTING</code>  |
+|  <code>listeners.wss.$name.limiter.client.bytes_in</code> | <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT__BYTES_IN</code>  |
+|  <code>listeners.wss.$name.limiter.client.connection</code> | <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT__CONNECTION</code>  |
+|  <code>listeners.wss.$name.limiter.client.message_in</code> | <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT__MESSAGE_IN</code>  |
+|  <code>listeners.wss.$name.limiter.client.message_routing</code> | <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT__MESSAGE_ROUTING</code>  |
+|  <code>retainer.flow_control.batch_deliver_limiter.client</code> | <code>EMQX_RETAINER__FLOW_CONTROL__BATCH_DELIVER_LIMITER__CLIENT</code>  |
 
 
 **Fields**
@@ -864,14 +760,9 @@ Settings for the client in bucket level.
 ## limiter:internal <a id='limiter-internal'></a>
 Internal limiter.
 
-
-**Config paths**
-
- - <code>retainer.flow_control.batch_deliver_limiter</code>
-
-**Env overrides**
-
- - <code>EMQX_RETAINER__FLOW_CONTROL__BATCH_DELIVER_LIMITER</code>
+| Config paths | Env overrides |
+|----------------------------------------------------------|-----------------------------------------------------------------|
+|  <code>retainer.flow_control.batch_deliver_limiter</code> | <code>EMQX_RETAINER__FLOW_CONTROL__BATCH_DELIVER_LIMITER</code>  |
 
 
 **Fields**
@@ -901,14 +792,9 @@ Internal limiter.
 ## limiter <a id='limiter'></a>
 Settings for the rate limiter.
 
-
-**Config paths**
-
- - <code>limiter</code>
-
-**Env overrides**
-
- - <code>EMQX_LIMITER</code>
+| Config paths | Env overrides |
+|----------------------|---------------------------|
+|  <code>limiter</code> | <code>EMQX_LIMITER</code>  |
 
 
 **Fields**
@@ -969,22 +855,13 @@ Settings for the rate limiter.
 ## limiter:listener_client_fields <a id='limiter-listener_client_fields'></a>
 Fields of the client level of the listener.
 
-
-**Config paths**
-
- - <code>listeners.quic.$name.limiter.client</code>
- - <code>listeners.ssl.$name.limiter.client</code>
- - <code>listeners.tcp.$name.limiter.client</code>
- - <code>listeners.ws.$name.limiter.client</code>
- - <code>listeners.wss.$name.limiter.client</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CLIENT</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CLIENT</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CLIENT</code>
- - <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CLIENT</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT</code>
+| Config paths | Env overrides |
+|--------------------------------------------------|-----------------------------------------------------------|
+|  <code>listeners.quic.$name.limiter.client</code> | <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER__CLIENT</code>  |
+|  <code>listeners.ssl.$name.limiter.client</code> | <code>EMQX_LISTENERS__SSL__$NAME__LIMITER__CLIENT</code>  |
+|  <code>listeners.tcp.$name.limiter.client</code> | <code>EMQX_LISTENERS__TCP__$NAME__LIMITER__CLIENT</code>  |
+|  <code>listeners.ws.$name.limiter.client</code> | <code>EMQX_LISTENERS__WS__$NAME__LIMITER__CLIENT</code>  |
+|  <code>listeners.wss.$name.limiter.client</code> | <code>EMQX_LISTENERS__WSS__$NAME__LIMITER__CLIENT</code>  |
 
 
 **Fields**
@@ -1013,22 +890,13 @@ Fields of the client level of the listener.
 ## limiter:listener_fields <a id='limiter-listener_fields'></a>
 Fields of the listener.
 
-
-**Config paths**
-
- - <code>listeners.quic.$name.limiter</code>
- - <code>listeners.ssl.$name.limiter</code>
- - <code>listeners.tcp.$name.limiter</code>
- - <code>listeners.ws.$name.limiter</code>
- - <code>listeners.wss.$name.limiter</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__LIMITER</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__LIMITER</code>
- - <code>EMQX_LISTENERS__WS__$NAME__LIMITER</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__LIMITER</code>
+| Config paths | Env overrides |
+|-------------------------------------------|---------------------------------------------------|
+|  <code>listeners.quic.$name.limiter</code> | <code>EMQX_LISTENERS__QUIC__$NAME__LIMITER</code>  |
+|  <code>listeners.ssl.$name.limiter</code> | <code>EMQX_LISTENERS__SSL__$NAME__LIMITER</code>  |
+|  <code>listeners.tcp.$name.limiter</code> | <code>EMQX_LISTENERS__TCP__$NAME__LIMITER</code>  |
+|  <code>listeners.ws.$name.limiter</code> | <code>EMQX_LISTENERS__WS__$NAME__LIMITER</code>  |
+|  <code>listeners.wss.$name.limiter</code> | <code>EMQX_LISTENERS__WSS__$NAME__LIMITER</code>  |
 
 
 **Fields**
@@ -1060,22 +928,13 @@ Fields of the listener.
 ## limiter:node_opts <a id='limiter-node_opts'></a>
 Settings for the limiter of the node level.
 
-
-**Config paths**
-
- - <code>limiter.bytes_in</code>
- - <code>limiter.connection</code>
- - <code>limiter.internal</code>
- - <code>limiter.message_in</code>
- - <code>limiter.message_routing</code>
-
-**Env overrides**
-
- - <code>EMQX_LIMITER__BYTES_IN</code>
- - <code>EMQX_LIMITER__CONNECTION</code>
- - <code>EMQX_LIMITER__INTERNAL</code>
- - <code>EMQX_LIMITER__MESSAGE_IN</code>
- - <code>EMQX_LIMITER__MESSAGE_ROUTING</code>
+| Config paths | Env overrides |
+|--------------------------------------|--------------------------------------------|
+|  <code>limiter.bytes_in</code> | <code>EMQX_LIMITER__BYTES_IN</code>  |
+|  <code>limiter.connection</code> | <code>EMQX_LIMITER__CONNECTION</code>  |
+|  <code>limiter.internal</code> | <code>EMQX_LIMITER__INTERNAL</code>  |
+|  <code>limiter.message_in</code> | <code>EMQX_LIMITER__MESSAGE_IN</code>  |
+|  <code>limiter.message_routing</code> | <code>EMQX_LIMITER__MESSAGE_ROUTING</code>  |
 
 
 **Fields**
@@ -1097,14 +956,9 @@ Settings for the limiter of the node level.
 ## modules:delayed <a id='modules-delayed'></a>
 Settings for the delayed module.
 
-
-**Config paths**
-
- - <code>delayed</code>
-
-**Env overrides**
-
- - <code>EMQX_DELAYED</code>
+| Config paths | Env overrides |
+|----------------------|---------------------------|
+|  <code>delayed</code> | <code>EMQX_DELAYED</code>  |
 
 
 **Fields**
@@ -1135,14 +989,9 @@ When a topic can match the topic filter of multiple topic rewrite rules at the s
 If the regular expression in this rule does not match the subject of the MQTT message, the rewriting will fail, and no other rules will be attempted for rewriting.
 Therefore, users need to carefully design MQTT message topics and topic rewriting rules when using them.
 
-
-**Config paths**
-
- - <code>rewrite.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_REWRITE__$INDEX</code>
+| Config paths | Env overrides |
+|-----------------------------|-----------------------------------|
+|  <code>rewrite.$INDEX</code> | <code>EMQX_REWRITE__$INDEX</code>  |
 
 
 **Fields**
@@ -1166,14 +1015,9 @@ Therefore, users need to carefully design MQTT message topics and topic rewritin
 ## modules:telemetry <a id='modules-telemetry'></a>
 Settings for the telemetry module.
 
-
-**Config paths**
-
- - <code>telemetry</code>
-
-**Env overrides**
-
- - <code>EMQX_TELEMETRY</code>
+| Config paths | Env overrides |
+|------------------------|-----------------------------|
+|  <code>telemetry</code> | <code>EMQX_TELEMETRY</code>  |
 
 
 **Fields**
@@ -1188,14 +1032,9 @@ Settings for the telemetry module.
 ## modules:topic_metrics <a id='modules-topic_metrics'></a>
 
 
-
-**Config paths**
-
- - <code>topic_metrics.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_TOPIC_METRICS__$INDEX</code>
+| Config paths | Env overrides |
+|-----------------------------------|-----------------------------------------|
+|  <code>topic_metrics.$INDEX</code> | <code>EMQX_TOPIC_METRICS__$INDEX</code>  |
 
 
 **Fields**
@@ -1207,64 +1046,34 @@ Settings for the telemetry module.
 ## topology <a id='topology'></a>
 Topology of MongoDB.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX.topology</code>
- - <code>authorization.sources.$INDEX.topology</code>
- - <code>bridges.mongodb_rs.$name.topology</code>
- - <code>bridges.mongodb_sharded.$name.topology</code>
- - <code>bridges.mongodb_single.$name.topology</code>
- - <code>gateway.coap.authentication.topology</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication.topology</code>
- - <code>gateway.coap.listeners.udp.$name.authentication.topology</code>
- - <code>gateway.exproto.authentication.topology</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication.topology</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication.topology</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication.topology</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication.topology</code>
- - <code>gateway.lwm2m.authentication.topology</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication.topology</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication.topology</code>
- - <code>gateway.mqttsn.authentication.topology</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication.topology</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication.topology</code>
- - <code>gateway.stomp.authentication.topology</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication.topology</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication.topology</code>
- - <code>listeners.ssl.$name.authentication.$INDEX.topology</code>
- - <code>listeners.tcp.$name.authentication.$INDEX.topology</code>
- - <code>listeners.ws.$name.authentication.$INDEX.topology</code>
- - <code>listeners.wss.$name.authentication.$INDEX.topology</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX__TOPOLOGY</code>
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX__TOPOLOGY</code>
- - <code>EMQX_BRIDGES__MONGODB_RS__$NAME__TOPOLOGY</code>
- - <code>EMQX_BRIDGES__MONGODB_SHARDED__$NAME__TOPOLOGY</code>
- - <code>EMQX_BRIDGES__MONGODB_SINGLE__$NAME__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__TOPOLOGY</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__TOPOLOGY</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__TOPOLOGY</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__TOPOLOGY</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__TOPOLOGY</code>
+| Config paths | Env overrides |
+|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+|  <code>authentication.$INDEX.topology</code> | <code>EMQX_AUTHENTICATION__$INDEX__TOPOLOGY</code>  |
+|  <code>authorization.sources.$INDEX.topology</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX__TOPOLOGY</code>  |
+|  <code>bridges.mongodb_rs.$name.topology</code> | <code>EMQX_BRIDGES__MONGODB_RS__$NAME__TOPOLOGY</code>  |
+|  <code>bridges.mongodb_sharded.$name.topology</code> | <code>EMQX_BRIDGES__MONGODB_SHARDED__$NAME__TOPOLOGY</code>  |
+|  <code>bridges.mongodb_single.$name.topology</code> | <code>EMQX_BRIDGES__MONGODB_SINGLE__$NAME__TOPOLOGY</code>  |
+|  <code>gateway.coap.authentication.topology</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication.topology</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication.topology</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.exproto.authentication.topology</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication.topology</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication.topology</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication.topology</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication.topology</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.lwm2m.authentication.topology</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication.topology</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication.topology</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.mqttsn.authentication.topology</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication.topology</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication.topology</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.stomp.authentication.topology</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication.topology</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication.topology</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__TOPOLOGY</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX.topology</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__TOPOLOGY</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX.topology</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__TOPOLOGY</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX.topology</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__TOPOLOGY</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX.topology</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__TOPOLOGY</code>  |
 
 
 **Fields**
@@ -1325,14 +1134,9 @@ The name of the alarm is of format `conn_congestion/<ClientID>/<Username>`,
 where the `<ClientID>` is the client ID of the congested MQTT connection,
 and `<Username>` is the username or `unknown_user`.
 
-
-**Config paths**
-
- - <code>zones.$name.conn_congestion</code>
-
-**Env overrides**
-
- - <code>EMQX_ZONES__$NAME__CONN_CONGESTION</code>
+| Config paths | Env overrides |
+|------------------------------------------|-------------------------------------------------|
+|  <code>zones.$name.conn_congestion</code> | <code>EMQX_ZONES__$NAME__CONN_CONGESTION</code>  |
 
 
 **Fields**
@@ -1350,14 +1154,9 @@ from the same clientid in a time frame defined by `window_time`.
 After the limit is reached, successive `CONNECT` requests are forbidden
 (banned) until the end of the time period defined by `ban_time`.
 
-
-**Config paths**
-
- - <code>zones.$name.flapping_detect</code>
-
-**Env overrides**
-
- - <code>EMQX_ZONES__$NAME__FLAPPING_DETECT</code>
+| Config paths | Env overrides |
+|------------------------------------------|-------------------------------------------------|
+|  <code>zones.$name.flapping_detect</code> | <code>EMQX_ZONES__$NAME__FLAPPING_DETECT</code>  |
 
 
 **Fields**
@@ -1379,14 +1178,9 @@ After the limit is reached, successive `CONNECT` requests are forbidden
 Force garbage collection in MQTT connection process after
  they process certain number of messages or bytes of data.
 
-
-**Config paths**
-
- - <code>zones.$name.force_gc</code>
-
-**Env overrides**
-
- - <code>EMQX_ZONES__$NAME__FORCE_GC</code>
+| Config paths | Env overrides |
+|-----------------------------------|------------------------------------------|
+|  <code>zones.$name.force_gc</code> | <code>EMQX_ZONES__$NAME__FORCE_GC</code>  |
 
 
 **Fields**
@@ -1408,14 +1202,9 @@ reaches a certain value, the process is forced to close.
 Note: "message queue" here refers to the "message mailbox"
 of the Erlang process, not the `mqueue` of QoS 1 and QoS 2.
 
-
-**Config paths**
-
- - <code>zones.$name.force_shutdown</code>
-
-**Env overrides**
-
- - <code>EMQX_ZONES__$NAME__FORCE_SHUTDOWN</code>
+| Config paths | Env overrides |
+|-----------------------------------------|------------------------------------------------|
+|  <code>zones.$name.force_shutdown</code> | <code>EMQX_ZONES__$NAME__FORCE_SHUTDOWN</code>  |
 
 
 **Fields**
@@ -1434,14 +1223,9 @@ of the Erlang process, not the `mqueue` of QoS 1 and QoS 2.
 Global MQTT configuration.<br/>The configs here work as default values which can be overridden
 in <code>zone</code> configs
 
-
-**Config paths**
-
- - <code>zones.$name.mqtt</code>
-
-**Env overrides**
-
- - <code>EMQX_ZONES__$NAME__MQTT</code>
+| Config paths | Env overrides |
+|-------------------------------|--------------------------------------|
+|  <code>zones.$name.mqtt</code> | <code>EMQX_ZONES__$NAME__MQTT</code>  |
 
 
 **Fields**
@@ -1558,14 +1342,9 @@ in <code>zone</code> configs
 Overload protection mechanism monitors the load of the system and temporarily
 disables some features (such as accepting new connections) when the load is high.
 
-
-**Config paths**
-
- - <code>zones.$name.overload_protection</code>
-
-**Env overrides**
-
- - <code>EMQX_ZONES__$NAME__OVERLOAD_PROTECTION</code>
+| Config paths | Env overrides |
+|----------------------------------------------|-----------------------------------------------------|
+|  <code>zones.$name.overload_protection</code> | <code>EMQX_ZONES__$NAME__OVERLOAD_PROTECTION</code>  |
 
 
 **Fields**
@@ -1590,14 +1369,9 @@ disables some features (such as accepting new connections) when the load is high
 Enable/disable statistic data collection.
 Statistic data such as message receive/send count/rate etc. It provides insights of system performance and helps to diagnose issues. You can find statistic data from the dashboard, or from the '/stats' API.
 
-
-**Config paths**
-
- - <code>zones.$name.stats</code>
-
-**Env overrides**
-
- - <code>EMQX_ZONES__$NAME__STATS</code>
+| Config paths | Env overrides |
+|--------------------------------|---------------------------------------|
+|  <code>zones.$name.stats</code> | <code>EMQX_ZONES__$NAME__STATS</code>  |
 
 
 **Fields**
@@ -1609,56 +1383,30 @@ Statistic data such as message receive/send count/rate etc. It provides insights
 ## authn-hash:bcrypt <a id='authn-hash-bcrypt'></a>
 Settings for bcrypt password hashing algorithm.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX.password_hash_algorithm</code>
- - <code>gateway.coap.authentication.password_hash_algorithm</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.coap.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication.password_hash_algorithm</code>
- - <code>listeners.ssl.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.tcp.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+|  <code>authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
 
 
 **Fields**
@@ -1670,56 +1418,30 @@ Settings for bcrypt password hashing algorithm.
 ## authn-hash:bcrypt_rw <a id='authn-hash-bcrypt_rw'></a>
 Settings for bcrypt password hashing algorithm (for DB backends with write capability).
 
-
-**Config paths**
-
- - <code>authentication.$INDEX.password_hash_algorithm</code>
- - <code>gateway.coap.authentication.password_hash_algorithm</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.coap.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication.password_hash_algorithm</code>
- - <code>listeners.ssl.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.tcp.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+|  <code>authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
 
 
 **Fields**
@@ -1737,56 +1459,30 @@ Settings for bcrypt password hashing algorithm (for DB backends with write capab
 ## authn-hash:other_algorithms <a id='authn-hash-other_algorithms'></a>
 Settings for other password hashing algorithms.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX.password_hash_algorithm</code>
- - <code>gateway.coap.authentication.password_hash_algorithm</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.coap.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication.password_hash_algorithm</code>
- - <code>listeners.ssl.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.tcp.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+|  <code>authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
 
 
 **Fields**
@@ -1804,56 +1500,30 @@ Settings for other password hashing algorithms.
 ## authn-hash:pbkdf2 <a id='authn-hash-pbkdf2'></a>
 Settings for PBKDF2 password hashing algorithm.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX.password_hash_algorithm</code>
- - <code>gateway.coap.authentication.password_hash_algorithm</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.coap.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication.password_hash_algorithm</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication.password_hash_algorithm</code>
- - <code>listeners.ssl.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.tcp.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code>
- - <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+|  <code>authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication.password_hash_algorithm</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX.password_hash_algorithm</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__PASSWORD_HASH_ALGORITHM</code>  |
 
 
 **Fields**
@@ -1883,14 +1553,9 @@ See listener SSL options config for more details.
 The IDs and secrets can be provided from a file which is configurable by the <code>init_file</code> field.
 
 
-
-**Config paths**
-
- - <code>psk_authentication</code>
-
-**Env overrides**
-
- - <code>EMQX_PSK_AUTHENTICATION</code>
+| Config paths | Env overrides |
+|---------------------------------|--------------------------------------|
+|  <code>psk_authentication</code> | <code>EMQX_PSK_AUTHENTICATION</code>  |
 
 
 **Fields**
@@ -1922,14 +1587,9 @@ The IDs and secrets can be provided from a file which is configurable by the <co
 ## auto_subscribe <a id='auto_subscribe'></a>
 After the device logs in successfully, the subscription is automatically completed for the device through the pre-defined subscription representation. Supports the use of placeholders.
 
-
-**Config paths**
-
- - <code>auto_subscribe</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTO_SUBSCRIBE</code>
+| Config paths | Env overrides |
+|-----------------------------|----------------------------------|
+|  <code>auto_subscribe</code> | <code>EMQX_AUTO_SUBSCRIBE</code>  |
 
 
 **Fields**
@@ -1945,14 +1605,9 @@ After the device logs in successfully, the subscription is automatically complet
 Topic name, placeholders are supported. For example: client/${clientid}/username/${username}/host/${host}/port/${port}
 Required field, and cannot be empty string
 
-
-**Config paths**
-
- - <code>auto_subscribe.topics.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTO_SUBSCRIBE__TOPICS__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>auto_subscribe.topics.$INDEX</code> | <code>EMQX_AUTO_SUBSCRIBE__TOPICS__$INDEX</code>  |
 
 
 **Fields**
@@ -1997,14 +1652,9 @@ Required field, and cannot be empty string
 ## bridge_gcp_pubsub:config <a id='bridge_gcp_pubsub-config'></a>
 Configuration for a GCP PubSub bridge.
 
-
-**Config paths**
-
- - <code>bridges.gcp_pubsub.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__GCP_PUBSUB__$NAME</code>
+| Config paths | Env overrides |
+|---------------------------------------|----------------------------------------------|
+|  <code>bridges.gcp_pubsub.$name</code> | <code>EMQX_BRIDGES__GCP_PUBSUB__$NAME</code>  |
 
 
 **Fields**
@@ -2075,14 +1725,9 @@ Configuration for a GCP PubSub bridge.
 ## bridge_hstreamdb:config <a id='bridge_hstreamdb-config'></a>
 Configuration for an HStreamDB bridge.
 
-
-**Config paths**
-
- - <code>bridges.hstreamdb.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__HSTREAMDB__$NAME</code>
+| Config paths | Env overrides |
+|--------------------------------------|---------------------------------------------|
+|  <code>bridges.hstreamdb.$name</code> | <code>EMQX_BRIDGES__HSTREAMDB__$NAME</code>  |
 
 
 **Fields**
@@ -2119,14 +1764,9 @@ Configuration for an HStreamDB bridge.
 ## bridge_influxdb:influxdb_api_v1 <a id='bridge_influxdb-influxdb_api_v1'></a>
 InfluxDB's protocol. Support InfluxDB v1.8 and before.
 
-
-**Config paths**
-
- - <code>bridges.influxdb_api_v1.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__INFLUXDB_API_V1__$NAME</code>
+| Config paths | Env overrides |
+|--------------------------------------------|---------------------------------------------------|
+|  <code>bridges.influxdb_api_v1.$name</code> | <code>EMQX_BRIDGES__INFLUXDB_API_V1__$NAME</code>  |
 
 
 **Fields**
@@ -2192,14 +1832,9 @@ InfluxDB's protocol. Support InfluxDB v1.8 and before.
 ## bridge_influxdb:influxdb_api_v2 <a id='bridge_influxdb-influxdb_api_v2'></a>
 InfluxDB's protocol. Support InfluxDB v2.0 and after.
 
-
-**Config paths**
-
- - <code>bridges.influxdb_api_v2.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__INFLUXDB_API_V2__$NAME</code>
+| Config paths | Env overrides |
+|--------------------------------------------|---------------------------------------------------|
+|  <code>bridges.influxdb_api_v2.$name</code> | <code>EMQX_BRIDGES__INFLUXDB_API_V2__$NAME</code>  |
 
 
 **Fields**
@@ -2265,14 +1900,9 @@ InfluxDB's protocol. Support InfluxDB v2.0 and after.
 ## bridge_kafka:auth_gssapi_kerberos <a id='bridge_kafka-auth_gssapi_kerberos'></a>
 Use GSSAPI/Kerberos authentication.
 
-
-**Config paths**
-
- - <code>bridges.kafka.$name.authentication</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__KAFKA__$NAME__AUTHENTICATION</code>
+| Config paths | Env overrides |
+|-------------------------------------------------|---------------------------------------------------------|
+|  <code>bridges.kafka.$name.authentication</code> | <code>EMQX_BRIDGES__KAFKA__$NAME__AUTHENTICATION</code>  |
 
 
 **Fields**
@@ -2287,14 +1917,9 @@ Use GSSAPI/Kerberos authentication.
 ## bridge_kafka:auth_username_password <a id='bridge_kafka-auth_username_password'></a>
 Username/password based authentication.
 
-
-**Config paths**
-
- - <code>bridges.kafka.$name.authentication</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__KAFKA__$NAME__AUTHENTICATION</code>
+| Config paths | Env overrides |
+|-------------------------------------------------|---------------------------------------------------------|
+|  <code>bridges.kafka.$name.authentication</code> | <code>EMQX_BRIDGES__KAFKA__$NAME__AUTHENTICATION</code>  |
 
 
 **Fields**
@@ -2312,14 +1937,9 @@ Username/password based authentication.
 ## bridge_kafka:kafka_message <a id='bridge_kafka-kafka_message'></a>
 Template to render a Kafka message.
 
-
-**Config paths**
-
- - <code>bridges.kafka.$name.producer.kafka.message</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__KAFKA__MESSAGE</code>
+| Config paths | Env overrides |
+|---------------------------------------------------------|-------------------------------------------------------------------|
+|  <code>bridges.kafka.$name.producer.kafka.message</code> | <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__KAFKA__MESSAGE</code>  |
 
 
 **Fields**
@@ -2350,14 +1970,9 @@ Tell Kafka producer how to buffer messages when EMQX has more messages to send t
 
 
 
-
-**Config paths**
-
- - <code>bridges.kafka.$name.producer.kafka.buffer</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__KAFKA__BUFFER</code>
+| Config paths | Env overrides |
+|--------------------------------------------------------|------------------------------------------------------------------|
+|  <code>bridges.kafka.$name.producer.kafka.buffer</code> | <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__KAFKA__BUFFER</code>  |
 
 
 **Fields**
@@ -2395,14 +2010,9 @@ Tell Kafka producer how to buffer messages when EMQX has more messages to send t
 ## bridge_kafka:producer_kafka_opts <a id='bridge_kafka-producer_kafka_opts'></a>
 Kafka producer configs.
 
-
-**Config paths**
-
- - <code>bridges.kafka.$name.producer.kafka</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__KAFKA</code>
+| Config paths | Env overrides |
+|-------------------------------------------------|----------------------------------------------------------|
+|  <code>bridges.kafka.$name.producer.kafka</code> | <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__KAFKA</code>  |
 
 
 **Fields**
@@ -2464,14 +2074,9 @@ Kafka producer configs.
 ## bridge_kafka:producer_mqtt_opts <a id='bridge_kafka-producer_mqtt_opts'></a>
 MQTT data source. Optional when used as a rule-engine action.
 
-
-**Config paths**
-
- - <code>bridges.kafka.$name.producer.mqtt</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__MQTT</code>
+| Config paths | Env overrides |
+|------------------------------------------------|---------------------------------------------------------|
+|  <code>bridges.kafka.$name.producer.mqtt</code> | <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER__MQTT</code>  |
 
 
 **Fields**
@@ -2483,14 +2088,9 @@ MQTT data source. Optional when used as a rule-engine action.
 ## bridge_kafka:producer_opts <a id='bridge_kafka-producer_opts'></a>
 Local MQTT data source and Kafka bridge configs.
 
-
-**Config paths**
-
- - <code>bridges.kafka.$name.producer</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER</code>
+| Config paths | Env overrides |
+|-------------------------------------------|---------------------------------------------------|
+|  <code>bridges.kafka.$name.producer</code> | <code>EMQX_BRIDGES__KAFKA__$NAME__PRODUCER</code>  |
 
 
 **Fields**
@@ -2505,14 +2105,9 @@ Local MQTT data source and Kafka bridge configs.
 ## bridge_kafka:socket_opts <a id='bridge_kafka-socket_opts'></a>
 Extra socket options.
 
-
-**Config paths**
-
- - <code>bridges.kafka.$name.socket_opts</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__KAFKA__$NAME__SOCKET_OPTS</code>
+| Config paths | Env overrides |
+|----------------------------------------------|------------------------------------------------------|
+|  <code>bridges.kafka.$name.socket_opts</code> | <code>EMQX_BRIDGES__KAFKA__$NAME__SOCKET_OPTS</code>  |
 
 
 **Fields**
@@ -2539,14 +2134,9 @@ Extra socket options.
 ## bridge_kafka:config <a id='bridge_kafka-config'></a>
 Configuration for a Kafka bridge.
 
-
-**Config paths**
-
- - <code>bridges.kafka.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__KAFKA__$NAME</code>
+| Config paths | Env overrides |
+|----------------------------------|-----------------------------------------|
+|  <code>bridges.kafka.$name</code> | <code>EMQX_BRIDGES__KAFKA__$NAME</code>  |
 
 
 **Fields**
@@ -2600,14 +2190,9 @@ Configuration for a Kafka bridge.
 ## bridge_mongodb:mongodb_rs <a id='bridge_mongodb-mongodb_rs'></a>
 MongoDB (Replica Set) configuration
 
-
-**Config paths**
-
- - <code>bridges.mongodb_rs.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MONGODB_RS__$NAME</code>
+| Config paths | Env overrides |
+|---------------------------------------|----------------------------------------------|
+|  <code>bridges.mongodb_rs.$name</code> | <code>EMQX_BRIDGES__MONGODB_RS__$NAME</code>  |
 
 
 **Fields**
@@ -2688,14 +2273,9 @@ MongoDB (Replica Set) configuration
 ## bridge_mongodb:mongodb_sharded <a id='bridge_mongodb-mongodb_sharded'></a>
 MongoDB (Sharded) configuration
 
-
-**Config paths**
-
- - <code>bridges.mongodb_sharded.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MONGODB_SHARDED__$NAME</code>
+| Config paths | Env overrides |
+|--------------------------------------------|---------------------------------------------------|
+|  <code>bridges.mongodb_sharded.$name</code> | <code>EMQX_BRIDGES__MONGODB_SHARDED__$NAME</code>  |
 
 
 **Fields**
@@ -2767,14 +2347,9 @@ MongoDB (Sharded) configuration
 ## bridge_mongodb:mongodb_single <a id='bridge_mongodb-mongodb_single'></a>
 MongoDB (Standalone) configuration
 
-
-**Config paths**
-
- - <code>bridges.mongodb_single.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MONGODB_SINGLE__$NAME</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>bridges.mongodb_single.$name</code> | <code>EMQX_BRIDGES__MONGODB_SINGLE__$NAME</code>  |
 
 
 **Fields**
@@ -2845,14 +2420,9 @@ MongoDB (Standalone) configuration
 ## bridge_mqtt:config <a id='bridge_mqtt-config'></a>
 The config for MQTT Bridges.
 
-
-**Config paths**
-
- - <code>bridges.mqtt.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MQTT__$NAME</code>
+| Config paths | Env overrides |
+|---------------------------------|----------------------------------------|
+|  <code>bridges.mqtt.$name</code> | <code>EMQX_BRIDGES__MQTT__$NAME</code>  |
 
 
 **Fields**
@@ -2972,14 +2542,9 @@ The config for MQTT Bridges.
 ## bridge_mqtt:creation_opts <a id='bridge_mqtt-creation_opts'></a>
 Creation options.
 
-
-**Config paths**
-
- - <code>bridges.mqtt.$name.resource_opts</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MQTT__$NAME__RESOURCE_OPTS</code>
+| Config paths | Env overrides |
+|-----------------------------------------------|-------------------------------------------------------|
+|  <code>bridges.mqtt.$name.resource_opts</code> | <code>EMQX_BRIDGES__MQTT__$NAME__RESOURCE_OPTS</code>  |
 
 
 **Fields**
@@ -3030,14 +2595,9 @@ Creation options.
 ## bridge_mysql:config <a id='bridge_mysql-config'></a>
 Configuration for an HStreamDB bridge.
 
-
-**Config paths**
-
- - <code>bridges.mysql.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MYSQL__$NAME</code>
+| Config paths | Env overrides |
+|----------------------------------|-----------------------------------------|
+|  <code>bridges.mysql.$name</code> | <code>EMQX_BRIDGES__MYSQL__$NAME</code>  |
 
 
 **Fields**
@@ -3103,14 +2663,9 @@ Configuration for an HStreamDB bridge.
 ## bridge_mysql:creation_opts <a id='bridge_mysql-creation_opts'></a>
 Creation options.
 
-
-**Config paths**
-
- - <code>bridges.mysql.$name.resource_opts</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MYSQL__$NAME__RESOURCE_OPTS</code>
+| Config paths | Env overrides |
+|------------------------------------------------|--------------------------------------------------------|
+|  <code>bridges.mysql.$name.resource_opts</code> | <code>EMQX_BRIDGES__MYSQL__$NAME__RESOURCE_OPTS</code>  |
 
 
 **Fields**
@@ -3173,14 +2728,9 @@ Creation options.
 ## bridge_redis:redis_cluster <a id='bridge_redis-redis_cluster'></a>
 Cluster mode
 
-
-**Config paths**
-
- - <code>bridges.redis_cluster.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__REDIS_CLUSTER__$NAME</code>
+| Config paths | Env overrides |
+|------------------------------------------|-------------------------------------------------|
+|  <code>bridges.redis_cluster.$name</code> | <code>EMQX_BRIDGES__REDIS_CLUSTER__$NAME</code>  |
 
 
 **Fields**
@@ -3244,14 +2794,9 @@ Cluster mode
 ## bridge_redis:redis_sentinel <a id='bridge_redis-redis_sentinel'></a>
 Sentinel mode
 
-
-**Config paths**
-
- - <code>bridges.redis_sentinel.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__REDIS_SENTINEL__$NAME</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>bridges.redis_sentinel.$name</code> | <code>EMQX_BRIDGES__REDIS_SENTINEL__$NAME</code>  |
 
 
 **Fields**
@@ -3324,14 +2869,9 @@ Sentinel mode
 ## bridge_redis:redis_single <a id='bridge_redis-redis_single'></a>
 Single mode
 
-
-**Config paths**
-
- - <code>bridges.redis_single.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__REDIS_SINGLE__$NAME</code>
+| Config paths | Env overrides |
+|-----------------------------------------|------------------------------------------------|
+|  <code>bridges.redis_single.$name</code> | <code>EMQX_BRIDGES__REDIS_SINGLE__$NAME</code>  |
 
 
 **Fields**
@@ -3400,14 +2940,9 @@ Single mode
 ## bridge_webhook:config <a id='bridge_webhook-config'></a>
 Configuration for an HTTP bridge.
 
-
-**Config paths**
-
- - <code>bridges.webhook.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__WEBHOOK__$NAME</code>
+| Config paths | Env overrides |
+|------------------------------------|-------------------------------------------|
+|  <code>bridges.webhook.$name</code> | <code>EMQX_BRIDGES__WEBHOOK__$NAME</code>  |
 
 
 **Fields**
@@ -3521,14 +3056,9 @@ Configuration for an HTTP bridge.
 ## bridge_webhook:creation_opts <a id='bridge_webhook-creation_opts'></a>
 Creation options.
 
-
-**Config paths**
-
- - <code>bridges.webhook.$name.resource_opts</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__WEBHOOK__$NAME__RESOURCE_OPTS</code>
+| Config paths | Env overrides |
+|--------------------------------------------------|----------------------------------------------------------|
+|  <code>bridges.webhook.$name.resource_opts</code> | <code>EMQX_BRIDGES__WEBHOOK__$NAME__RESOURCE_OPTS</code>  |
 
 
 **Fields**
@@ -3579,60 +3109,32 @@ Creation options.
 ## connector-http:request <a id='connector-http-request'></a>
 
 
-
-**Config paths**
-
- - <code>authentication.$INDEX.request</code>
- - <code>authorization.sources.$INDEX.request</code>
- - <code>bridges.webhook.$name.request</code>
- - <code>gateway.coap.authentication.request</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication.request</code>
- - <code>gateway.coap.listeners.udp.$name.authentication.request</code>
- - <code>gateway.exproto.authentication.request</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication.request</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication.request</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication.request</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication.request</code>
- - <code>gateway.lwm2m.authentication.request</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication.request</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication.request</code>
- - <code>gateway.mqttsn.authentication.request</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication.request</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication.request</code>
- - <code>gateway.stomp.authentication.request</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication.request</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication.request</code>
- - <code>listeners.ssl.$name.authentication.$INDEX.request</code>
- - <code>listeners.tcp.$name.authentication.$INDEX.request</code>
- - <code>listeners.ws.$name.authentication.$INDEX.request</code>
- - <code>listeners.wss.$name.authentication.$INDEX.request</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX__REQUEST</code>
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX__REQUEST</code>
- - <code>EMQX_BRIDGES__WEBHOOK__$NAME__REQUEST</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__REQUEST</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__REQUEST</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__REQUEST</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__REQUEST</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__REQUEST</code>
+| Config paths | Env overrides |
+|--------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+|  <code>authentication.$INDEX.request</code> | <code>EMQX_AUTHENTICATION__$INDEX__REQUEST</code>  |
+|  <code>authorization.sources.$INDEX.request</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX__REQUEST</code>  |
+|  <code>bridges.webhook.$name.request</code> | <code>EMQX_BRIDGES__WEBHOOK__$NAME__REQUEST</code>  |
+|  <code>gateway.coap.authentication.request</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication.request</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication.request</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.exproto.authentication.request</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication.request</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication.request</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication.request</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication.request</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.lwm2m.authentication.request</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication.request</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication.request</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.mqttsn.authentication.request</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication.request</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication.request</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.stomp.authentication.request</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication.request</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication.request</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__REQUEST</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX.request</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__REQUEST</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX.request</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__REQUEST</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX.request</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__REQUEST</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX.request</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__REQUEST</code>  |
 
 
 **Fields**
@@ -3663,14 +3165,9 @@ NOTE: if this bridge is used as the action of a rule, and also 'local.topic'
 is configured, then both the data got from the rule and the MQTT messages that matches
 'local.topic' will be forwarded.
 
-
-**Config paths**
-
- - <code>bridges.mqtt.$name.egress</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MQTT__$NAME__EGRESS</code>
+| Config paths | Env overrides |
+|----------------------------------------|------------------------------------------------|
+|  <code>bridges.mqtt.$name.egress</code> | <code>EMQX_BRIDGES__MQTT__$NAME__EGRESS</code>  |
 
 
 **Fields**
@@ -3685,14 +3182,9 @@ is configured, then both the data got from the rule and the MQTT messages that m
 ## connector-mqtt:egress_local <a id='connector-mqtt-egress_local'></a>
 The configs about receiving messages from local broker.
 
-
-**Config paths**
-
- - <code>bridges.mqtt.$name.egress.local</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MQTT__$NAME__EGRESS__LOCAL</code>
+| Config paths | Env overrides |
+|----------------------------------------------|-------------------------------------------------------|
+|  <code>bridges.mqtt.$name.egress.local</code> | <code>EMQX_BRIDGES__MQTT__$NAME__EGRESS__LOCAL</code>  |
 
 
 **Fields**
@@ -3704,14 +3196,9 @@ The configs about receiving messages from local broker.
 ## connector-mqtt:egress_remote <a id='connector-mqtt-egress_remote'></a>
 The configs about sending message to the remote broker.
 
-
-**Config paths**
-
- - <code>bridges.mqtt.$name.egress.remote</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MQTT__$NAME__EGRESS__REMOTE</code>
+| Config paths | Env overrides |
+|-----------------------------------------------|--------------------------------------------------------|
+|  <code>bridges.mqtt.$name.egress.remote</code> | <code>EMQX_BRIDGES__MQTT__$NAME__EGRESS__REMOTE</code>  |
 
 
 **Fields**
@@ -3741,14 +3228,9 @@ The ingress config defines how this bridge receive messages from the remote MQTT
         configured, then messages got from the remote broker will be sent to both the 'local.topic' and
         the rule.
 
-
-**Config paths**
-
- - <code>bridges.mqtt.$name.ingress</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MQTT__$NAME__INGRESS</code>
+| Config paths | Env overrides |
+|-----------------------------------------|-------------------------------------------------|
+|  <code>bridges.mqtt.$name.ingress</code> | <code>EMQX_BRIDGES__MQTT__$NAME__INGRESS</code>  |
 
 
 **Fields**
@@ -3763,14 +3245,9 @@ The ingress config defines how this bridge receive messages from the remote MQTT
 ## connector-mqtt:ingress_local <a id='connector-mqtt-ingress_local'></a>
 The configs about sending message to the local broker.
 
-
-**Config paths**
-
- - <code>bridges.mqtt.$name.ingress.local</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MQTT__$NAME__INGRESS__LOCAL</code>
+| Config paths | Env overrides |
+|-----------------------------------------------|--------------------------------------------------------|
+|  <code>bridges.mqtt.$name.ingress.local</code> | <code>EMQX_BRIDGES__MQTT__$NAME__INGRESS__LOCAL</code>  |
 
 
 **Fields**
@@ -3801,14 +3278,9 @@ The configs about sending message to the local broker.
 ## connector-mqtt:ingress_remote <a id='connector-mqtt-ingress_remote'></a>
 The configs about subscribing to the remote broker.
 
-
-**Config paths**
-
- - <code>bridges.mqtt.$name.ingress.remote</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__MQTT__$NAME__INGRESS__REMOTE</code>
+| Config paths | Env overrides |
+|------------------------------------------------|---------------------------------------------------------|
+|  <code>bridges.mqtt.$name.ingress.remote</code> | <code>EMQX_BRIDGES__MQTT__$NAME__INGRESS__REMOTE</code>  |
 
 
 **Fields**
@@ -3832,14 +3304,9 @@ or installed as a standalone package in a location specified by
 The standalone-installed plugins are referred to as 'external' plugins.
 
 
-
-**Config paths**
-
- - <code>plugins</code>
-
-**Env overrides**
-
- - <code>EMQX_PLUGINS</code>
+| Config paths | Env overrides |
+|----------------------|---------------------------|
+|  <code>plugins</code> | <code>EMQX_PLUGINS</code>  |
 
 
 **Fields**
@@ -3873,14 +3340,9 @@ The standalone-installed plugins are referred to as 'external' plugins.
 ## plugin:state <a id='plugin-state'></a>
 A per-plugin config to describe the desired state of the plugin.
 
-
-**Config paths**
-
- - <code>plugins.states.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_PLUGINS__STATES__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------|-------------------------------------------|
+|  <code>plugins.states.$INDEX</code> | <code>EMQX_PLUGINS__STATES__$INDEX</code>  |
 
 
 **Fields**
@@ -3897,14 +3359,9 @@ A per-plugin config to describe the desired state of the plugin.
 ## prometheus <a id='prometheus'></a>
 Settings for reporting metrics to Prometheus
 
-
-**Config paths**
-
- - <code>prometheus</code>
-
-**Env overrides**
-
- - <code>EMQX_PROMETHEUS</code>
+| Config paths | Env overrides |
+|-------------------------|------------------------------|
+|  <code>prometheus</code> | <code>EMQX_PROMETHEUS</code>  |
 
 
 **Fields**
@@ -3931,24 +3388,14 @@ Settings for reporting metrics to Prometheus
 ## resource_schema:creation_opts <a id='resource_schema-creation_opts'></a>
 Creation options.
 
-
-**Config paths**
-
- - <code>bridges.gcp_pubsub.$name.resource_opts</code>
- - <code>bridges.influxdb_api_v1.$name.resource_opts</code>
- - <code>bridges.influxdb_api_v2.$name.resource_opts</code>
- - <code>bridges.redis_cluster.$name.resource_opts</code>
- - <code>bridges.redis_sentinel.$name.resource_opts</code>
- - <code>bridges.redis_single.$name.resource_opts</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES__GCP_PUBSUB__$NAME__RESOURCE_OPTS</code>
- - <code>EMQX_BRIDGES__INFLUXDB_API_V1__$NAME__RESOURCE_OPTS</code>
- - <code>EMQX_BRIDGES__INFLUXDB_API_V2__$NAME__RESOURCE_OPTS</code>
- - <code>EMQX_BRIDGES__REDIS_CLUSTER__$NAME__RESOURCE_OPTS</code>
- - <code>EMQX_BRIDGES__REDIS_SENTINEL__$NAME__RESOURCE_OPTS</code>
- - <code>EMQX_BRIDGES__REDIS_SINGLE__$NAME__RESOURCE_OPTS</code>
+| Config paths | Env overrides |
+|----------------------------------------------------------|------------------------------------------------------------------|
+|  <code>bridges.gcp_pubsub.$name.resource_opts</code> | <code>EMQX_BRIDGES__GCP_PUBSUB__$NAME__RESOURCE_OPTS</code>  |
+|  <code>bridges.influxdb_api_v1.$name.resource_opts</code> | <code>EMQX_BRIDGES__INFLUXDB_API_V1__$NAME__RESOURCE_OPTS</code>  |
+|  <code>bridges.influxdb_api_v2.$name.resource_opts</code> | <code>EMQX_BRIDGES__INFLUXDB_API_V2__$NAME__RESOURCE_OPTS</code>  |
+|  <code>bridges.redis_cluster.$name.resource_opts</code> | <code>EMQX_BRIDGES__REDIS_CLUSTER__$NAME__RESOURCE_OPTS</code>  |
+|  <code>bridges.redis_sentinel.$name.resource_opts</code> | <code>EMQX_BRIDGES__REDIS_SENTINEL__$NAME__RESOURCE_OPTS</code>  |
+|  <code>bridges.redis_single.$name.resource_opts</code> | <code>EMQX_BRIDGES__REDIS_SINGLE__$NAME__RESOURCE_OPTS</code>  |
 
 
 **Fields**
@@ -4017,14 +3464,9 @@ Creation options.
 ## retainer:flow_control <a id='retainer-flow_control'></a>
 Retainer batching and rate limiting.
 
-
-**Config paths**
-
- - <code>retainer.flow_control</code>
-
-**Env overrides**
-
- - <code>EMQX_RETAINER__FLOW_CONTROL</code>
+| Config paths | Env overrides |
+|------------------------------------|------------------------------------------|
+|  <code>retainer.flow_control</code> | <code>EMQX_RETAINER__FLOW_CONTROL</code>  |
 
 
 **Fields**
@@ -4051,14 +3493,9 @@ Retainer batching and rate limiting.
 ## retainer:mnesia_config <a id='retainer-mnesia_config'></a>
 Configuration of the internal database storing retained messages.
 
-
-**Config paths**
-
- - <code>retainer.backend</code>
-
-**Env overrides**
-
- - <code>EMQX_RETAINER__BACKEND</code>
+| Config paths | Env overrides |
+|-------------------------------|-------------------------------------|
+|  <code>retainer.backend</code> | <code>EMQX_RETAINER__BACKEND</code>  |
 
 
 **Fields**
@@ -4098,14 +3535,9 @@ Configuration of the internal database storing retained messages.
 ## retainer <a id='retainer'></a>
 Configuration related to handling `PUBLISH` packets with a `retain` flag set to 1.
 
-
-**Config paths**
-
- - <code>retainer</code>
-
-**Env overrides**
-
- - <code>EMQX_RETAINER</code>
+| Config paths | Env overrides |
+|-----------------------|----------------------------|
+|  <code>retainer</code> | <code>EMQX_RETAINER</code>  |
 
 
 **Fields**
@@ -4158,14 +3590,9 @@ Configuration related to handling `PUBLISH` packets with a `retain` flag set to 
 ## slow_subs <a id='slow_subs'></a>
 Configuration for `slow_subs` feature.
 
-
-**Config paths**
-
- - <code>slow_subs</code>
-
-**Env overrides**
-
- - <code>EMQX_SLOW_SUBS</code>
+| Config paths | Env overrides |
+|------------------------|-----------------------------|
+|  <code>slow_subs</code> | <code>EMQX_SLOW_SUBS</code>  |
 
 
 **Fields**
@@ -4204,14 +3631,9 @@ Configuration for `slow_subs` feature.
 ## statsd <a id='statsd'></a>
 StatsD metrics collection and push configuration.
 
-
-**Config paths**
-
- - <code>statsd</code>
-
-**Env overrides**
-
- - <code>EMQX_STATSD</code>
+| Config paths | Env overrides |
+|---------------------|--------------------------|
+|  <code>statsd</code> | <code>EMQX_STATSD</code>  |
 
 
 **Fields**

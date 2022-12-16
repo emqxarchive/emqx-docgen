@@ -3,22 +3,13 @@
 ## gateway:clientinfo_override <a id='gateway-clientinfo_override'></a>
 ClientInfo override.
 
-
-**Config paths**
-
- - <code>gateway.coap.clientinfo_override</code>
- - <code>gateway.exproto.clientinfo_override</code>
- - <code>gateway.lwm2m.clientinfo_override</code>
- - <code>gateway.mqttsn.clientinfo_override</code>
- - <code>gateway.stomp.clientinfo_override</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__COAP__CLIENTINFO_OVERRIDE</code>
- - <code>EMQX_GATEWAY__EXPROTO__CLIENTINFO_OVERRIDE</code>
- - <code>EMQX_GATEWAY__LWM2M__CLIENTINFO_OVERRIDE</code>
- - <code>EMQX_GATEWAY__MQTTSN__CLIENTINFO_OVERRIDE</code>
- - <code>EMQX_GATEWAY__STOMP__CLIENTINFO_OVERRIDE</code>
+| Config paths | Env overrides |
+|--------------------------------------------------|---------------------------------------------------------|
+|  <code>gateway.coap.clientinfo_override</code> | <code>EMQX_GATEWAY__COAP__CLIENTINFO_OVERRIDE</code>  |
+|  <code>gateway.exproto.clientinfo_override</code> | <code>EMQX_GATEWAY__EXPROTO__CLIENTINFO_OVERRIDE</code>  |
+|  <code>gateway.lwm2m.clientinfo_override</code> | <code>EMQX_GATEWAY__LWM2M__CLIENTINFO_OVERRIDE</code>  |
+|  <code>gateway.mqttsn.clientinfo_override</code> | <code>EMQX_GATEWAY__MQTTSN__CLIENTINFO_OVERRIDE</code>  |
+|  <code>gateway.stomp.clientinfo_override</code> | <code>EMQX_GATEWAY__STOMP__CLIENTINFO_OVERRIDE</code>  |
 
 
 **Fields**
@@ -38,14 +29,9 @@ The CoAP protocol gateway provides EMQX with the access capability of the CoAP p
 It allows publishing, subscribing, and receiving messages to EMQX in accordance
 with a certain defined CoAP message format.
 
-
-**Config paths**
-
- - <code>gateway.coap</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__COAP</code>
+| Config paths | Env overrides |
+|---------------------------|---------------------------------|
+|  <code>gateway.coap</code> | <code>EMQX_GATEWAY__COAP</code>  |
 
 
 **Fields**
@@ -136,20 +122,12 @@ with a certain defined CoAP message format.
 ## gateway:dtls_listener <a id='gateway-dtls_listener'></a>
 Settings for the DTLS listener.
 
-
-**Config paths**
-
- - <code>gateway.coap.listeners.dtls.$name</code>
- - <code>gateway.exproto.listeners.dtls.$name</code>
- - <code>gateway.lwm2m.listeners.dtls.$name</code>
- - <code>gateway.mqttsn.listeners.dtls.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME</code>
+| Config paths | Env overrides |
+|---------------------------------------------------|------------------------------------------------------------|
+|  <code>gateway.coap.listeners.dtls.$name</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME</code>  |
 
 
 **Fields**
@@ -217,20 +195,12 @@ Settings for the DTLS listener.
 ## gateway:dtls_opts <a id='gateway-dtls_opts'></a>
 Settings for the DTLS protocol.
 
-
-**Config paths**
-
- - <code>gateway.coap.listeners.dtls.$name.dtls_options</code>
- - <code>gateway.exproto.listeners.dtls.$name.dtls_options</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.dtls_options</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.dtls_options</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__DTLS_OPTIONS</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__DTLS_OPTIONS</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__DTLS_OPTIONS</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__DTLS_OPTIONS</code>
+| Config paths | Env overrides |
+|----------------------------------------------------------------|--------------------------------------------------------------------------|
+|  <code>gateway.coap.listeners.dtls.$name.dtls_options</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__DTLS_OPTIONS</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.dtls_options</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__DTLS_OPTIONS</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.dtls_options</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__DTLS_OPTIONS</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.dtls_options</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__DTLS_OPTIONS</code>  |
 
 
 **Fields**
@@ -389,14 +359,9 @@ Settings for the DTLS protocol.
 ## gateway:exproto <a id='gateway-exproto'></a>
 Settings for EMQX extension protocol (exproto).
 
-
-**Config paths**
-
- - <code>gateway.exproto</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__EXPROTO</code>
+| Config paths | Env overrides |
+|------------------------------|------------------------------------|
+|  <code>gateway.exproto</code> | <code>EMQX_GATEWAY__EXPROTO</code>  |
 
 
 **Fields**
@@ -447,14 +412,9 @@ Settings for EMQX extension protocol (exproto).
 ## gateway:exproto_grpc_handler <a id='gateway-exproto_grpc_handler'></a>
 Settings for the exproto gRPC connection handler.
 
-
-**Config paths**
-
- - <code>gateway.exproto.handler</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__EXPROTO__HANDLER</code>
+| Config paths | Env overrides |
+|--------------------------------------|---------------------------------------------|
+|  <code>gateway.exproto.handler</code> | <code>EMQX_GATEWAY__EXPROTO__HANDLER</code>  |
 
 
 **Fields**
@@ -469,14 +429,9 @@ Settings for the exproto gRPC connection handler.
 ## gateway:exproto_grpc_server <a id='gateway-exproto_grpc_server'></a>
 Settings for the exproto gRPC server.
 
-
-**Config paths**
-
- - <code>gateway.exproto.server</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__EXPROTO__SERVER</code>
+| Config paths | Env overrides |
+|-------------------------------------|--------------------------------------------|
+|  <code>gateway.exproto.server</code> | <code>EMQX_GATEWAY__EXPROTO__SERVER</code>  |
 
 
 **Fields**
@@ -491,14 +446,9 @@ Settings for the exproto gRPC server.
 ## gateway <a id='gateway'></a>
 EMQX Gateway configuration root.
 
-
-**Config paths**
-
- - <code>gateway</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY</code>
+| Config paths | Env overrides |
+|----------------------|---------------------------|
+|  <code>gateway</code> | <code>EMQX_GATEWAY</code>  |
 
 
 **Fields**
@@ -525,14 +475,9 @@ EMQX Gateway configuration root.
 ## gateway:lwm2m <a id='gateway-lwm2m'></a>
 The LwM2M protocol gateway.
 
-
-**Config paths**
-
- - <code>gateway.lwm2m</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__LWM2M</code>
+| Config paths | Env overrides |
+|----------------------------|----------------------------------|
+|  <code>gateway.lwm2m</code> | <code>EMQX_GATEWAY__LWM2M</code>  |
 
 
 **Fields**
@@ -616,14 +561,9 @@ The LwM2M protocol gateway.
 ## gateway:lwm2m_translators <a id='gateway-lwm2m_translators'></a>
 MQTT topics that correspond to LwM2M events.
 
-
-**Config paths**
-
- - <code>gateway.lwm2m.translators</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__LWM2M__TRANSLATORS</code>
+| Config paths | Env overrides |
+|----------------------------------------|-----------------------------------------------|
+|  <code>gateway.lwm2m.translators</code> | <code>EMQX_GATEWAY__LWM2M__TRANSLATORS</code>  |
 
 
 **Fields**
@@ -649,14 +589,9 @@ MQTT topics that correspond to LwM2M events.
 ## gateway:mqttsn <a id='gateway-mqttsn'></a>
 The MQTT-SN (MQTT for Sensor Networks) protocol gateway.
 
-
-**Config paths**
-
- - <code>gateway.mqttsn</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__MQTTSN</code>
+| Config paths | Env overrides |
+|-----------------------------|-----------------------------------|
+|  <code>gateway.mqttsn</code> | <code>EMQX_GATEWAY__MQTTSN</code>  |
 
 
 **Fields**
@@ -737,14 +672,9 @@ ID of N.
 
 Note: the pre-defined topic ID of 0 is reserved.
 
-
-**Config paths**
-
- - <code>gateway.mqttsn.predefined.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__MQTTSN__PREDEFINED__$INDEX</code>
+| Config paths | Env overrides |
+|-----------------------------------------------|-------------------------------------------------------|
+|  <code>gateway.mqttsn.predefined.$INDEX</code> | <code>EMQX_GATEWAY__MQTTSN__PREDEFINED__$INDEX</code>  |
 
 
 **Fields**
@@ -759,16 +689,10 @@ Note: the pre-defined topic ID of 0 is reserved.
 ## gateway:ssl_listener <a id='gateway-ssl_listener'></a>
 Settings for the SSL listener.
 
-
-**Config paths**
-
- - <code>gateway.exproto.listeners.ssl.$name</code>
- - <code>gateway.stomp.listeners.ssl.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME</code>
+| Config paths | Env overrides |
+|--------------------------------------------------|-----------------------------------------------------------|
+|  <code>gateway.exproto.listeners.ssl.$name</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME</code>  |
 
 
 **Fields**
@@ -850,14 +774,9 @@ Settings for the SSL listener.
 ## gateway:ssl_server_opts <a id='gateway-ssl_server_opts'></a>
 SSL configuration for the server.
 
-
-**Config paths**
-
- - <code>gateway.exproto.server.ssl_options</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__EXPROTO__SERVER__SSL_OPTIONS</code>
+| Config paths | Env overrides |
+|-------------------------------------------------|---------------------------------------------------------|
+|  <code>gateway.exproto.server.ssl_options</code> | <code>EMQX_GATEWAY__EXPROTO__SERVER__SSL_OPTIONS</code>  |
 
 
 **Fields**
@@ -1010,14 +929,9 @@ SSL configuration for the server.
 The STOMP protocol gateway provides EMQX with the ability to access STOMP
 (Simple (or Streaming) Text Orientated Messaging Protocol) protocol.
 
-
-**Config paths**
-
- - <code>gateway.stomp</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__STOMP</code>
+| Config paths | Env overrides |
+|----------------------------|----------------------------------|
+|  <code>gateway.stomp</code> | <code>EMQX_GATEWAY__STOMP</code>  |
 
 
 **Fields**
@@ -1065,14 +979,9 @@ The STOMP protocol gateway provides EMQX with the ability to access STOMP
 ## gateway:stomp_frame <a id='gateway-stomp_frame'></a>
 Size limits for the STOMP frames.
 
-
-**Config paths**
-
- - <code>gateway.stomp.frame</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__STOMP__FRAME</code>
+| Config paths | Env overrides |
+|----------------------------------|-----------------------------------------|
+|  <code>gateway.stomp.frame</code> | <code>EMQX_GATEWAY__STOMP__FRAME</code>  |
 
 
 **Fields**
@@ -1099,16 +1008,10 @@ Size limits for the STOMP frames.
 ## gateway:tcp_listener <a id='gateway-tcp_listener'></a>
 Settings for the TCP listener.
 
-
-**Config paths**
-
- - <code>gateway.exproto.listeners.tcp.$name</code>
- - <code>gateway.stomp.listeners.tcp.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME</code>
+| Config paths | Env overrides |
+|--------------------------------------------------|-----------------------------------------------------------|
+|  <code>gateway.exproto.listeners.tcp.$name</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME</code>  |
 
 
 **Fields**
@@ -1187,14 +1090,9 @@ Settings for the TCP listener.
 ## gateway:tcp_listeners <a id='gateway-tcp_listeners'></a>
 Settings for the TCP listeners.
 
-
-**Config paths**
-
- - <code>gateway.stomp.listeners</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__STOMP__LISTENERS</code>
+| Config paths | Env overrides |
+|--------------------------------------|---------------------------------------------|
+|  <code>gateway.stomp.listeners</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS</code>  |
 
 
 **Fields**
@@ -1209,14 +1107,9 @@ Settings for the TCP listeners.
 ## gateway:tcp_udp_listeners <a id='gateway-tcp_udp_listeners'></a>
 Settings for the listeners.
 
-
-**Config paths**
-
- - <code>gateway.exproto.listeners</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS</code>
+| Config paths | Env overrides |
+|----------------------------------------|-----------------------------------------------|
+|  <code>gateway.exproto.listeners</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS</code>  |
 
 
 **Fields**
@@ -1237,22 +1130,13 @@ Settings for the listeners.
 ## gateway:translator <a id='gateway-translator'></a>
 MQTT topic that corresponds to a particular type of event.
 
-
-**Config paths**
-
- - <code>gateway.lwm2m.translators.command</code>
- - <code>gateway.lwm2m.translators.notify</code>
- - <code>gateway.lwm2m.translators.register</code>
- - <code>gateway.lwm2m.translators.response</code>
- - <code>gateway.lwm2m.translators.update</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__LWM2M__TRANSLATORS__COMMAND</code>
- - <code>EMQX_GATEWAY__LWM2M__TRANSLATORS__NOTIFY</code>
- - <code>EMQX_GATEWAY__LWM2M__TRANSLATORS__REGISTER</code>
- - <code>EMQX_GATEWAY__LWM2M__TRANSLATORS__RESPONSE</code>
- - <code>EMQX_GATEWAY__LWM2M__TRANSLATORS__UPDATE</code>
+| Config paths | Env overrides |
+|-------------------------------------------------|---------------------------------------------------------|
+|  <code>gateway.lwm2m.translators.command</code> | <code>EMQX_GATEWAY__LWM2M__TRANSLATORS__COMMAND</code>  |
+|  <code>gateway.lwm2m.translators.notify</code> | <code>EMQX_GATEWAY__LWM2M__TRANSLATORS__NOTIFY</code>  |
+|  <code>gateway.lwm2m.translators.register</code> | <code>EMQX_GATEWAY__LWM2M__TRANSLATORS__REGISTER</code>  |
+|  <code>gateway.lwm2m.translators.response</code> | <code>EMQX_GATEWAY__LWM2M__TRANSLATORS__RESPONSE</code>  |
+|  <code>gateway.lwm2m.translators.update</code> | <code>EMQX_GATEWAY__LWM2M__TRANSLATORS__UPDATE</code>  |
 
 
 **Fields**
@@ -1270,20 +1154,12 @@ MQTT topic that corresponds to a particular type of event.
 ## gateway:udp_listener <a id='gateway-udp_listener'></a>
 Settings for the UDP listener.
 
-
-**Config paths**
-
- - <code>gateway.coap.listeners.udp.$name</code>
- - <code>gateway.exproto.listeners.udp.$name</code>
- - <code>gateway.lwm2m.listeners.udp.$name</code>
- - <code>gateway.mqttsn.listeners.udp.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME</code>
+| Config paths | Env overrides |
+|--------------------------------------------------|-----------------------------------------------------------|
+|  <code>gateway.coap.listeners.udp.$name</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME</code>  |
+|  <code>gateway.exproto.listeners.udp.$name</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME</code>  |
 
 
 **Fields**
@@ -1342,18 +1218,11 @@ Settings for the UDP listener.
 ## gateway:udp_listeners <a id='gateway-udp_listeners'></a>
 Settings for the UDP listeners.
 
-
-**Config paths**
-
- - <code>gateway.coap.listeners</code>
- - <code>gateway.lwm2m.listeners</code>
- - <code>gateway.mqttsn.listeners</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__COAP__LISTENERS</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS</code>
+| Config paths | Env overrides |
+|---------------------------------------|----------------------------------------------|
+|  <code>gateway.coap.listeners</code> | <code>EMQX_GATEWAY__COAP__LISTENERS</code>  |
+|  <code>gateway.lwm2m.listeners</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS</code>  |
+|  <code>gateway.mqttsn.listeners</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS</code>  |
 
 
 **Fields**
@@ -1368,28 +1237,16 @@ Settings for the UDP listeners.
 ## gateway:udp_opts <a id='gateway-udp_opts'></a>
 Settings for the UDP sockets.
 
-
-**Config paths**
-
- - <code>gateway.coap.listeners.dtls.$name.udp_options</code>
- - <code>gateway.coap.listeners.udp.$name.udp_options</code>
- - <code>gateway.exproto.listeners.dtls.$name.udp_options</code>
- - <code>gateway.exproto.listeners.udp.$name.udp_options</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.udp_options</code>
- - <code>gateway.lwm2m.listeners.udp.$name.udp_options</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.udp_options</code>
- - <code>gateway.mqttsn.listeners.udp.$name.udp_options</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__UDP_OPTIONS</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__UDP_OPTIONS</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__UDP_OPTIONS</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__UDP_OPTIONS</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__UDP_OPTIONS</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__UDP_OPTIONS</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__UDP_OPTIONS</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__UDP_OPTIONS</code>
+| Config paths | Env overrides |
+|---------------------------------------------------------------|-------------------------------------------------------------------------|
+|  <code>gateway.coap.listeners.dtls.$name.udp_options</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__UDP_OPTIONS</code>  |
+|  <code>gateway.coap.listeners.udp.$name.udp_options</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__UDP_OPTIONS</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.udp_options</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__UDP_OPTIONS</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.udp_options</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__UDP_OPTIONS</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.udp_options</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__UDP_OPTIONS</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.udp_options</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__UDP_OPTIONS</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.udp_options</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__UDP_OPTIONS</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.udp_options</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__UDP_OPTIONS</code>  |
 
 
 **Fields**

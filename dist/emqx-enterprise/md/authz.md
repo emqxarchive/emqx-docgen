@@ -3,14 +3,9 @@
 ## authz:file <a id='authz-file'></a>
 Authorization using a static file.
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**
@@ -37,14 +32,9 @@ Authorization using a static file.
 ## authz:http_get <a id='authz-http_get'></a>
 Authorization using an external HTTP server (via GET requests).
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**
@@ -127,14 +117,9 @@ Authorization using an external HTTP server (via GET requests).
 ## authz:http_post <a id='authz-http_post'></a>
 Authorization using an external HTTP server (via POST requests).
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**
@@ -218,14 +203,9 @@ Authorization using an external HTTP server (via POST requests).
 ## authz:mnesia <a id='authz-mnesia'></a>
 Authorization using a built-in database (mnesia).
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**
@@ -243,14 +223,9 @@ Authorization using a built-in database (mnesia).
 ## authz:mongo_rs <a id='authz-mongo_rs'></a>
 Authorization using a MongoDB replica set.
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**
@@ -340,14 +315,9 @@ Authorization using a MongoDB replica set.
 ## authz:mongo_sharded <a id='authz-mongo_sharded'></a>
 Authorization using a sharded MongoDB cluster.
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**
@@ -428,14 +398,9 @@ Authorization using a sharded MongoDB cluster.
 ## authz:mongo_single <a id='authz-mongo_single'></a>
 Authorization using a single MongoDB instance.
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**
@@ -515,14 +480,9 @@ Authorization using a single MongoDB instance.
 ## authz:mysql <a id='authz-mysql'></a>
 Authorization using a MySQL database.
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**
@@ -578,14 +538,9 @@ Authorization using a MySQL database.
 ## authz:postgresql <a id='authz-postgresql'></a>
 Authorization using a PostgreSQL database.
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**
@@ -641,14 +596,9 @@ Authorization using a PostgreSQL database.
 ## authz:redis_cluster <a id='authz-redis_cluster'></a>
 Authorization using a Redis cluster.
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**
@@ -702,14 +652,9 @@ Authorization using a Redis cluster.
 ## authz:redis_sentinel <a id='authz-redis_sentinel'></a>
 Authorization using a Redis Sentinel.
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**
@@ -772,14 +717,9 @@ Authorization using a Redis Sentinel.
 ## authz:redis_single <a id='authz-redis_single'></a>
 Authorization using a single Redis instance.
 
-
-**Config paths**
-
- - <code>authorization.sources.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>
+| Config paths | Env overrides |
+|-------------------------------------------|--------------------------------------------------|
+|  <code>authorization.sources.$INDEX</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX</code>  |
 
 
 **Fields**

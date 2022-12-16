@@ -3,56 +3,30 @@
 ## authn-builtin_db:authentication <a id='authn-builtin_db-authentication'></a>
 Configuration of authenticator using built-in database as data source.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -85,56 +59,30 @@ Configuration of authenticator using built-in database as data source.
 ## authn-http:get <a id='authn-http-get'></a>
 Configuration of authenticator using HTTP Server as authentication service (Using GET request).
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -220,56 +168,30 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
 ## authn-http:post <a id='authn-http-post'></a>
 Configuration of authenticator using HTTP Server as authentication service (Using POST request).
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -356,56 +278,30 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
 ## authn-jwt:hmac-based <a id='authn-jwt-hmac-based'></a>
 Configuration when the JWT for authentication is issued using the HMAC algorithm.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -460,56 +356,30 @@ Configuration when the JWT for authentication is issued using the HMAC algorithm
 ## authn-jwt:jwks <a id='authn-jwt-jwks'></a>
 Configuration when JWTs used for authentication need to be fetched from the JWKS endpoint.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -573,56 +443,30 @@ Configuration when JWTs used for authentication need to be fetched from the JWKS
 ## authn-jwt:public-key <a id='authn-jwt-public-key'></a>
 Configuration when the JWT for authentication is issued using RSA or ECDSA algorithm.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -671,56 +515,30 @@ Configuration when the JWT for authentication is issued using RSA or ECDSA algor
 ## authn-mongodb:replica-set <a id='authn-mongodb-replica-set'></a>
 Configuration of authenticator using MongoDB (Replica Set) as authentication data source.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -837,56 +655,30 @@ Configuration of authenticator using MongoDB (Replica Set) as authentication dat
 ## authn-mongodb:sharded-cluster <a id='authn-mongodb-sharded-cluster'></a>
 Configuration of authenticator using MongoDB (Sharded Cluster) as authentication data source.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -994,56 +786,30 @@ Configuration of authenticator using MongoDB (Sharded Cluster) as authentication
 ## authn-mongodb:standalone <a id='authn-mongodb-standalone'></a>
 Configuration of authenticator using MongoDB (Standalone) as authentication data source.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -1150,56 +916,30 @@ Configuration of authenticator using MongoDB (Standalone) as authentication data
 ## authn-mysql:authentication <a id='authn-mysql-authentication'></a>
 Configuration of authenticator using MySQL as authentication data source.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -1267,56 +1007,30 @@ Configuration of authenticator using MySQL as authentication data source.
 ## authn-postgresql:authentication <a id='authn-postgresql-authentication'></a>
 Configuration of authenticator using PostgreSQL as authentication data source.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -1378,56 +1092,30 @@ Configuration of authenticator using PostgreSQL as authentication data source.
 ## authn-redis:cluster <a id='authn-redis-cluster'></a>
 Configuration of authenticator using Redis (Cluster) as authentication data source.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -1490,56 +1178,30 @@ Configuration of authenticator using Redis (Cluster) as authentication data sour
 ## authn-redis:sentinel <a id='authn-redis-sentinel'></a>
 Configuration of authenticator using Redis (Sentinel) as authentication data source.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -1611,56 +1273,30 @@ Configuration of authenticator using Redis (Sentinel) as authentication data sou
 ## authn-redis:standalone <a id='authn-redis-standalone'></a>
 Configuration of authenticator using Redis (Standalone) as authentication data source.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**
@@ -1729,56 +1365,30 @@ Configuration of authenticator using Redis (Standalone) as authentication data s
 Settings for Salted Challenge Response Authentication Mechanism
 (SCRAM) authentication.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX</code>
- - <code>gateway.coap.authentication</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication</code>
- - <code>gateway.coap.listeners.udp.$name.authentication</code>
- - <code>gateway.exproto.authentication</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication</code>
- - <code>gateway.lwm2m.authentication</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication</code>
- - <code>gateway.mqttsn.authentication</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication</code>
- - <code>gateway.stomp.authentication</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication</code>
- - <code>listeners.ssl.$name.authentication.$INDEX</code>
- - <code>listeners.tcp.$name.authentication.$INDEX</code>
- - <code>listeners.ws.$name.authentication.$INDEX</code>
- - <code>listeners.wss.$name.authentication.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>
+| Config paths | Env overrides |
+|------------------------------------------------------------------|----------------------------------------------------------------------------|
+|  <code>authentication.$INDEX</code> | <code>EMQX_AUTHENTICATION__$INDEX</code>  |
+|  <code>gateway.coap.authentication</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.authentication</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.authentication</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX</code>  |
 
 
 **Fields**

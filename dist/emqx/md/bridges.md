@@ -3,14 +3,9 @@
 ## bridge:bridges <a id='bridge-bridges'></a>
 Configuration for MQTT bridges.
 
-
-**Config paths**
-
- - <code>bridges</code>
-
-**Env overrides**
-
- - <code>EMQX_BRIDGES</code>
+| Config paths | Env overrides |
+|----------------------|---------------------------|
+|  <code>bridges</code> | <code>EMQX_BRIDGES</code>  |
 
 
 **Fields**

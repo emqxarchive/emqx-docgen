@@ -3,14 +3,9 @@
 ## rule_engine:builtin_action_console <a id='rule_engine-builtin_action_console'></a>
 Configuration for a built-in action.
 
-
-**Config paths**
-
- - <code>rule_engine.rules.$id.actions.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX</code>
+| Config paths | Env overrides |
+|---------------------------------------------------|------------------------------------------------------------|
+|  <code>rule_engine.rules.$id.actions.$INDEX</code> | <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX</code>  |
 
 
 **Fields**
@@ -22,14 +17,9 @@ Configuration for a built-in action.
 ## rule_engine:builtin_action_republish <a id='rule_engine-builtin_action_republish'></a>
 Configuration for a built-in action.
 
-
-**Config paths**
-
- - <code>rule_engine.rules.$id.actions.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX</code>
+| Config paths | Env overrides |
+|---------------------------------------------------|------------------------------------------------------------|
+|  <code>rule_engine.rules.$id.actions.$INDEX</code> | <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX</code>  |
 
 
 **Fields**
@@ -63,14 +53,9 @@ When the rule is triggered by an MQTT message with payload = `hello`, qos = 1,
 clientid = `Steve`, the rule will republish a new MQTT message to topic `t/Steve`,
 payload = `msg: hello`, and `qos = 1`.
 
-
-**Config paths**
-
- - <code>rule_engine.rules.$id.actions.$INDEX.args</code>
-
-**Env overrides**
-
- - <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX__ARGS</code>
+| Config paths | Env overrides |
+|--------------------------------------------------------|------------------------------------------------------------------|
+|  <code>rule_engine.rules.$id.actions.$INDEX.args</code> | <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX__ARGS</code>  |
 
 
 **Fields**
@@ -124,14 +109,9 @@ payload = `msg: hello`, and `qos = 1`.
 ## rule_engine <a id='rule_engine'></a>
 Configuration for the EMQX Rule Engine.
 
-
-**Config paths**
-
- - <code>rule_engine</code>
-
-**Env overrides**
-
- - <code>EMQX_RULE_ENGINE</code>
+| Config paths | Env overrides |
+|--------------------------|-------------------------------|
+|  <code>rule_engine</code> | <code>EMQX_RULE_ENGINE</code>  |
 
 
 **Fields**
@@ -167,14 +147,9 @@ Configuration for the EMQX Rule Engine.
 ## rule_engine:rules <a id='rule_engine-rules'></a>
 Configuration for a rule.
 
-
-**Config paths**
-
- - <code>rule_engine.rules.$id</code>
-
-**Env overrides**
-
- - <code>EMQX_RULE_ENGINE__RULES__$ID</code>
+| Config paths | Env overrides |
+|------------------------------------|-------------------------------------------|
+|  <code>rule_engine.rules.$id</code> | <code>EMQX_RULE_ENGINE__RULES__$ID</code>  |
 
 
 **Fields**
@@ -225,14 +200,9 @@ Configuration for a rule.
 ## rule_engine:user_provided_function <a id='rule_engine-user_provided_function'></a>
 Configuration for a built-in action.
 
-
-**Config paths**
-
- - <code>rule_engine.rules.$id.actions.$INDEX</code>
-
-**Env overrides**
-
- - <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX</code>
+| Config paths | Env overrides |
+|---------------------------------------------------|------------------------------------------------------------|
+|  <code>rule_engine.rules.$id.actions.$INDEX</code> | <code>EMQX_RULE_ENGINE__RULES__$ID__ACTIONS__$INDEX</code>  |
 
 
 **Fields**

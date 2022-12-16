@@ -51,4 +51,40 @@ defmodule MD do
     |> Stream.reject(& &1 == "")
     |> Enum.intersperse("\n")
   end
+
+  def table(headers, lines) do
+    n_cols = tuple_size(headers)
+    max_widths = Enum.map(0..(n_cols - 1), fn idx ->
+      [headers | lines]
+      |> Stream.map(& &1 |> elem(idx) |> String.length())
+      |> Enum.max()
+    end)
+
+    [
+      [
+        "| ",
+        headers
+        |> Tuple.to_list()
+        |> Enum.intersperse(" | "),
+        " |\n",
+      ],
+      [
+        "|",
+        max_widths
+        |> Stream.map(& String.duplicate("-", &1 + 2))
+        |> Enum.intersperse("|"),
+        "|\n",
+      ],
+      Enum.map(lines, fn tup ->
+        [
+          "| ",
+          tup
+          |> Tuple.to_list()
+          |> Stream.map(& " #{&1} ")
+          |> Enum.intersperse("|"),
+          " |\n",
+        ]
+      end),
+    ]
+  end
 end

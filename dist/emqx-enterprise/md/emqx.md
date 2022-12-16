@@ -151,14 +151,9 @@
 ## broker:alarm <a id='broker-alarm'></a>
 Settings for the alarms.
 
-
-**Config paths**
-
- - <code>alarm</code>
-
-**Env overrides**
-
- - <code>EMQX_ALARM</code>
+| Config paths | Env overrides |
+|--------------------|-------------------------|
+|  <code>alarm</code> | <code>EMQX_ALARM</code>  |
 
 
 **Fields**
@@ -190,14 +185,9 @@ Settings for the alarms.
 ## broker <a id='broker'></a>
 Message broker options.
 
-
-**Config paths**
-
- - <code>broker</code>
-
-**Env overrides**
-
- - <code>EMQX_BROKER</code>
+| Config paths | Env overrides |
+|---------------------|--------------------------|
+|  <code>broker</code> | <code>EMQX_BROKER</code>  |
 
 
 **Fields**
@@ -254,14 +244,9 @@ Message broker options.
 ## broker:broker_perf <a id='broker-broker_perf'></a>
 Broker performance tuning parameters.
 
-
-**Config paths**
-
- - <code>broker.perf</code>
-
-**Env overrides**
-
- - <code>EMQX_BROKER__PERF</code>
+| Config paths | Env overrides |
+|--------------------------|--------------------------------|
+|  <code>broker.perf</code> | <code>EMQX_BROKER__PERF</code>  |
 
 
 **Fields**
@@ -290,14 +275,9 @@ Broker performance tuning parameters.
 ## broker:cache <a id='broker-cache'></a>
 Settings for the authorization cache.
 
-
-**Config paths**
-
- - <code>authorization.cache</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION__CACHE</code>
+| Config paths | Env overrides |
+|----------------------------------|----------------------------------------|
+|  <code>authorization.cache</code> | <code>EMQX_AUTHORIZATION__CACHE</code>  |
 
 
 **Fields**
@@ -337,14 +317,9 @@ The name of the alarm is of format `conn_congestion/<ClientID>/<Username>`,
 where the `<ClientID>` is the client ID of the congested MQTT connection,
 and `<Username>` is the username or `unknown_user`.
 
-
-**Config paths**
-
- - <code>conn_congestion</code>
-
-**Env overrides**
-
- - <code>EMQX_CONN_CONGESTION</code>
+| Config paths | Env overrides |
+|------------------------------|-----------------------------------|
+|  <code>conn_congestion</code> | <code>EMQX_CONN_CONGESTION</code>  |
 
 
 **Fields**
@@ -365,16 +340,10 @@ and `<Username>` is the username or `unknown_user`.
 ## broker:deflate_opts <a id='broker-deflate_opts'></a>
 Compression options.
 
-
-**Config paths**
-
- - <code>listeners.ws.$name.websocket.deflate_opts</code>
- - <code>listeners.wss.$name.websocket.deflate_opts</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS__WS__$NAME__WEBSOCKET__DEFLATE_OPTS</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__WEBSOCKET__DEFLATE_OPTS</code>
+| Config paths | Env overrides |
+|---------------------------------------------------------|------------------------------------------------------------------|
+|  <code>listeners.ws.$name.websocket.deflate_opts</code> | <code>EMQX_LISTENERS__WS__$NAME__WEBSOCKET__DEFLATE_OPTS</code>  |
+|  <code>listeners.wss.$name.websocket.deflate_opts</code> | <code>EMQX_LISTENERS__WSS__$NAME__WEBSOCKET__DEFLATE_OPTS</code>  |
 
 
 **Fields**
@@ -433,14 +402,9 @@ are distinguished by the topic prefix:
 `$SYS/broker/<node>/gateway/<gateway-name>/clients/<clientid>/<event>`
 
 
-
-**Config paths**
-
- - <code>sys_topics.sys_event_messages</code>
-
-**Env overrides**
-
- - <code>EMQX_SYS_TOPICS__SYS_EVENT_MESSAGES</code>
+| Config paths | Env overrides |
+|--------------------------------------------|--------------------------------------------------|
+|  <code>sys_topics.sys_event_messages</code> | <code>EMQX_SYS_TOPICS__SYS_EVENT_MESSAGES</code>  |
 
 
 **Fields**
@@ -476,14 +440,9 @@ from the same clientid in a time frame defined by `window_time`.
 After the limit is reached, successive `CONNECT` requests are forbidden
 (banned) until the end of the time period defined by `ban_time`.
 
-
-**Config paths**
-
- - <code>flapping_detect</code>
-
-**Env overrides**
-
- - <code>EMQX_FLAPPING_DETECT</code>
+| Config paths | Env overrides |
+|------------------------------|-----------------------------------|
+|  <code>flapping_detect</code> | <code>EMQX_FLAPPING_DETECT</code>  |
 
 
 **Fields**
@@ -517,14 +476,9 @@ After the limit is reached, successive `CONNECT` requests are forbidden
 Force garbage collection in MQTT connection process after
  they process certain number of messages or bytes of data.
 
-
-**Config paths**
-
- - <code>force_gc</code>
-
-**Env overrides**
-
- - <code>EMQX_FORCE_GC</code>
+| Config paths | Env overrides |
+|-----------------------|----------------------------|
+|  <code>force_gc</code> | <code>EMQX_FORCE_GC</code>  |
 
 
 **Fields**
@@ -555,14 +509,9 @@ reaches a certain value, the process is forced to close.
 Note: "message queue" here refers to the "message mailbox"
 of the Erlang process, not the `mqueue` of QoS 1 and QoS 2.
 
-
-**Config paths**
-
- - <code>force_shutdown</code>
-
-**Env overrides**
-
- - <code>EMQX_FORCE_SHUTDOWN</code>
+| Config paths | Env overrides |
+|-----------------------------|----------------------------------|
+|  <code>force_shutdown</code> | <code>EMQX_FORCE_SHUTDOWN</code>  |
 
 
 **Fields**
@@ -589,18 +538,11 @@ of the Erlang process, not the `mqueue` of QoS 1 and QoS 2.
 ## broker:listener_ssl_opts <a id='broker-listener_ssl_opts'></a>
 Socket options for SSL connections.
 
-
-**Config paths**
-
- - <code>gateway.exproto.listeners.ssl.$name.ssl_options</code>
- - <code>gateway.stomp.listeners.ssl.$name.ssl_options</code>
- - <code>listeners.ssl.$name.ssl_options</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__SSL_OPTIONS</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__SSL_OPTIONS</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__SSL_OPTIONS</code>
+| Config paths | Env overrides |
+|--------------------------------------------------------------|------------------------------------------------------------------------|
+|  <code>gateway.exproto.listeners.ssl.$name.ssl_options</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__SSL_OPTIONS</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.ssl_options</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__SSL_OPTIONS</code>  |
+|  <code>listeners.ssl.$name.ssl_options</code> | <code>EMQX_LISTENERS__SSL__$NAME__SSL_OPTIONS</code>  |
 
 
 **Fields**
@@ -759,14 +701,9 @@ Socket options for SSL connections.
 ## broker:listener_wss_opts <a id='broker-listener_wss_opts'></a>
 Socket options for WebSocket/SSL connections.
 
-
-**Config paths**
-
- - <code>listeners.wss.$name.ssl_options</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS__WSS__$NAME__SSL_OPTIONS</code>
+| Config paths | Env overrides |
+|----------------------------------------------|------------------------------------------------------|
+|  <code>listeners.wss.$name.ssl_options</code> | <code>EMQX_LISTENERS__WSS__$NAME__SSL_OPTIONS</code>  |
 
 
 **Fields**
@@ -918,14 +855,9 @@ Socket options for WebSocket/SSL connections.
 ## broker:listeners <a id='broker-listeners'></a>
 MQTT listeners identified by their protocol type and assigned names
 
-
-**Config paths**
-
- - <code>listeners</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS</code>
+| Config paths | Env overrides |
+|------------------------|-----------------------------|
+|  <code>listeners</code> | <code>EMQX_LISTENERS</code>  |
 
 
 **Fields**
@@ -950,14 +882,9 @@ MQTT listeners identified by their protocol type and assigned names
 Global MQTT configuration.<br/>The configs here work as default values which can be overridden
 in <code>zone</code> configs
 
-
-**Config paths**
-
- - <code>mqtt</code>
-
-**Env overrides**
-
- - <code>EMQX_MQTT</code>
+| Config paths | Env overrides |
+|-------------------|------------------------|
+|  <code>mqtt</code> | <code>EMQX_MQTT</code>  |
 
 
 **Fields**
@@ -1160,14 +1087,9 @@ in <code>zone</code> configs
 ## broker:mqtt_quic_listener <a id='broker-mqtt_quic_listener'></a>
 Settings for the MQTT over QUIC listener.
 
-
-**Config paths**
-
- - <code>listeners.quic.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS__QUIC__$NAME</code>
+| Config paths | Env overrides |
+|-----------------------------------|------------------------------------------|
+|  <code>listeners.quic.$name</code> | <code>EMQX_LISTENERS__QUIC__$NAME</code>  |
 
 
 **Fields**
@@ -1300,14 +1222,9 @@ Settings for the MQTT over QUIC listener.
 ## broker:mqtt_ssl_listener <a id='broker-mqtt_ssl_listener'></a>
 Settings for the MQTT over SSL listener.
 
-
-**Config paths**
-
- - <code>listeners.ssl.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS__SSL__$NAME</code>
+| Config paths | Env overrides |
+|----------------------------------|-----------------------------------------|
+|  <code>listeners.ssl.$name</code> | <code>EMQX_LISTENERS__SSL__$NAME</code>  |
 
 
 **Fields**
@@ -1416,14 +1333,9 @@ Settings for the MQTT over SSL listener.
 ## broker:mqtt_tcp_listener <a id='broker-mqtt_tcp_listener'></a>
 Settings for the MQTT over TCP listener.
 
-
-**Config paths**
-
- - <code>listeners.tcp.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS__TCP__$NAME</code>
+| Config paths | Env overrides |
+|----------------------------------|-----------------------------------------|
+|  <code>listeners.tcp.$name</code> | <code>EMQX_LISTENERS__TCP__$NAME</code>  |
 
 
 **Fields**
@@ -1529,14 +1441,9 @@ Settings for the MQTT over TCP listener.
 ## broker:mqtt_ws_listener <a id='broker-mqtt_ws_listener'></a>
 Settings for the MQTT over WebSocket listener.
 
-
-**Config paths**
-
- - <code>listeners.ws.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS__WS__$NAME</code>
+| Config paths | Env overrides |
+|---------------------------------|----------------------------------------|
+|  <code>listeners.ws.$name</code> | <code>EMQX_LISTENERS__WS__$NAME</code>  |
 
 
 **Fields**
@@ -1645,14 +1552,9 @@ Settings for the MQTT over WebSocket listener.
 ## broker:mqtt_wss_listener <a id='broker-mqtt_wss_listener'></a>
 Settings for the MQTT over WebSocket/SSL listener.
 
-
-**Config paths**
-
- - <code>listeners.wss.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS__WSS__$NAME</code>
+| Config paths | Env overrides |
+|----------------------------------|-----------------------------------------|
+|  <code>listeners.wss.$name</code> | <code>EMQX_LISTENERS__WSS__$NAME</code>  |
 
 
 **Fields**
@@ -1765,14 +1667,9 @@ Settings for the MQTT over WebSocket/SSL listener.
 Overload protection mechanism monitors the load of the system and temporarily
 disables some features (such as accepting new connections) when the load is high.
 
-
-**Config paths**
-
- - <code>overload_protection</code>
-
-**Env overrides**
-
- - <code>EMQX_OVERLOAD_PROTECTION</code>
+| Config paths | Env overrides |
+|----------------------------------|---------------------------------------|
+|  <code>overload_protection</code> | <code>EMQX_OVERLOAD_PROTECTION</code>  |
 
 
 **Fields**
@@ -1811,14 +1708,9 @@ disables some features (such as accepting new connections) when the load is high
 ## broker:persistent_session_builtin <a id='broker-persistent_session_builtin'></a>
 Settings for the built-in storage engine of persistent messages.
 
-
-**Config paths**
-
- - <code>persistent_session_store.backend</code>
-
-**Env overrides**
-
- - <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND</code>
+| Config paths | Env overrides |
+|-----------------------------------------------|-----------------------------------------------------|
+|  <code>persistent_session_store.backend</code> | <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND</code>  |
 
 
 **Fields**
@@ -1842,14 +1734,9 @@ Settings for the built-in storage engine of persistent messages.
 ## broker:persistent_session_store <a id='broker-persistent_session_store'></a>
 Settings for message persistence.
 
-
-**Config paths**
-
- - <code>persistent_session_store</code>
-
-**Env overrides**
-
- - <code>EMQX_PERSISTENT_SESSION_STORE</code>
+| Config paths | Env overrides |
+|---------------------------------------|--------------------------------------------|
+|  <code>persistent_session_store</code> | <code>EMQX_PERSISTENT_SESSION_STORE</code>  |
 
 
 **Fields**
@@ -1918,18 +1805,11 @@ Settings for message persistence.
 ## broker:persistent_table_mria_opts <a id='broker-persistent_table_mria_opts'></a>
 Tuning options for the mria table.
 
-
-**Config paths**
-
- - <code>persistent_session_store.backend.messages</code>
- - <code>persistent_session_store.backend.session</code>
- - <code>persistent_session_store.backend.session_messages</code>
-
-**Env overrides**
-
- - <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND__MESSAGES</code>
- - <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND__SESSION</code>
- - <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND__SESSION_MESSAGES</code>
+| Config paths | Env overrides |
+|----------------------------------------------------------------|-----------------------------------------------------------------------|
+|  <code>persistent_session_store.backend.messages</code> | <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND__MESSAGES</code>  |
+|  <code>persistent_session_store.backend.session</code> | <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND__SESSION</code>  |
+|  <code>persistent_session_store.backend.session_messages</code> | <code>EMQX_PERSISTENT_SESSION_STORE__BACKEND__SESSION_MESSAGES</code>  |
 
 
 **Fields**
@@ -1944,14 +1824,9 @@ Tuning options for the mria table.
 ## broker:shared_subscription_group <a id='broker-shared_subscription_group'></a>
 Per group dispatch strategy for shared subscription
 
-
-**Config paths**
-
- - <code>broker.shared_subscription_group.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_BROKER__SHARED_SUBSCRIPTION_GROUP__$NAME</code>
+| Config paths | Env overrides |
+|-----------------------------------------------------|------------------------------------------------------------|
+|  <code>broker.shared_subscription_group.$name</code> | <code>EMQX_BROKER__SHARED_SUBSCRIPTION_GROUP__$NAME</code>  |
 
 
 **Fields**
@@ -1974,86 +1849,45 @@ Per group dispatch strategy for shared subscription
 ## broker:ssl_client_opts <a id='broker-ssl_client_opts'></a>
 Socket options for SSL clients.
 
-
-**Config paths**
-
- - <code>authentication.$INDEX.ssl</code>
- - <code>authorization.sources.$INDEX.ssl</code>
- - <code>bridges.influxdb_api_v1.$name.ssl</code>
- - <code>bridges.influxdb_api_v2.$name.ssl</code>
- - <code>bridges.kafka.$name.ssl</code>
- - <code>bridges.mongodb_rs.$name.ssl</code>
- - <code>bridges.mongodb_sharded.$name.ssl</code>
- - <code>bridges.mongodb_single.$name.ssl</code>
- - <code>bridges.mqtt.$name.ssl</code>
- - <code>bridges.mysql.$name.ssl</code>
- - <code>bridges.redis_cluster.$name.ssl</code>
- - <code>bridges.redis_sentinel.$name.ssl</code>
- - <code>bridges.redis_single.$name.ssl</code>
- - <code>bridges.webhook.$name.ssl</code>
- - <code>cluster.etcd.ssl</code>
- - <code>gateway.coap.authentication.ssl</code>
- - <code>gateway.coap.listeners.dtls.$name.authentication.ssl</code>
- - <code>gateway.coap.listeners.udp.$name.authentication.ssl</code>
- - <code>gateway.exproto.authentication.ssl</code>
- - <code>gateway.exproto.handler.ssl_options</code>
- - <code>gateway.exproto.listeners.dtls.$name.authentication.ssl</code>
- - <code>gateway.exproto.listeners.ssl.$name.authentication.ssl</code>
- - <code>gateway.exproto.listeners.tcp.$name.authentication.ssl</code>
- - <code>gateway.exproto.listeners.udp.$name.authentication.ssl</code>
- - <code>gateway.lwm2m.authentication.ssl</code>
- - <code>gateway.lwm2m.listeners.dtls.$name.authentication.ssl</code>
- - <code>gateway.lwm2m.listeners.udp.$name.authentication.ssl</code>
- - <code>gateway.mqttsn.authentication.ssl</code>
- - <code>gateway.mqttsn.listeners.dtls.$name.authentication.ssl</code>
- - <code>gateway.mqttsn.listeners.udp.$name.authentication.ssl</code>
- - <code>gateway.stomp.authentication.ssl</code>
- - <code>gateway.stomp.listeners.ssl.$name.authentication.ssl</code>
- - <code>gateway.stomp.listeners.tcp.$name.authentication.ssl</code>
- - <code>listeners.ssl.$name.authentication.$INDEX.ssl</code>
- - <code>listeners.tcp.$name.authentication.$INDEX.ssl</code>
- - <code>listeners.ws.$name.authentication.$INDEX.ssl</code>
- - <code>listeners.wss.$name.authentication.$INDEX.ssl</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHENTICATION__$INDEX__SSL</code>
- - <code>EMQX_AUTHORIZATION__SOURCES__$INDEX__SSL</code>
- - <code>EMQX_BRIDGES__INFLUXDB_API_V1__$NAME__SSL</code>
- - <code>EMQX_BRIDGES__INFLUXDB_API_V2__$NAME__SSL</code>
- - <code>EMQX_BRIDGES__KAFKA__$NAME__SSL</code>
- - <code>EMQX_BRIDGES__MONGODB_RS__$NAME__SSL</code>
- - <code>EMQX_BRIDGES__MONGODB_SHARDED__$NAME__SSL</code>
- - <code>EMQX_BRIDGES__MONGODB_SINGLE__$NAME__SSL</code>
- - <code>EMQX_BRIDGES__MQTT__$NAME__SSL</code>
- - <code>EMQX_BRIDGES__MYSQL__$NAME__SSL</code>
- - <code>EMQX_BRIDGES__REDIS_CLUSTER__$NAME__SSL</code>
- - <code>EMQX_BRIDGES__REDIS_SENTINEL__$NAME__SSL</code>
- - <code>EMQX_BRIDGES__REDIS_SINGLE__$NAME__SSL</code>
- - <code>EMQX_BRIDGES__WEBHOOK__$NAME__SSL</code>
- - <code>EMQX_CLUSTER__ETCD__SSL</code>
- - <code>EMQX_GATEWAY__COAP__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__EXPROTO__HANDLER__SSL_OPTIONS</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__SSL</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__SSL</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__SSL</code>
- - <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__SSL</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__SSL</code>
+| Config paths | Env overrides |
+|----------------------------------------------------------------------|---------------------------------------------------------------------------------|
+|  <code>authentication.$INDEX.ssl</code> | <code>EMQX_AUTHENTICATION__$INDEX__SSL</code>  |
+|  <code>authorization.sources.$INDEX.ssl</code> | <code>EMQX_AUTHORIZATION__SOURCES__$INDEX__SSL</code>  |
+|  <code>bridges.influxdb_api_v1.$name.ssl</code> | <code>EMQX_BRIDGES__INFLUXDB_API_V1__$NAME__SSL</code>  |
+|  <code>bridges.influxdb_api_v2.$name.ssl</code> | <code>EMQX_BRIDGES__INFLUXDB_API_V2__$NAME__SSL</code>  |
+|  <code>bridges.kafka.$name.ssl</code> | <code>EMQX_BRIDGES__KAFKA__$NAME__SSL</code>  |
+|  <code>bridges.mongodb_rs.$name.ssl</code> | <code>EMQX_BRIDGES__MONGODB_RS__$NAME__SSL</code>  |
+|  <code>bridges.mongodb_sharded.$name.ssl</code> | <code>EMQX_BRIDGES__MONGODB_SHARDED__$NAME__SSL</code>  |
+|  <code>bridges.mongodb_single.$name.ssl</code> | <code>EMQX_BRIDGES__MONGODB_SINGLE__$NAME__SSL</code>  |
+|  <code>bridges.mqtt.$name.ssl</code> | <code>EMQX_BRIDGES__MQTT__$NAME__SSL</code>  |
+|  <code>bridges.mysql.$name.ssl</code> | <code>EMQX_BRIDGES__MYSQL__$NAME__SSL</code>  |
+|  <code>bridges.redis_cluster.$name.ssl</code> | <code>EMQX_BRIDGES__REDIS_CLUSTER__$NAME__SSL</code>  |
+|  <code>bridges.redis_sentinel.$name.ssl</code> | <code>EMQX_BRIDGES__REDIS_SENTINEL__$NAME__SSL</code>  |
+|  <code>bridges.redis_single.$name.ssl</code> | <code>EMQX_BRIDGES__REDIS_SINGLE__$NAME__SSL</code>  |
+|  <code>bridges.webhook.$name.ssl</code> | <code>EMQX_BRIDGES__WEBHOOK__$NAME__SSL</code>  |
+|  <code>cluster.etcd.ssl</code> | <code>EMQX_CLUSTER__ETCD__SSL</code>  |
+|  <code>gateway.coap.authentication.ssl</code> | <code>EMQX_GATEWAY__COAP__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.coap.listeners.dtls.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__DTLS__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.coap.listeners.udp.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__COAP__LISTENERS__UDP__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.exproto.authentication.ssl</code> | <code>EMQX_GATEWAY__EXPROTO__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.exproto.handler.ssl_options</code> | <code>EMQX_GATEWAY__EXPROTO__HANDLER__SSL_OPTIONS</code>  |
+|  <code>gateway.exproto.listeners.dtls.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__DTLS__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.exproto.listeners.ssl.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.exproto.listeners.udp.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__UDP__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.lwm2m.authentication.ssl</code> | <code>EMQX_GATEWAY__LWM2M__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.lwm2m.listeners.dtls.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__DTLS__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.lwm2m.listeners.udp.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__LWM2M__LISTENERS__UDP__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.mqttsn.authentication.ssl</code> | <code>EMQX_GATEWAY__MQTTSN__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.mqttsn.listeners.dtls.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__DTLS__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.mqttsn.listeners.udp.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.stomp.authentication.ssl</code> | <code>EMQX_GATEWAY__STOMP__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.authentication.ssl</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__AUTHENTICATION__SSL</code>  |
+|  <code>listeners.ssl.$name.authentication.$INDEX.ssl</code> | <code>EMQX_LISTENERS__SSL__$NAME__AUTHENTICATION__$INDEX__SSL</code>  |
+|  <code>listeners.tcp.$name.authentication.$INDEX.ssl</code> | <code>EMQX_LISTENERS__TCP__$NAME__AUTHENTICATION__$INDEX__SSL</code>  |
+|  <code>listeners.ws.$name.authentication.$INDEX.ssl</code> | <code>EMQX_LISTENERS__WS__$NAME__AUTHENTICATION__$INDEX__SSL</code>  |
+|  <code>listeners.wss.$name.authentication.$INDEX.ssl</code> | <code>EMQX_LISTENERS__WSS__$NAME__AUTHENTICATION__$INDEX__SSL</code>  |
 
 
 **Fields**
@@ -2180,14 +2014,9 @@ Socket options for SSL clients.
 Enable/disable statistic data collection.
 Statistic data such as message receive/send count/rate etc. It provides insights of system performance and helps to diagnose issues. You can find statistic data from the dashboard, or from the '/stats' API.
 
-
-**Config paths**
-
- - <code>stats</code>
-
-**Env overrides**
-
- - <code>EMQX_STATS</code>
+| Config paths | Env overrides |
+|--------------------|-------------------------|
+|  <code>stats</code> | <code>EMQX_STATS</code>  |
 
 
 **Fields**
@@ -2205,14 +2034,9 @@ client online and offline events to the system topic starting with `$SYS/`.
 
 The following options control the behavior of `$SYS` topics.
 
-
-**Config paths**
-
- - <code>sys_topics</code>
-
-**Env overrides**
-
- - <code>EMQX_SYS_TOPICS</code>
+| Config paths | Env overrides |
+|-------------------------|------------------------------|
+|  <code>sys_topics</code> | <code>EMQX_SYS_TOPICS</code>  |
 
 
 **Fields**
@@ -2238,14 +2062,9 @@ The following options control the behavior of `$SYS` topics.
 ## broker:sysmon <a id='broker-sysmon'></a>
 Features related to system monitoring and introspection.
 
-
-**Config paths**
-
- - <code>sysmon</code>
-
-**Env overrides**
-
- - <code>EMQX_SYSMON</code>
+| Config paths | Env overrides |
+|---------------------|--------------------------|
+|  <code>sysmon</code> | <code>EMQX_SYSMON</code>  |
 
 
 **Fields**
@@ -2264,14 +2083,9 @@ Features related to system monitoring and introspection.
 This part of the configuration is responsible for monitoring
  the host OS health, such as free memory, disk space, CPU load, etc.
 
-
-**Config paths**
-
- - <code>sysmon.os</code>
-
-**Env overrides**
-
- - <code>EMQX_SYSMON__OS</code>
+| Config paths | Env overrides |
+|------------------------|------------------------------|
+|  <code>sysmon.os</code> | <code>EMQX_SYSMON__OS</code>  |
 
 
 **Fields**
@@ -2323,14 +2137,9 @@ This part of the configuration is responsible for monitoring
  the Erlang processes in the VM. This information can be sent to an external
  PostgreSQL database. This feature is inactive unless the PostgreSQL sink is configured.
 
-
-**Config paths**
-
- - <code>sysmon.top</code>
-
-**Env overrides**
-
- - <code>EMQX_SYSMON__TOP</code>
+| Config paths | Env overrides |
+|-------------------------|-------------------------------|
+|  <code>sysmon.top</code> | <code>EMQX_SYSMON__TOP</code>  |
 
 
 **Fields**
@@ -2414,14 +2223,9 @@ This part of the configuration is responsible for collecting
  BEAM VM events, such as long garbage collection, traffic congestion in the inter-broker
  communication, etc.
 
-
-**Config paths**
-
- - <code>sysmon.vm</code>
-
-**Env overrides**
-
- - <code>EMQX_SYSMON__VM</code>
+| Config paths | Env overrides |
+|------------------------|------------------------------|
+|  <code>sysmon.vm</code> | <code>EMQX_SYSMON__VM</code>  |
 
 
 **Fields**
@@ -2482,28 +2286,16 @@ This part of the configuration is responsible for collecting
 ## broker:tcp_opts <a id='broker-tcp_opts'></a>
 TCP listener options.
 
-
-**Config paths**
-
- - <code>gateway.exproto.listeners.ssl.$name.tcp_options</code>
- - <code>gateway.exproto.listeners.tcp.$name.tcp_options</code>
- - <code>gateway.stomp.listeners.ssl.$name.tcp_options</code>
- - <code>gateway.stomp.listeners.tcp.$name.tcp_options</code>
- - <code>listeners.ssl.$name.tcp_options</code>
- - <code>listeners.tcp.$name.tcp_options</code>
- - <code>listeners.ws.$name.tcp_options</code>
- - <code>listeners.wss.$name.tcp_options</code>
-
-**Env overrides**
-
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__TCP_OPTIONS</code>
- - <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__TCP_OPTIONS</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__TCP_OPTIONS</code>
- - <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__TCP_OPTIONS</code>
- - <code>EMQX_LISTENERS__SSL__$NAME__TCP_OPTIONS</code>
- - <code>EMQX_LISTENERS__TCP__$NAME__TCP_OPTIONS</code>
- - <code>EMQX_LISTENERS__WS__$NAME__TCP_OPTIONS</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__TCP_OPTIONS</code>
+| Config paths | Env overrides |
+|--------------------------------------------------------------|------------------------------------------------------------------------|
+|  <code>gateway.exproto.listeners.ssl.$name.tcp_options</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__SSL__$NAME__TCP_OPTIONS</code>  |
+|  <code>gateway.exproto.listeners.tcp.$name.tcp_options</code> | <code>EMQX_GATEWAY__EXPROTO__LISTENERS__TCP__$NAME__TCP_OPTIONS</code>  |
+|  <code>gateway.stomp.listeners.ssl.$name.tcp_options</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__SSL__$NAME__TCP_OPTIONS</code>  |
+|  <code>gateway.stomp.listeners.tcp.$name.tcp_options</code> | <code>EMQX_GATEWAY__STOMP__LISTENERS__TCP__$NAME__TCP_OPTIONS</code>  |
+|  <code>listeners.ssl.$name.tcp_options</code> | <code>EMQX_LISTENERS__SSL__$NAME__TCP_OPTIONS</code>  |
+|  <code>listeners.tcp.$name.tcp_options</code> | <code>EMQX_LISTENERS__TCP__$NAME__TCP_OPTIONS</code>  |
+|  <code>listeners.ws.$name.tcp_options</code> | <code>EMQX_LISTENERS__WS__$NAME__TCP_OPTIONS</code>  |
+|  <code>listeners.wss.$name.tcp_options</code> | <code>EMQX_LISTENERS__WSS__$NAME__TCP_OPTIONS</code>  |
 
 
 **Fields**
@@ -2569,14 +2361,9 @@ TCP listener options.
 ## broker:trace <a id='broker-trace'></a>
 Real-time filtering logs for the ClientID or Topic or IP for debugging.
 
-
-**Config paths**
-
- - <code>trace</code>
-
-**Env overrides**
-
- - <code>EMQX_TRACE</code>
+| Config paths | Env overrides |
+|--------------------|-------------------------|
+|  <code>trace</code> | <code>EMQX_TRACE</code>  |
 
 
 **Fields**
@@ -2595,16 +2382,10 @@ Real-time filtering logs for the ClientID or Topic or IP for debugging.
 ## broker:ws_opts <a id='broker-ws_opts'></a>
 WebSocket listener options.
 
-
-**Config paths**
-
- - <code>listeners.ws.$name.websocket</code>
- - <code>listeners.wss.$name.websocket</code>
-
-**Env overrides**
-
- - <code>EMQX_LISTENERS__WS__$NAME__WEBSOCKET</code>
- - <code>EMQX_LISTENERS__WSS__$NAME__WEBSOCKET</code>
+| Config paths | Env overrides |
+|--------------------------------------------|----------------------------------------------------|
+|  <code>listeners.ws.$name.websocket</code> | <code>EMQX_LISTENERS__WS__$NAME__WEBSOCKET</code>  |
+|  <code>listeners.wss.$name.websocket</code> | <code>EMQX_LISTENERS__WSS__$NAME__WEBSOCKET</code>  |
 
 
 **Fields**
@@ -2731,14 +2512,9 @@ All the global configs that can be overridden in zones are:
 
 
 
-
-**Config paths**
-
- - <code>zones.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_ZONES__$NAME</code>
+| Config paths | Env overrides |
+|--------------------------|--------------------------------|
+|  <code>zones.$name</code> | <code>EMQX_ZONES__$NAME</code>  |
 
 
 **Fields**
@@ -2768,14 +2544,9 @@ All the global configs that can be overridden in zones are:
 ## cluster_dns <a id='cluster_dns'></a>
 Service discovery via DNS SRV records.
 
-
-**Config paths**
-
- - <code>cluster.dns</code>
-
-**Env overrides**
-
- - <code>EMQX_CLUSTER__DNS</code>
+| Config paths | Env overrides |
+|--------------------------|--------------------------------|
+|  <code>cluster.dns</code> | <code>EMQX_CLUSTER__DNS</code>  |
 
 
 **Fields**
@@ -2797,14 +2568,9 @@ Service discovery via DNS SRV records.
 ## cluster_etcd <a id='cluster_etcd'></a>
 Service discovery using 'etcd' service.
 
-
-**Config paths**
-
- - <code>cluster.etcd</code>
-
-**Env overrides**
-
- - <code>EMQX_CLUSTER__ETCD</code>
+| Config paths | Env overrides |
+|---------------------------|---------------------------------|
+|  <code>cluster.etcd</code> | <code>EMQX_CLUSTER__ETCD</code>  |
 
 
 **Fields**
@@ -2833,14 +2599,9 @@ Service discovery using 'etcd' service.
 ## cluster_k8s <a id='cluster_k8s'></a>
 Service discovery via Kubernetes API server.
 
-
-**Config paths**
-
- - <code>cluster.k8s</code>
-
-**Env overrides**
-
- - <code>EMQX_CLUSTER__K8S</code>
+| Config paths | Env overrides |
+|--------------------------|--------------------------------|
+|  <code>cluster.k8s</code> | <code>EMQX_CLUSTER__K8S</code>  |
 
 
 **Fields**
@@ -2883,14 +2644,9 @@ Service discovery via Kubernetes API server.
 ## cluster_mcast <a id='cluster_mcast'></a>
 Service discovery via UDP multicast.
 
-
-**Config paths**
-
- - <code>cluster.mcast</code>
-
-**Env overrides**
-
- - <code>EMQX_CLUSTER__MCAST</code>
+| Config paths | Env overrides |
+|----------------------------|----------------------------------|
+|  <code>cluster.mcast</code> | <code>EMQX_CLUSTER__MCAST</code>  |
 
 
 **Fields**
@@ -2950,14 +2706,9 @@ Service discovery via UDP multicast.
 Service discovery via static nodes.
 The new node joins the cluster by connecting to one of the bootstrap nodes.
 
-
-**Config paths**
-
- - <code>cluster.static</code>
-
-**Env overrides**
-
- - <code>EMQX_CLUSTER__STATIC</code>
+| Config paths | Env overrides |
+|-----------------------------|-----------------------------------|
+|  <code>cluster.static</code> | <code>EMQX_CLUSTER__STATIC</code>  |
 
 
 **Fields**
@@ -2972,14 +2723,9 @@ The new node joins the cluster by connecting to one of the bootstrap nodes.
 ## authorization <a id='authorization'></a>
 Settings that control client authorization.
 
-
-**Config paths**
-
- - <code>authorization</code>
-
-**Env overrides**
-
- - <code>EMQX_AUTHORIZATION</code>
+| Config paths | Env overrides |
+|----------------------------|---------------------------------|
+|  <code>authorization</code> | <code>EMQX_AUTHORIZATION</code>  |
 
 
 **Fields**
@@ -3026,14 +2772,9 @@ Settings that control client authorization.
 EMQX nodes can form a cluster to scale up the total capacity.<br/>
       Here holds the configs to instruct how individual nodes can discover each other.
 
-
-**Config paths**
-
- - <code>cluster</code>
-
-**Env overrides**
-
- - <code>EMQX_CLUSTER</code>
+| Config paths | Env overrides |
+|----------------------|---------------------------|
+|  <code>cluster</code> | <code>EMQX_CLUSTER</code>  |
 
 
 **Fields**
@@ -3113,14 +2854,9 @@ EMQX nodes can form a cluster to scale up the total capacity.<br/>
 ## cluster_call <a id='cluster_call'></a>
 Options for the 'cluster call' feature that allows to execute a callback on all nodes in the cluster.
 
-
-**Config paths**
-
- - <code>node.cluster_call</code>
-
-**Env overrides**
-
- - <code>EMQX_NODE__CLUSTER_CALL</code>
+| Config paths | Env overrides |
+|--------------------------------|--------------------------------------|
+|  <code>node.cluster_call</code> | <code>EMQX_NODE__CLUSTER_CALL</code>  |
 
 
 **Fields**
@@ -3148,14 +2884,9 @@ Options for the 'cluster call' feature that allows to execute a callback on all 
 ## console_handler <a id='console_handler'></a>
 Log handler that prints log events to the EMQX console.
 
-
-**Config paths**
-
- - <code>log.console_handler</code>
-
-**Env overrides**
-
- - <code>EMQX_LOG__CONSOLE_HANDLER</code>
+| Config paths | Env overrides |
+|----------------------------------|----------------------------------------|
+|  <code>log.console_handler</code> | <code>EMQX_LOG__CONSOLE_HANDLER</code>  |
 
 
 **Fields**
@@ -3257,14 +2988,9 @@ Log handler that prints log events to the EMQX console.
 EMQX logging supports multiple sinks for the log events.
 Each sink is represented by a _log handler_, which can be configured independently.
 
-
-**Config paths**
-
- - <code>log</code>
-
-**Env overrides**
-
- - <code>EMQX_LOG</code>
+| Config paths | Env overrides |
+|------------------|-----------------------|
+|  <code>log</code> | <code>EMQX_LOG</code>  |
 
 
 **Fields**
@@ -3284,16 +3010,10 @@ Large bursts of log events produced in a short time can potentially cause proble
 
 Log burst limit feature can temporarily disable logging to avoid these issues.
 
-
-**Config paths**
-
- - <code>log.console_handler.burst_limit</code>
- - <code>log.file_handlers.$name.burst_limit</code>
-
-**Env overrides**
-
- - <code>EMQX_LOG__CONSOLE_HANDLER__BURST_LIMIT</code>
- - <code>EMQX_LOG__FILE_HANDLERS__$NAME__BURST_LIMIT</code>
+| Config paths | Env overrides |
+|--------------------------------------------------|----------------------------------------------------------|
+|  <code>log.console_handler.burst_limit</code> | <code>EMQX_LOG__CONSOLE_HANDLER__BURST_LIMIT</code>  |
+|  <code>log.file_handlers.$name.burst_limit</code> | <code>EMQX_LOG__FILE_HANDLERS__$NAME__BURST_LIMIT</code>  |
 
 
 **Fields**
@@ -3320,14 +3040,9 @@ Log burst limit feature can temporarily disable logging to avoid these issues.
 ## log_file_handler <a id='log_file_handler'></a>
 Log handler that prints log events to files.
 
-
-**Config paths**
-
- - <code>log.file_handlers.$name</code>
-
-**Env overrides**
-
- - <code>EMQX_LOG__FILE_HANDLERS__$NAME</code>
+| Config paths | Env overrides |
+|--------------------------------------|---------------------------------------------|
+|  <code>log.file_handlers.$name</code> | <code>EMQX_LOG__FILE_HANDLERS__$NAME</code>  |
 
 
 **Fields**
@@ -3443,16 +3158,10 @@ Log overload kill features an overload protection that activates when the log ha
 When the overload is detected, the log handler is terminated and restarted after a cooldown period.
 
 
-
-**Config paths**
-
- - <code>log.console_handler.overload_kill</code>
- - <code>log.file_handlers.$name.overload_kill</code>
-
-**Env overrides**
-
- - <code>EMQX_LOG__CONSOLE_HANDLER__OVERLOAD_KILL</code>
- - <code>EMQX_LOG__FILE_HANDLERS__$NAME__OVERLOAD_KILL</code>
+| Config paths | Env overrides |
+|----------------------------------------------------|------------------------------------------------------------|
+|  <code>log.console_handler.overload_kill</code> | <code>EMQX_LOG__CONSOLE_HANDLER__OVERLOAD_KILL</code>  |
+|  <code>log.file_handlers.$name.overload_kill</code> | <code>EMQX_LOG__FILE_HANDLERS__$NAME__OVERLOAD_KILL</code>  |
 
 
 **Fields**
@@ -3488,14 +3197,9 @@ By default, the logs are stored in `./log` directory (for installation from zip 
 This section of the configuration controls the number of files kept for each log handler.
 
 
-
-**Config paths**
-
- - <code>log.file_handlers.$name.rotation</code>
-
-**Env overrides**
-
- - <code>EMQX_LOG__FILE_HANDLERS__$NAME__ROTATION</code>
+| Config paths | Env overrides |
+|-----------------------------------------------|-------------------------------------------------------|
+|  <code>log.file_handlers.$name.rotation</code> | <code>EMQX_LOG__FILE_HANDLERS__$NAME__ROTATION</code>  |
 
 
 **Fields**
@@ -3516,14 +3220,9 @@ This section of the configuration controls the number of files kept for each log
 ## node <a id='node'></a>
 Node name, cookie, config & data directories and the Erlang virtual machine (BEAM) boot parameters.
 
-
-**Config paths**
-
- - <code>node</code>
-
-**Env overrides**
-
- - <code>EMQX_NODE</code>
+| Config paths | Env overrides |
+|-------------------|------------------------|
+|  <code>node</code> | <code>EMQX_NODE</code>  |
 
 
 **Fields**
@@ -3736,14 +3435,9 @@ Most of the time the default config should work,
 but in case you need to do performance fine-tuning or experiment a bit,
 this is where to look.
 
-
-**Config paths**
-
- - <code>rpc</code>
-
-**Env overrides**
-
- - <code>EMQX_RPC</code>
+| Config paths | Env overrides |
+|------------------|-----------------------|
+|  <code>rpc</code> | <code>EMQX_RPC</code>  |
 
 
 **Fields**
