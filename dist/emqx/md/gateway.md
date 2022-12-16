@@ -14,15 +14,36 @@ ClientInfo override.
 
 **Fields**
 
-- username: <code>binary()</code>
-  Template for overriding username.
+<ul class="field-list">
+<li>
+<h4>username</h4>
+Template for overriding username.
 
-- password: <code>binary()</code>
-  Template for overriding password.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+Template for overriding password.
 
-- clientid: <code>binary()</code>
-  Template for overriding clientid.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>clientid</h4>
+Template for overriding clientid.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## gateway:coap <a id='gateway-coap'></a>
 The CoAP protocol gateway provides EMQX with the access capability of the CoAP protocol.
@@ -36,88 +57,138 @@ with a certain defined CoAP message format.
 
 **Fields**
 
-- heartbeat: <code>emqx_gateway_schema:duration()</code>
-  * default: 
-  `"30s"`
+<ul class="field-list">
+<li>
+<h4>heartbeat</h4>
+The gateway server required minimum heartbeat interval.
+When connection mode is enabled, this parameter is used to set the minimum heartbeat interval for the connection to be alive
 
-  The gateway server required minimum heartbeat interval.
-  When connection mode is enabled, this parameter is used to set the minimum heartbeat interval for the connection to be alive
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"30s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>connection_required</h4>
+Enable or disable connection mode.
+Connection mode is a feature of non-standard protocols. When connection mode is enabled, it is necessary to maintain the creation, authentication and alive of connection resources
 
-- connection_required: <code>boolean()</code>
-  * default: 
-  `false`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>notify_type</h4>
+The Notification Message will be delivered to the CoAP client if a new message received on an observed topic.
+The type of delivered coap message can be set to:
+  - non: Non-confirmable;
+  - con: Confirmable;
+  - qos: Mapping from QoS type of received message, QoS0 -> non, QoS1,2 -> con
 
-  Enable or disable connection mode.
-  Connection mode is a feature of non-standard protocols. When connection mode is enabled, it is necessary to maintain the creation, authentication and alive of connection resources
 
-- notify_type: <code>non | con | qos</code>
-  * default: 
-  `qos`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non | con | qos</code></td></tr><tr><td><strong>Default</strong></td><td><code>qos</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>subscribe_qos</h4>
+The Default QoS Level indicator for subscribe request.
+This option specifies the QoS level for the CoAP Client when establishing a subscription membership, if the subscribe request is not carried `qos` option. The indicator can be set to:
+  - qos0, qos1, qos2: Fixed default QoS level
+  - coap: Dynamic QoS level by the message type of subscribe request
+    * qos0: If the subscribe request is non-confirmable
+    * qos1: If the subscribe request is confirmable
 
-  The Notification Message will be delivered to the CoAP client if a new message received on an observed topic.
-  The type of delivered coap message can be set to:
-    - non: Non-confirmable;
-    - con: Confirmable;
-    - qos: Mapping from QoS type of received message, QoS0 -> non, QoS1,2 -> con
 
-- subscribe_qos: <code>qos0 | qos1 | qos2 | coap</code>
-  * default: 
-  `coap`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>qos0 | qos1 | qos2 | coap</code></td></tr><tr><td><strong>Default</strong></td><td><code>coap</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>publish_qos</h4>
+The Default QoS Level indicator for publish request.
+This option specifies the QoS level for the CoAP Client when publishing a message to EMQX PUB/SUB system, if the publish request is not carried `qos` option. The indicator can be set to:
+  - qos0, qos1, qos2: Fixed default QoS level
+  - coap: Dynamic QoS level by the message type of publish request
+    * qos0: If the publish request is non-confirmable
+    * qos1: If the publish request is confirmable
 
-  The Default QoS Level indicator for subscribe request.
-  This option specifies the QoS level for the CoAP Client when establishing a subscription membership, if the subscribe request is not carried `qos` option. The indicator can be set to:
-    - qos0, qos1, qos2: Fixed default QoS level
-    - coap: Dynamic QoS level by the message type of subscribe request
-      * qos0: If the subscribe request is non-confirmable
-      * qos1: If the subscribe request is confirmable
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>qos0 | qos1 | qos2 | coap</code></td></tr><tr><td><strong>Default</strong></td><td><code>coap</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mountpoint</h4>
+ 
 
-- publish_qos: <code>qos0 | qos1 | qos2 | coap</code>
-  * default: 
-  `coap`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>""</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>listeners</h4>
+Settings for the UDP listeners.
 
-  The Default QoS Level indicator for publish request.
-  This option specifies the QoS level for the CoAP Client when publishing a message to EMQX PUB/SUB system, if the publish request is not carried `qos` option. The indicator can be set to:
-    - qos0, qos1, qos2: Fixed default QoS level
-    - coap: Dynamic QoS level by the message type of publish request
-      * qos0: If the publish request is non-confirmable
-      * qos1: If the publish request is confirmable
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-udp_listeners">gateway:udp_listeners</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Whether to enable this gateway
 
-- mountpoint: <code>binary()</code>
-  * default: 
-  `""`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_stats</h4>
+Whether to enable client process statistic
 
-   
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>idle_timeout</h4>
+The idle time of the client connection process. It has two purposes:
+  1. A newly created client process that does not receive any client requests after that time will be closed directly.
+  2. A running client process that does not receive any client requests after this time will go into hibernation to save resources.
 
-- listeners: <code>[gateway:udp_listeners](#gateway-udp_listeners)</code>
-  Settings for the UDP listeners.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"30s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>clientinfo_override</h4>
+ClientInfo override.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-clientinfo_override">gateway:clientinfo_override</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>authentication</h4>
+Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
+ in listener configs
 
-  Whether to enable this gateway
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="authn.md#authn-builtin_db-authentication">authn-builtin_db:authentication</a> | <a href="authn.md#authn-mysql-authentication">authn-mysql:authentication</a> | <a href="authn.md#authn-postgresql-authentication">authn-postgresql:authentication</a> | <a href="authn.md#authn-mongodb-standalone">authn-mongodb:standalone</a> | <a href="authn.md#authn-mongodb-replica-set">authn-mongodb:replica-set</a> | <a href="authn.md#authn-mongodb-sharded-cluster">authn-mongodb:sharded-cluster</a> | <a href="authn.md#authn-redis-standalone">authn-redis:standalone</a> | <a href="authn.md#authn-redis-cluster">authn-redis:cluster</a> | <a href="authn.md#authn-redis-sentinel">authn-redis:sentinel</a> | <a href="authn.md#authn-http-get">authn-http:get</a> | <a href="authn.md#authn-http-post">authn-http:post</a> | <a href="authn.md#authn-jwt-hmac-based">authn-jwt:hmac-based</a> | <a href="authn.md#authn-jwt-public-key">authn-jwt:public-key</a> | <a href="authn.md#authn-jwt-jwks">authn-jwt:jwks</a> | <a href="authn.md#authn-scram-builtin_db-authentication">authn-scram-builtin_db:authentication</a></code></td></tr></tbody>
+</table>
+</li>
 
-- enable_stats: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Whether to enable client process statistic
-
-- idle_timeout: <code>emqx_gateway_schema:duration()</code>
-  * default: 
-  `"30s"`
-
-  The idle time of the client connection process. It has two purposes:
-    1. A newly created client process that does not receive any client requests after that time will be closed directly.
-    2. A running client process that does not receive any client requests after this time will go into hibernation to save resources.
-
-- clientinfo_override: <code>[gateway:clientinfo_override](#gateway-clientinfo_override)</code>
-  ClientInfo override.
-
-- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
-  Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
-   in listener configs
-
+</ul>
 
 ## gateway:dtls_listener <a id='gateway-dtls_listener'></a>
 Settings for the DTLS listener.
@@ -132,65 +203,117 @@ Settings for the DTLS listener.
 
 **Fields**
 
-- acceptors: <code>integer()</code>
-  * default: 
-  `16`
+<ul class="field-list">
+<li>
+<h4>acceptors</h4>
+Size of the acceptor pool.
 
-  Size of the acceptor pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>16</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>udp_options</h4>
 
-- udp_options: <code>[gateway:udp_opts](#gateway-udp_opts)</code>
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-udp_opts">gateway:udp_opts</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Enable the listener.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>bind</h4>
+The IP address and port that the listener will bind.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:ip_port() | integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_connections</h4>
+Maximum number of concurrent connections.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1024</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_conn_rate</h4>
+Maximum connections per second.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1000</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>authentication</h4>
+Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
+ in listener configs
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="authn.md#authn-builtin_db-authentication">authn-builtin_db:authentication</a> | <a href="authn.md#authn-mysql-authentication">authn-mysql:authentication</a> | <a href="authn.md#authn-postgresql-authentication">authn-postgresql:authentication</a> | <a href="authn.md#authn-mongodb-standalone">authn-mongodb:standalone</a> | <a href="authn.md#authn-mongodb-replica-set">authn-mongodb:replica-set</a> | <a href="authn.md#authn-mongodb-sharded-cluster">authn-mongodb:sharded-cluster</a> | <a href="authn.md#authn-redis-standalone">authn-redis:standalone</a> | <a href="authn.md#authn-redis-cluster">authn-redis:cluster</a> | <a href="authn.md#authn-redis-sentinel">authn-redis:sentinel</a> | <a href="authn.md#authn-http-get">authn-http:get</a> | <a href="authn.md#authn-http-post">authn-http:post</a> | <a href="authn.md#authn-jwt-hmac-based">authn-jwt:hmac-based</a> | <a href="authn.md#authn-jwt-public-key">authn-jwt:public-key</a> | <a href="authn.md#authn-jwt-jwks">authn-jwt:jwks</a> | <a href="authn.md#authn-scram-builtin_db-authentication">authn-scram-builtin_db:authentication</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_authn</h4>
+Set <code>true</code> (default) to enable client authentication on this listener. 
+When set to <code>false</code> clients will be allowed to connect without authentication.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mountpoint</h4>
+When publishing or subscribing, prefix all topics with a mountpoint string.
+The prefixed string will be removed from the topic name when the message is delivered to the subscriber. The mountpoint is a way that users can use to implement isolation of message routing between different listeners.
+For example if a client A subscribes to `t` with `listeners.tcp.\<name>.mountpoint` set to `some_tenant`, then the client actually subscribes to the topic `some_tenant/t`. Similarly, if another client B (connected to the same listener as the client A) sends a message to topic `t`, the message is routed to all the clients subscribed `some_tenant/t`, so client A will receive the message, with topic name `t`. Set to `""` to disable the feature.
+Variables in mountpoint string:
+  - <code>${clientid}</code>: clientid
+  - <code>${username}</code>: username
 
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>access_rules</h4>
+The access control rules for this listener.
+See: https://github.com/emqtt/esockd#allowdeny
 
-  Enable the listener.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[string()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>dtls_options</h4>
+DTLS socket options
 
-- bind: <code>emqx_gateway_schema:ip_port() | integer()</code>
-  The IP address and port that the listener will bind.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-dtls_opts">gateway:dtls_opts</a></code></td></tr></tbody>
+</table>
+</li>
 
-- max_connections: <code>integer()</code>
-  * default: 
-  `1024`
-
-  Maximum number of concurrent connections.
-
-- max_conn_rate: <code>integer()</code>
-  * default: 
-  `1000`
-
-  Maximum connections per second.
-
-- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
-  Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
-   in listener configs
-
-- enable_authn: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Set <code>true</code> (default) to enable client authentication on this listener. 
-  When set to <code>false</code> clients will be allowed to connect without authentication.
-
-- mountpoint: <code>binary()</code>
-  When publishing or subscribing, prefix all topics with a mountpoint string.
-  The prefixed string will be removed from the topic name when the message is delivered to the subscriber. The mountpoint is a way that users can use to implement isolation of message routing between different listeners.
-  For example if a client A subscribes to `t` with `listeners.tcp.\<name>.mountpoint` set to `some_tenant`, then the client actually subscribes to the topic `some_tenant/t`. Similarly, if another client B (connected to the same listener as the client A) sends a message to topic `t`, the message is routed to all the clients subscribed `some_tenant/t`, so client A will receive the message, with topic name `t`. Set to `""` to disable the feature.
-  Variables in mountpoint string:
-    - <code>${clientid}</code>: clientid
-    - <code>${username}</code>: username
-
-- access_rules: <code>[string()]</code>
-  * default: 
-  `[]`
-
-  The access control rules for this listener.
-  See: https://github.com/emqtt/esockd#allowdeny
-
-- dtls_options: <code>[gateway:dtls_opts](#gateway-dtls_opts)</code>
-  DTLS socket options
-
+</ul>
 
 ## gateway:dtls_opts <a id='gateway-dtls_opts'></a>
 Settings for the DTLS protocol.
@@ -205,156 +328,254 @@ Settings for the DTLS protocol.
 
 **Fields**
 
-- cacertfile: <code>binary()</code>
-  Trusted PEM format CA certificates bundle file.<br/>
-  The certificates in this file are used to verify the TLS peer's certificates.
-  Append new certificates to the file if new CAs are to be trusted.
-  There is no need to restart EMQX to have the updated file loaded, because
-  the system regularly checks if file has been updated (and reload).<br/>
-  NOTE: invalidating (deleting) a certificate from the file will not affect
-  already established connections.
+<ul class="field-list">
+<li>
+<h4>cacertfile</h4>
 
-- certfile: <code>binary()</code>
-  PEM format certificates chain file.<br/>
-  The certificates in this file should be in reversed order of the certificate
-  issue chain. That is, the host's certificate should be placed in the beginning
-  of the file, followed by the immediate issuer certificate and so on.
-  Although the root CA certificate is optional, it should be placed at the end of
-  the file if it is to be added.
+Trusted PEM format CA certificates bundle file.<br/>
+The certificates in this file are used to verify the TLS peer's certificates.
+Append new certificates to the file if new CAs are to be trusted.
+There is no need to restart EMQX to have the updated file loaded, because
+the system regularly checks if file has been updated (and reload).<br/>
+NOTE: invalidating (deleting) a certificate from the file will not affect
+already established connections.
 
-- keyfile: <code>binary()</code>
-  PEM format private key file. 
 
-- verify: <code>verify_peer | verify_none</code>
-  * default: 
-  `verify_none`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>certfile</h4>
 
-  Enable or disable peer verification. 
+PEM format certificates chain file.<br/>
+The certificates in this file should be in reversed order of the certificate
+issue chain. That is, the host's certificate should be placed in the beginning
+of the file, followed by the immediate issuer certificate and so on.
+Although the root CA certificate is optional, it should be placed at the end of
+the file if it is to be added.
 
-- reuse_sessions: <code>boolean()</code>
-  * default: 
-  `true`
 
-  Enable TLS session reuse. 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>keyfile</h4>
+PEM format private key file. 
 
-- depth: <code>integer()</code>
-  * default: 
-  `10`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>verify</h4>
+Enable or disable peer verification. 
 
-  Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
-  So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
-  if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
-  if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>verify_peer | verify_none</code></td></tr><tr><td><strong>Default</strong></td><td><code>verify_none</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>reuse_sessions</h4>
+Enable TLS session reuse. 
 
-- password: <code>string()</code>
-  String containing the user's password.
-  Only used if the private key file is password-protected.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>depth</h4>
 
-- versions: <code>[atom()]</code>
-  * default: 
-  `[dtlsv1.2, dtlsv1]`
+Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
+So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
+if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
+if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
 
-  All TLS/DTLS versions to be supported.<br/>
-  NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
-  In case PSK cipher suites are intended, make sure to configure
-  <code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-- ciphers: <code>[string()]</code>
-  * default: 
-  `[]`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>10</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
 
-  This config holds TLS cipher suite names separated by comma,
-  or as an array of strings. e.g.
-  <code>"TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256"</code> or
-  <code>["TLS_AES_256_GCM_SHA384","TLS_AES_128_GCM_SHA256"]</code>.
-  <br/>
-  Ciphers (and their ordering) define the way in which the
-  client and server encrypts information over the network connection.
-  Selecting a good cipher suite is critical for the
-  application's data security, confidentiality and performance.
-  The names should be in OpenSSL string format (not RFC format).
-  All default values and examples provided by EMQX config
-  documentation are all in OpenSSL format.<br/>
-  NOTE: Certain cipher suites are only compatible with
-  specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
-  incompatible cipher suites will be silently dropped.
-  For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
-  configuring cipher suites for other versions will have no effect.
-  <br/>
-  NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
-  If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
-  PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
-  RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
-  RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
-  RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
+String containing the user's password.
+Only used if the private key file is password-protected.
 
-- user_lookup_fun: <code>string()</code>
-  * default: 
-  `"emqx_tls_psk:lookup"`
 
-  EMQX-internal callback that is used to lookup pre-shared key (PSK) identity. 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>versions</h4>
 
-- secure_renegotiate: <code>boolean()</code>
-  * default: 
-  `true`
+All TLS/DTLS versions to be supported.<br/>
+NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
+In case PSK cipher suites are intended, make sure to configure
+<code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-  SSL parameter renegotiation is a feature that allows a client and a server
-  to renegotiate the parameters of the SSL connection on the fly.
-  RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
-  you drop support for the insecure renegotiation, prone to MitM attacks.
 
-- dhfile: <code>string()</code>
-  Path to a file containing PEM-encoded Diffie-Hellman parameters
-  to be used by the server if a cipher suite using Diffie-Hellman
-  key exchange is negotiated. If not specified, default parameters
-  are used.<br/>
-  NOTE: The <code>dhfile</code> option is not supported by TLS 1.3.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[atom()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[dtlsv1.2, dtlsv1]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ciphers</h4>
 
-- fail_if_no_peer_cert: <code>boolean()</code>
-  * default: 
-  `false`
+This config holds TLS cipher suite names separated by comma,
+or as an array of strings. e.g.
+<code>"TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256"</code> or
+<code>["TLS_AES_256_GCM_SHA384","TLS_AES_128_GCM_SHA256"]</code>.
+<br/>
+Ciphers (and their ordering) define the way in which the
+client and server encrypts information over the network connection.
+Selecting a good cipher suite is critical for the
+application's data security, confidentiality and performance.
 
-  Used together with {verify, verify_peer} by an TLS/DTLS server.
-  If set to true, the server fails if the client does not have a
-  certificate to send, that is, sends an empty certificate.
-  If set to false, it fails only if the client sends an invalid
-  certificate (an empty certificate is considered valid).
+The names should be in OpenSSL string format (not RFC format).
+All default values and examples provided by EMQX config
+documentation are all in OpenSSL format.<br/>
 
-- honor_cipher_order: <code>boolean()</code>
-  * default: 
-  `true`
+NOTE: Certain cipher suites are only compatible with
+specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
+incompatible cipher suites will be silently dropped.
+For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
+configuring cipher suites for other versions will have no effect.
+<br/>
 
-  An important security setting, it forces the cipher to be set based
-   on the server-specified order instead of the client-specified order,
-   hence enforcing the (usually more properly configured) security
-   ordering of the server administrator.
+NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
+If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
+PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
+RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
+RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
+RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
 
-- client_renegotiation: <code>boolean()</code>
-  * default: 
-  `true`
 
-  In protocols that support client-initiated renegotiation,
-  the cost of resources of such an operation is higher for the server than the client.
-  This can act as a vector for denial of service attacks.
-  The SSL application already takes measures to counter-act such attempts,
-  but client-initiated renegotiation can be strictly disabled by setting this option to false.
-  The default value is true. Note that disabling renegotiation can result in
-  long-lived connections becoming unusable due to limits on
-  the number of messages the underlying cipher suite can encipher.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[string()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>user_lookup_fun</h4>
+EMQX-internal callback that is used to lookup pre-shared key (PSK) identity. 
 
-- handshake_timeout: <code>emqx_schema:duration()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"emqx_tls_psk:lookup"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>secure_renegotiate</h4>
 
-  Maximum time duration allowed for the handshake to complete
+SSL parameter renegotiation is a feature that allows a client and a server
+to renegotiate the parameters of the SSL connection on the fly.
+RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
+you drop support for the insecure renegotiation, prone to MitM attacks.
 
-- gc_after_handshake: <code>boolean()</code>
-  * default: 
-  `false`
 
-  Memory usage tuning. If enabled, will immediately perform a garbage collection after
-  the TLS/SSL handshake.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>dhfile</h4>
 
+Path to a file containing PEM-encoded Diffie-Hellman parameters
+to be used by the server if a cipher suite using Diffie-Hellman
+key exchange is negotiated. If not specified, default parameters
+are used.<br/>
+NOTE: The <code>dhfile</code> option is not supported by TLS 1.3.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>fail_if_no_peer_cert</h4>
+
+Used together with {verify, verify_peer} by an TLS/DTLS server.
+If set to true, the server fails if the client does not have a
+certificate to send, that is, sends an empty certificate.
+If set to false, it fails only if the client sends an invalid
+certificate (an empty certificate is considered valid).
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>honor_cipher_order</h4>
+
+An important security setting, it forces the cipher to be set based
+ on the server-specified order instead of the client-specified order,
+ hence enforcing the (usually more properly configured) security
+ ordering of the server administrator.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>client_renegotiation</h4>
+
+In protocols that support client-initiated renegotiation,
+the cost of resources of such an operation is higher for the server than the client.
+This can act as a vector for denial of service attacks.
+The SSL application already takes measures to counter-act such attempts,
+but client-initiated renegotiation can be strictly disabled by setting this option to false.
+The default value is true. Note that disabling renegotiation can result in
+long-lived connections becoming unusable due to limits on
+the number of messages the underlying cipher suite can encipher.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>handshake_timeout</h4>
+
+Maximum time duration allowed for the handshake to complete
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>gc_after_handshake</h4>
+
+Memory usage tuning. If enabled, will immediately perform a garbage collection after
+the TLS/SSL handshake.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## gateway:exproto <a id='gateway-exproto'></a>
 Settings for EMQX extension protocol (exproto).
@@ -366,48 +587,93 @@ Settings for EMQX extension protocol (exproto).
 
 **Fields**
 
-- server: <code>[gateway:exproto_grpc_server](#gateway-exproto_grpc_server)</code>
-  Configurations for starting the <code>ConnectionAdapter</code> service
+<ul class="field-list">
+<li>
+<h4>server</h4>
+Configurations for starting the <code>ConnectionAdapter</code> service
 
-- handler: <code>[gateway:exproto_grpc_handler](#gateway-exproto_grpc_handler)</code>
-  Configurations for request to <code>ConnectionHandler</code> service
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-exproto_grpc_server">gateway:exproto_grpc_server</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>handler</h4>
+Configurations for request to <code>ConnectionHandler</code> service
 
-- mountpoint: <code>binary()</code>
-  * default: 
-  `""`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-exproto_grpc_handler">gateway:exproto_grpc_handler</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mountpoint</h4>
+ 
 
-   
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>""</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>listeners</h4>
+Settings for the listeners.
 
-- listeners: <code>[gateway:tcp_udp_listeners](#gateway-tcp_udp_listeners)</code>
-  Settings for the listeners.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-tcp_udp_listeners">gateway:tcp_udp_listeners</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Whether to enable this gateway
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_stats</h4>
+Whether to enable client process statistic
 
-  Whether to enable this gateway
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>idle_timeout</h4>
+The idle time of the client connection process. It has two purposes:
+  1. A newly created client process that does not receive any client requests after that time will be closed directly.
+  2. A running client process that does not receive any client requests after this time will go into hibernation to save resources.
 
-- enable_stats: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"30s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>clientinfo_override</h4>
+ClientInfo override.
 
-  Whether to enable client process statistic
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-clientinfo_override">gateway:clientinfo_override</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>authentication</h4>
+Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
+ in listener configs
 
-- idle_timeout: <code>emqx_gateway_schema:duration()</code>
-  * default: 
-  `"30s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="authn.md#authn-builtin_db-authentication">authn-builtin_db:authentication</a> | <a href="authn.md#authn-mysql-authentication">authn-mysql:authentication</a> | <a href="authn.md#authn-postgresql-authentication">authn-postgresql:authentication</a> | <a href="authn.md#authn-mongodb-standalone">authn-mongodb:standalone</a> | <a href="authn.md#authn-mongodb-replica-set">authn-mongodb:replica-set</a> | <a href="authn.md#authn-mongodb-sharded-cluster">authn-mongodb:sharded-cluster</a> | <a href="authn.md#authn-redis-standalone">authn-redis:standalone</a> | <a href="authn.md#authn-redis-cluster">authn-redis:cluster</a> | <a href="authn.md#authn-redis-sentinel">authn-redis:sentinel</a> | <a href="authn.md#authn-http-get">authn-http:get</a> | <a href="authn.md#authn-http-post">authn-http:post</a> | <a href="authn.md#authn-jwt-hmac-based">authn-jwt:hmac-based</a> | <a href="authn.md#authn-jwt-public-key">authn-jwt:public-key</a> | <a href="authn.md#authn-jwt-jwks">authn-jwt:jwks</a> | <a href="authn.md#authn-scram-builtin_db-authentication">authn-scram-builtin_db:authentication</a></code></td></tr></tbody>
+</table>
+</li>
 
-  The idle time of the client connection process. It has two purposes:
-    1. A newly created client process that does not receive any client requests after that time will be closed directly.
-    2. A running client process that does not receive any client requests after this time will go into hibernation to save resources.
-
-- clientinfo_override: <code>[gateway:clientinfo_override](#gateway-clientinfo_override)</code>
-  ClientInfo override.
-
-- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
-  Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
-   in listener configs
-
+</ul>
 
 ## gateway:exproto_grpc_handler <a id='gateway-exproto_grpc_handler'></a>
 Settings for the exproto gRPC connection handler.
@@ -419,12 +685,27 @@ Settings for the exproto gRPC connection handler.
 
 **Fields**
 
-- address: <code>binary()</code>
-  gRPC server address.
+<ul class="field-list">
+<li>
+<h4>address</h4>
+gRPC server address.
 
-- ssl_options: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  SSL configuration for the gRPC client.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl_options</h4>
+SSL configuration for the gRPC client.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## gateway:exproto_grpc_server <a id='gateway-exproto_grpc_server'></a>
 Settings for the exproto gRPC server.
@@ -436,12 +717,27 @@ Settings for the exproto gRPC server.
 
 **Fields**
 
-- bind: <code>emqx_gateway_schema:ip_port() | integer()</code>
-  Listening address and port for the gRPC server.
+<ul class="field-list">
+<li>
+<h4>bind</h4>
+Listening address and port for the gRPC server.
 
-- ssl_options: <code>[gateway:ssl_server_opts](#gateway-ssl_server_opts)</code>
-  SSL configuration for the gRPC server.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:ip_port() | integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl_options</h4>
+SSL configuration for the gRPC server.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-ssl_server_opts">gateway:ssl_server_opts</a></code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## gateway <a id='gateway'></a>
 EMQX Gateway configuration root.
@@ -453,24 +749,57 @@ EMQX Gateway configuration root.
 
 **Fields**
 
-- stomp: <code>[gateway:stomp](#gateway-stomp)</code>
-  The Stomp Gateway configuration.
-  This gateway supports v1.2/1.1/1.0
+<ul class="field-list">
+<li>
+<h4>stomp</h4>
+The Stomp Gateway configuration.
+This gateway supports v1.2/1.1/1.0
 
-- mqttsn: <code>[gateway:mqttsn](#gateway-mqttsn)</code>
-  The MQTT-SN Gateway configuration.
-  This gateway only supports the v1.2 protocol
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-stomp">gateway:stomp</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mqttsn</h4>
+The MQTT-SN Gateway configuration.
+This gateway only supports the v1.2 protocol
 
-- coap: <code>[gateway:coap](#gateway-coap)</code>
-  The CoAP Gateway configuration.
-  This gateway is implemented based on RFC-7252 and https://core-wg.github.io/coap-pubsub/draft-ietf-core-pubsub.html
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-mqttsn">gateway:mqttsn</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>coap</h4>
+The CoAP Gateway configuration.
+This gateway is implemented based on RFC-7252 and https://core-wg.github.io/coap-pubsub/draft-ietf-core-pubsub.html
 
-- lwm2m: <code>[gateway:lwm2m](#gateway-lwm2m)</code>
-  The LwM2M Gateway configuration. This gateway only supports the v1.0.1 protocol.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-coap">gateway:coap</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>lwm2m</h4>
+The LwM2M Gateway configuration. This gateway only supports the v1.0.1 protocol.
 
-- exproto: <code>[gateway:exproto](#gateway-exproto)</code>
-  The Extension Protocol configuration
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-lwm2m">gateway:lwm2m</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>exproto</h4>
+The Extension Protocol configuration
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-exproto">gateway:exproto</a></code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## gateway:lwm2m <a id='gateway-lwm2m'></a>
 The LwM2M protocol gateway.
@@ -482,81 +811,142 @@ The LwM2M protocol gateway.
 
 **Fields**
 
-- xml_dir: <code>binary()</code>
-  The Directory for LwM2M Resource definition.
+<ul class="field-list">
+<li>
+<h4>xml_dir</h4>
+The Directory for LwM2M Resource definition.
 
-- lifetime_min: <code>emqx_gateway_schema:duration()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>lifetime_min</h4>
+Minimum value of lifetime allowed to be set by the LwM2M client.
 
-  Minimum value of lifetime allowed to be set by the LwM2M client.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>lifetime_max</h4>
+Maximum value of lifetime allowed to be set by the LwM2M client.
 
-- lifetime_max: <code>emqx_gateway_schema:duration()</code>
-  * default: 
-  `"86400s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"86400s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>qmode_time_window</h4>
+The value of the time window during which the network link is considered valid by the LwM2M Gateway in QMode mode.
+For example, after receiving an update message from a client, any messages within this time window are sent directly to the LwM2M client, and all messages beyond this time window are temporarily stored in memory.
 
-  Maximum value of lifetime allowed to be set by the LwM2M client.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:duration_s()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"22s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_observe</h4>
+Automatically observe the object list of REGISTER packet.
 
-- qmode_time_window: <code>emqx_gateway_schema:duration_s()</code>
-  * default: 
-  `"22s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>update_msg_publish_condition</h4>
+Policy for publishing UPDATE event message.
+  - always: send update events as long as the UPDATE request is received.
+  - contains_object_list: send update events only if the UPDATE request carries any Object List
 
-  The value of the time window during which the network link is considered valid by the LwM2M Gateway in QMode mode.
-  For example, after receiving an update message from a client, any messages within this time window are sent directly to the LwM2M client, and all messages beyond this time window are temporarily stored in memory.
 
-- auto_observe: <code>boolean()</code>
-  * default: 
-  `false`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>always | contains_object_list</code></td></tr><tr><td><strong>Default</strong></td><td><code>contains_object_list</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>translators</h4>
+Topic configuration for LwM2M's gateway publishing and subscription.
 
-  Automatically observe the object list of REGISTER packet.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-lwm2m_translators">gateway:lwm2m_translators</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mountpoint</h4>
+ 
 
-- update_msg_publish_condition: <code>always | contains_object_list</code>
-  * default: 
-  `contains_object_list`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"lwm2m/${endpoint_name}/"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>listeners</h4>
+Settings for the UDP listeners.
 
-  Policy for publishing UPDATE event message.
-    - always: send update events as long as the UPDATE request is received.
-    - contains_object_list: send update events only if the UPDATE request carries any Object List
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-udp_listeners">gateway:udp_listeners</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Whether to enable this gateway
 
-- translators: <code>[gateway:lwm2m_translators](#gateway-lwm2m_translators)</code>
-  Topic configuration for LwM2M's gateway publishing and subscription.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_stats</h4>
+Whether to enable client process statistic
 
-- mountpoint: <code>binary()</code>
-  * default: 
-  `"lwm2m/${endpoint_name}/"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>idle_timeout</h4>
+The idle time of the client connection process. It has two purposes:
+  1. A newly created client process that does not receive any client requests after that time will be closed directly.
+  2. A running client process that does not receive any client requests after this time will go into hibernation to save resources.
 
-   
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"30s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>clientinfo_override</h4>
+ClientInfo override.
 
-- listeners: <code>[gateway:udp_listeners](#gateway-udp_listeners)</code>
-  Settings for the UDP listeners.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-clientinfo_override">gateway:clientinfo_override</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>authentication</h4>
+Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
+ in listener configs
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="authn.md#authn-builtin_db-authentication">authn-builtin_db:authentication</a> | <a href="authn.md#authn-mysql-authentication">authn-mysql:authentication</a> | <a href="authn.md#authn-postgresql-authentication">authn-postgresql:authentication</a> | <a href="authn.md#authn-mongodb-standalone">authn-mongodb:standalone</a> | <a href="authn.md#authn-mongodb-replica-set">authn-mongodb:replica-set</a> | <a href="authn.md#authn-mongodb-sharded-cluster">authn-mongodb:sharded-cluster</a> | <a href="authn.md#authn-redis-standalone">authn-redis:standalone</a> | <a href="authn.md#authn-redis-cluster">authn-redis:cluster</a> | <a href="authn.md#authn-redis-sentinel">authn-redis:sentinel</a> | <a href="authn.md#authn-http-get">authn-http:get</a> | <a href="authn.md#authn-http-post">authn-http:post</a> | <a href="authn.md#authn-jwt-hmac-based">authn-jwt:hmac-based</a> | <a href="authn.md#authn-jwt-public-key">authn-jwt:public-key</a> | <a href="authn.md#authn-jwt-jwks">authn-jwt:jwks</a> | <a href="authn.md#authn-scram-builtin_db-authentication">authn-scram-builtin_db:authentication</a></code></td></tr></tbody>
+</table>
+</li>
 
-  Whether to enable this gateway
-
-- enable_stats: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Whether to enable client process statistic
-
-- idle_timeout: <code>emqx_gateway_schema:duration()</code>
-  * default: 
-  `"30s"`
-
-  The idle time of the client connection process. It has two purposes:
-    1. A newly created client process that does not receive any client requests after that time will be closed directly.
-    2. A running client process that does not receive any client requests after this time will go into hibernation to save resources.
-
-- clientinfo_override: <code>[gateway:clientinfo_override](#gateway-clientinfo_override)</code>
-  ClientInfo override.
-
-- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
-  Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
-   in listener configs
-
+</ul>
 
 ## gateway:lwm2m_translators <a id='gateway-lwm2m_translators'></a>
 MQTT topics that correspond to LwM2M events.
@@ -568,23 +958,56 @@ MQTT topics that correspond to LwM2M events.
 
 **Fields**
 
-- command: <code>[gateway:translator](#gateway-translator)</code>
-  The topic for receiving downstream commands.
-  For each new LwM2M client that succeeds in going online, the gateway creates a subscription relationship to receive downstream commands and send it to the LwM2M client
+<ul class="field-list">
+<li>
+<h4>command</h4>
+The topic for receiving downstream commands.
+For each new LwM2M client that succeeds in going online, the gateway creates a subscription relationship to receive downstream commands and send it to the LwM2M client
 
-- response: <code>[gateway:translator](#gateway-translator)</code>
-  The topic for gateway to publish the acknowledge events from LwM2M client
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-translator">gateway:translator</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>response</h4>
+The topic for gateway to publish the acknowledge events from LwM2M client
 
-- notify: <code>[gateway:translator](#gateway-translator)</code>
-  The topic for gateway to publish the notify events from LwM2M client.
-  After succeed observe a resource of LwM2M client, Gateway will send the notify events via this topic, if the client reports any resource changes
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-translator">gateway:translator</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>notify</h4>
+The topic for gateway to publish the notify events from LwM2M client.
+After succeed observe a resource of LwM2M client, Gateway will send the notify events via this topic, if the client reports any resource changes
 
-- register: <code>[gateway:translator](#gateway-translator)</code>
-  The topic for gateway to publish the register events from LwM2M client.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-translator">gateway:translator</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>register</h4>
+The topic for gateway to publish the register events from LwM2M client.
 
-- update: <code>[gateway:translator](#gateway-translator)</code>
-  The topic for gateway to publish the update events from LwM2M client
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-translator">gateway:translator</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>update</h4>
+The topic for gateway to publish the update events from LwM2M client
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-translator">gateway:translator</a></code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## gateway:mqttsn <a id='gateway-mqttsn'></a>
 The MQTT-SN (MQTT for Sensor Networks) protocol gateway.
@@ -596,75 +1019,123 @@ The MQTT-SN (MQTT for Sensor Networks) protocol gateway.
 
 **Fields**
 
-- gateway_id: <code>integer()</code>
-  * default: 
-  `1`
+<ul class="field-list">
+<li>
+<h4>gateway_id</h4>
+MQTT-SN Gateway ID.
+When the <code>broadcast</code> option is enabled, the gateway will broadcast ADVERTISE message with this value
 
-  MQTT-SN Gateway ID.
-  When the <code>broadcast</code> option is enabled, the gateway will broadcast ADVERTISE message with this value
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>broadcast</h4>
+Whether to periodically broadcast ADVERTISE messages
 
-- broadcast: <code>boolean()</code>
-  * default: 
-  `false`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_qos3</h4>
+Allows connectionless clients to publish messages with a Qos of -1.
+This feature is defined for very simple client implementations which do not support any other features except this one. There is no connection setup nor tear down, no registration nor subscription. The client just sends its 'PUBLISH' messages to a GW
 
-  Whether to periodically broadcast ADVERTISE messages
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>subs_resume</h4>
+Whether to initiate all subscribed topic name registration messages to the client after the Session has been taken over by a new channel
 
-- enable_qos3: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>predefined</h4>
+The pre-defined topic IDs and topic names.
+A 'pre-defined' topic ID is a topic ID whose mapping to a topic name is known in advance by both the client's application and the gateway
 
-  Allows connectionless clients to publish messages with a Qos of -1.
-  This feature is defined for very simple client implementations which do not support any other features except this one. There is no connection setup nor tear down, no registration nor subscription. The client just sends its 'PUBLISH' messages to a GW
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[<a href="gateway-mqttsn_predefined">gateway:mqttsn_predefined</a>]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mountpoint</h4>
+ 
 
-- subs_resume: <code>boolean()</code>
-  * default: 
-  `false`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>""</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>listeners</h4>
+Settings for the UDP listeners.
 
-  Whether to initiate all subscribed topic name registration messages to the client after the Session has been taken over by a new channel
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-udp_listeners">gateway:udp_listeners</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Whether to enable this gateway
 
-- predefined: <code>[[gateway:mqttsn_predefined](#gateway-mqttsn_predefined)]</code>
-  * default: 
-  `[]`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_stats</h4>
+Whether to enable client process statistic
 
-  The pre-defined topic IDs and topic names.
-  A 'pre-defined' topic ID is a topic ID whose mapping to a topic name is known in advance by both the client's application and the gateway
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>idle_timeout</h4>
+The idle time of the client connection process. It has two purposes:
+  1. A newly created client process that does not receive any client requests after that time will be closed directly.
+  2. A running client process that does not receive any client requests after this time will go into hibernation to save resources.
 
-- mountpoint: <code>binary()</code>
-  * default: 
-  `""`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"30s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>clientinfo_override</h4>
+ClientInfo override.
 
-   
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-clientinfo_override">gateway:clientinfo_override</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>authentication</h4>
+Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
+ in listener configs
 
-- listeners: <code>[gateway:udp_listeners](#gateway-udp_listeners)</code>
-  Settings for the UDP listeners.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="authn.md#authn-builtin_db-authentication">authn-builtin_db:authentication</a> | <a href="authn.md#authn-mysql-authentication">authn-mysql:authentication</a> | <a href="authn.md#authn-postgresql-authentication">authn-postgresql:authentication</a> | <a href="authn.md#authn-mongodb-standalone">authn-mongodb:standalone</a> | <a href="authn.md#authn-mongodb-replica-set">authn-mongodb:replica-set</a> | <a href="authn.md#authn-mongodb-sharded-cluster">authn-mongodb:sharded-cluster</a> | <a href="authn.md#authn-redis-standalone">authn-redis:standalone</a> | <a href="authn.md#authn-redis-cluster">authn-redis:cluster</a> | <a href="authn.md#authn-redis-sentinel">authn-redis:sentinel</a> | <a href="authn.md#authn-http-get">authn-http:get</a> | <a href="authn.md#authn-http-post">authn-http:post</a> | <a href="authn.md#authn-jwt-hmac-based">authn-jwt:hmac-based</a> | <a href="authn.md#authn-jwt-public-key">authn-jwt:public-key</a> | <a href="authn.md#authn-jwt-jwks">authn-jwt:jwks</a> | <a href="authn.md#authn-scram-builtin_db-authentication">authn-scram-builtin_db:authentication</a></code></td></tr></tbody>
+</table>
+</li>
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Whether to enable this gateway
-
-- enable_stats: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Whether to enable client process statistic
-
-- idle_timeout: <code>emqx_gateway_schema:duration()</code>
-  * default: 
-  `"30s"`
-
-  The idle time of the client connection process. It has two purposes:
-    1. A newly created client process that does not receive any client requests after that time will be closed directly.
-    2. A running client process that does not receive any client requests after this time will go into hibernation to save resources.
-
-- clientinfo_override: <code>[gateway:clientinfo_override](#gateway-clientinfo_override)</code>
-  ClientInfo override.
-
-- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
-  Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
-   in listener configs
-
+</ul>
 
 ## gateway:mqttsn_predefined <a id='gateway-mqttsn_predefined'></a>
 The pre-defined topic name corresponding to the pre-defined topic
@@ -679,12 +1150,27 @@ Note: the pre-defined topic ID of 0 is reserved.
 
 **Fields**
 
-- id: <code>integer()</code>
-  Topic ID. Range: 1-65535
+<ul class="field-list">
+<li>
+<h4>id</h4>
+Topic ID. Range: 1-65535
 
-- topic: <code>binary()</code>
-  Topic Name
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>topic</h4>
+Topic Name
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## gateway:ssl_listener <a id='gateway-ssl_listener'></a>
 Settings for the SSL listener.
@@ -697,79 +1183,137 @@ Settings for the SSL listener.
 
 **Fields**
 
-- acceptors: <code>integer()</code>
-  * default: 
-  `16`
+<ul class="field-list">
+<li>
+<h4>acceptors</h4>
+Size of the acceptor pool.
 
-  Size of the acceptor pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>16</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>tcp_options</h4>
+Setting the TCP socket options.
 
-- tcp_options: <code>[broker:tcp_opts](emqx.md#broker-tcp_opts)</code>
-  Setting the TCP socket options.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-tcp_opts">broker:tcp_opts</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>proxy_protocol</h4>
+Enable the Proxy Protocol V1/2 if the EMQX cluster is deployed behind HAProxy or Nginx.
+See: https://www.haproxy.com/blog/haproxy/proxy-protocol/
 
-- proxy_protocol: <code>boolean()</code>
-  * default: 
-  `false`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>proxy_protocol_timeout</h4>
+Timeout for proxy protocol.
+EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
 
-  Enable the Proxy Protocol V1/2 if the EMQX cluster is deployed behind HAProxy or Nginx.
-  See: https://www.haproxy.com/blog/haproxy/proxy-protocol/
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Enable the listener.
 
-- proxy_protocol_timeout: <code>emqx_gateway_schema:duration()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>bind</h4>
+The IP address and port that the listener will bind.
 
-  Timeout for proxy protocol.
-  EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:ip_port() | integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_connections</h4>
+Maximum number of concurrent connections.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1024</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_conn_rate</h4>
+Maximum connections per second.
 
-  Enable the listener.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1000</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>authentication</h4>
+Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
+ in listener configs
 
-- bind: <code>emqx_gateway_schema:ip_port() | integer()</code>
-  The IP address and port that the listener will bind.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="authn.md#authn-builtin_db-authentication">authn-builtin_db:authentication</a> | <a href="authn.md#authn-mysql-authentication">authn-mysql:authentication</a> | <a href="authn.md#authn-postgresql-authentication">authn-postgresql:authentication</a> | <a href="authn.md#authn-mongodb-standalone">authn-mongodb:standalone</a> | <a href="authn.md#authn-mongodb-replica-set">authn-mongodb:replica-set</a> | <a href="authn.md#authn-mongodb-sharded-cluster">authn-mongodb:sharded-cluster</a> | <a href="authn.md#authn-redis-standalone">authn-redis:standalone</a> | <a href="authn.md#authn-redis-cluster">authn-redis:cluster</a> | <a href="authn.md#authn-redis-sentinel">authn-redis:sentinel</a> | <a href="authn.md#authn-http-get">authn-http:get</a> | <a href="authn.md#authn-http-post">authn-http:post</a> | <a href="authn.md#authn-jwt-hmac-based">authn-jwt:hmac-based</a> | <a href="authn.md#authn-jwt-public-key">authn-jwt:public-key</a> | <a href="authn.md#authn-jwt-jwks">authn-jwt:jwks</a> | <a href="authn.md#authn-scram-builtin_db-authentication">authn-scram-builtin_db:authentication</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_authn</h4>
+Set <code>true</code> (default) to enable client authentication on this listener. 
+When set to <code>false</code> clients will be allowed to connect without authentication.
 
-- max_connections: <code>integer()</code>
-  * default: 
-  `1024`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mountpoint</h4>
+When publishing or subscribing, prefix all topics with a mountpoint string.
+The prefixed string will be removed from the topic name when the message is delivered to the subscriber. The mountpoint is a way that users can use to implement isolation of message routing between different listeners.
+For example if a client A subscribes to `t` with `listeners.tcp.\<name>.mountpoint` set to `some_tenant`, then the client actually subscribes to the topic `some_tenant/t`. Similarly, if another client B (connected to the same listener as the client A) sends a message to topic `t`, the message is routed to all the clients subscribed `some_tenant/t`, so client A will receive the message, with topic name `t`. Set to `""` to disable the feature.
+Variables in mountpoint string:
+  - <code>${clientid}</code>: clientid
+  - <code>${username}</code>: username
 
-  Maximum number of concurrent connections.
 
-- max_conn_rate: <code>integer()</code>
-  * default: 
-  `1000`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>access_rules</h4>
+The access control rules for this listener.
+See: https://github.com/emqtt/esockd#allowdeny
 
-  Maximum connections per second.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[string()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl_options</h4>
+SSL Socket options.
 
-- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
-  Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
-   in listener configs
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-listener_ssl_opts">broker:listener_ssl_opts</a></code></td></tr></tbody>
+</table>
+</li>
 
-- enable_authn: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Set <code>true</code> (default) to enable client authentication on this listener. 
-  When set to <code>false</code> clients will be allowed to connect without authentication.
-
-- mountpoint: <code>binary()</code>
-  When publishing or subscribing, prefix all topics with a mountpoint string.
-  The prefixed string will be removed from the topic name when the message is delivered to the subscriber. The mountpoint is a way that users can use to implement isolation of message routing between different listeners.
-  For example if a client A subscribes to `t` with `listeners.tcp.\<name>.mountpoint` set to `some_tenant`, then the client actually subscribes to the topic `some_tenant/t`. Similarly, if another client B (connected to the same listener as the client A) sends a message to topic `t`, the message is routed to all the clients subscribed `some_tenant/t`, so client A will receive the message, with topic name `t`. Set to `""` to disable the feature.
-  Variables in mountpoint string:
-    - <code>${clientid}</code>: clientid
-    - <code>${username}</code>: username
-
-- access_rules: <code>[string()]</code>
-  * default: 
-  `[]`
-
-  The access control rules for this listener.
-  See: https://github.com/emqtt/esockd#allowdeny
-
-- ssl_options: <code>[broker:listener_ssl_opts](emqx.md#broker-listener_ssl_opts)</code>
-  SSL Socket options.
-
+</ul>
 
 ## gateway:ssl_server_opts <a id='gateway-ssl_server_opts'></a>
 SSL configuration for the server.
@@ -781,149 +1325,242 @@ SSL configuration for the server.
 
 **Fields**
 
-- cacertfile: <code>binary()</code>
-  Trusted PEM format CA certificates bundle file.<br/>
-  The certificates in this file are used to verify the TLS peer's certificates.
-  Append new certificates to the file if new CAs are to be trusted.
-  There is no need to restart EMQX to have the updated file loaded, because
-  the system regularly checks if file has been updated (and reload).<br/>
-  NOTE: invalidating (deleting) a certificate from the file will not affect
-  already established connections.
+<ul class="field-list">
+<li>
+<h4>cacertfile</h4>
 
-- certfile: <code>binary()</code>
-  PEM format certificates chain file.<br/>
-  The certificates in this file should be in reversed order of the certificate
-  issue chain. That is, the host's certificate should be placed in the beginning
-  of the file, followed by the immediate issuer certificate and so on.
-  Although the root CA certificate is optional, it should be placed at the end of
-  the file if it is to be added.
+Trusted PEM format CA certificates bundle file.<br/>
+The certificates in this file are used to verify the TLS peer's certificates.
+Append new certificates to the file if new CAs are to be trusted.
+There is no need to restart EMQX to have the updated file loaded, because
+the system regularly checks if file has been updated (and reload).<br/>
+NOTE: invalidating (deleting) a certificate from the file will not affect
+already established connections.
 
-- keyfile: <code>binary()</code>
-  PEM format private key file. 
 
-- verify: <code>verify_peer | verify_none</code>
-  * default: 
-  `verify_none`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>certfile</h4>
 
-  Enable or disable peer verification. 
+PEM format certificates chain file.<br/>
+The certificates in this file should be in reversed order of the certificate
+issue chain. That is, the host's certificate should be placed in the beginning
+of the file, followed by the immediate issuer certificate and so on.
+Although the root CA certificate is optional, it should be placed at the end of
+the file if it is to be added.
 
-- reuse_sessions: <code>boolean()</code>
-  * default: 
-  `true`
 
-  Enable TLS session reuse. 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>keyfile</h4>
+PEM format private key file. 
 
-- depth: <code>integer()</code>
-  * default: 
-  `10`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>verify</h4>
+Enable or disable peer verification. 
 
-  Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
-  So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
-  if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
-  if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>verify_peer | verify_none</code></td></tr><tr><td><strong>Default</strong></td><td><code>verify_none</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>reuse_sessions</h4>
+Enable TLS session reuse. 
 
-- password: <code>string()</code>
-  String containing the user's password.
-  Only used if the private key file is password-protected.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>depth</h4>
 
-- versions: <code>[atom()]</code>
-  * default: 
-  `[tlsv1.3, tlsv1.2, tlsv1.1, tlsv1]`
+Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
+So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
+if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
+if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
 
-  All TLS/DTLS versions to be supported.<br/>
-  NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
-  In case PSK cipher suites are intended, make sure to configure
-  <code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-- ciphers: <code>[string()]</code>
-  * default: 
-  `[]`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>10</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
 
-  This config holds TLS cipher suite names separated by comma,
-  or as an array of strings. e.g.
-  <code>"TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256"</code> or
-  <code>["TLS_AES_256_GCM_SHA384","TLS_AES_128_GCM_SHA256"]</code>.
-  <br/>
-  Ciphers (and their ordering) define the way in which the
-  client and server encrypts information over the network connection.
-  Selecting a good cipher suite is critical for the
-  application's data security, confidentiality and performance.
-  The names should be in OpenSSL string format (not RFC format).
-  All default values and examples provided by EMQX config
-  documentation are all in OpenSSL format.<br/>
-  NOTE: Certain cipher suites are only compatible with
-  specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
-  incompatible cipher suites will be silently dropped.
-  For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
-  configuring cipher suites for other versions will have no effect.
-  <br/>
-  NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
-  If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
-  PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
-  RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
-  RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
-  RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
+String containing the user's password.
+Only used if the private key file is password-protected.
 
-- user_lookup_fun: <code>string()</code>
-  * default: 
-  `"emqx_tls_psk:lookup"`
 
-  EMQX-internal callback that is used to lookup pre-shared key (PSK) identity. 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>versions</h4>
 
-- secure_renegotiate: <code>boolean()</code>
-  * default: 
-  `true`
+All TLS/DTLS versions to be supported.<br/>
+NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
+In case PSK cipher suites are intended, make sure to configure
+<code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-  SSL parameter renegotiation is a feature that allows a client and a server
-  to renegotiate the parameters of the SSL connection on the fly.
-  RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
-  you drop support for the insecure renegotiation, prone to MitM attacks.
 
-- dhfile: <code>string()</code>
-  Path to a file containing PEM-encoded Diffie-Hellman parameters
-  to be used by the server if a cipher suite using Diffie-Hellman
-  key exchange is negotiated. If not specified, default parameters
-  are used.<br/>
-  NOTE: The <code>dhfile</code> option is not supported by TLS 1.3.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[atom()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[tlsv1.3, tlsv1.2, tlsv1.1, tlsv1]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ciphers</h4>
 
-- fail_if_no_peer_cert: <code>boolean()</code>
-  * default: 
-  `false`
+This config holds TLS cipher suite names separated by comma,
+or as an array of strings. e.g.
+<code>"TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256"</code> or
+<code>["TLS_AES_256_GCM_SHA384","TLS_AES_128_GCM_SHA256"]</code>.
+<br/>
+Ciphers (and their ordering) define the way in which the
+client and server encrypts information over the network connection.
+Selecting a good cipher suite is critical for the
+application's data security, confidentiality and performance.
 
-  Used together with {verify, verify_peer} by an TLS/DTLS server.
-  If set to true, the server fails if the client does not have a
-  certificate to send, that is, sends an empty certificate.
-  If set to false, it fails only if the client sends an invalid
-  certificate (an empty certificate is considered valid).
+The names should be in OpenSSL string format (not RFC format).
+All default values and examples provided by EMQX config
+documentation are all in OpenSSL format.<br/>
 
-- honor_cipher_order: <code>boolean()</code>
-  * default: 
-  `true`
+NOTE: Certain cipher suites are only compatible with
+specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
+incompatible cipher suites will be silently dropped.
+For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
+configuring cipher suites for other versions will have no effect.
+<br/>
 
-  An important security setting, it forces the cipher to be set based
-   on the server-specified order instead of the client-specified order,
-   hence enforcing the (usually more properly configured) security
-   ordering of the server administrator.
+NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
+If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
+PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
+RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
+RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
+RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
 
-- client_renegotiation: <code>boolean()</code>
-  * default: 
-  `true`
 
-  In protocols that support client-initiated renegotiation,
-  the cost of resources of such an operation is higher for the server than the client.
-  This can act as a vector for denial of service attacks.
-  The SSL application already takes measures to counter-act such attempts,
-  but client-initiated renegotiation can be strictly disabled by setting this option to false.
-  The default value is true. Note that disabling renegotiation can result in
-  long-lived connections becoming unusable due to limits on
-  the number of messages the underlying cipher suite can encipher.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[string()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>user_lookup_fun</h4>
+EMQX-internal callback that is used to lookup pre-shared key (PSK) identity. 
 
-- handshake_timeout: <code>emqx_schema:duration()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"emqx_tls_psk:lookup"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>secure_renegotiate</h4>
 
-  Maximum time duration allowed for the handshake to complete
+SSL parameter renegotiation is a feature that allows a client and a server
+to renegotiate the parameters of the SSL connection on the fly.
+RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
+you drop support for the insecure renegotiation, prone to MitM attacks.
 
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>dhfile</h4>
+
+Path to a file containing PEM-encoded Diffie-Hellman parameters
+to be used by the server if a cipher suite using Diffie-Hellman
+key exchange is negotiated. If not specified, default parameters
+are used.<br/>
+NOTE: The <code>dhfile</code> option is not supported by TLS 1.3.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>fail_if_no_peer_cert</h4>
+
+Used together with {verify, verify_peer} by an TLS/DTLS server.
+If set to true, the server fails if the client does not have a
+certificate to send, that is, sends an empty certificate.
+If set to false, it fails only if the client sends an invalid
+certificate (an empty certificate is considered valid).
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>honor_cipher_order</h4>
+
+An important security setting, it forces the cipher to be set based
+ on the server-specified order instead of the client-specified order,
+ hence enforcing the (usually more properly configured) security
+ ordering of the server administrator.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>client_renegotiation</h4>
+
+In protocols that support client-initiated renegotiation,
+the cost of resources of such an operation is higher for the server than the client.
+This can act as a vector for denial of service attacks.
+The SSL application already takes measures to counter-act such attempts,
+but client-initiated renegotiation can be strictly disabled by setting this option to false.
+The default value is true. Note that disabling renegotiation can result in
+long-lived connections becoming unusable due to limits on
+the number of messages the underlying cipher suite can encipher.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>handshake_timeout</h4>
+
+Maximum time duration allowed for the handshake to complete
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## gateway:stomp <a id='gateway-stomp'></a>
 The STOMP protocol gateway provides EMQX with the ability to access STOMP
@@ -936,45 +1573,84 @@ The STOMP protocol gateway provides EMQX with the ability to access STOMP
 
 **Fields**
 
-- frame: <code>[gateway:stomp_frame](#gateway-stomp_frame)</code>
+<ul class="field-list">
+<li>
+<h4>frame</h4>
 
 
-- mountpoint: <code>binary()</code>
-  * default: 
-  `""`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-stomp_frame">gateway:stomp_frame</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mountpoint</h4>
+ 
 
-   
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>""</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>listeners</h4>
+Settings for the TCP listeners.
 
-- listeners: <code>[gateway:tcp_listeners](#gateway-tcp_listeners)</code>
-  Settings for the TCP listeners.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-tcp_listeners">gateway:tcp_listeners</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Whether to enable this gateway
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_stats</h4>
+Whether to enable client process statistic
 
-  Whether to enable this gateway
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>idle_timeout</h4>
+The idle time of the client connection process. It has two purposes:
+  1. A newly created client process that does not receive any client requests after that time will be closed directly.
+  2. A running client process that does not receive any client requests after this time will go into hibernation to save resources.
 
-- enable_stats: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"30s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>clientinfo_override</h4>
+ClientInfo override.
 
-  Whether to enable client process statistic
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-clientinfo_override">gateway:clientinfo_override</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>authentication</h4>
+Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
+ in listener configs
 
-- idle_timeout: <code>emqx_gateway_schema:duration()</code>
-  * default: 
-  `"30s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="authn.md#authn-builtin_db-authentication">authn-builtin_db:authentication</a> | <a href="authn.md#authn-mysql-authentication">authn-mysql:authentication</a> | <a href="authn.md#authn-postgresql-authentication">authn-postgresql:authentication</a> | <a href="authn.md#authn-mongodb-standalone">authn-mongodb:standalone</a> | <a href="authn.md#authn-mongodb-replica-set">authn-mongodb:replica-set</a> | <a href="authn.md#authn-mongodb-sharded-cluster">authn-mongodb:sharded-cluster</a> | <a href="authn.md#authn-redis-standalone">authn-redis:standalone</a> | <a href="authn.md#authn-redis-cluster">authn-redis:cluster</a> | <a href="authn.md#authn-redis-sentinel">authn-redis:sentinel</a> | <a href="authn.md#authn-http-get">authn-http:get</a> | <a href="authn.md#authn-http-post">authn-http:post</a> | <a href="authn.md#authn-jwt-hmac-based">authn-jwt:hmac-based</a> | <a href="authn.md#authn-jwt-public-key">authn-jwt:public-key</a> | <a href="authn.md#authn-jwt-jwks">authn-jwt:jwks</a> | <a href="authn.md#authn-scram-builtin_db-authentication">authn-scram-builtin_db:authentication</a></code></td></tr></tbody>
+</table>
+</li>
 
-  The idle time of the client connection process. It has two purposes:
-    1. A newly created client process that does not receive any client requests after that time will be closed directly.
-    2. A running client process that does not receive any client requests after this time will go into hibernation to save resources.
-
-- clientinfo_override: <code>[gateway:clientinfo_override](#gateway-clientinfo_override)</code>
-  ClientInfo override.
-
-- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
-  Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
-   in listener configs
-
+</ul>
 
 ## gateway:stomp_frame <a id='gateway-stomp_frame'></a>
 Size limits for the STOMP frames.
@@ -986,24 +1662,36 @@ Size limits for the STOMP frames.
 
 **Fields**
 
-- max_headers: <code>non_neg_integer()</code>
-  * default: 
-  `10`
+<ul class="field-list">
+<li>
+<h4>max_headers</h4>
+The maximum number of Header
 
-  The maximum number of Header
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>10</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_headers_length</h4>
+The maximum string length of the Header Value
 
-- max_headers_length: <code>non_neg_integer()</code>
-  * default: 
-  `1024`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1024</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_body_length</h4>
+Maximum number of bytes of Body allowed per Stomp packet
 
-  The maximum string length of the Header Value
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>65536</code></td></tr></tbody>
+</table>
+</li>
 
-- max_body_length: <code>integer()</code>
-  * default: 
-  `65536`
-
-  Maximum number of bytes of Body allowed per Stomp packet
-
+</ul>
 
 ## gateway:tcp_listener <a id='gateway-tcp_listener'></a>
 Settings for the TCP listener.
@@ -1016,76 +1704,128 @@ Settings for the TCP listener.
 
 **Fields**
 
-- acceptors: <code>integer()</code>
-  * default: 
-  `16`
+<ul class="field-list">
+<li>
+<h4>acceptors</h4>
+Size of the acceptor pool.
 
-  Size of the acceptor pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>16</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>tcp_options</h4>
+Setting the TCP socket options.
 
-- tcp_options: <code>[broker:tcp_opts](emqx.md#broker-tcp_opts)</code>
-  Setting the TCP socket options.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-tcp_opts">broker:tcp_opts</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>proxy_protocol</h4>
+Enable the Proxy Protocol V1/2 if the EMQX cluster is deployed behind HAProxy or Nginx.
+See: https://www.haproxy.com/blog/haproxy/proxy-protocol/
 
-- proxy_protocol: <code>boolean()</code>
-  * default: 
-  `false`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>proxy_protocol_timeout</h4>
+Timeout for proxy protocol.
+EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
 
-  Enable the Proxy Protocol V1/2 if the EMQX cluster is deployed behind HAProxy or Nginx.
-  See: https://www.haproxy.com/blog/haproxy/proxy-protocol/
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Enable the listener.
 
-- proxy_protocol_timeout: <code>emqx_gateway_schema:duration()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>bind</h4>
+The IP address and port that the listener will bind.
 
-  Timeout for proxy protocol.
-  EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:ip_port() | integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_connections</h4>
+Maximum number of concurrent connections.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1024</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_conn_rate</h4>
+Maximum connections per second.
 
-  Enable the listener.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1000</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>authentication</h4>
+Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
+ in listener configs
 
-- bind: <code>emqx_gateway_schema:ip_port() | integer()</code>
-  The IP address and port that the listener will bind.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="authn.md#authn-builtin_db-authentication">authn-builtin_db:authentication</a> | <a href="authn.md#authn-mysql-authentication">authn-mysql:authentication</a> | <a href="authn.md#authn-postgresql-authentication">authn-postgresql:authentication</a> | <a href="authn.md#authn-mongodb-standalone">authn-mongodb:standalone</a> | <a href="authn.md#authn-mongodb-replica-set">authn-mongodb:replica-set</a> | <a href="authn.md#authn-mongodb-sharded-cluster">authn-mongodb:sharded-cluster</a> | <a href="authn.md#authn-redis-standalone">authn-redis:standalone</a> | <a href="authn.md#authn-redis-cluster">authn-redis:cluster</a> | <a href="authn.md#authn-redis-sentinel">authn-redis:sentinel</a> | <a href="authn.md#authn-http-get">authn-http:get</a> | <a href="authn.md#authn-http-post">authn-http:post</a> | <a href="authn.md#authn-jwt-hmac-based">authn-jwt:hmac-based</a> | <a href="authn.md#authn-jwt-public-key">authn-jwt:public-key</a> | <a href="authn.md#authn-jwt-jwks">authn-jwt:jwks</a> | <a href="authn.md#authn-scram-builtin_db-authentication">authn-scram-builtin_db:authentication</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_authn</h4>
+Set <code>true</code> (default) to enable client authentication on this listener. 
+When set to <code>false</code> clients will be allowed to connect without authentication.
 
-- max_connections: <code>integer()</code>
-  * default: 
-  `1024`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mountpoint</h4>
+When publishing or subscribing, prefix all topics with a mountpoint string.
+The prefixed string will be removed from the topic name when the message is delivered to the subscriber. The mountpoint is a way that users can use to implement isolation of message routing between different listeners.
+For example if a client A subscribes to `t` with `listeners.tcp.\<name>.mountpoint` set to `some_tenant`, then the client actually subscribes to the topic `some_tenant/t`. Similarly, if another client B (connected to the same listener as the client A) sends a message to topic `t`, the message is routed to all the clients subscribed `some_tenant/t`, so client A will receive the message, with topic name `t`. Set to `""` to disable the feature.
+Variables in mountpoint string:
+  - <code>${clientid}</code>: clientid
+  - <code>${username}</code>: username
 
-  Maximum number of concurrent connections.
 
-- max_conn_rate: <code>integer()</code>
-  * default: 
-  `1000`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>access_rules</h4>
+The access control rules for this listener.
+See: https://github.com/emqtt/esockd#allowdeny
 
-  Maximum connections per second.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[string()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
 
-- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
-  Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
-   in listener configs
-
-- enable_authn: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Set <code>true</code> (default) to enable client authentication on this listener. 
-  When set to <code>false</code> clients will be allowed to connect without authentication.
-
-- mountpoint: <code>binary()</code>
-  When publishing or subscribing, prefix all topics with a mountpoint string.
-  The prefixed string will be removed from the topic name when the message is delivered to the subscriber. The mountpoint is a way that users can use to implement isolation of message routing between different listeners.
-  For example if a client A subscribes to `t` with `listeners.tcp.\<name>.mountpoint` set to `some_tenant`, then the client actually subscribes to the topic `some_tenant/t`. Similarly, if another client B (connected to the same listener as the client A) sends a message to topic `t`, the message is routed to all the clients subscribed `some_tenant/t`, so client A will receive the message, with topic name `t`. Set to `""` to disable the feature.
-  Variables in mountpoint string:
-    - <code>${clientid}</code>: clientid
-    - <code>${username}</code>: username
-
-- access_rules: <code>[string()]</code>
-  * default: 
-  `[]`
-
-  The access control rules for this listener.
-  See: https://github.com/emqtt/esockd#allowdeny
-
+</ul>
 
 ## gateway:tcp_listeners <a id='gateway-tcp_listeners'></a>
 Settings for the TCP listeners.
@@ -1097,12 +1837,27 @@ Settings for the TCP listeners.
 
 **Fields**
 
-- tcp: <code>{$name -> [gateway:tcp_listener](#gateway-tcp_listener)}</code>
-   
+<ul class="field-list">
+<li>
+<h4>tcp</h4>
+ 
 
-- ssl: <code>{$name -> [gateway:ssl_listener](#gateway-ssl_listener)}</code>
-   
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>{$name -> <a href="gateway-tcp_listener">gateway:tcp_listener</a>}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+ 
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>{$name -> <a href="gateway-ssl_listener">gateway:ssl_listener</a>}</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## gateway:tcp_udp_listeners <a id='gateway-tcp_udp_listeners'></a>
 Settings for the listeners.
@@ -1114,18 +1869,45 @@ Settings for the listeners.
 
 **Fields**
 
-- tcp: <code>{$name -> [gateway:tcp_listener](#gateway-tcp_listener)}</code>
-   
+<ul class="field-list">
+<li>
+<h4>tcp</h4>
+ 
 
-- ssl: <code>{$name -> [gateway:ssl_listener](#gateway-ssl_listener)}</code>
-   
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>{$name -> <a href="gateway-tcp_listener">gateway:tcp_listener</a>}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+ 
 
-- udp: <code>{$name -> [gateway:udp_listener](#gateway-udp_listener)}</code>
-   
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>{$name -> <a href="gateway-ssl_listener">gateway:ssl_listener</a>}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>udp</h4>
+ 
 
-- dtls: <code>{$name -> [gateway:dtls_listener](#gateway-dtls_listener)}</code>
-   
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>{$name -> <a href="gateway-udp_listener">gateway:udp_listener</a>}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>dtls</h4>
+ 
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>{$name -> <a href="gateway-dtls_listener">gateway:dtls_listener</a>}</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## gateway:translator <a id='gateway-translator'></a>
 MQTT topic that corresponds to a particular type of event.
@@ -1141,15 +1923,27 @@ MQTT topic that corresponds to a particular type of event.
 
 **Fields**
 
-- topic: <code>binary()</code>
-  Topic Name
+<ul class="field-list">
+<li>
+<h4>topic</h4>
+Topic Name
 
-- qos: <code>qos()</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>qos</h4>
+QoS Level
 
-  QoS Level
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>qos()</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
 
+</ul>
 
 ## gateway:udp_listener <a id='gateway-udp_listener'></a>
 Settings for the UDP listener.
@@ -1164,56 +1958,99 @@ Settings for the UDP listener.
 
 **Fields**
 
-- udp_options: <code>[gateway:udp_opts](#gateway-udp_opts)</code>
+<ul class="field-list">
+<li>
+<h4>udp_options</h4>
 
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="gateway-udp_opts">gateway:udp_opts</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Enable the listener.
 
-  Enable the listener.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>bind</h4>
+The IP address and port that the listener will bind.
 
-- bind: <code>emqx_gateway_schema:ip_port() | integer()</code>
-  The IP address and port that the listener will bind.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:ip_port() | integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_connections</h4>
+Maximum number of concurrent connections.
 
-- max_connections: <code>integer()</code>
-  * default: 
-  `1024`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1024</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_conn_rate</h4>
+Maximum connections per second.
 
-  Maximum number of concurrent connections.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1000</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>authentication</h4>
+Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
+ in listener configs
 
-- max_conn_rate: <code>integer()</code>
-  * default: 
-  `1000`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="authn.md#authn-builtin_db-authentication">authn-builtin_db:authentication</a> | <a href="authn.md#authn-mysql-authentication">authn-mysql:authentication</a> | <a href="authn.md#authn-postgresql-authentication">authn-postgresql:authentication</a> | <a href="authn.md#authn-mongodb-standalone">authn-mongodb:standalone</a> | <a href="authn.md#authn-mongodb-replica-set">authn-mongodb:replica-set</a> | <a href="authn.md#authn-mongodb-sharded-cluster">authn-mongodb:sharded-cluster</a> | <a href="authn.md#authn-redis-standalone">authn-redis:standalone</a> | <a href="authn.md#authn-redis-cluster">authn-redis:cluster</a> | <a href="authn.md#authn-redis-sentinel">authn-redis:sentinel</a> | <a href="authn.md#authn-http-get">authn-http:get</a> | <a href="authn.md#authn-http-post">authn-http:post</a> | <a href="authn.md#authn-jwt-hmac-based">authn-jwt:hmac-based</a> | <a href="authn.md#authn-jwt-public-key">authn-jwt:public-key</a> | <a href="authn.md#authn-jwt-jwks">authn-jwt:jwks</a> | <a href="authn.md#authn-scram-builtin_db-authentication">authn-scram-builtin_db:authentication</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_authn</h4>
+Set <code>true</code> (default) to enable client authentication on this listener. 
+When set to <code>false</code> clients will be allowed to connect without authentication.
 
-  Maximum connections per second.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mountpoint</h4>
+When publishing or subscribing, prefix all topics with a mountpoint string.
+The prefixed string will be removed from the topic name when the message is delivered to the subscriber. The mountpoint is a way that users can use to implement isolation of message routing between different listeners.
+For example if a client A subscribes to `t` with `listeners.tcp.\<name>.mountpoint` set to `some_tenant`, then the client actually subscribes to the topic `some_tenant/t`. Similarly, if another client B (connected to the same listener as the client A) sends a message to topic `t`, the message is routed to all the clients subscribed `some_tenant/t`, so client A will receive the message, with topic name `t`. Set to `""` to disable the feature.
+Variables in mountpoint string:
+  - <code>${clientid}</code>: clientid
+  - <code>${username}</code>: username
 
-- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
-  Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
-   in listener configs
 
-- enable_authn: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>access_rules</h4>
+The access control rules for this listener.
+See: https://github.com/emqtt/esockd#allowdeny
 
-  Set <code>true</code> (default) to enable client authentication on this listener. 
-  When set to <code>false</code> clients will be allowed to connect without authentication.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[string()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
 
-- mountpoint: <code>binary()</code>
-  When publishing or subscribing, prefix all topics with a mountpoint string.
-  The prefixed string will be removed from the topic name when the message is delivered to the subscriber. The mountpoint is a way that users can use to implement isolation of message routing between different listeners.
-  For example if a client A subscribes to `t` with `listeners.tcp.\<name>.mountpoint` set to `some_tenant`, then the client actually subscribes to the topic `some_tenant/t`. Similarly, if another client B (connected to the same listener as the client A) sends a message to topic `t`, the message is routed to all the clients subscribed `some_tenant/t`, so client A will receive the message, with topic name `t`. Set to `""` to disable the feature.
-  Variables in mountpoint string:
-    - <code>${clientid}</code>: clientid
-    - <code>${username}</code>: username
-
-- access_rules: <code>[string()]</code>
-  * default: 
-  `[]`
-
-  The access control rules for this listener.
-  See: https://github.com/emqtt/esockd#allowdeny
-
+</ul>
 
 ## gateway:udp_listeners <a id='gateway-udp_listeners'></a>
 Settings for the UDP listeners.
@@ -1227,12 +2064,27 @@ Settings for the UDP listeners.
 
 **Fields**
 
-- udp: <code>{$name -> [gateway:udp_listener](#gateway-udp_listener)}</code>
-   
+<ul class="field-list">
+<li>
+<h4>udp</h4>
+ 
 
-- dtls: <code>{$name -> [gateway:dtls_listener](#gateway-dtls_listener)}</code>
-   
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>{$name -> <a href="gateway-udp_listener">gateway:udp_listener</a>}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>dtls</h4>
+ 
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>{$name -> <a href="gateway-dtls_listener">gateway:dtls_listener</a>}</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## gateway:udp_opts <a id='gateway-udp_opts'></a>
 Settings for the UDP sockets.
@@ -1251,25 +2103,52 @@ Settings for the UDP sockets.
 
 **Fields**
 
-- active_n: <code>integer()</code>
-  * default: 
-  `100`
+<ul class="field-list">
+<li>
+<h4>active_n</h4>
+Specify the {active, N} option for the socket.
+See: https://erlang.org/doc/man/inet.html#setopts-2
 
-  Specify the {active, N} option for the socket.
-  See: https://erlang.org/doc/man/inet.html#setopts-2
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>100</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>recbuf</h4>
+Size of the kernel-space receive buffer for the socket.
 
-- recbuf: <code>emqx_gateway_schema:bytesize()</code>
-  Size of the kernel-space receive buffer for the socket.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:bytesize()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>sndbuf</h4>
+Size of the kernel-space send buffer for the socket.
 
-- sndbuf: <code>emqx_gateway_schema:bytesize()</code>
-  Size of the kernel-space send buffer for the socket.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:bytesize()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>buffer</h4>
+Size of the user-space buffer for the socket.
 
-- buffer: <code>emqx_gateway_schema:bytesize()</code>
-  Size of the user-space buffer for the socket.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_gateway_schema:bytesize()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>reuseaddr</h4>
+Allow local reuse of port numbers.
 
-- reuseaddr: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
 
-  Allow local reuse of port numbers.
-
+</ul>

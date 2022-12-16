@@ -53,28 +53,42 @@ defmodule MD do
   end
 
   def table(headers, lines) do
-    n_cols = tuple_size(headers)
+    n_cols = if headers do
+      tuple_size(headers)
+    else
+      lines
+      |> hd()
+      |> tuple_size()
+    end
+    all_lines = if headers, do: [headers | lines], else: lines
     max_widths = Enum.map(0..(n_cols - 1), fn idx ->
-      [headers | lines]
-      |> Stream.map(& &1 |> elem(idx) |> String.length())
+      all_lines
+      |> Stream.map(& &1 |> elem(idx) |> :erlang.iolist_to_binary() |> String.length())
       |> Enum.max()
     end)
 
+    table_header = if headers do
+      [
+        [
+          "| ",
+          headers
+          |> Tuple.to_list()
+          |> Enum.intersperse(" | "),
+          " |\n",
+        ],
+        [
+          "|",
+          max_widths
+          |> Stream.map(& String.duplicate("-", &1 + 2))
+          |> Enum.intersperse("|"),
+          "|\n",
+        ],
+      ]
+    else
+      []
+    end
     [
-      [
-        "| ",
-        headers
-        |> Tuple.to_list()
-        |> Enum.intersperse(" | "),
-        " |\n",
-      ],
-      [
-        "|",
-        max_widths
-        |> Stream.map(& String.duplicate("-", &1 + 2))
-        |> Enum.intersperse("|"),
-        "|\n",
-      ],
+      table_header,
       Enum.map(lines, fn tup ->
         [
           "| ",

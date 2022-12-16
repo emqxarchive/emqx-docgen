@@ -10,24 +10,45 @@ Authorization using a static file.
 
 **Fields**
 
-- type: <code>file</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>file</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>path</h4>
 
-- path: <code>string()</code>
-  Path to the file which contains the ACL rules.
-  If the file provisioned before starting EMQX node,
-  it can be placed anywhere as long as EMQX has read access to it.
-  That is, EMQX will treat it as read only.
-  In case the rule-set is created or updated from EMQX Dashboard or HTTP API,
-  a new file will be created and placed in `authz` subdirectory inside EMQX's `data_dir`,
-  and the old file will not be used anymore.
+Path to the file which contains the ACL rules.
+If the file provisioned before starting EMQX node,
+it can be placed anywhere as long as EMQX has read access to it.
+That is, EMQX will treat it as read only.
 
+In case the rule-set is created or updated from EMQX Dashboard or HTTP API,
+a new file will be created and placed in `authz` subdirectory inside EMQX's `data_dir`,
+and the old file will not be used anymore.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## authz:http_get <a id='authz-http_get'></a>
 Authorization using an external HTTP server (via GET requests).
@@ -39,80 +60,144 @@ Authorization using an external HTTP server (via GET requests).
 
 **Fields**
 
-- type: <code>http</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>http</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>url</h4>
+URL of the auth server.
 
-- url: <code>binary()</code>
-  URL of the auth server.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request_timeout</h4>
+HTTP request timeout.
 
-- request_timeout: <code>string()</code>
-  * default: 
-  `"30s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"30s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>body</h4>
+HTTP request body.
 
-  HTTP request timeout.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>connect_timeout</h4>
+The timeout when connecting to the HTTP server.
 
-- body: <code>map()</code>
-  HTTP request body.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_pipelining</h4>
+A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
 
-- connect_timeout: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>100</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_retries</h4>
+Deprecated since 5.0.4.
 
-  The timeout when connecting to the HTTP server.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+The pool size.
 
-- enable_pipelining: <code>pos_integer()</code>
-  * default: 
-  `100`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request</h4>
 
-  A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
+If the request is provided, the caller can send HTTP requests via
+<code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
-- max_retries: <code>non_neg_integer()</code>
-  Deprecated since 5.0.4.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#connector-http-request">connector-http:request</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>retry_interval</h4>
+Deprecated since 5.0.4.
 
-  The pool size.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-- request: <code>[connector-http:request](others.md#connector-http-request)</code>
-  If the request is provided, the caller can send HTTP requests via
-  <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>method</h4>
+HTTP method.
 
-- retry_interval: <code>emqx_schema:duration()</code>
-  Deprecated since 5.0.4.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>get</code></td></tr><tr><td><strong>Default</strong></td><td><code>get</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>headers</h4>
+List of HTTP headers (without <code>content-type</code>).
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[{binary(), binary()}]</code></td></tr><tr><td><strong>Default</strong></td><td><code>{
+  accept = "application/json"
+  "cache-control" = "no-cache"
+  connection = "keep-alive"
+  "keep-alive" = "timeout=30, max=1000"
+}
+</code></td></tr></tbody>
+</table>
+</li>
 
-  SSL connection settings.
-
-- method: <code>get</code>
-  * default: 
-  `get`
-
-  HTTP method.
-
-- headers: <code>[{binary(), binary()}]</code>
-  * default: 
-  ```
-  {
-    accept = "application/json"
-    "cache-control" = "no-cache"
-    connection = "keep-alive"
-    "keep-alive" = "timeout=30, max=1000"
-  }
-  ```
-
-  List of HTTP headers (without <code>content-type</code>).
-
+</ul>
 
 ## authz:http_post <a id='authz-http_post'></a>
 Authorization using an external HTTP server (via POST requests).
@@ -124,81 +209,145 @@ Authorization using an external HTTP server (via POST requests).
 
 **Fields**
 
-- type: <code>http</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>http</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>url</h4>
+URL of the auth server.
 
-- url: <code>binary()</code>
-  URL of the auth server.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request_timeout</h4>
+HTTP request timeout.
 
-- request_timeout: <code>string()</code>
-  * default: 
-  `"30s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"30s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>body</h4>
+HTTP request body.
 
-  HTTP request timeout.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>connect_timeout</h4>
+The timeout when connecting to the HTTP server.
 
-- body: <code>map()</code>
-  HTTP request body.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_pipelining</h4>
+A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
 
-- connect_timeout: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>100</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_retries</h4>
+Deprecated since 5.0.4.
 
-  The timeout when connecting to the HTTP server.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+The pool size.
 
-- enable_pipelining: <code>pos_integer()</code>
-  * default: 
-  `100`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request</h4>
 
-  A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
+If the request is provided, the caller can send HTTP requests via
+<code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
-- max_retries: <code>non_neg_integer()</code>
-  Deprecated since 5.0.4.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#connector-http-request">connector-http:request</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>retry_interval</h4>
+Deprecated since 5.0.4.
 
-  The pool size.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-- request: <code>[connector-http:request](others.md#connector-http-request)</code>
-  If the request is provided, the caller can send HTTP requests via
-  <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>method</h4>
+HTTP method.
 
-- retry_interval: <code>emqx_schema:duration()</code>
-  Deprecated since 5.0.4.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>post</code></td></tr><tr><td><strong>Default</strong></td><td><code>post</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>headers</h4>
+List of HTTP Headers.
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[{binary(), binary()}]</code></td></tr><tr><td><strong>Default</strong></td><td><code>{
+  accept = "application/json"
+  "cache-control" = "no-cache"
+  connection = "keep-alive"
+  "content-type" = "application/json"
+  "keep-alive" = "timeout=30, max=1000"
+}
+</code></td></tr></tbody>
+</table>
+</li>
 
-  SSL connection settings.
-
-- method: <code>post</code>
-  * default: 
-  `post`
-
-  HTTP method.
-
-- headers: <code>[{binary(), binary()}]</code>
-  * default: 
-  ```
-  {
-    accept = "application/json"
-    "cache-control" = "no-cache"
-    connection = "keep-alive"
-    "content-type" = "application/json"
-    "keep-alive" = "timeout=30, max=1000"
-  }
-  ```
-
-  List of HTTP Headers.
-
+</ul>
 
 ## authz:mnesia <a id='authz-mnesia'></a>
 Authorization using a built-in database (mnesia).
@@ -210,15 +359,27 @@ Authorization using a built-in database (mnesia).
 
 **Fields**
 
-- type: <code>built_in_database</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>built_in_database</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
 
+</ul>
 
 ## authz:mongo_rs <a id='authz-mongo_rs'></a>
 Authorization using a MongoDB replica set.
@@ -230,87 +391,172 @@ Authorization using a MongoDB replica set.
 
 **Fields**
 
-- type: <code>mongodb</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>mongodb</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>collection</h4>
+`MongoDB` collection containing the authorization data.
 
-- collection: <code>atom()</code>
-  `MongoDB` collection containing the authorization data.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>atom()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>filter</h4>
 
-- filter: <code>map()</code>
-  * default: 
-  `{}`
-
-  Conditional expression that defines the filter condition in the query.
-  Filter supports the following placeholders:
-   - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
-   - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
-- mongo_type: <code>rs</code>
-  * default: 
-  `rs`
-
-  Replica set.
-
-- servers: <code>[term()]</code>
-  A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
-  For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
-  A host entry has the following form: `Host[:Port]`.
-  The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
-- w_mode: <code>unsafe | safe</code>
-  * default: 
-  `unsafe`
-
-  Write mode.
-
-- r_mode: <code>master | slave_ok</code>
-  * default: 
-  `master`
-
-  Read mode.
-
-- replica_set_name: <code>binary()</code>
-  Name of the replica set.
-
-- srv_record: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Use DNS SRV record.
-
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
-
-  Size of the connection pool.
-
-- username: <code>binary()</code>
-  EMQX's username in the external database.
-
-- password: <code>binary()</code>
-  EMQX's password in the external database.
-
-- auth_source: <code>binary()</code>
-  Database name associated with the user's credentials.
-
-- database: <code>binary()</code>
-  Database name.
-
-- topology: <code>[topology](others.md#topology)</code>
+Conditional expression that defines the filter condition in the query.
+Filter supports the following placeholders:
+ - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
+ - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
 
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mongo_type</h4>
+Replica set.
 
-  SSL connection settings.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>rs</code></td></tr><tr><td><strong>Default</strong></td><td><code>rs</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>servers</h4>
 
+A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
+For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
+A host entry has the following form: `Host[:Port]`.
+The MongoDB default port 27017 is used if `[:Port]` is not specified.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[term()]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>w_mode</h4>
+Write mode.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>unsafe | safe</code></td></tr><tr><td><strong>Default</strong></td><td><code>unsafe</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>r_mode</h4>
+Read mode.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>master | slave_ok</code></td></tr><tr><td><strong>Default</strong></td><td><code>master</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>replica_set_name</h4>
+Name of the replica set.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>srv_record</h4>
+Use DNS SRV record.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>username</h4>
+EMQX's username in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auth_source</h4>
+Database name associated with the user's credentials.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Database name.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>topology</h4>
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#topology">topology</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## authz:mongo_sharded <a id='authz-mongo_sharded'></a>
 Authorization using a sharded MongoDB cluster.
@@ -322,78 +568,154 @@ Authorization using a sharded MongoDB cluster.
 
 **Fields**
 
-- type: <code>mongodb</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>mongodb</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>collection</h4>
+`MongoDB` collection containing the authorization data.
 
-- collection: <code>atom()</code>
-  `MongoDB` collection containing the authorization data.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>atom()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>filter</h4>
 
-- filter: <code>map()</code>
-  * default: 
-  `{}`
-
-  Conditional expression that defines the filter condition in the query.
-  Filter supports the following placeholders:
-   - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
-   - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
-- mongo_type: <code>sharded</code>
-  * default: 
-  `sharded`
-
-  Sharded cluster.
-
-- servers: <code>[term()]</code>
-  A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
-  For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
-  A host entry has the following form: `Host[:Port]`.
-  The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
-- w_mode: <code>unsafe | safe</code>
-  * default: 
-  `unsafe`
-
-  Write mode.
-
-- srv_record: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Use DNS SRV record.
-
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
-
-  Size of the connection pool.
-
-- username: <code>binary()</code>
-  EMQX's username in the external database.
-
-- password: <code>binary()</code>
-  EMQX's password in the external database.
-
-- auth_source: <code>binary()</code>
-  Database name associated with the user's credentials.
-
-- database: <code>binary()</code>
-  Database name.
-
-- topology: <code>[topology](others.md#topology)</code>
+Conditional expression that defines the filter condition in the query.
+Filter supports the following placeholders:
+ - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
+ - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
 
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mongo_type</h4>
+Sharded cluster.
 
-  SSL connection settings.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>sharded</code></td></tr><tr><td><strong>Default</strong></td><td><code>sharded</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>servers</h4>
 
+A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
+For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
+A host entry has the following form: `Host[:Port]`.
+The MongoDB default port 27017 is used if `[:Port]` is not specified.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[term()]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>w_mode</h4>
+Write mode.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>unsafe | safe</code></td></tr><tr><td><strong>Default</strong></td><td><code>unsafe</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>srv_record</h4>
+Use DNS SRV record.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>username</h4>
+EMQX's username in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auth_source</h4>
+Database name associated with the user's credentials.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Database name.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>topology</h4>
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#topology">topology</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## authz:mongo_single <a id='authz-mongo_single'></a>
 Authorization using a single MongoDB instance.
@@ -405,77 +727,153 @@ Authorization using a single MongoDB instance.
 
 **Fields**
 
-- type: <code>mongodb</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>mongodb</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>collection</h4>
+`MongoDB` collection containing the authorization data.
 
-- collection: <code>atom()</code>
-  `MongoDB` collection containing the authorization data.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>atom()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>filter</h4>
 
-- filter: <code>map()</code>
-  * default: 
-  `{}`
-
-  Conditional expression that defines the filter condition in the query.
-  Filter supports the following placeholders:
-   - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
-   - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
-- mongo_type: <code>single</code>
-  * default: 
-  `single`
-
-  Standalone instance.
-
-- server: <code>emqx_schema:host_port()</code>
-  The IPv4 or IPv6 address or the hostname to connect to.<br/>
-  A host entry has the following form: `Host[:Port]`.<br/>
-  The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
-- w_mode: <code>unsafe | safe</code>
-  * default: 
-  `unsafe`
-
-  Write mode.
-
-- srv_record: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Use DNS SRV record.
-
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
-
-  Size of the connection pool.
-
-- username: <code>binary()</code>
-  EMQX's username in the external database.
-
-- password: <code>binary()</code>
-  EMQX's password in the external database.
-
-- auth_source: <code>binary()</code>
-  Database name associated with the user's credentials.
-
-- database: <code>binary()</code>
-  Database name.
-
-- topology: <code>[topology](others.md#topology)</code>
+Conditional expression that defines the filter condition in the query.
+Filter supports the following placeholders:
+ - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
+ - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
 
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mongo_type</h4>
+Standalone instance.
 
-  SSL connection settings.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>single</code></td></tr><tr><td><strong>Default</strong></td><td><code>single</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server</h4>
 
+The IPv4 or IPv6 address or the hostname to connect to.<br/>
+A host entry has the following form: `Host[:Port]`.<br/>
+The MongoDB default port 27017 is used if `[:Port]` is not specified.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:host_port()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>w_mode</h4>
+Write mode.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>unsafe | safe</code></td></tr><tr><td><strong>Default</strong></td><td><code>unsafe</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>srv_record</h4>
+Use DNS SRV record.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>username</h4>
+EMQX's username in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auth_source</h4>
+Database name associated with the user's credentials.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Database name.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>topology</h4>
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#topology">topology</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## authz:mysql <a id='authz-mysql'></a>
 Authorization using a MySQL database.
@@ -487,53 +885,112 @@ Authorization using a MySQL database.
 
 **Fields**
 
-- type: <code>mysql</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>mysql</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server</h4>
 
-- server: <code>emqx_schema:host_port()</code>
-  The IPv4 or IPv6 address or the hostname to connect to.<br/>
-  A host entry has the following form: `Host[:Port]`.<br/>
-  The MySQL default port 3306 is used if `[:Port]` is not specified.
+The IPv4 or IPv6 address or the hostname to connect to.<br/>
+A host entry has the following form: `Host[:Port]`.<br/>
+The MySQL default port 3306 is used if `[:Port]` is not specified.
 
-- database: <code>binary()</code>
-  Database name.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:host_port()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Database name.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-- username: <code>binary()</code>
-  EMQX's username in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>username</h4>
+EMQX's username in the external database.
 
-- password: <code>binary()</code>
-  EMQX's password in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
 
-- auto_reconnect: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_reconnect</h4>
+Enable automatic reconnect to the database.
 
-  Enable automatic reconnect to the database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>prepare_statement</h4>
+Key-value list of SQL prepared statements.
 
-  SSL connection settings.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>query</h4>
+Database query used to retrieve authorization data.
 
-- prepare_statement: <code>map()</code>
-  Key-value list of SQL prepared statements.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
 
-- query: <code>binary()</code>
-  Database query used to retrieve authorization data.
-
+</ul>
 
 ## authz:postgresql <a id='authz-postgresql'></a>
 Authorization using a PostgreSQL database.
@@ -545,53 +1002,112 @@ Authorization using a PostgreSQL database.
 
 **Fields**
 
-- type: <code>postgresql</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>postgresql</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server</h4>
 
-- server: <code>emqx_schema:host_port()</code>
-  The IPv4 or IPv6 address or the hostname to connect to.<br/>
-  A host entry has the following form: `Host[:Port]`.<br/>
-  The PostgreSQL default port 5432 is used if `[:Port]` is not specified.
+The IPv4 or IPv6 address or the hostname to connect to.<br/>
+A host entry has the following form: `Host[:Port]`.<br/>
+The PostgreSQL default port 5432 is used if `[:Port]` is not specified.
 
-- database: <code>binary()</code>
-  Database name.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:host_port()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Database name.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-- username: <code>binary()</code>
-  EMQX's username in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>username</h4>
+EMQX's username in the external database.
 
-- password: <code>binary()</code>
-  EMQX's password in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
 
-- auto_reconnect: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_reconnect</h4>
+Enable automatic reconnect to the database.
 
-  Enable automatic reconnect to the database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>prepare_statement</h4>
+Key-value list of SQL prepared statements.
 
-  SSL connection settings.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>query</h4>
+Database query used to retrieve authorization data.
 
-- prepare_statement: <code>map()</code>
-  Key-value list of SQL prepared statements.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
 
-- query: <code>binary()</code>
-  Database query used to retrieve authorization data.
-
+</ul>
 
 ## authz:redis_cluster <a id='authz-redis_cluster'></a>
 Authorization using a Redis cluster.
@@ -603,51 +1119,95 @@ Authorization using a Redis cluster.
 
 **Fields**
 
-- type: <code>redis</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>redis</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>servers</h4>
 
-- servers: <code>[term()]</code>
-  A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
-  For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
-  A host entry has the following form: `Host[:Port]`.
-  The MongoDB default port 27017 is used if `[:Port]` is not specified.
+A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
+For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
+A host entry has the following form: `Host[:Port]`.
+The MongoDB default port 27017 is used if `[:Port]` is not specified.
 
-- redis_type: <code>cluster</code>
-  * default: 
-  `cluster`
 
-  Cluster mode
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[term()]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>redis_type</h4>
+Cluster mode
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>cluster</code></td></tr><tr><td><strong>Default</strong></td><td><code>cluster</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
 
-- password: <code>binary()</code>
-  EMQX's password in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_reconnect</h4>
+Enable automatic reconnect to the database.
 
-- auto_reconnect: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-  Enable automatic reconnect to the database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>cmd</h4>
+Database query used to retrieve authorization data.
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
 
-  SSL connection settings.
-
-- cmd: <code>binary()</code>
-  Database query used to retrieve authorization data.
-
+</ul>
 
 ## authz:redis_sentinel <a id='authz-redis_sentinel'></a>
 Authorization using a Redis Sentinel.
@@ -659,60 +1219,113 @@ Authorization using a Redis Sentinel.
 
 **Fields**
 
-- type: <code>redis</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>redis</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>servers</h4>
 
-- servers: <code>[term()]</code>
-  A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
-  For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
-  A host entry has the following form: `Host[:Port]`.
-  The MongoDB default port 27017 is used if `[:Port]` is not specified.
+A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
+For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
+A host entry has the following form: `Host[:Port]`.
+The MongoDB default port 27017 is used if `[:Port]` is not specified.
 
-- redis_type: <code>sentinel</code>
-  * default: 
-  `sentinel`
 
-  Sentinel mode
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[term()]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>redis_type</h4>
+Sentinel mode
 
-- sentinel: <code>string()</code>
-  The cluster name in Redis sentinel mode.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>sentinel</code></td></tr><tr><td><strong>Default</strong></td><td><code>sentinel</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>sentinel</h4>
+The cluster name in Redis sentinel mode.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
 
-- password: <code>binary()</code>
-  EMQX's password in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Redis database ID.
 
-- database: <code>integer()</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_reconnect</h4>
+Enable automatic reconnect to the database.
 
-  Redis database ID.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-- auto_reconnect: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>cmd</h4>
+Database query used to retrieve authorization data.
 
-  Enable automatic reconnect to the database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
-
-  SSL connection settings.
-
-- cmd: <code>binary()</code>
-  Database query used to retrieve authorization data.
-
+</ul>
 
 ## authz:redis_single <a id='authz-redis_single'></a>
 Authorization using a single Redis instance.
@@ -724,53 +1337,100 @@ Authorization using a single Redis instance.
 
 **Fields**
 
-- type: <code>redis</code>
-  Backend type.
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>redis</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
-  Set to <code>true</code> or <code>false</code> to disable this ACL provider
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server</h4>
 
-- server: <code>emqx_schema:host_port()</code>
-  The IPv4 or IPv6 address or the hostname to connect to.<br/>
-  A host entry has the following form: `Host[:Port]`.<br/>
-  The Redis default port 6379 is used if `[:Port]` is not specified.
+The IPv4 or IPv6 address or the hostname to connect to.<br/>
+A host entry has the following form: `Host[:Port]`.<br/>
+The Redis default port 6379 is used if `[:Port]` is not specified.
 
-- redis_type: <code>single</code>
-  * default: 
-  `single`
 
-  Single mode
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:host_port()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>redis_type</h4>
+Single mode
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>single</code></td></tr><tr><td><strong>Default</strong></td><td><code>single</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
 
-- password: <code>binary()</code>
-  EMQX's password in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Redis database ID.
 
-- database: <code>integer()</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_reconnect</h4>
+Enable automatic reconnect to the database.
 
-  Redis database ID.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-- auto_reconnect: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>cmd</h4>
+Database query used to retrieve authorization data.
 
-  Enable automatic reconnect to the database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
-
-  SSL connection settings.
-
-- cmd: <code>binary()</code>
-  Database query used to retrieve authorization data.
-
+</ul>

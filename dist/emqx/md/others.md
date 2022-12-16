@@ -10,58 +10,91 @@ Configuration for EMQX dashboard.
 
 **Fields**
 
-- listeners: <code>[dashboard:listeners](#dashboard-listeners)</code>
-  HTTP(s) listeners are identified by their protocol type and are
-  used to serve dashboard UI and restful HTTP API.
-  Listeners must have a unique combination of port number and IP address.
-  For example, an HTTP listener can listen on all configured IP addresses
-  on a given port for a machine by specifying the IP address 0.0.0.0.
-  Alternatively, the HTTP listener can specify a unique IP address for each listener,
-  but use the same port.
+<ul class="field-list">
+<li>
+<h4>listeners</h4>
+HTTP(s) listeners are identified by their protocol type and are
+used to serve dashboard UI and restful HTTP API.
+Listeners must have a unique combination of port number and IP address.
+For example, an HTTP listener can listen on all configured IP addresses
+on a given port for a machine by specifying the IP address 0.0.0.0.
+Alternatively, the HTTP listener can specify a unique IP address for each listener,
+but use the same port.
 
-- default_username: <code>binary()</code>
-  * default: 
-  `"admin"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="dashboard-listeners">dashboard:listeners</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>default_username</h4>
+The default username of the automatically created dashboard user.
 
-  The default username of the automatically created dashboard user.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"admin"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>default_password</h4>
+The initial default password for dashboard 'admin' user.
+For safety, it should be changed as soon as possible.
 
-- default_password: <code>binary()</code>
-  * default: 
-  `"public"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"public"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>sample_interval</h4>
+How often to update metrics displayed in the dashboard.
+Note: `sample_interval` should be a divisor of 60.
 
-  The initial default password for dashboard 'admin' user.
-  For safety, it should be changed as soon as possible.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_s()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"10s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>token_expired_time</h4>
+JWT token expiration time.
 
-- sample_interval: <code>emqx_schema:duration_s()</code>
-  * default: 
-  `"10s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"60m"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>cors</h4>
+Support Cross-Origin Resource Sharing (CORS).
+Allows a server to indicate any origins (domain, scheme, or port) other than
+its own from which a browser should permit loading resources.
 
-  How often to update metrics displayed in the dashboard.
-  Note: `sample_interval` should be a divisor of 60.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>i18n_lang</h4>
+Internationalization language support.
 
-- token_expired_time: <code>emqx_schema:duration()</code>
-  * default: 
-  `"60m"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>en | zh</code></td></tr><tr><td><strong>Default</strong></td><td><code>en</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>bootstrap_users_file</h4>
+Initialize users file.
 
-  JWT token expiration time.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
 
-- cors: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Support Cross-Origin Resource Sharing (CORS).
-  Allows a server to indicate any origins (domain, scheme, or port) other than
-  its own from which a browser should permit loading resources.
-
-- i18n_lang: <code>en | zh</code>
-  * default: 
-  `en`
-
-  Internationalization language support.
-
-- bootstrap_users_file: <code>binary()</code>
-  Initialize users file.
-
+</ul>
 
 ## dashboard:http <a id='dashboard-http'></a>
 Configuration for the dashboard listener (plaintext).
@@ -73,54 +106,81 @@ Configuration for the dashboard listener (plaintext).
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Ignore or enable this listener
 
-  Ignore or enable this listener
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>bind</h4>
+Port without IP(18083) or port with specified IP(127.0.0.1:18083).
 
-- bind: <code>non_neg_integer() | emqx_schema:ip_port()</code>
-  * default: 
-  `18083`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer() | emqx_schema:ip_port()</code></td></tr><tr><td><strong>Default</strong></td><td><code>18083</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>num_acceptors</h4>
+Socket acceptor pool size for TCP protocols.
 
-  Port without IP(18083) or port with specified IP(127.0.0.1:18083).
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>4</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_connections</h4>
+Maximum number of simultaneous connections.
 
-- num_acceptors: <code>integer()</code>
-  * default: 
-  `4`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>512</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backlog</h4>
+Defines the maximum length that the queue of pending connections can grow to.
 
-  Socket acceptor pool size for TCP protocols.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1024</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>send_timeout</h4>
+Send timeout for the socket.
 
-- max_connections: <code>integer()</code>
-  * default: 
-  `512`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"5s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>inet6</h4>
+Enable IPv6 support, default is false, which means IPv4 only.
 
-  Maximum number of simultaneous connections.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ipv6_v6only</h4>
+Disable IPv4-to-IPv6 mapping for the listener.
 
-- backlog: <code>integer()</code>
-  * default: 
-  `1024`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
 
-  Defines the maximum length that the queue of pending connections can grow to.
-
-- send_timeout: <code>emqx_schema:duration()</code>
-  * default: 
-  `"5s"`
-
-  Send timeout for the socket.
-
-- inet6: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Enable IPv6 support, default is false, which means IPv4 only.
-
-- ipv6_v6only: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Disable IPv4-to-IPv6 mapping for the listener.
-
+</ul>
 
 ## dashboard:https <a id='dashboard-https'></a>
 Configuration for the dashboard listener (TLS).
@@ -132,187 +192,299 @@ Configuration for the dashboard listener (TLS).
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  * default: 
-  `false`
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Ignore or enable this listener
 
-  Ignore or enable this listener
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>bind</h4>
+Port without IP(18083) or port with specified IP(127.0.0.1:18083).
 
-- bind: <code>non_neg_integer() | emqx_schema:ip_port()</code>
-  * default: 
-  `18084`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer() | emqx_schema:ip_port()</code></td></tr><tr><td><strong>Default</strong></td><td><code>18084</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>num_acceptors</h4>
+Socket acceptor pool size for TCP protocols.
 
-  Port without IP(18083) or port with specified IP(127.0.0.1:18083).
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>4</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_connections</h4>
+Maximum number of simultaneous connections.
 
-- num_acceptors: <code>integer()</code>
-  * default: 
-  `4`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>512</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backlog</h4>
+Defines the maximum length that the queue of pending connections can grow to.
 
-  Socket acceptor pool size for TCP protocols.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1024</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>send_timeout</h4>
+Send timeout for the socket.
 
-- max_connections: <code>integer()</code>
-  * default: 
-  `512`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"5s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>inet6</h4>
+Enable IPv6 support, default is false, which means IPv4 only.
 
-  Maximum number of simultaneous connections.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ipv6_v6only</h4>
+Disable IPv4-to-IPv6 mapping for the listener.
 
-- backlog: <code>integer()</code>
-  * default: 
-  `1024`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>cacertfile</h4>
 
-  Defines the maximum length that the queue of pending connections can grow to.
+Trusted PEM format CA certificates bundle file.<br/>
+The certificates in this file are used to verify the TLS peer's certificates.
+Append new certificates to the file if new CAs are to be trusted.
+There is no need to restart EMQX to have the updated file loaded, because
+the system regularly checks if file has been updated (and reload).<br/>
+NOTE: invalidating (deleting) a certificate from the file will not affect
+already established connections.
 
-- send_timeout: <code>emqx_schema:duration()</code>
-  * default: 
-  `"5s"`
 
-  Send timeout for the socket.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>certfile</h4>
 
-- inet6: <code>boolean()</code>
-  * default: 
-  `false`
+PEM format certificates chain file.<br/>
+The certificates in this file should be in reversed order of the certificate
+issue chain. That is, the host's certificate should be placed in the beginning
+of the file, followed by the immediate issuer certificate and so on.
+Although the root CA certificate is optional, it should be placed at the end of
+the file if it is to be added.
 
-  Enable IPv6 support, default is false, which means IPv4 only.
 
-- ipv6_v6only: <code>boolean()</code>
-  * default: 
-  `false`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>keyfile</h4>
+PEM format private key file. 
 
-  Disable IPv4-to-IPv6 mapping for the listener.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>verify</h4>
+Enable or disable peer verification. 
 
-- cacertfile: <code>binary()</code>
-  Trusted PEM format CA certificates bundle file.<br/>
-  The certificates in this file are used to verify the TLS peer's certificates.
-  Append new certificates to the file if new CAs are to be trusted.
-  There is no need to restart EMQX to have the updated file loaded, because
-  the system regularly checks if file has been updated (and reload).<br/>
-  NOTE: invalidating (deleting) a certificate from the file will not affect
-  already established connections.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>verify_peer | verify_none</code></td></tr><tr><td><strong>Default</strong></td><td><code>verify_none</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>reuse_sessions</h4>
+Enable TLS session reuse. 
 
-- certfile: <code>binary()</code>
-  PEM format certificates chain file.<br/>
-  The certificates in this file should be in reversed order of the certificate
-  issue chain. That is, the host's certificate should be placed in the beginning
-  of the file, followed by the immediate issuer certificate and so on.
-  Although the root CA certificate is optional, it should be placed at the end of
-  the file if it is to be added.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>depth</h4>
 
-- keyfile: <code>binary()</code>
-  PEM format private key file. 
+Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
+So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
+if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
+if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
 
-- verify: <code>verify_peer | verify_none</code>
-  * default: 
-  `verify_none`
 
-  Enable or disable peer verification. 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>10</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
 
-- reuse_sessions: <code>boolean()</code>
-  * default: 
-  `true`
+String containing the user's password.
+Only used if the private key file is password-protected.
 
-  Enable TLS session reuse. 
 
-- depth: <code>integer()</code>
-  * default: 
-  `10`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>versions</h4>
 
-  Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
-  So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
-  if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
-  if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
+All TLS/DTLS versions to be supported.<br/>
+NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
+In case PSK cipher suites are intended, make sure to configure
+<code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-- password: <code>string()</code>
-  String containing the user's password.
-  Only used if the private key file is password-protected.
 
-- versions: <code>[atom()]</code>
-  * default: 
-  `[tlsv1.3, tlsv1.2, tlsv1.1, tlsv1]`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[atom()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[tlsv1.3, tlsv1.2, tlsv1.1, tlsv1]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ciphers</h4>
 
-  All TLS/DTLS versions to be supported.<br/>
-  NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
-  In case PSK cipher suites are intended, make sure to configure
-  <code>['tlsv1.2', 'tlsv1.1']</code> here.
+This config holds TLS cipher suite names separated by comma,
+or as an array of strings. e.g.
+<code>"TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256"</code> or
+<code>["TLS_AES_256_GCM_SHA384","TLS_AES_128_GCM_SHA256"]</code>.
+<br/>
+Ciphers (and their ordering) define the way in which the
+client and server encrypts information over the network connection.
+Selecting a good cipher suite is critical for the
+application's data security, confidentiality and performance.
 
-- ciphers: <code>[string()]</code>
-  * default: 
-  `[]`
+The names should be in OpenSSL string format (not RFC format).
+All default values and examples provided by EMQX config
+documentation are all in OpenSSL format.<br/>
 
-  This config holds TLS cipher suite names separated by comma,
-  or as an array of strings. e.g.
-  <code>"TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256"</code> or
-  <code>["TLS_AES_256_GCM_SHA384","TLS_AES_128_GCM_SHA256"]</code>.
-  <br/>
-  Ciphers (and their ordering) define the way in which the
-  client and server encrypts information over the network connection.
-  Selecting a good cipher suite is critical for the
-  application's data security, confidentiality and performance.
-  The names should be in OpenSSL string format (not RFC format).
-  All default values and examples provided by EMQX config
-  documentation are all in OpenSSL format.<br/>
-  NOTE: Certain cipher suites are only compatible with
-  specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
-  incompatible cipher suites will be silently dropped.
-  For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
-  configuring cipher suites for other versions will have no effect.
-  <br/>
-  NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
-  If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
-  PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
-  RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
-  RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
-  RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
+NOTE: Certain cipher suites are only compatible with
+specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
+incompatible cipher suites will be silently dropped.
+For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
+configuring cipher suites for other versions will have no effect.
+<br/>
 
-- user_lookup_fun: <code>string()</code>
-  * default: 
-  `"emqx_tls_psk:lookup"`
+NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
+If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
+PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
+RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
+RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
+RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
 
-  EMQX-internal callback that is used to lookup pre-shared key (PSK) identity. 
 
-- secure_renegotiate: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[string()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>user_lookup_fun</h4>
+EMQX-internal callback that is used to lookup pre-shared key (PSK) identity. 
 
-  SSL parameter renegotiation is a feature that allows a client and a server
-  to renegotiate the parameters of the SSL connection on the fly.
-  RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
-  you drop support for the insecure renegotiation, prone to MitM attacks.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"emqx_tls_psk:lookup"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>secure_renegotiate</h4>
 
-- dhfile: <code>string()</code>
-  Path to a file containing PEM-encoded Diffie-Hellman parameters
-  to be used by the server if a cipher suite using Diffie-Hellman
-  key exchange is negotiated. If not specified, default parameters
-  are used.<br/>
-  NOTE: The <code>dhfile</code> option is not supported by TLS 1.3.
+SSL parameter renegotiation is a feature that allows a client and a server
+to renegotiate the parameters of the SSL connection on the fly.
+RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
+you drop support for the insecure renegotiation, prone to MitM attacks.
 
-- honor_cipher_order: <code>boolean()</code>
-  * default: 
-  `true`
 
-  An important security setting, it forces the cipher to be set based
-   on the server-specified order instead of the client-specified order,
-   hence enforcing the (usually more properly configured) security
-   ordering of the server administrator.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>dhfile</h4>
 
-- client_renegotiation: <code>boolean()</code>
-  * default: 
-  `true`
+Path to a file containing PEM-encoded Diffie-Hellman parameters
+to be used by the server if a cipher suite using Diffie-Hellman
+key exchange is negotiated. If not specified, default parameters
+are used.<br/>
+NOTE: The <code>dhfile</code> option is not supported by TLS 1.3.
 
-  In protocols that support client-initiated renegotiation,
-  the cost of resources of such an operation is higher for the server than the client.
-  This can act as a vector for denial of service attacks.
-  The SSL application already takes measures to counter-act such attempts,
-  but client-initiated renegotiation can be strictly disabled by setting this option to false.
-  The default value is true. Note that disabling renegotiation can result in
-  long-lived connections becoming unusable due to limits on
-  the number of messages the underlying cipher suite can encipher.
 
-- handshake_timeout: <code>emqx_schema:duration()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>honor_cipher_order</h4>
 
-  Maximum time duration allowed for the handshake to complete
+An important security setting, it forces the cipher to be set based
+ on the server-specified order instead of the client-specified order,
+ hence enforcing the (usually more properly configured) security
+ ordering of the server administrator.
 
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>client_renegotiation</h4>
+
+In protocols that support client-initiated renegotiation,
+the cost of resources of such an operation is higher for the server than the client.
+This can act as a vector for denial of service attacks.
+The SSL application already takes measures to counter-act such attempts,
+but client-initiated renegotiation can be strictly disabled by setting this option to false.
+The default value is true. Note that disabling renegotiation can result in
+long-lived connections becoming unusable due to limits on
+the number of messages the underlying cipher suite can encipher.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>handshake_timeout</h4>
+
+Maximum time duration allowed for the handshake to complete
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## dashboard:listeners <a id='dashboard-listeners'></a>
 Configuration for the dashboard listener.
@@ -324,12 +496,27 @@ Configuration for the dashboard listener.
 
 **Fields**
 
-- http: <code>[dashboard:http](#dashboard-http)</code>
-  TCP listeners
+<ul class="field-list">
+<li>
+<h4>http</h4>
+TCP listeners
 
-- https: <code>[dashboard:https](#dashboard-https)</code>
-  SSL listeners
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="dashboard-http">dashboard:http</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>https</h4>
+SSL listeners
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="dashboard-https">dashboard:https</a></code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## exhook <a id='exhook'></a>
 External hook (exhook) configuration.
@@ -341,12 +528,18 @@ External hook (exhook) configuration.
 
 **Fields**
 
-- servers: <code>[[exhook:server](#exhook-server)]</code>
-  * default: 
-  `[]`
+<ul class="field-list">
+<li>
+<h4>servers</h4>
+List of exhook servers
 
-  List of exhook servers
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[<a href="exhook-server">exhook:server</a>]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
 
+</ul>
 
 ## exhook:server <a id='exhook-server'></a>
 gRPC server configuration.
@@ -358,52 +551,91 @@ gRPC server configuration.
 
 **Fields**
 
-- name: <code>binary()</code>
-  Name of the exhook server
+<ul class="field-list">
+<li>
+<h4>name</h4>
+Name of the exhook server
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Enable this Exhook server
 
-  Enable this Exhook server
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>url</h4>
+URL of the gRPC server
 
-- url: <code>binary()</code>
-  URL of the gRPC server
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request_timeout</h4>
+The timeout of request gRPC server
 
-- request_timeout: <code>emqx_schema:duration()</code>
-  * default: 
-  `"5s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"5s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>failed_action</h4>
+The value that is returned when the request to the gRPC server fails for any reason
 
-  The timeout of request gRPC server
-
-- failed_action: <code>deny | ignore</code>
-  * default: 
-  `deny`
-
-  The value that is returned when the request to the gRPC server fails for any reason
-
-- ssl: <code>[exhook:ssl_conf](#exhook-ssl_conf)</code>
-
-
-- socket_options: <code>[exhook:socket_options](#exhook-socket_options)</code>
-  * default: 
-  `{keepalive = true, nodelay = true}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>deny | ignore</code></td></tr><tr><td><strong>Default</strong></td><td><code>deny</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
 
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="exhook-ssl_conf">exhook:ssl_conf</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>socket_options</h4>
 
-- auto_reconnect: <code>false | emqx_schema:duration()</code>
-  * default: 
-  `"60s"`
 
-  Whether to automatically reconnect (initialize) the gRPC server.
-  When gRPC is not available, Exhook tries to request the gRPC service at that interval and reinitialize the list of mounted hooks.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="exhook-socket_options">exhook:socket_options</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{keepalive = true, nodelay = true}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_reconnect</h4>
+Whether to automatically reconnect (initialize) the gRPC server.
+When gRPC is not available, Exhook tries to request the gRPC service at that interval and reinitialize the list of mounted hooks.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>false | emqx_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"60s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+The process pool size for gRPC client
 
-  The process pool size for gRPC client
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
 
+</ul>
 
 ## exhook:socket_options <a id='exhook-socket_options'></a>
 Connection socket options
@@ -415,26 +647,47 @@ Connection socket options
 
 **Fields**
 
-- keepalive: <code>boolean()</code>
-  * default: 
-  `true`
+<ul class="field-list">
+<li>
+<h4>keepalive</h4>
+Enables/disables periodic transmission on a connected socket when no other data is exchanged.
+If the other end does not respond, the connection is considered broken and an error message is sent to the controlling process.
 
-  Enables/disables periodic transmission on a connected socket when no other data is exchanged.
-  If the other end does not respond, the connection is considered broken and an error message is sent to the controlling process.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>nodelay</h4>
+If true, option TCP_NODELAY is turned on for the socket,
+which means that also small amounts of data are sent immediately
 
-- nodelay: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>recbuf</h4>
+The minimum size of receive buffer to use for the socket
 
-  If true, option TCP_NODELAY is turned on for the socket,
-  which means that also small amounts of data are sent immediately
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:bytesize()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>sndbuf</h4>
+The minimum size of send buffer to use for the socket
 
-- recbuf: <code>emqx_schema:bytesize()</code>
-  The minimum size of receive buffer to use for the socket
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:bytesize()</code></td></tr></tbody>
+</table>
+</li>
 
-- sndbuf: <code>emqx_schema:bytesize()</code>
-  The minimum size of send buffer to use for the socket
-
+</ul>
 
 ## exhook:ssl_conf <a id='exhook-ssl_conf'></a>
 SSL client configuration.
@@ -446,117 +699,190 @@ SSL client configuration.
 
 **Fields**
 
-- cacertfile: <code>binary()</code>
-  Trusted PEM format CA certificates bundle file.<br/>
-  The certificates in this file are used to verify the TLS peer's certificates.
-  Append new certificates to the file if new CAs are to be trusted.
-  There is no need to restart EMQX to have the updated file loaded, because
-  the system regularly checks if file has been updated (and reload).<br/>
-  NOTE: invalidating (deleting) a certificate from the file will not affect
-  already established connections.
+<ul class="field-list">
+<li>
+<h4>cacertfile</h4>
 
-- certfile: <code>binary()</code>
-  PEM format certificates chain file.<br/>
-  The certificates in this file should be in reversed order of the certificate
-  issue chain. That is, the host's certificate should be placed in the beginning
-  of the file, followed by the immediate issuer certificate and so on.
-  Although the root CA certificate is optional, it should be placed at the end of
-  the file if it is to be added.
+Trusted PEM format CA certificates bundle file.<br/>
+The certificates in this file are used to verify the TLS peer's certificates.
+Append new certificates to the file if new CAs are to be trusted.
+There is no need to restart EMQX to have the updated file loaded, because
+the system regularly checks if file has been updated (and reload).<br/>
+NOTE: invalidating (deleting) a certificate from the file will not affect
+already established connections.
 
-- keyfile: <code>binary()</code>
-  PEM format private key file. 
 
-- verify: <code>verify_peer | verify_none</code>
-  * default: 
-  `verify_none`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>certfile</h4>
 
-  Enable or disable peer verification. 
+PEM format certificates chain file.<br/>
+The certificates in this file should be in reversed order of the certificate
+issue chain. That is, the host's certificate should be placed in the beginning
+of the file, followed by the immediate issuer certificate and so on.
+Although the root CA certificate is optional, it should be placed at the end of
+the file if it is to be added.
 
-- reuse_sessions: <code>boolean()</code>
-  * default: 
-  `true`
 
-  Enable TLS session reuse. 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>keyfile</h4>
+PEM format private key file. 
 
-- depth: <code>integer()</code>
-  * default: 
-  `10`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>verify</h4>
+Enable or disable peer verification. 
 
-  Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
-  So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
-  if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
-  if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>verify_peer | verify_none</code></td></tr><tr><td><strong>Default</strong></td><td><code>verify_none</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>reuse_sessions</h4>
+Enable TLS session reuse. 
 
-- password: <code>string()</code>
-  String containing the user's password.
-  Only used if the private key file is password-protected.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>depth</h4>
 
-- versions: <code>[atom()]</code>
-  * default: 
-  `[tlsv1.3, tlsv1.2, tlsv1.1, tlsv1]`
+Maximum number of non-self-issued intermediate certificates that can follow the peer certificate in a valid certification path.
+So, if depth is 0 the PEER must be signed by the trusted ROOT-CA directly;<br/>
+if 1 the path can be PEER, Intermediate-CA, ROOT-CA;<br/>
+if 2 the path can be PEER, Intermediate-CA1, Intermediate-CA2, ROOT-CA.<br/>
 
-  All TLS/DTLS versions to be supported.<br/>
-  NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
-  In case PSK cipher suites are intended, make sure to configure
-  <code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-- ciphers: <code>[string()]</code>
-  * default: 
-  `[]`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>10</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
 
-  This config holds TLS cipher suite names separated by comma,
-  or as an array of strings. e.g.
-  <code>"TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256"</code> or
-  <code>["TLS_AES_256_GCM_SHA384","TLS_AES_128_GCM_SHA256"]</code>.
-  <br/>
-  Ciphers (and their ordering) define the way in which the
-  client and server encrypts information over the network connection.
-  Selecting a good cipher suite is critical for the
-  application's data security, confidentiality and performance.
-  The names should be in OpenSSL string format (not RFC format).
-  All default values and examples provided by EMQX config
-  documentation are all in OpenSSL format.<br/>
-  NOTE: Certain cipher suites are only compatible with
-  specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
-  incompatible cipher suites will be silently dropped.
-  For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
-  configuring cipher suites for other versions will have no effect.
-  <br/>
-  NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
-  If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
-  PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
-  RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
-  RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
-  RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
+String containing the user's password.
+Only used if the private key file is password-protected.
 
-- secure_renegotiate: <code>boolean()</code>
-  * default: 
-  `true`
 
-  SSL parameter renegotiation is a feature that allows a client and a server
-  to renegotiate the parameters of the SSL connection on the fly.
-  RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
-  you drop support for the insecure renegotiation, prone to MitM attacks.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>versions</h4>
 
-- enable: <code>boolean()</code>
-  * default: 
-  `false`
+All TLS/DTLS versions to be supported.<br/>
+NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config.<br/>
+In case PSK cipher suites are intended, make sure to configure
+<code>['tlsv1.2', 'tlsv1.1']</code> here.
 
-  Enable TLS. 
 
-- server_name_indication: <code>disable | string()</code>
-  Specify the host name to be used in TLS Server Name Indication extension.<br/>
-  For instance, when connecting to "server.example.net", the genuine server
-  which accepts the connection and performs TLS handshake may differ from the
-  host the TLS client initially connects to, e.g. when connecting to an IP address
-  or when the host has multiple resolvable DNS records <br/>
-  If not specified, it will default to the host name string which is used
-  to establish the connection, unless it is IP addressed used.<br/>
-  The host name is then also used in the host name verification of the peer
-  certificate.<br/> The special value 'disable' prevents the Server Name
-  Indication extension from being sent and disables the hostname
-  verification check.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[atom()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[tlsv1.3, tlsv1.2, tlsv1.1, tlsv1]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ciphers</h4>
 
+This config holds TLS cipher suite names separated by comma,
+or as an array of strings. e.g.
+<code>"TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256"</code> or
+<code>["TLS_AES_256_GCM_SHA384","TLS_AES_128_GCM_SHA256"]</code>.
+<br/>
+Ciphers (and their ordering) define the way in which the
+client and server encrypts information over the network connection.
+Selecting a good cipher suite is critical for the
+application's data security, confidentiality and performance.
+
+The names should be in OpenSSL string format (not RFC format).
+All default values and examples provided by EMQX config
+documentation are all in OpenSSL format.<br/>
+
+NOTE: Certain cipher suites are only compatible with
+specific TLS <code>versions</code> ('tlsv1.1', 'tlsv1.2' or 'tlsv1.3')
+incompatible cipher suites will be silently dropped.
+For instance, if only 'tlsv1.3' is given in the <code>versions</code>,
+configuring cipher suites for other versions will have no effect.
+<br/>
+
+NOTE: PSK ciphers are suppressed by 'tlsv1.3' version config<br/>
+If PSK cipher suites are intended, 'tlsv1.3' should be disabled from <code>versions</code>.<br/>
+PSK cipher suites: <code>"RSA-PSK-AES256-GCM-SHA384,RSA-PSK-AES256-CBC-SHA384,
+RSA-PSK-AES128-GCM-SHA256,RSA-PSK-AES128-CBC-SHA256,
+RSA-PSK-AES256-CBC-SHA,RSA-PSK-AES128-CBC-SHA,
+RSA-PSK-DES-CBC3-SHA,RSA-PSK-RC4-SHA"</code><br/>
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[string()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>secure_renegotiate</h4>
+
+SSL parameter renegotiation is a feature that allows a client and a server
+to renegotiate the parameters of the SSL connection on the fly.
+RFC 5746 defines a more secure way of doing this. By enabling secure renegotiation,
+you drop support for the insecure renegotiation, prone to MitM attacks.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Enable TLS. 
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server_name_indication</h4>
+
+Specify the host name to be used in TLS Server Name Indication extension.<br/>
+For instance, when connecting to "server.example.net", the genuine server
+which accepts the connection and performs TLS handshake may differ from the
+host the TLS client initially connects to, e.g. when connecting to an IP address
+or when the host has multiple resolvable DNS records <br/>
+If not specified, it will default to the host name string which is used
+to establish the connection, unless it is IP addressed used.<br/>
+The host name is then also used in the host name verification of the peer
+certificate.<br/> The special value 'disable' prevents the Server Name
+Indication extension from being sent and disables the hostname
+verification check.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>disable | string()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## limiter:bucket_opts <a id='limiter-bucket_opts'></a>
 Settings for the bucket.
@@ -587,24 +913,36 @@ Settings for the bucket.
 
 **Fields**
 
-- rate: <code>emqx_limiter_schema:rate()</code>
-  * default: 
-  `"infinity"`
+<ul class="field-list">
+<li>
+<h4>rate</h4>
+Rate for this bucket.
 
-  Rate for this bucket.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:rate()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"infinity"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>capacity</h4>
+The capacity of this token bucket.
 
-- capacity: <code>emqx_limiter_schema:capacity()</code>
-  * default: 
-  `"infinity"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:capacity()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"infinity"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>initial</h4>
+The initial number of tokens for this bucket.
 
-  The capacity of this token bucket.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:initial()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"0"</code></td></tr></tbody>
+</table>
+</li>
 
-- initial: <code>emqx_limiter_schema:initial()</code>
-  * default: 
-  `"0"`
-
-  The initial number of tokens for this bucket.
-
+</ul>
 
 ## limiter:client_fields <a id='limiter-client_fields'></a>
 Fields of the client level.
@@ -616,44 +954,62 @@ Fields of the client level.
 
 **Fields**
 
-- bytes_in: <code>[limiter:client_opts](#limiter-client_opts)</code>
-  * default: 
-  `{}`
+<ul class="field-list">
+<li>
+<h4>bytes_in</h4>
+The bytes_in limiter.
+This is used to limit the inbound bytes rate for this EMQX node.
+Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
-  The bytes_in limiter.
-  This is used to limit the inbound bytes rate for this EMQX node.
-  Once the limit is reached, the restricted client will be slow down even be hung for a while.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-client_opts">limiter:client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>message_in</h4>
+The message in limiter.
+This is used to limit the inbound message numbers for this EMQX node
+Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
-- message_in: <code>[limiter:client_opts](#limiter-client_opts)</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-client_opts">limiter:client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>connection</h4>
+The connection limiter.
+This is used to limit the connection rate for this EMQX node.
+Once the limit is reached, new connections will be refused
 
-  The message in limiter.
-  This is used to limit the inbound message numbers for this EMQX node
-  Once the limit is reached, the restricted client will be slow down even be hung for a while.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-client_opts">limiter:client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>message_routing</h4>
+The message routing limiter.
+This is used to limit the forwarding rate for this EMQX node.
+Once the limit is reached, new publish will be refused
 
-- connection: <code>[limiter:client_opts](#limiter-client_opts)</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-client_opts">limiter:client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>internal</h4>
+Limiter for EMQX internal app.
 
-  The connection limiter.
-  This is used to limit the connection rate for this EMQX node.
-  Once the limit is reached, new connections will be refused
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-client_opts">limiter:client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
 
-- message_routing: <code>[limiter:client_opts](#limiter-client_opts)</code>
-  * default: 
-  `{}`
-
-  The message routing limiter.
-  This is used to limit the forwarding rate for this EMQX node.
-  Once the limit is reached, new publish will be refused
-
-- internal: <code>[limiter:client_opts](#limiter-client_opts)</code>
-  * default: 
-  `{}`
-
-  Limiter for EMQX internal app.
-
+</ul>
 
 ## limiter:client_opts <a id='limiter-client_opts'></a>
 Settings for the client in bucket level.
@@ -690,49 +1046,73 @@ Settings for the client in bucket level.
 
 **Fields**
 
-- rate: <code>emqx_limiter_schema:rate()</code>
-  * default: 
-  `"infinity"`
+<ul class="field-list">
+<li>
+<h4>rate</h4>
+Rate for this bucket.
 
-  Rate for this bucket.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:rate()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"infinity"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>initial</h4>
+The initial number of tokens for this bucket.
 
-- initial: <code>emqx_limiter_schema:initial()</code>
-  * default: 
-  `"0"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:initial()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"0"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>low_watermark</h4>
+If the remaining tokens are lower than this value,
+the check/consume will succeed, but it will be forced to wait for a short period of time.
 
-  The initial number of tokens for this bucket.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:initial()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"0"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>capacity</h4>
+The capacity of per user.
 
-- low_watermark: <code>emqx_limiter_schema:initial()</code>
-  * default: 
-  `"0"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:capacity()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"infinity"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>divisible</h4>
+Is it possible to split the number of requested tokens?
 
-  If the remaining tokens are lower than this value,
-  the check/consume will succeed, but it will be forced to wait for a short period of time.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_retry_time</h4>
+The maximum retry time when acquire failed.
 
-- capacity: <code>emqx_limiter_schema:capacity()</code>
-  * default: 
-  `"infinity"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"10s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>failure_strategy</h4>
+The strategy when all the retries failed.
 
-  The capacity of per user.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:failure_strategy()</code></td></tr><tr><td><strong>Default</strong></td><td><code>force</code></td></tr></tbody>
+</table>
+</li>
 
-- divisible: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Is it possible to split the number of requested tokens?
-
-- max_retry_time: <code>emqx_schema:duration()</code>
-  * default: 
-  `"10s"`
-
-  The maximum retry time when acquire failed.
-
-- failure_strategy: <code>emqx_limiter_schema:failure_strategy()</code>
-  * default: 
-  `force`
-
-  The strategy when all the retries failed.
-
+</ul>
 
 ## limiter:internal <a id='limiter-internal'></a>
 Internal limiter.
@@ -744,27 +1124,45 @@ Internal limiter.
 
 **Fields**
 
-- rate: <code>emqx_limiter_schema:rate()</code>
-  * default: 
-  `"infinity"`
+<ul class="field-list">
+<li>
+<h4>rate</h4>
+Rate for this bucket.
 
-  Rate for this bucket.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:rate()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"infinity"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>capacity</h4>
+The capacity of this token bucket.
 
-- capacity: <code>emqx_limiter_schema:capacity()</code>
-  * default: 
-  `"infinity"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:capacity()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"infinity"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>initial</h4>
+The initial number of tokens for this bucket.
 
-  The capacity of this token bucket.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:initial()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"0"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>client</h4>
+The rate limit for each user of the bucket
 
-- initial: <code>emqx_limiter_schema:initial()</code>
-  * default: 
-  `"0"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-client_opts">limiter:client_opts</a></code></td></tr></tbody>
+</table>
+</li>
 
-  The initial number of tokens for this bucket.
-
-- client: <code>[limiter:client_opts](#limiter-client_opts)</code>
-  The rate limit for each user of the bucket
-
+</ul>
 
 ## limiter <a id='limiter'></a>
 Settings for the rate limiter.
@@ -776,58 +1174,78 @@ Settings for the rate limiter.
 
 **Fields**
 
-- bytes_in: <code>[limiter:node_opts](#limiter-node_opts)</code>
-  * default: 
-  `{}`
+<ul class="field-list">
+<li>
+<h4>bytes_in</h4>
+The bytes_in limiter.
+This is used to limit the inbound bytes rate for this EMQX node.
+Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
-  The bytes_in limiter.
-  This is used to limit the inbound bytes rate for this EMQX node.
-  Once the limit is reached, the restricted client will be slow down even be hung for a while.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-node_opts">limiter:node_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>message_in</h4>
+The message in limiter.
+This is used to limit the inbound message numbers for this EMQX node
+Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
-- message_in: <code>[limiter:node_opts](#limiter-node_opts)</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-node_opts">limiter:node_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>connection</h4>
+The connection limiter.
+This is used to limit the connection rate for this EMQX node.
+Once the limit is reached, new connections will be refused
 
-  The message in limiter.
-  This is used to limit the inbound message numbers for this EMQX node
-  Once the limit is reached, the restricted client will be slow down even be hung for a while.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-node_opts">limiter:node_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>message_routing</h4>
+The message routing limiter.
+This is used to limit the forwarding rate for this EMQX node.
+Once the limit is reached, new publish will be refused
 
-- connection: <code>[limiter:node_opts](#limiter-node_opts)</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-node_opts">limiter:node_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>internal</h4>
+Limiter for EMQX internal app.
 
-  The connection limiter.
-  This is used to limit the connection rate for this EMQX node.
-  Once the limit is reached, new connections will be refused
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-node_opts">limiter:node_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>client</h4>
+The rate limit for each user of the bucket
 
-- message_routing: <code>[limiter:node_opts](#limiter-node_opts)</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-client_fields">limiter:client_fields</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{
+  bytes_in {}
+  connection {}
+  internal {}
+  message_in {}
+  message_routing {}
+}
+</code></td></tr></tbody>
+</table>
+</li>
 
-  The message routing limiter.
-  This is used to limit the forwarding rate for this EMQX node.
-  Once the limit is reached, new publish will be refused
-
-- internal: <code>[limiter:node_opts](#limiter-node_opts)</code>
-  * default: 
-  `{}`
-
-  Limiter for EMQX internal app.
-
-- client: <code>[limiter:client_fields](#limiter-client_fields)</code>
-  * default: 
-  ```
-  {
-    bytes_in {}
-    connection {}
-    internal {}
-    message_in {}
-    message_routing {}
-  }
-  ```
-
-  The rate limit for each user of the bucket
-
+</ul>
 
 ## limiter:listener_client_fields <a id='limiter-listener_client_fields'></a>
 Fields of the client level of the listener.
@@ -843,26 +1261,53 @@ Fields of the client level of the listener.
 
 **Fields**
 
-- bytes_in: <code>[limiter:client_opts](#limiter-client_opts)</code>
-  The bytes_in limiter.
-  This is used to limit the inbound bytes rate for this EMQX node.
-  Once the limit is reached, the restricted client will be slow down even be hung for a while.
+<ul class="field-list">
+<li>
+<h4>bytes_in</h4>
+The bytes_in limiter.
+This is used to limit the inbound bytes rate for this EMQX node.
+Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
-- message_in: <code>[limiter:client_opts](#limiter-client_opts)</code>
-  The message in limiter.
-  This is used to limit the inbound message numbers for this EMQX node
-  Once the limit is reached, the restricted client will be slow down even be hung for a while.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-client_opts">limiter:client_opts</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>message_in</h4>
+The message in limiter.
+This is used to limit the inbound message numbers for this EMQX node
+Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
-- connection: <code>[limiter:client_opts](#limiter-client_opts)</code>
-  The connection limiter.
-  This is used to limit the connection rate for this EMQX node.
-  Once the limit is reached, new connections will be refused
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-client_opts">limiter:client_opts</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>connection</h4>
+The connection limiter.
+This is used to limit the connection rate for this EMQX node.
+Once the limit is reached, new connections will be refused
 
-- message_routing: <code>[limiter:client_opts](#limiter-client_opts)</code>
-  The message routing limiter.
-  This is used to limit the forwarding rate for this EMQX node.
-  Once the limit is reached, new publish will be refused
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-client_opts">limiter:client_opts</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>message_routing</h4>
+The message routing limiter.
+This is used to limit the forwarding rate for this EMQX node.
+Once the limit is reached, new publish will be refused
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-client_opts">limiter:client_opts</a></code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## limiter:listener_fields <a id='limiter-listener_fields'></a>
 Fields of the listener.
@@ -878,29 +1323,62 @@ Fields of the listener.
 
 **Fields**
 
-- bytes_in: <code>[limiter:bucket_opts](#limiter-bucket_opts)</code>
-  The bytes_in limiter.
-  This is used to limit the inbound bytes rate for this EMQX node.
-  Once the limit is reached, the restricted client will be slow down even be hung for a while.
+<ul class="field-list">
+<li>
+<h4>bytes_in</h4>
+The bytes_in limiter.
+This is used to limit the inbound bytes rate for this EMQX node.
+Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
-- message_in: <code>[limiter:bucket_opts](#limiter-bucket_opts)</code>
-  The message in limiter.
-  This is used to limit the inbound message numbers for this EMQX node
-  Once the limit is reached, the restricted client will be slow down even be hung for a while.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-bucket_opts">limiter:bucket_opts</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>message_in</h4>
+The message in limiter.
+This is used to limit the inbound message numbers for this EMQX node
+Once the limit is reached, the restricted client will be slow down even be hung for a while.
 
-- connection: <code>[limiter:bucket_opts](#limiter-bucket_opts)</code>
-  The connection limiter.
-  This is used to limit the connection rate for this EMQX node.
-  Once the limit is reached, new connections will be refused
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-bucket_opts">limiter:bucket_opts</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>connection</h4>
+The connection limiter.
+This is used to limit the connection rate for this EMQX node.
+Once the limit is reached, new connections will be refused
 
-- message_routing: <code>[limiter:bucket_opts](#limiter-bucket_opts)</code>
-  The message routing limiter.
-  This is used to limit the forwarding rate for this EMQX node.
-  Once the limit is reached, new publish will be refused
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-bucket_opts">limiter:bucket_opts</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>message_routing</h4>
+The message routing limiter.
+This is used to limit the forwarding rate for this EMQX node.
+Once the limit is reached, new publish will be refused
 
-- client: <code>[limiter:listener_client_fields](#limiter-listener_client_fields)</code>
-  The rate limit for each user of the bucket
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-bucket_opts">limiter:bucket_opts</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>client</h4>
+The rate limit for each user of the bucket
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-listener_client_fields">limiter:listener_client_fields</a></code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## limiter:node_opts <a id='limiter-node_opts'></a>
 Settings for the limiter of the node level.
@@ -916,19 +1394,28 @@ Settings for the limiter of the node level.
 
 **Fields**
 
-- rate: <code>emqx_limiter_schema:rate()</code>
-  * default: 
-  `"infinity"`
+<ul class="field-list">
+<li>
+<h4>rate</h4>
+Rate for this bucket.
 
-  Rate for this bucket.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:rate()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"infinity"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>burst</h4>
+The burst, This value is based on rate.<br/>
+ This value + rate = the maximum limit that can be achieved when limiter burst.
 
-- burst: <code>emqx_limiter_schema:burst_rate()</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_limiter_schema:burst_rate()</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
 
-  The burst, This value is based on rate.<br/>
-   This value + rate = the maximum limit that can be achieved when limiter burst.
-
+</ul>
 
 ## modules:delayed <a id='modules-delayed'></a>
 Settings for the delayed module.
@@ -940,18 +1427,27 @@ Settings for the delayed module.
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Enable this feature
 
-  Enable this feature
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_delayed_messages</h4>
+Maximum number of delayed messages (0 is no limit).
 
-- max_delayed_messages: <code>integer()</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
 
-  Maximum number of delayed messages (0 is no limit).
-
+</ul>
 
 ## modules:rewrite <a id='modules-rewrite'></a>
 The topic rewriting function of EMQX supports rewriting topic A to topic B when the client subscribes to topics, publishes messages, and cancels subscriptions according to user-configured rules.
@@ -973,21 +1469,48 @@ Therefore, users need to carefully design MQTT message topics and topic rewritin
 
 **Fields**
 
-- action: <code>subscribe | publish | all</code>
-  Topic rewriting takes effect on the type of operation:
-    - `subscribe`: Rewrite topic when client do subscribe.
-    - `publish`: Rewrite topic when client do publish.
-    - `all`: Both
+<ul class="field-list">
+<li>
+<h4>action</h4>
+Topic rewriting takes effect on the type of operation:
+  - `subscribe`: Rewrite topic when client do subscribe.
+  - `publish`: Rewrite topic when client do publish.
+  - `all`: Both
 
-- source_topic: <code>binary()</code>
-  Source topic, specified by the client.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>subscribe | publish | all</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>source_topic</h4>
+Source topic, specified by the client.
 
-- dest_topic: <code>binary()</code>
-  Destination topic.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>dest_topic</h4>
+Destination topic.
 
-- re: <code>binary()</code>
-  Regular expressions
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>re</h4>
+Regular expressions
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## modules:telemetry <a id='modules-telemetry'></a>
 Settings for the telemetry module.
@@ -999,12 +1522,18 @@ Settings for the telemetry module.
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Enable telemetry.
 
-  Enable telemetry.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
 
+</ul>
 
 ## modules:topic_metrics <a id='modules-topic_metrics'></a>
 
@@ -1016,9 +1545,18 @@ Settings for the telemetry module.
 
 **Fields**
 
-- topic: <code>binary()</code>
-  Collect metrics for the topic.
+<ul class="field-list">
+<li>
+<h4>topic</h4>
+Collect metrics for the topic.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## topology <a id='topology'></a>
 Topology of MongoDB.
@@ -1052,45 +1590,108 @@ Topology of MongoDB.
 
 **Fields**
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<ul class="field-list">
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_overflow</h4>
+Max Overflow.
 
-- max_overflow: <code>non_neg_integer()</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>overflow_ttl</h4>
+Time interval, such as timeout or TTL.
 
-  Max Overflow.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>overflow_check_period</h4>
+Time interval, such as timeout or TTL.
 
-- overflow_ttl: <code>emqx_schema:duration_ms()</code>
-  Time interval, such as timeout or TTL.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>local_threshold_ms</h4>
+Time interval, such as timeout or TTL.
 
-- overflow_check_period: <code>emqx_schema:duration_ms()</code>
-  Time interval, such as timeout or TTL.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>connect_timeout_ms</h4>
+Time interval, such as timeout or TTL.
 
-- local_threshold_ms: <code>emqx_schema:duration_ms()</code>
-  Time interval, such as timeout or TTL.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>socket_timeout_ms</h4>
+Time interval, such as timeout or TTL.
 
-- connect_timeout_ms: <code>emqx_schema:duration_ms()</code>
-  Time interval, such as timeout or TTL.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server_selection_timeout_ms</h4>
+Time interval, such as timeout or TTL.
 
-- socket_timeout_ms: <code>emqx_schema:duration_ms()</code>
-  Time interval, such as timeout or TTL.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>wait_queue_timeout_ms</h4>
+Time interval, such as timeout or TTL.
 
-- server_selection_timeout_ms: <code>emqx_schema:duration_ms()</code>
-  Time interval, such as timeout or TTL.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>heartbeat_frequency_ms</h4>
+Time interval, such as timeout or TTL.
 
-- wait_queue_timeout_ms: <code>emqx_schema:duration_ms()</code>
-  Time interval, such as timeout or TTL.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>min_heartbeat_frequency_ms</h4>
+Time interval, such as timeout or TTL.
 
-- heartbeat_frequency_ms: <code>emqx_schema:duration_ms()</code>
-  Time interval, such as timeout or TTL.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr></tbody>
+</table>
+</li>
 
-- min_heartbeat_frequency_ms: <code>emqx_schema:duration_ms()</code>
-  Time interval, such as timeout or TTL.
-
+</ul>
 
 ## zone:conn_congestion <a id='zone-conn_congestion'></a>
 Settings for `conn_congestion` alarm.
@@ -1115,12 +1716,27 @@ and `<Username>` is the username or `unknown_user`.
 
 **Fields**
 
-- enable_alarm: <code>boolean()</code>
-  Enable or disable connection congestion alarm.
+<ul class="field-list">
+<li>
+<h4>enable_alarm</h4>
+Enable or disable connection congestion alarm.
 
-- min_alarm_sustain_duration: <code>emqx_schema:duration()</code>
-  Minimal time before clearing the alarm.<br/>The alarm is cleared only when there's no pending data in<br/>the queue, and at least <code>min_alarm_sustain_duration</code>milliseconds passed since the last time we considered the connection 'congested'.<br/>This is to avoid clearing and raising the alarm again too often.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>min_alarm_sustain_duration</h4>
+Minimal time before clearing the alarm.<br/>The alarm is cleared only when there's no pending data in<br/>the queue, and at least <code>min_alarm_sustain_duration</code>milliseconds passed since the last time we considered the connection 'congested'.<br/>This is to avoid clearing and raising the alarm again too often.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## zone:flapping_detect <a id='zone-flapping_detect'></a>
 This config controls the allowed maximum number of `CONNECT` packets received
@@ -1135,18 +1751,45 @@ After the limit is reached, successive `CONNECT` requests are forbidden
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  Enable flapping connection detection feature.
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Enable flapping connection detection feature.
 
-- max_count: <code>integer()</code>
-  The maximum number of disconnects allowed for a MQTT Client in `window_time`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_count</h4>
+The maximum number of disconnects allowed for a MQTT Client in `window_time`
 
-- window_time: <code>emqx_schema:duration()</code>
-  The time window for flapping detection.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>window_time</h4>
+The time window for flapping detection.
 
-- ban_time: <code>emqx_schema:duration()</code>
-  How long the flapping clientid will be banned.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ban_time</h4>
+How long the flapping clientid will be banned.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## zone:force_gc <a id='zone-force_gc'></a>
 Force garbage collection in MQTT connection process after
@@ -1159,15 +1802,36 @@ Force garbage collection in MQTT connection process after
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  Enable forced garbage collection.
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Enable forced garbage collection.
 
-- count: <code>0..inf</code>
-  GC the process after this many received messages.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>count</h4>
+GC the process after this many received messages.
 
-- bytes: <code>emqx_schema:bytesize()</code>
-  GC the process after specified number of bytes have passed through.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>0..inf</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>bytes</h4>
+GC the process after specified number of bytes have passed through.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:bytesize()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## zone:force_shutdown <a id='zone-force_shutdown'></a>
 When the process message queue length, or the memory bytes
@@ -1183,15 +1847,36 @@ of the Erlang process, not the `mqueue` of QoS 1 and QoS 2.
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  Enable `force_shutdown` feature.
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Enable `force_shutdown` feature.
 
-- max_message_queue_len: <code>0..inf</code>
-  Maximum message queue length.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_message_queue_len</h4>
+Maximum message queue length.
 
-- max_heap_size: <code>emqx_schema:wordsize()</code>
-  Total heap size
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>0..inf</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_heap_size</h4>
+Total heap size
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:wordsize()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## zone:mqtt <a id='zone-mqtt'></a>
 Global MQTT configuration.<br/>The configs here work as default values which can be overridden
@@ -1204,113 +1889,296 @@ in <code>zone</code> configs
 
 **Fields**
 
-- idle_timeout: <code>infinity | emqx_schema:duration()</code>
-  After the TCP connection is established, if the MQTT CONNECT packet from the client is not received within the time specified by <code>idle_timeout</code>, the connection will be disconnected.
+<ul class="field-list">
+<li>
+<h4>idle_timeout</h4>
+After the TCP connection is established, if the MQTT CONNECT packet from the client is not received within the time specified by <code>idle_timeout</code>, the connection will be disconnected.
 
-- max_packet_size: <code>emqx_schema:bytesize()</code>
-  Maximum MQTT packet size allowed.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>infinity | emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_packet_size</h4>
+Maximum MQTT packet size allowed.
 
-- max_clientid_len: <code>23..65535</code>
-  Maximum allowed length of MQTT Client ID.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:bytesize()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_clientid_len</h4>
+Maximum allowed length of MQTT Client ID.
 
-- max_topic_levels: <code>1..65535</code>
-  Maximum topic levels allowed.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>23..65535</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_topic_levels</h4>
+Maximum topic levels allowed.
 
-- max_qos_allowed: <code>qos()</code>
-  Maximum QoS allowed.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>1..65535</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_qos_allowed</h4>
+Maximum QoS allowed.
 
-- max_topic_alias: <code>0..65535</code>
-  Maximum topic alias, 0 means no topic alias supported.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>qos()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_topic_alias</h4>
+Maximum topic alias, 0 means no topic alias supported.
 
-- retain_available: <code>boolean()</code>
-  Whether to enable support for MQTT retained message.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>0..65535</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>retain_available</h4>
+Whether to enable support for MQTT retained message.
 
-- wildcard_subscription: <code>boolean()</code>
-  Whether to enable support for MQTT wildcard subscription.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>wildcard_subscription</h4>
+Whether to enable support for MQTT wildcard subscription.
 
-- shared_subscription: <code>boolean()</code>
-  Whether to enable support for MQTT shared subscription.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>shared_subscription</h4>
+Whether to enable support for MQTT shared subscription.
 
-- exclusive_subscription: <code>boolean()</code>
-  Whether to enable support for MQTT exclusive subscription.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>exclusive_subscription</h4>
+Whether to enable support for MQTT exclusive subscription.
 
-- ignore_loop_deliver: <code>boolean()</code>
-  Ignore loop delivery of messages for MQTT v3.1.1/v3.1.0, similar to <code>No Local</code> subscription option in MQTT 5.0.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ignore_loop_deliver</h4>
+Ignore loop delivery of messages for MQTT v3.1.1/v3.1.0, similar to <code>No Local</code> subscription option in MQTT 5.0.
 
-- strict_mode: <code>boolean()</code>
-  Parse MQTT messages in strict mode.
-  When set to true, invalid utf8 strings in for example client ID, topic name, etc. will cause the client to be disconnected
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>strict_mode</h4>
+Parse MQTT messages in strict mode.
+When set to true, invalid utf8 strings in for example client ID, topic name, etc. will cause the client to be disconnected
 
-- response_information: <code>string()</code>
-  Specify the response information returned to the client. This feature is disabled if is set to "". Applies only to clients using MQTT 5.0.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>response_information</h4>
+Specify the response information returned to the client. This feature is disabled if is set to "". Applies only to clients using MQTT 5.0.
 
-- server_keepalive: <code>integer() | disabled</code>
-  The keep alive that EMQX requires the client to use. If configured as <code>disabled</code>, it means that the keep alive specified by the client will be used. Requires <code>Server Keep Alive</code> in MQTT 5.0, so it is only applicable to clients using MQTT 5.0 protocol.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server_keepalive</h4>
+The keep alive that EMQX requires the client to use. If configured as <code>disabled</code>, it means that the keep alive specified by the client will be used. Requires <code>Server Keep Alive</code> in MQTT 5.0, so it is only applicable to clients using MQTT 5.0 protocol.
 
-- keepalive_backoff: <code>number()</code>
-  The backoff multiplier used by the broker to determine the client keep alive timeout. If EMQX doesn't receive any packet in <code>Keep Alive * Backoff * 2</code> seconds, EMQX will close the current connection.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer() | disabled</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>keepalive_backoff</h4>
+The backoff multiplier used by the broker to determine the client keep alive timeout. If EMQX doesn't receive any packet in <code>Keep Alive * Backoff * 2</code> seconds, EMQX will close the current connection.
 
-- max_subscriptions: <code>1..inf | infinity</code>
-  Maximum number of subscriptions allowed per client.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>number()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_subscriptions</h4>
+Maximum number of subscriptions allowed per client.
 
-- upgrade_qos: <code>boolean()</code>
-  Force upgrade of QoS level according to subscription.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>1..inf | infinity</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>upgrade_qos</h4>
+Force upgrade of QoS level according to subscription.
 
-- max_inflight: <code>1..65535</code>
-  Maximum number of QoS 1 and QoS 2 messages that are allowed to be delivered simultaneously before completing the acknowledgment.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_inflight</h4>
+Maximum number of QoS 1 and QoS 2 messages that are allowed to be delivered simultaneously before completing the acknowledgment.
 
-- retry_interval: <code>emqx_schema:duration()</code>
-  Retry interval for QoS 1/2 message delivering.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>1..65535</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>retry_interval</h4>
+Retry interval for QoS 1/2 message delivering.
 
-- max_awaiting_rel: <code>integer() | infinity</code>
-  For each publisher session, the maximum number of outstanding QoS 2 messages pending on the client to send PUBREL. After reaching this limit, new QoS 2 PUBLISH requests will be rejected with `147(0x93)` until either PUBREL is received or timed out.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_awaiting_rel</h4>
+For each publisher session, the maximum number of outstanding QoS 2 messages pending on the client to send PUBREL. After reaching this limit, new QoS 2 PUBLISH requests will be rejected with `147(0x93)` until either PUBREL is received or timed out.
 
-- await_rel_timeout: <code>emqx_schema:duration()</code>
-  For client to broker QoS 2 message, the time limit for the broker to wait before the `PUBREL` message is received. The wait is aborted after timed out, meaning the packet ID is freed for new `PUBLISH` requests. Receiving a stale `PUBREL` causes a warning level log. Note, the message is delivered to subscribers before entering the wait for PUBREL.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer() | infinity</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>await_rel_timeout</h4>
+For client to broker QoS 2 message, the time limit for the broker to wait before the `PUBREL` message is received. The wait is aborted after timed out, meaning the packet ID is freed for new `PUBLISH` requests. Receiving a stale `PUBREL` causes a warning level log. Note, the message is delivered to subscribers before entering the wait for PUBREL.
 
-- session_expiry_interval: <code>emqx_schema:duration()</code>
-  Specifies how long the session will expire after the connection is disconnected, only for non-MQTT 5.0 connections.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>session_expiry_interval</h4>
+Specifies how long the session will expire after the connection is disconnected, only for non-MQTT 5.0 connections.
 
-- max_mqueue_len: <code>non_neg_integer() | infinity</code>
-  Maximum queue length. Enqueued messages when persistent client disconnected, or inflight window is full.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_mqueue_len</h4>
+Maximum queue length. Enqueued messages when persistent client disconnected, or inflight window is full.
 
-- mqueue_priorities: <code>map() | disabled</code>
-  Topic priorities. Priority number [1-255]
-  There's no priority table by default, hence all messages are treated equal.
-  **NOTE**: Comma and equal signs are not allowed for priority topic names.
-  **NOTE**: Messages for topics not in the priority table are treated as either highest or lowest priority depending on the configured value for <code>mqtt.mqueue_default_priority</code>.
-  **Examples**:
-  To configure <code>"topic/1" > "topic/2"</code>:
-  <code>mqueue_priorities: {"topic/1": 10, "topic/2": 8}</code>
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer() | infinity</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mqueue_priorities</h4>
+Topic priorities. Priority number [1-255]
+There's no priority table by default, hence all messages are treated equal.
 
-- mqueue_default_priority: <code>highest | lowest</code>
-  Default topic priority, which will be used by topics not in <code>Topic Priorities</code> (<code>mqueue_priorities</code>).
+**NOTE**: Comma and equal signs are not allowed for priority topic names.
+**NOTE**: Messages for topics not in the priority table are treated as either highest or lowest priority depending on the configured value for <code>mqtt.mqueue_default_priority</code>.
 
-- mqueue_store_qos0: <code>boolean()</code>
-  Specifies whether to store QoS 0 messages in the message queue while the connection is down but the session remains.
+**Examples**:
+To configure <code>"topic/1" > "topic/2"</code>:
+<code>mqueue_priorities: {"topic/1": 10, "topic/2": 8}</code>
 
-- use_username_as_clientid: <code>boolean()</code>
-  Whether to user Client ID as Username.
-  This setting takes effect later than <code>Use Peer Certificate as Username</code> (<code>peer_cert_as_username</code>) and <code>Use peer certificate as Client ID</code> (<code>peer_cert_as_clientid</code>).
 
-- peer_cert_as_username: <code>disabled | cn | dn | crt | pem | md5</code>
-  Use the CN, DN field in the peer certificate or the entire certificate content as Username. Only works for the TLS connection.
-  Supported configurations are the following:
-  - <code>cn</code>: Take the CN field of the certificate as Username
-  - <code>dn</code>: Take the DN field of the certificate as Username
-  - <code>crt</code>: Take the content of the <code>DER</code> or <code>PEM</code> certificate as Username
-  - <code>pem</code>: Convert <code>DER</code> certificate content to <code>PEM</code> format as Username
-  - <code>md5</code>: Take the MD5 value of the content of the <code>DER</code> or <code>PEM</code> certificate as Username
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map() | disabled</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mqueue_default_priority</h4>
+Default topic priority, which will be used by topics not in <code>Topic Priorities</code> (<code>mqueue_priorities</code>).
 
-- peer_cert_as_clientid: <code>disabled | cn | dn | crt | pem | md5</code>
-  Use the CN, DN field in the peer certificate or the entire certificate content as Client ID. Only works for the TLS connection.
-  Supported configurations are the following:
-  - <code>cn</code>: Take the CN field of the certificate as Client ID
-  - <code>dn</code>: Take the DN field of the certificate as Client ID
-  - <code>crt</code>: Take the content of the <code>DER</code> or <code>PEM</code> certificate as Client ID
-  - <code>pem</code>: Convert <code>DER</code> certificate content to <code>PEM</code> format as Client ID
-  - <code>md5</code>: Take the MD5 value of the content of the <code>DER</code> or <code>PEM</code> certificate as Client ID
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>highest | lowest</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mqueue_store_qos0</h4>
+Specifies whether to store QoS 0 messages in the message queue while the connection is down but the session remains.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>use_username_as_clientid</h4>
+Whether to user Client ID as Username.
+This setting takes effect later than <code>Use Peer Certificate as Username</code> (<code>peer_cert_as_username</code>) and <code>Use peer certificate as Client ID</code> (<code>peer_cert_as_clientid</code>).
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>peer_cert_as_username</h4>
+Use the CN, DN field in the peer certificate or the entire certificate content as Username. Only works for the TLS connection.
+Supported configurations are the following:
+- <code>cn</code>: Take the CN field of the certificate as Username
+- <code>dn</code>: Take the DN field of the certificate as Username
+- <code>crt</code>: Take the content of the <code>DER</code> or <code>PEM</code> certificate as Username
+- <code>pem</code>: Convert <code>DER</code> certificate content to <code>PEM</code> format as Username
+- <code>md5</code>: Take the MD5 value of the content of the <code>DER</code> or <code>PEM</code> certificate as Username
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>disabled | cn | dn | crt | pem | md5</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>peer_cert_as_clientid</h4>
+Use the CN, DN field in the peer certificate or the entire certificate content as Client ID. Only works for the TLS connection.
+Supported configurations are the following:
+- <code>cn</code>: Take the CN field of the certificate as Client ID
+- <code>dn</code>: Take the DN field of the certificate as Client ID
+- <code>crt</code>: Take the content of the <code>DER</code> or <code>PEM</code> certificate as Client ID
+- <code>pem</code>: Convert <code>DER</code> certificate content to <code>PEM</code> format as Client ID
+- <code>md5</code>: Take the MD5 value of the content of the <code>DER</code> or <code>PEM</code> certificate as Client ID
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>disabled | cn | dn | crt | pem | md5</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## zone:overload_protection <a id='zone-overload_protection'></a>
 Overload protection mechanism monitors the load of the system and temporarily
@@ -1323,21 +2191,54 @@ disables some features (such as accepting new connections) when the load is high
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  React on system overload or not.
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+React on system overload or not.
 
-- backoff_delay: <code>0..inf</code>
-  When at high load, some unimportant tasks could be delayed for execution, here set the duration in milliseconds precision.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backoff_delay</h4>
+When at high load, some unimportant tasks could be delayed for execution, here set the duration in milliseconds precision.
 
-- backoff_gc: <code>boolean()</code>
-  When at high load, skip forceful GC.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>0..inf</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backoff_gc</h4>
+When at high load, skip forceful GC.
 
-- backoff_hibernation: <code>boolean()</code>
-  When at high load, skip process hibernation.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backoff_hibernation</h4>
+When at high load, skip process hibernation.
 
-- backoff_new_conn: <code>boolean()</code>
-  When at high load, close new incoming connections.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backoff_new_conn</h4>
+When at high load, close new incoming connections.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## zone:stats <a id='zone-stats'></a>
 Enable/disable statistic data collection.
@@ -1350,9 +2251,18 @@ Statistic data such as message receive/send count/rate etc. It provides insights
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  Enable/disable statistic data collection.
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Enable/disable statistic data collection.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## authn-hash:bcrypt <a id='authn-hash-bcrypt'></a>
 Settings for bcrypt password hashing algorithm.
@@ -1385,9 +2295,18 @@ Settings for bcrypt password hashing algorithm.
 
 **Fields**
 
-- name: <code>bcrypt</code>
-  BCRYPT password hashing.
+<ul class="field-list">
+<li>
+<h4>name</h4>
+BCRYPT password hashing.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>bcrypt</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## authn-hash:bcrypt_rw <a id='authn-hash-bcrypt_rw'></a>
 Settings for bcrypt password hashing algorithm (for DB backends with write capability).
@@ -1420,15 +2339,27 @@ Settings for bcrypt password hashing algorithm (for DB backends with write capab
 
 **Fields**
 
-- name: <code>bcrypt</code>
-  BCRYPT password hashing.
+<ul class="field-list">
+<li>
+<h4>name</h4>
+BCRYPT password hashing.
 
-- salt_rounds: <code>integer()</code>
-  * default: 
-  `10`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>bcrypt</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>salt_rounds</h4>
+Salt rounds for BCRYPT password generation.
 
-  Salt rounds for BCRYPT password generation.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>10</code></td></tr></tbody>
+</table>
+</li>
 
+</ul>
 
 ## authn-hash:other_algorithms <a id='authn-hash-other_algorithms'></a>
 Settings for other password hashing algorithms.
@@ -1461,15 +2392,27 @@ Settings for other password hashing algorithms.
 
 **Fields**
 
-- name: <code>plain | md5 | sha | sha256 | sha512</code>
-  Simple password hashing algorithm.
+<ul class="field-list">
+<li>
+<h4>name</h4>
+Simple password hashing algorithm.
 
-- salt_position: <code>disable | prefix | suffix</code>
-  * default: 
-  `prefix`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>plain | md5 | sha | sha256 | sha512</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>salt_position</h4>
+Salt position for PLAIN, MD5, SHA, SHA256 and SHA512 algorithms.
 
-  Salt position for PLAIN, MD5, SHA, SHA256 and SHA512 algorithms.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>disable | prefix | suffix</code></td></tr><tr><td><strong>Default</strong></td><td><code>prefix</code></td></tr></tbody>
+</table>
+</li>
 
+</ul>
 
 ## authn-hash:pbkdf2 <a id='authn-hash-pbkdf2'></a>
 Settings for PBKDF2 password hashing algorithm.
@@ -1502,18 +2445,45 @@ Settings for PBKDF2 password hashing algorithm.
 
 **Fields**
 
-- name: <code>pbkdf2</code>
-  PBKDF2 password hashing.
+<ul class="field-list">
+<li>
+<h4>name</h4>
+PBKDF2 password hashing.
 
-- mac_fun: <code>md4 | md5 | ripemd160 | sha | sha224 | sha256 | sha384 | sha512</code>
-  Specifies mac_fun for PBKDF2 hashing algorithm.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pbkdf2</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mac_fun</h4>
+Specifies mac_fun for PBKDF2 hashing algorithm.
 
-- iterations: <code>integer()</code>
-  Iteration count for PBKDF2 hashing algorithm.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>md4 | md5 | ripemd160 | sha | sha224 | sha256 | sha384 | sha512</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>iterations</h4>
+Iteration count for PBKDF2 hashing algorithm.
 
-- dk_length: <code>integer()</code>
-  Derived length for PBKDF2 hashing algorithm. If not specified, calculated automatically based on `mac_fun`.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>dk_length</h4>
+Derived length for PBKDF2 hashing algorithm. If not specified, calculated automatically based on `mac_fun`.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## authn-psk:psk_authentication <a id='authn-psk-psk_authentication'></a>
 PSK stands for 'Pre-Shared Keys'.
@@ -1534,29 +2504,47 @@ The IDs and secrets can be provided from a file which is configurable by the <co
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  * default: 
-  `false`
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Whether to enable TLS PSK support
 
-  Whether to enable TLS PSK support
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>init_file</h4>
+If init_file is specified, EMQX will import PSKs from the file into the built-in database at startup for use by the runtime.
+The file has to be structured line-by-line, each line must be in the format of <code>PSKIdentity:SharedSecret</code>.
+For example: <code>mydevice1:c2VjcmV0</code>
 
-- init_file: <code>binary()</code>
-  If init_file is specified, EMQX will import PSKs from the file into the built-in database at startup for use by the runtime.
-  The file has to be structured line-by-line, each line must be in the format of <code>PSKIdentity:SharedSecret</code>.
-  For example: <code>mydevice1:c2VjcmV0</code>
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>separator</h4>
+The separator between <code>PSKIdentity</code> and <code>SharedSecret</code> in the PSK file
 
-- separator: <code>binary()</code>
-  * default: 
-  `":"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>":"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>chunk_size</h4>
+The size of each chunk used to import to the built-in database from PSK file
 
-  The separator between <code>PSKIdentity</code> and <code>SharedSecret</code> in the PSK file
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>50</code></td></tr></tbody>
+</table>
+</li>
 
-- chunk_size: <code>integer()</code>
-  * default: 
-  `50`
-
-  The size of each chunk used to import to the built-in database from PSK file
-
+</ul>
 
 ## auto_subscribe <a id='auto_subscribe'></a>
 After the device logs in successfully, the subscription is automatically completed for the device through the pre-defined subscription representation. Supports the use of placeholders.
@@ -1568,12 +2556,18 @@ After the device logs in successfully, the subscription is automatically complet
 
 **Fields**
 
-- topics: <code>[[auto_subscribe:topic](#auto_subscribe-topic)]</code>
-  * default: 
-  `[]`
+<ul class="field-list">
+<li>
+<h4>topics</h4>
+After the device logs in successfully, the subscription is automatically completed for the device through the pre-defined subscription representation. Supports the use of placeholders.
 
-  After the device logs in successfully, the subscription is automatically completed for the device through the pre-defined subscription representation. Supports the use of placeholders.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[<a href="auto_subscribe-topic">auto_subscribe:topic</a>]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
 
+</ul>
 
 ## auto_subscribe:topic <a id='auto_subscribe-topic'></a>
 Topic name, placeholders are supported. For example: client/${clientid}/username/${username}/host/${host}/port/${port}
@@ -1586,42 +2580,63 @@ Required field, and cannot be empty string
 
 **Fields**
 
-- topic: <code>binary()</code>
-  Topic name, placeholders are supported. For example: client/${clientid}/username/${username}/host/${host}/port/${port}
-  Required field, and cannot be empty string
+<ul class="field-list">
+<li>
+<h4>topic</h4>
+Topic name, placeholders are supported. For example: client/${clientid}/username/${username}/host/${host}/port/${port}
+Required field, and cannot be empty string
 
-- qos: <code>qos()</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>qos</h4>
+Default value 0. Quality of service.
+At most once (0)
+At least once (1)
+Exactly once (2)
 
-  Default value 0. Quality of service.
-  At most once (0)
-  At least once (1)
-  Exactly once (2)
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>qos()</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>rh</h4>
+Default value 0. This option is used to specify whether the server forwards the retained message to the client when establishing a subscription.
+Retain Handling is equal to 0, as long as the client successfully subscribes, the server will send the retained message.
+Retain Handling is equal to 1, if the client successfully subscribes and this subscription does not exist previously, the server sends the retained message. After all, sometimes the client re-initiate the subscription just to change the QoS, but it does not mean that it wants to receive the reserved messages again.
+Retain Handling is equal to 2, even if the client successfully subscribes, the server does not send the retained message.
 
-- rh: <code>0..2</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>0..2</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>rap</h4>
+Default value 0. This option is used to specify whether the server retains the RETAIN mark when forwarding messages to the client, and this option does not affect the RETAIN mark in the retained message. Therefore, when the option Retain As Publish is set to 0, the client will directly distinguish whether this is a normal forwarded message or a retained message according to the RETAIN mark in the message, instead of judging whether this message is the first received after subscribing(the forwarded message may be sent before the retained message, which depends on the specific implementation of different brokers).
 
-  Default value 0. This option is used to specify whether the server forwards the retained message to the client when establishing a subscription.
-  Retain Handling is equal to 0, as long as the client successfully subscribes, the server will send the retained message.
-  Retain Handling is equal to 1, if the client successfully subscribes and this subscription does not exist previously, the server sends the retained message. After all, sometimes the client re-initiate the subscription just to change the QoS, but it does not mean that it wants to receive the reserved messages again.
-  Retain Handling is equal to 2, even if the client successfully subscribes, the server does not send the retained message.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>0..1</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>nl</h4>
+Default value 0.
+MQTT v3.1.1： if you subscribe to the topic published by yourself, you will receive all messages that you published.
+MQTT v5: if you set this option as 1 when subscribing, the server will not forward the message you published to you.
 
-- rap: <code>0..1</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>0..1</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
 
-  Default value 0. This option is used to specify whether the server retains the RETAIN mark when forwarding messages to the client, and this option does not affect the RETAIN mark in the retained message. Therefore, when the option Retain As Publish is set to 0, the client will directly distinguish whether this is a normal forwarded message or a retained message according to the RETAIN mark in the message, instead of judging whether this message is the first received after subscribing(the forwarded message may be sent before the retained message, which depends on the specific implementation of different brokers).
-
-- nl: <code>0..1</code>
-  * default: 
-  `0`
-
-  Default value 0.
-  MQTT v3.1.1： if you subscribe to the topic published by yourself, you will receive all messages that you published.
-  MQTT v5: if you set this option as 1 when subscribing, the server will not forward the message you published to you.
-
+</ul>
 
 ## bridge_mqtt:config <a id='bridge_mqtt-config'></a>
 The config for MQTT Bridges.
@@ -1633,117 +2648,187 @@ The config for MQTT Bridges.
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Enable or disable this bridge
 
-  Enable or disable this bridge
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>resource_opts</h4>
+Resource options.
 
-- resource_opts: <code>[bridge_mqtt:creation_opts](#bridge_mqtt-creation_opts)</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="bridge_mqtt-creation_opts">bridge_mqtt:creation_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mode</h4>
 
-  Resource options.
+The mode of the MQTT Bridge.<br/>
 
-- mode: <code>cluster_shareload</code>
-  * default: 
-  `cluster_shareload`
+- cluster_shareload: create an MQTT connection on each node in the emqx cluster.<br/>
+In 'cluster_shareload' mode, the incoming load from the remote broker is shared by
+using shared subscription.<br/>
+Note that the 'clientid' is suffixed by the node name, this is to avoid
+clientid conflicts between different nodes. And we can only use shared subscription
+topic filters for <code>remote.topic</code> of ingress connections.
 
-  The mode of the MQTT Bridge.<br/>
-  - cluster_shareload: create an MQTT connection on each node in the emqx cluster.<br/>
-  In 'cluster_shareload' mode, the incoming load from the remote broker is shared by
-  using shared subscription.<br/>
-  Note that the 'clientid' is suffixed by the node name, this is to avoid
-  clientid conflicts between different nodes. And we can only use shared subscription
-  topic filters for <code>remote.topic</code> of ingress connections.
 
-- server: <code>emqx_schema:host_port()</code>
-  The host and port of the remote MQTT broker
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>cluster_shareload</code></td></tr><tr><td><strong>Default</strong></td><td><code>cluster_shareload</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server</h4>
+The host and port of the remote MQTT broker
 
-- reconnect_interval: <code>string()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:host_port()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>reconnect_interval</h4>
+Reconnect interval. Delay for the MQTT bridge to retry establishing the connection in case of transportation failure. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,
+- `s` for seconds,
+- `m` for minutes,
+- `h` for hours;
+<br/>or combination of whereof: `1h5m0s`
 
-  Reconnect interval. Delay for the MQTT bridge to retry establishing the connection in case of transportation failure. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,
-  - `s` for seconds,
-  - `m` for minutes,
-  - `h` for hours;
-  <br/>or combination of whereof: `1h5m0s`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>proto_ver</h4>
+The MQTT protocol version
 
-- proto_ver: <code>v3 | v4 | v5</code>
-  * default: 
-  `v4`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>v3 | v4 | v5</code></td></tr><tr><td><strong>Default</strong></td><td><code>v4</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>bridge_mode</h4>
 
-  The MQTT protocol version
+If enable bridge mode.
+NOTE: This setting is only for MQTT protocol version older than 5.0, and the remote MQTT
+broker MUST support this feature.
+    
 
-- bridge_mode: <code>boolean()</code>
-  * default: 
-  `false`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>username</h4>
+The username of the MQTT protocol
 
-  If enable bridge mode.
-  NOTE: This setting is only for MQTT protocol version older than 5.0, and the remote MQTT
-  broker MUST support this feature.
-      
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+The password of the MQTT protocol
 
-- username: <code>binary()</code>
-  The username of the MQTT protocol
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>clean_start</h4>
+The clean-start or the clean-session of the MQTT protocol
 
-- password: <code>binary()</code>
-  The password of the MQTT protocol
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>keepalive</h4>
+MQTT Keepalive. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,
+- `s` for seconds,
+- `m` for minutes,
+- `h` for hours;
+<br/>or combination of whereof: `1h5m0s`
 
-- clean_start: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"300s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>retry_interval</h4>
+Message retry interval. Delay for the MQTT bridge to retry sending the QoS1/QoS2 messages in case of ACK not received. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,
+- `s` for seconds,
+- `m` for minutes,
+- `h` for hours;
+<br/>or combination of whereof: `1h5m0s`
 
-  The clean-start or the clean-session of the MQTT protocol
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_inflight</h4>
+Max inflight (sent, but un-acked) messages of the MQTT protocol
 
-- keepalive: <code>string()</code>
-  * default: 
-  `"300s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>32</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-  MQTT Keepalive. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,
-  - `s` for seconds,
-  - `m` for minutes,
-  - `h` for hours;
-  <br/>or combination of whereof: `1h5m0s`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ingress</h4>
+The ingress config defines how this bridge receive messages from the remote MQTT broker, and then
+        send them to the local broker.<br/>
+        Template with variables is allowed in 'remote.qos', 'local.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>
+        NOTE: if this bridge is used as the input of a rule, and also 'local.topic' is
+        configured, then messages got from the remote broker will be sent to both the 'local.topic' and
+        the rule.
 
-- retry_interval: <code>string()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="connector-mqtt-ingress">connector-mqtt:ingress</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>egress</h4>
+The egress config defines how this bridge forwards messages from the local broker to the remote broker.<br/>
+Template with variables is allowed in 'remote.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>
+NOTE: if this bridge is used as the action of a rule, and also 'local.topic'
+is configured, then both the data got from the rule and the MQTT messages that matches
+'local.topic' will be forwarded.
 
-  Message retry interval. Delay for the MQTT bridge to retry sending the QoS1/QoS2 messages in case of ACK not received. Time interval is a string that contains a number followed by time unit:<br/>- `ms` for milliseconds,
-  - `s` for seconds,
-  - `m` for minutes,
-  - `h` for hours;
-  <br/>or combination of whereof: `1h5m0s`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="connector-mqtt-egress">connector-mqtt:egress</a></code></td></tr></tbody>
+</table>
+</li>
 
-- max_inflight: <code>non_neg_integer()</code>
-  * default: 
-  `32`
-
-  Max inflight (sent, but un-acked) messages of the MQTT protocol
-
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
-
-  SSL connection settings.
-
-- ingress: <code>[connector-mqtt:ingress](#connector-mqtt-ingress)</code>
-  The ingress config defines how this bridge receive messages from the remote MQTT broker, and then
-          send them to the local broker.<br/>
-          Template with variables is allowed in 'remote.qos', 'local.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>
-          NOTE: if this bridge is used as the input of a rule, and also 'local.topic' is
-          configured, then messages got from the remote broker will be sent to both the 'local.topic' and
-          the rule.
-
-- egress: <code>[connector-mqtt:egress](#connector-mqtt-egress)</code>
-  The egress config defines how this bridge forwards messages from the local broker to the remote broker.<br/>
-  Template with variables is allowed in 'remote.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>
-  NOTE: if this bridge is used as the action of a rule, and also 'local.topic'
-  is configured, then both the data got from the rule and the MQTT messages that matches
-  'local.topic' will be forwarded.
-
+</ul>
 
 ## bridge_mqtt:creation_opts <a id='bridge_mqtt-creation_opts'></a>
 Creation options.
@@ -1755,48 +2840,72 @@ Creation options.
 
 **Fields**
 
-- worker_pool_size: <code>pos_integer()</code>
-  * default: 
-  `16`
+<ul class="field-list">
+<li>
+<h4>worker_pool_size</h4>
+Resource worker pool size.
 
-  Resource worker pool size.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>16</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>health_check_interval</h4>
+Health check interval, in milliseconds.
 
-- health_check_interval: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_restart_interval</h4>
+The auto restart interval after the resource is disconnected, in milliseconds.
 
-  Health check interval, in milliseconds.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>infinity | emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"60s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>query_mode</h4>
+Query mode. Optional 'sync/async', default 'sync'.
 
-- auto_restart_interval: <code>infinity | emqx_schema:duration_ms()</code>
-  * default: 
-  `"60s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>sync | async</code></td></tr><tr><td><strong>Default</strong></td><td><code>async</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>async_inflight_window</h4>
+Async query inflight window.
 
-  The auto restart interval after the resource is disconnected, in milliseconds.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>100</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_queue</h4>
+Queue mode enabled.
 
-- query_mode: <code>sync | async</code>
-  * default: 
-  `async`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_queue_bytes</h4>
+Maximum queue storage.
 
-  Query mode. Optional 'sync/async', default 'sync'.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:bytesize()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"100MB"</code></td></tr></tbody>
+</table>
+</li>
 
-- async_inflight_window: <code>pos_integer()</code>
-  * default: 
-  `100`
-
-  Async query inflight window.
-
-- enable_queue: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Queue mode enabled.
-
-- max_queue_bytes: <code>emqx_schema:bytesize()</code>
-  * default: 
-  `"100MB"`
-
-  Maximum queue storage.
-
+</ul>
 
 ## bridge_webhook:config <a id='bridge_webhook-config'></a>
 Configuration for an HTTP bridge.
@@ -1808,111 +2917,185 @@ Configuration for an HTTP bridge.
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Enable or disable this bridge
 
-  Enable or disable this bridge
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>resource_opts</h4>
+Resource options.
 
-- resource_opts: <code>[bridge_webhook:creation_opts](#bridge_webhook-creation_opts)</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="bridge_webhook-creation_opts">bridge_webhook:creation_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>connect_timeout</h4>
+The timeout when connecting to the HTTP server.
 
-  Resource options.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>retry_interval</h4>
+Deprecated since 5.0.4.
 
-- connect_timeout: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_type</h4>
+The type of the pool. Can be one of `random`, `hash`.
 
-  The timeout when connecting to the HTTP server.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_connector_http:pool_type()</code></td></tr><tr><td><strong>Default</strong></td><td><code>random</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+The pool size.
 
-- retry_interval: <code>emqx_schema:duration()</code>
-  Deprecated since 5.0.4.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_pipelining</h4>
+A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
 
-- pool_type: <code>emqx_connector_http:pool_type()</code>
-  * default: 
-  `random`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>100</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request</h4>
 
-  The type of the pool. Can be one of `random`, `hash`.
+If the request is provided, the caller can send HTTP requests via
+<code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
 
-  The pool size.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="connector-http-request">connector-http:request</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-- enable_pipelining: <code>pos_integer()</code>
-  * default: 
-  `100`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>url</h4>
 
-  A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
+The URL of the HTTP Bridge.<br/>
+Template with variables is allowed in the path, but variables cannot be used in the scheme, host,
+or port part.<br/>
+For example, <code> http://localhost:9901/${topic} </code> is allowed, but
+<code> http://${host}:9901/message </code> or <code> http://localhost:${port}/message </code>
+is not allowed.
 
-- request: <code>[connector-http:request](#connector-http-request)</code>
-  If the request is provided, the caller can send HTTP requests via
-  <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>local_topic</h4>
 
-  SSL connection settings.
+The MQTT topic filter to be forwarded to the HTTP server. All MQTT 'PUBLISH' messages with the topic
+matching the local_topic will be forwarded.<br/>
+NOTE: if this bridge is used as the action of a rule (EMQX rule engine), and also local_topic is
+configured, then both the data got from the rule and the MQTT messages that match local_topic
+will be forwarded.
 
-- url: <code>binary()</code>
-  The URL of the HTTP Bridge.<br/>
-  Template with variables is allowed in the path, but variables cannot be used in the scheme, host,
-  or port part.<br/>
-  For example, <code> http://localhost:9901/${topic} </code> is allowed, but
-  <code> http://${host}:9901/message </code> or <code> http://localhost:${port}/message </code>
-  is not allowed.
 
-- local_topic: <code>binary()</code>
-  The MQTT topic filter to be forwarded to the HTTP server. All MQTT 'PUBLISH' messages with the topic
-  matching the local_topic will be forwarded.<br/>
-  NOTE: if this bridge is used as the action of a rule (EMQX rule engine), and also local_topic is
-  configured, then both the data got from the rule and the MQTT messages that match local_topic
-  will be forwarded.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>method</h4>
 
-- method: <code>post | put | get | delete</code>
-  * default: 
-  `post`
+The method of the HTTP request. All the available methods are: post, put, get, delete.<br/>
+Template with variables is allowed.<br/>
 
-  The method of the HTTP request. All the available methods are: post, put, get, delete.<br/>
-  Template with variables is allowed.<br/>
 
-- headers: <code>map()</code>
-  * default: 
-  ```
-  {
-    accept = "application/json"
-    "cache-control" = "no-cache"
-    connection = "keep-alive"
-    "content-type" = "application/json"
-    "keep-alive" = "timeout=5"
-  }
-  ```
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>post | put | get | delete</code></td></tr><tr><td><strong>Default</strong></td><td><code>post</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>headers</h4>
 
-  The headers of the HTTP request.<br/>
-  Template with variables is allowed.
+The headers of the HTTP request.<br/>
+Template with variables is allowed.
 
-- body: <code>binary()</code>
-  * default: 
-  `"${payload}"`
 
-  The body of the HTTP request.<br/>
-  Template with variables is allowed.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr><tr><td><strong>Default</strong></td><td><code>{
+  accept = "application/json"
+  "cache-control" = "no-cache"
+  connection = "keep-alive"
+  "content-type" = "application/json"
+  "keep-alive" = "timeout=5"
+}
+</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>body</h4>
 
-- max_retries: <code>non_neg_integer()</code>
-  * default: 
-  `2`
+The body of the HTTP request.<br/>
+Template with variables is allowed.
 
-  HTTP request max retry times if failed.
 
-- request_timeout: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"${payload}"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_retries</h4>
+HTTP request max retry times if failed.
 
-  HTTP request timeout.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>2</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request_timeout</h4>
+HTTP request timeout.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## bridge_webhook:creation_opts <a id='bridge_webhook-creation_opts'></a>
 Creation options.
@@ -1924,48 +3107,72 @@ Creation options.
 
 **Fields**
 
-- worker_pool_size: <code>pos_integer()</code>
-  * default: 
-  `16`
+<ul class="field-list">
+<li>
+<h4>worker_pool_size</h4>
+Resource worker pool size.
 
-  Resource worker pool size.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>16</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>health_check_interval</h4>
+Health check interval, in milliseconds.
 
-- health_check_interval: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_restart_interval</h4>
+The auto restart interval after the resource is disconnected, in milliseconds.
 
-  Health check interval, in milliseconds.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>infinity | emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"60s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>query_mode</h4>
+Query mode. Optional 'sync/async', default 'sync'.
 
-- auto_restart_interval: <code>infinity | emqx_schema:duration_ms()</code>
-  * default: 
-  `"60s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>sync | async</code></td></tr><tr><td><strong>Default</strong></td><td><code>async</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>async_inflight_window</h4>
+Async query inflight window.
 
-  The auto restart interval after the resource is disconnected, in milliseconds.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>100</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_queue</h4>
+Queue mode enabled.
 
-- query_mode: <code>sync | async</code>
-  * default: 
-  `async`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_queue_bytes</h4>
+Maximum queue storage.
 
-  Query mode. Optional 'sync/async', default 'sync'.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:bytesize()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"100MB"</code></td></tr></tbody>
+</table>
+</li>
 
-- async_inflight_window: <code>pos_integer()</code>
-  * default: 
-  `100`
-
-  Async query inflight window.
-
-- enable_queue: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Queue mode enabled.
-
-- max_queue_bytes: <code>emqx_schema:bytesize()</code>
-  * default: 
-  `"100MB"`
-
-  Maximum queue storage.
-
+</ul>
 
 ## connector-http:request <a id='connector-http-request'></a>
 
@@ -2000,24 +3207,63 @@ Creation options.
 
 **Fields**
 
-- method: <code>binary()</code>
-  HTTP method.
+<ul class="field-list">
+<li>
+<h4>method</h4>
+HTTP method.
 
-- path: <code>binary()</code>
-  URL path.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>path</h4>
+URL path.
 
-- body: <code>binary()</code>
-  HTTP request body.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>body</h4>
+HTTP request body.
 
-- headers: <code>map()</code>
-  List of HTTP headers.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>headers</h4>
+List of HTTP headers.
 
-- max_retries: <code>non_neg_integer()</code>
-  Max retry times if error on sending request.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_retries</h4>
+Max retry times if error on sending request.
 
-- request_timeout: <code>emqx_schema:duration_ms()</code>
-  HTTP request timeout.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request_timeout</h4>
+HTTP request timeout.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## connector-mqtt:egress <a id='connector-mqtt-egress'></a>
 The egress config defines how this bridge forwards messages from the local broker to the remote broker.<br/>
@@ -2033,12 +3279,27 @@ is configured, then both the data got from the rule and the MQTT messages that m
 
 **Fields**
 
-- local: <code>[connector-mqtt:egress_local](#connector-mqtt-egress_local)</code>
-  The configs about receiving messages from local broker.
+<ul class="field-list">
+<li>
+<h4>local</h4>
+The configs about receiving messages from local broker.
 
-- remote: <code>[connector-mqtt:egress_remote](#connector-mqtt-egress_remote)</code>
-  The configs about sending message to the remote broker.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="connector-mqtt-egress_local">connector-mqtt:egress_local</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>remote</h4>
+The configs about sending message to the remote broker.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="connector-mqtt-egress_remote">connector-mqtt:egress_remote</a></code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## connector-mqtt:egress_local <a id='connector-mqtt-egress_local'></a>
 The configs about receiving messages from local broker.
@@ -2050,9 +3311,18 @@ The configs about receiving messages from local broker.
 
 **Fields**
 
-- topic: <code>binary()</code>
-  The local topic to be forwarded to the remote broker
+<ul class="field-list">
+<li>
+<h4>topic</h4>
+The local topic to be forwarded to the remote broker
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## connector-mqtt:egress_remote <a id='connector-mqtt-egress_remote'></a>
 The configs about sending message to the remote broker.
@@ -2064,22 +3334,57 @@ The configs about sending message to the remote broker.
 
 **Fields**
 
-- topic: <code>binary()</code>
-  Forward to which topic of the remote broker.<br/>
-  Template with variables is allowed.
+<ul class="field-list">
+<li>
+<h4>topic</h4>
 
-- qos: <code>qos() | binary()</code>
-  The QoS of the MQTT message to be sent.<br/>
-  Template with variables is allowed.
+Forward to which topic of the remote broker.<br/>
+Template with variables is allowed.
 
-- retain: <code>boolean() | binary()</code>
-  The 'retain' flag of the MQTT message to be sent.<br/>
-  Template with variables is allowed.
 
-- payload: <code>binary()</code>
-  The payload of the MQTT message to be sent.<br/>
-  Template with variables is allowed.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>qos</h4>
 
+The QoS of the MQTT message to be sent.<br/>
+Template with variables is allowed.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>qos() | binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>retain</h4>
+
+The 'retain' flag of the MQTT message to be sent.<br/>
+Template with variables is allowed.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean() | binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>payload</h4>
+
+The payload of the MQTT message to be sent.<br/>
+Template with variables is allowed.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## connector-mqtt:ingress <a id='connector-mqtt-ingress'></a>
 The ingress config defines how this bridge receive messages from the remote MQTT broker, and then
@@ -2096,12 +3401,27 @@ The ingress config defines how this bridge receive messages from the remote MQTT
 
 **Fields**
 
-- remote: <code>[connector-mqtt:ingress_remote](#connector-mqtt-ingress_remote)</code>
-  The configs about subscribing to the remote broker.
+<ul class="field-list">
+<li>
+<h4>remote</h4>
+The configs about subscribing to the remote broker.
 
-- local: <code>[connector-mqtt:ingress_local](#connector-mqtt-ingress_local)</code>
-  The configs about sending message to the local broker.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="connector-mqtt-ingress_remote">connector-mqtt:ingress_remote</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>local</h4>
+The configs about sending message to the local broker.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="connector-mqtt-ingress_local">connector-mqtt:ingress_local</a></code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## connector-mqtt:ingress_local <a id='connector-mqtt-ingress_local'></a>
 The configs about sending message to the local broker.
@@ -2113,28 +3433,57 @@ The configs about sending message to the local broker.
 
 **Fields**
 
-- topic: <code>binary()</code>
-  Send messages to which topic of the local broker.<br/>
-  Template with variables is allowed.
+<ul class="field-list">
+<li>
+<h4>topic</h4>
 
-- qos: <code>qos() | binary()</code>
-  * default: 
-  `"${qos}"`
+Send messages to which topic of the local broker.<br/>
+Template with variables is allowed.
 
-  The QoS of the MQTT message to be sent.<br/>
-  Template with variables is allowed.
 
-- retain: <code>boolean() | binary()</code>
-  * default: 
-  `"${retain}"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>qos</h4>
 
-  The 'retain' flag of the MQTT message to be sent.<br/>
-  Template with variables is allowed.
+The QoS of the MQTT message to be sent.<br/>
+Template with variables is allowed.
 
-- payload: <code>binary()</code>
-  The payload of the MQTT message to be sent.<br/>
-  Template with variables is allowed.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>qos() | binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"${qos}"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>retain</h4>
+
+The 'retain' flag of the MQTT message to be sent.<br/>
+Template with variables is allowed.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean() | binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"${retain}"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>payload</h4>
+
+The payload of the MQTT message to be sent.<br/>
+Template with variables is allowed.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## connector-mqtt:ingress_remote <a id='connector-mqtt-ingress_remote'></a>
 The configs about subscribing to the remote broker.
@@ -2146,15 +3495,27 @@ The configs about subscribing to the remote broker.
 
 **Fields**
 
-- topic: <code>binary()</code>
-  Receive messages from which topic of the remote broker
+<ul class="field-list">
+<li>
+<h4>topic</h4>
+Receive messages from which topic of the remote broker
 
-- qos: <code>qos() | binary()</code>
-  * default: 
-  `1`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>qos</h4>
+The QoS level to be used when subscribing to the remote broker
 
-  The QoS level to be used when subscribing to the remote broker
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>qos() | binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>1</code></td></tr></tbody>
+</table>
+</li>
 
+</ul>
 
 ## plugin:plugins <a id='plugin-plugins'></a>
 
@@ -2172,31 +3533,46 @@ The standalone-installed plugins are referred to as 'external' plugins.
 
 **Fields**
 
-- states: <code>[[plugin:state](#plugin-state)]</code>
-  * default: 
-  `[]`
+<ul class="field-list">
+<li>
+<h4>states</h4>
+An array of plugins in the desired states.<br/>
+The plugins are started in the defined order
 
-  An array of plugins in the desired states.<br/>
-  The plugins are started in the defined order
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[<a href="plugin-state">plugin:state</a>]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>install_dir</h4>
 
-- install_dir: <code>string()</code>
-  * default: 
-  `"plugins"`
+The installation directory for the external plugins.
+The plugin beam files and configuration files should reside in
+the subdirectory named as <code>emqx_foo_bar-0.1.0</code>.
+<br/>
+NOTE: For security reasons, this directory should **NOT** be writable
+by anyone except <code>emqx</code> (or any user which runs EMQX).
 
-  The installation directory for the external plugins.
-  The plugin beam files and configuration files should reside in
-  the subdirectory named as <code>emqx_foo_bar-0.1.0</code>.
-  <br/>
-  NOTE: For security reasons, this directory should **NOT** be writable
-  by anyone except <code>emqx</code> (or any user which runs EMQX).
 
-- check_interval: <code>emqx_schema:duration()</code>
-  * default: 
-  `"5s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"plugins"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>check_interval</h4>
+Check interval: check if the status of the plugins in the cluster is consistent, <br/>
+if the results of 3 consecutive checks are not consistent, then alarm.
 
-  Check interval: check if the status of the plugins in the cluster is consistent, <br/>
-  if the results of 3 consecutive checks are not consistent, then alarm.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"5s"</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## plugin:state <a id='plugin-state'></a>
 A per-plugin config to describe the desired state of the plugin.
@@ -2208,14 +3584,30 @@ A per-plugin config to describe the desired state of the plugin.
 
 **Fields**
 
-- name_vsn: <code>string()</code>
-  The {name}-{version} of the plugin.<br/>
-  It should match the plugin application name-version as the for the plugin release package name<br/>
-  For example: my_plugin-0.1.0.
+<ul class="field-list">
+<li>
+<h4>name_vsn</h4>
+The {name}-{version} of the plugin.<br/>
+It should match the plugin application name-version as the for the plugin release package name<br/>
+For example: my_plugin-0.1.0.
 
-- enable: <code>boolean()</code>
-  Set to 'true' to enable this plugin
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to 'true' to enable this plugin
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## prometheus <a id='prometheus'></a>
 Settings for reporting metrics to Prometheus
@@ -2227,24 +3619,36 @@ Settings for reporting metrics to Prometheus
 
 **Fields**
 
-- push_gateway_server: <code>string()</code>
-  * default: 
-  `"http://127.0.0.1:9091"`
+<ul class="field-list">
+<li>
+<h4>push_gateway_server</h4>
+URL of Prometheus server
 
-  URL of Prometheus server
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"http://127.0.0.1:9091"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>interval</h4>
+Data reporting interval
 
-- interval: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Turn Prometheus data pushing on or off
 
-  Data reporting interval
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
 
-- enable: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Turn Prometheus data pushing on or off
-
+</ul>
 
 ## retainer:flow_control <a id='retainer-flow_control'></a>
 Retainer batching and rate limiting.
@@ -2256,24 +3660,39 @@ Retainer batching and rate limiting.
 
 **Fields**
 
-- batch_read_number: <code>non_neg_integer()</code>
-  * default: 
-  `0`
+<ul class="field-list">
+<li>
+<h4>batch_read_number</h4>
+Size of the batch when reading messages from storage. 0 means no limit.
 
-  Size of the batch when reading messages from storage. 0 means no limit.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>batch_deliver_number</h4>
+The number of retained messages can be delivered per batch.
 
-- batch_deliver_number: <code>0..1000</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>0..1000</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>batch_deliver_limiter</h4>
+The rate limiter name for retained messages' delivery.
+Limiter helps to avoid delivering too many messages to the client at once, which may cause the client to block or crash, or drop messages due to exceeding the size of the message queue.
+The names of the available rate limiters are taken from the existing rate limiters under `limiter.batch`.
+If this field is empty, limiter is not used.
 
-  The number of retained messages can be delivered per batch.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="limiter-internal">limiter:internal</a></code></td></tr></tbody>
+</table>
+</li>
 
-- batch_deliver_limiter: <code>[limiter:internal](#limiter-internal)</code>
-  The rate limiter name for retained messages' delivery.
-  Limiter helps to avoid delivering too many messages to the client at once, which may cause the client to block or crash, or drop messages due to exceeding the size of the message queue.
-  The names of the available rate limiters are taken from the existing rate limiters under `limiter.batch`.
-  If this field is empty, limiter is not used.
-
+</ul>
 
 ## retainer:mnesia_config <a id='retainer-mnesia_config'></a>
 Configuration of the internal database storing retained messages.
@@ -2285,37 +3704,51 @@ Configuration of the internal database storing retained messages.
 
 **Fields**
 
-- type: <code>built_in_database</code>
-  * default: 
-  `built_in_database`
+<ul class="field-list">
+<li>
+<h4>type</h4>
+Backend type.
 
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>built_in_database</code></td></tr><tr><td><strong>Default</strong></td><td><code>built_in_database</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>storage_type</h4>
+Specifies whether the messages are stored in RAM or persisted on disc.
 
-- storage_type: <code>ram | disc</code>
-  * default: 
-  `ram`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>ram | disc</code></td></tr><tr><td><strong>Default</strong></td><td><code>ram</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_retained_messages</h4>
+Maximum number of retained messages. 0 means no limit.
 
-  Specifies whether the messages are stored in RAM or persisted on disc.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>index_specs</h4>
+Retainer index specifications: list of arrays of positive ascending integers. Each array specifies an index. Numbers in an index specification are 1-based word positions in topics. Words from specified positions will be used for indexing.<br/>For example, it is good to have <code>[2, 4]</code> index to optimize <code>+/X/+/Y/...</code> topic wildcard subscriptions.
 
-- max_retained_messages: <code>non_neg_integer()</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[[integer()]]</code></td></tr><tr><td><strong>Default</strong></td><td><code>[
+  [1, 2, 3],
+  [1, 3],
+  [2, 3],
+  [3]
+]
+</code></td></tr></tbody>
+</table>
+</li>
 
-  Maximum number of retained messages. 0 means no limit.
-
-- index_specs: <code>[[integer()]]</code>
-  * default: 
-  ```
-  [
-    [1, 2, 3],
-    [1, 3],
-    [2, 3],
-    [3]
-  ]
-  ```
-
-  Retainer index specifications: list of arrays of positive ascending integers. Each array specifies an index. Numbers in an index specification are 1-based word positions in topics. Words from specified positions will be used for indexing.<br/>For example, it is good to have <code>[2, 4]</code> index to optimize <code>+/X/+/Y/...</code> topic wildcard subscriptions.
-
+</ul>
 
 ## retainer <a id='retainer'></a>
 Configuration related to handling `PUBLISH` packets with a `retain` flag set to 1.
@@ -2327,50 +3760,77 @@ Configuration related to handling `PUBLISH` packets with a `retain` flag set to 
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Enable retainer feature
 
-  Enable retainer feature
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>msg_expiry_interval</h4>
+Message retention time. 0 means message will never be expired.
 
-- msg_expiry_interval: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"0s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"0s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>msg_clear_interval</h4>
+Periodic interval for cleaning up expired messages.
+Never clear if the value is 0.
+      
 
-  Message retention time. 0 means message will never be expired.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"0s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>flow_control</h4>
+Flow control.
 
-- msg_clear_interval: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"0s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="retainer-flow_control">retainer:flow_control</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_payload_size</h4>
+Maximum retained message size.
 
-  Periodic interval for cleaning up expired messages.
-  Never clear if the value is 0.
-        
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:bytesize()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"1MB"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>stop_publish_clear_msg</h4>
+When the retained flag of the `PUBLISH` message is set and Payload is empty,
+whether to continue to publish the message.
+See:
+http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718038
 
-- flow_control: <code>[retainer:flow_control](#retainer-flow_control)</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Settings for the database storing the retained messages.
 
-  Flow control.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="retainer-mnesia_config">retainer:mnesia_config</a></code></td></tr></tbody>
+</table>
+</li>
 
-- max_payload_size: <code>emqx_schema:bytesize()</code>
-  * default: 
-  `"1MB"`
-
-  Maximum retained message size.
-
-- stop_publish_clear_msg: <code>boolean()</code>
-  * default: 
-  `false`
-
-  When the retained flag of the `PUBLISH` message is set and Payload is empty,
-  whether to continue to publish the message.
-  See:
-  http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718038
-
-- backend: <code>[retainer:mnesia_config](#retainer-mnesia_config)</code>
-  Settings for the database storing the retained messages.
-
+</ul>
 
 ## slow_subs <a id='slow_subs'></a>
 Configuration for `slow_subs` feature.
@@ -2382,36 +3842,54 @@ Configuration for `slow_subs` feature.
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  * default: 
-  `false`
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Enable this feature
 
-  Enable this feature
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>threshold</h4>
+The latency threshold for statistics
 
-- threshold: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"500ms"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"500ms"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>expire_interval</h4>
+The eviction time of the record, which in the statistics record table
 
-  The latency threshold for statistics
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"300s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>top_k_num</h4>
+The maximum number of records in the slow subscription statistics record table
 
-- expire_interval: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"300s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>10</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>stats_type</h4>
+The method to calculate the latency
 
-  The eviction time of the record, which in the statistics record table
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>whole | internal | response</code></td></tr><tr><td><strong>Default</strong></td><td><code>whole</code></td></tr></tbody>
+</table>
+</li>
 
-- top_k_num: <code>pos_integer()</code>
-  * default: 
-  `10`
-
-  The maximum number of records in the slow subscription statistics record table
-
-- stats_type: <code>whole | internal | response</code>
-  * default: 
-  `whole`
-
-  The method to calculate the latency
-
+</ul>
 
 ## statsd <a id='statsd'></a>
 StatsD metrics collection and push configuration.
@@ -2423,33 +3901,51 @@ StatsD metrics collection and push configuration.
 
 **Fields**
 
-- enable: <code>boolean()</code>
-  * default: 
-  `false`
+<ul class="field-list">
+<li>
+<h4>enable</h4>
+Enable or disable StatsD metrics collection and push service.
 
-  Enable or disable StatsD metrics collection and push service.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server</h4>
+StatsD server address.
 
-- server: <code>emqx_schema:host_port()</code>
-  * default: 
-  `"127.0.0.1:8125"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:host_port()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"127.0.0.1:8125"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>sample_time_interval</h4>
+The sampling interval for metrics.
 
-  StatsD server address.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"30s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>flush_time_interval</h4>
+The push interval for metrics.
 
-- sample_time_interval: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"30s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"30s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>tags</h4>
+The tags for metrics.
 
-  The sampling interval for metrics.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
 
-- flush_time_interval: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"30s"`
-
-  The push interval for metrics.
-
-- tags: <code>map()</code>
-  * default: 
-  `{}`
-
-  The tags for metrics.
-
+</ul>

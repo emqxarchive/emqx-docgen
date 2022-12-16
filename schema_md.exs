@@ -23,7 +23,15 @@ defmodule SchemaMD do
       # format_envs(paths, opts),
       format_paths_envs_table(paths, opts),
       "\n\n**Fields**\n\n",
-      Enum.map(fields, & format_field(&1, opts))
+      # Enum.map(fields, & format_field(&1, opts)),
+      [
+        ~s/<ul class="field-list">/,
+        "\n",
+        Enum.map(fields, &format_field2(&1, opts)),
+        "\n",
+        ~s{</ul>},
+        "\n",
+      ]
     ]
   end
 
@@ -108,6 +116,59 @@ defmodule SchemaMD do
     ]
   end
 
+  def format_field2(field, opts) do
+    %{name: name, type: type} = field
+    default = format_default2(field[:default])
+    mapping = format_mapping2(field[:mapping])
+    desc = Map.get(field, :desc, "")
+
+    lines =
+      [
+        {strong("Type"), type |> type(opts) |> MD.code()},
+        {strong("Default"), default},
+        {strong("Mapping"), mapping},
+      ]
+      |> Enum.filter(& elem(&1, 1))
+
+    [
+      "<li>",
+      "\n",
+      ~s|<h4>#{name}</h4>|,
+      "\n",
+      # if_not_nil(desc, [MD.indent([desc], 2), "\n\n"]),
+      if_not_nil(desc, [desc, "\n\n"]),
+      # MD.table(_headers = nil, lines),
+      html_table_no_headers(lines),
+      "\n",
+      "</li>",
+      "\n",
+    ]
+  end
+
+  def strong(text) do
+    "<strong>#{text}</strong>"
+  end
+
+  def html_table_no_headers(rows) do
+    [
+      "<table>\n",
+      "<tbody>\n",
+      Enum.map(rows, fn row ->
+        [
+          "<tr>",
+          row
+          |> Tuple.to_list()
+          |> Enum.map(fn el ->
+            "<td>#{el}</td>"
+          end),
+          "</tr>",
+        ]
+      end),
+      "</tbody>\n",
+      "</table>",
+    ]
+  end
+
   def simple_list(xs) do
     xs
     |> Enum.map(&MD.code/1)
@@ -125,9 +186,21 @@ defmodule SchemaMD do
     end
   end
 
+  def format_default2(default) do
+    with %{hocon: content} <- default do
+      MD.code(content)
+    end
+  end
+
   def format_mapping(mapping) do
     with "" <> text <- mapping do
       ["`", text, "`"]
+    end
+  end
+
+  def format_mapping2(mapping) do
+    with "" <> text <- mapping do
+      MD.code(text)
     end
   end
 
@@ -143,11 +216,17 @@ defmodule SchemaMD do
       header_index: header_index,
     } = opts
     ref_slug = Map.fetch!(header_index, ref)
+    # if ref_slug == current_slug do
+    #   MD.local_link(ref, ref)
+    # else
+    #   anchor = MD.anchor(ref)
+    #   MD.link(ref, "#{ref_slug}.md##{anchor}")
+    # end
+    anchor = MD.anchor(ref)
     if ref_slug == current_slug do
-      MD.local_link(ref, ref)
+      ~s|<a href="#{anchor}">#{ref}</a>|
     else
-      anchor = MD.anchor(ref)
-      MD.link(ref, "#{ref_slug}.md##{anchor}")
+      ~s|<a href="#{ref_slug}.md##{anchor}">#{ref}</a>|
     end
   end
   def type(%{kind: "array", elements: elem_type}, opts) do

@@ -31,30 +31,54 @@ Configuration of authenticator using built-in database as data source.
 
 **Fields**
 
-- mechanism: <code>password_based</code>
-  Authentication mechanism.
+<ul class="field-list">
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- backend: <code>built_in_database</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>password_based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- user_id_type: <code>clientid | username</code>
-  * default: 
-  `"username"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>built_in_database</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>user_id_type</h4>
+Specify whether to use `clientid` or `username` for authentication.
 
-  Specify whether to use `clientid` or `username` for authentication.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>clientid | username</code></td></tr><tr><td><strong>Default</strong></td><td><code>"username"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_algorithm</h4>
+Options for password hash creation and verification.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt_rw](others.md#authn-hash-bcrypt_rw) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
-  * default: 
-  `{name = sha256, salt_position = prefix}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#authn-hash-bcrypt_rw">authn-hash:bcrypt_rw</a> | <a href="others.md#authn-hash-pbkdf2">authn-hash:pbkdf2</a> | <a href="others.md#authn-hash-other_algorithms">authn-hash:other_algorithms</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{name = sha256, salt_position = prefix}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-  Options for password hash creation and verification.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
-
+</ul>
 
 ## authn-http:get <a id='authn-http-get'></a>
 Configuration of authenticator using HTTP Server as authentication service (Using GET request).
@@ -87,83 +111,153 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
 
 **Fields**
 
-- method: <code>get</code>
-  * default: 
-  `get`
+<ul class="field-list">
+<li>
+<h4>method</h4>
+HTTP request method.
 
-  HTTP request method.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>get</code></td></tr><tr><td><strong>Default</strong></td><td><code>get</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>headers</h4>
+List of HTTP headers (without <code>content-type</code>).
 
-- headers: <code>map()</code>
-  * default: 
-  ```
-  {
-    accept = "application/json"
-    "cache-control" = "no-cache"
-    connection = "keep-alive"
-    "keep-alive" = "timeout=30, max=1000"
-  }
-  ```
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr><tr><td><strong>Default</strong></td><td><code>{
+  accept = "application/json"
+  "cache-control" = "no-cache"
+  connection = "keep-alive"
+  "keep-alive" = "timeout=30, max=1000"
+}
+</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-  List of HTTP headers (without <code>content-type</code>).
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>password_based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- mechanism: <code>password_based</code>
-  Authentication mechanism.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>http</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>url</h4>
+URL of the HTTP server.
 
-- backend: <code>http</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>body</h4>
+HTTP request body.
 
-- url: <code>binary()</code>
-  URL of the HTTP server.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>#{term() => binary()}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request_timeout</h4>
+HTTP request timeout.
 
-- body: <code>#{term() => binary()}</code>
-  HTTP request body.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"5s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-- request_timeout: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"5s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>connect_timeout</h4>
+The timeout when connecting to the HTTP server.
 
-  HTTP request timeout.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_pipelining</h4>
+A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>100</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_retries</h4>
+Deprecated since 5.0.4.
 
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+The pool size.
 
-- connect_timeout: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request</h4>
 
-  The timeout when connecting to the HTTP server.
+If the request is provided, the caller can send HTTP requests via
+<code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
-- enable_pipelining: <code>pos_integer()</code>
-  * default: 
-  `100`
 
-  A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#connector-http-request">connector-http:request</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>retry_interval</h4>
+Deprecated since 5.0.4.
 
-- max_retries: <code>non_neg_integer()</code>
-  Deprecated since 5.0.4.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
 
-  The pool size.
-
-- request: <code>[connector-http:request](others.md#connector-http-request)</code>
-  If the request is provided, the caller can send HTTP requests via
-  <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
-
-- retry_interval: <code>emqx_schema:duration()</code>
-  Deprecated since 5.0.4.
-
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
-
-  SSL connection settings.
-
+</ul>
 
 ## authn-http:post <a id='authn-http-post'></a>
 Configuration of authenticator using HTTP Server as authentication service (Using POST request).
@@ -196,84 +290,154 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
 
 **Fields**
 
-- method: <code>post</code>
-  * default: 
-  `post`
+<ul class="field-list">
+<li>
+<h4>method</h4>
+HTTP request method.
 
-  HTTP request method.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>post</code></td></tr><tr><td><strong>Default</strong></td><td><code>post</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>headers</h4>
+List of HTTP Headers.
 
-- headers: <code>map()</code>
-  * default: 
-  ```
-  {
-    accept = "application/json"
-    "cache-control" = "no-cache"
-    connection = "keep-alive"
-    "content-type" = "application/json"
-    "keep-alive" = "timeout=30, max=1000"
-  }
-  ```
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr><tr><td><strong>Default</strong></td><td><code>{
+  accept = "application/json"
+  "cache-control" = "no-cache"
+  connection = "keep-alive"
+  "content-type" = "application/json"
+  "keep-alive" = "timeout=30, max=1000"
+}
+</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-  List of HTTP Headers.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>password_based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- mechanism: <code>password_based</code>
-  Authentication mechanism.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>http</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>url</h4>
+URL of the HTTP server.
 
-- backend: <code>http</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>body</h4>
+HTTP request body.
 
-- url: <code>binary()</code>
-  URL of the HTTP server.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>#{term() => binary()}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request_timeout</h4>
+HTTP request timeout.
 
-- body: <code>#{term() => binary()}</code>
-  HTTP request body.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"5s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-- request_timeout: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"5s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>connect_timeout</h4>
+The timeout when connecting to the HTTP server.
 
-  HTTP request timeout.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"15s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable_pipelining</h4>
+A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>100</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>max_retries</h4>
+Deprecated since 5.0.4.
 
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+The pool size.
 
-- connect_timeout: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"15s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>request</h4>
 
-  The timeout when connecting to the HTTP server.
+If the request is provided, the caller can send HTTP requests via
+<code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
-- enable_pipelining: <code>pos_integer()</code>
-  * default: 
-  `100`
 
-  A positive integer. Whether to send HTTP requests continuously, when set to 1, it means that after each HTTP request is sent, you need to wait for the server to return and then continue to send the next request.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#connector-http-request">connector-http:request</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>retry_interval</h4>
+Deprecated since 5.0.4.
 
-- max_retries: <code>non_neg_integer()</code>
-  Deprecated since 5.0.4.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
 
-  The pool size.
-
-- request: <code>[connector-http:request](others.md#connector-http-request)</code>
-  If the request is provided, the caller can send HTTP requests via
-  <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
-
-- retry_interval: <code>emqx_schema:duration()</code>
-  Deprecated since 5.0.4.
-
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
-
-  SSL connection settings.
-
+</ul>
 
 ## authn-jwt:hmac-based <a id='authn-jwt-hmac-based'></a>
 Configuration when the JWT for authentication is issued using the HMAC algorithm.
@@ -306,52 +470,96 @@ Configuration when the JWT for authentication is issued using the HMAC algorithm
 
 **Fields**
 
-- use_jwks: <code>false</code>
-  Whether to use JWKS.
+<ul class="field-list">
+<li>
+<h4>use_jwks</h4>
+Whether to use JWKS.
 
-- algorithm: <code>hmac-based</code>
-  JWT signing algorithm, Supports HMAC (configured as <code>hmac-based</code>) and RSA, ECDSA (configured as <code>public-key</code>).
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>algorithm</h4>
+JWT signing algorithm, Supports HMAC (configured as <code>hmac-based</code>) and RSA, ECDSA (configured as <code>public-key</code>).
 
-- secret: <code>binary()</code>
-  The key to verify the JWT using HMAC algorithm.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>hmac-based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>secret</h4>
+The key to verify the JWT using HMAC algorithm.
 
-- secret_base64_encoded: <code>boolean()</code>
-  * default: 
-  `false`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>secret_base64_encoded</h4>
+Whether secret is base64 encoded.
 
-  Whether secret is base64 encoded.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- mechanism: <code>jwt</code>
-  Authentication mechanism.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>jwt</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>acl_claim_name</h4>
+JWT claim name to use for getting ACL rules.
 
-- acl_claim_name: <code>binary()</code>
-  * default: 
-  `"acl"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"acl"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>verify_claims</h4>
 
-  JWT claim name to use for getting ACL rules.
+A list of custom claims to validate, which is a list of name/value pairs.
+Values can use the following placeholders:
+- <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
+- <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
+Authentication will verify that the value of claims in the JWT (taken from the Password field) matches what is required in <code>verify_claims</code>.
 
-- verify_claims: <code>[term()]</code>
-  * default: 
-  `{}`
 
-  A list of custom claims to validate, which is a list of name/value pairs.
-  Values can use the following placeholders:
-  - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
-  - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-  Authentication will verify that the value of claims in the JWT (taken from the Password field) matches what is required in <code>verify_claims</code>.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[term()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>from</h4>
+Field to take JWT from.
 
-- from: <code>username | password</code>
-  * default: 
-  `password`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>username | password</code></td></tr><tr><td><strong>Default</strong></td><td><code>password</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-  Field to take JWT from.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
-
+</ul>
 
 ## authn-jwt:jwks <a id='authn-jwt-jwks'></a>
 Configuration when JWTs used for authentication need to be fetched from the JWKS endpoint.
@@ -384,61 +592,105 @@ Configuration when JWTs used for authentication need to be fetched from the JWKS
 
 **Fields**
 
-- use_jwks: <code>true</code>
-  Whether to use JWKS.
+<ul class="field-list">
+<li>
+<h4>use_jwks</h4>
+Whether to use JWKS.
 
-- endpoint: <code>string()</code>
-  JWKS endpoint, it's a read-only endpoint that returns the server's public key set in the JWKS format.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>endpoint</h4>
+JWKS endpoint, it's a read-only endpoint that returns the server's public key set in the JWKS format.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>refresh_interval</h4>
+JWKS refresh interval.
 
-- refresh_interval: <code>integer()</code>
-  * default: 
-  `300`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>300</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL options.
 
-  JWKS refresh interval.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>jwt</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>acl_claim_name</h4>
+JWT claim name to use for getting ACL rules.
 
-  SSL options.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"acl"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>verify_claims</h4>
 
-- mechanism: <code>jwt</code>
-  Authentication mechanism.
+A list of custom claims to validate, which is a list of name/value pairs.
+Values can use the following placeholders:
+- <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
+- <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
+Authentication will verify that the value of claims in the JWT (taken from the Password field) matches what is required in <code>verify_claims</code>.
 
-- acl_claim_name: <code>binary()</code>
-  * default: 
-  `"acl"`
 
-  JWT claim name to use for getting ACL rules.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[term()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>from</h4>
+Field to take JWT from.
 
-- verify_claims: <code>[term()]</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>username | password</code></td></tr><tr><td><strong>Default</strong></td><td><code>password</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-  A list of custom claims to validate, which is a list of name/value pairs.
-  Values can use the following placeholders:
-  - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
-  - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-  Authentication will verify that the value of claims in the JWT (taken from the Password field) matches what is required in <code>verify_claims</code>.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
 
-- from: <code>username | password</code>
-  * default: 
-  `password`
-
-  Field to take JWT from.
-
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
-
+</ul>
 
 ## authn-jwt:public-key <a id='authn-jwt-public-key'></a>
 Configuration when the JWT for authentication is issued using RSA or ECDSA algorithm.
@@ -471,46 +723,87 @@ Configuration when the JWT for authentication is issued using RSA or ECDSA algor
 
 **Fields**
 
-- use_jwks: <code>false</code>
-  Whether to use JWKS.
+<ul class="field-list">
+<li>
+<h4>use_jwks</h4>
+Whether to use JWKS.
 
-- algorithm: <code>public-key</code>
-  JWT signing algorithm, Supports HMAC (configured as <code>hmac-based</code>) and RSA, ECDSA (configured as <code>public-key</code>).
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>algorithm</h4>
+JWT signing algorithm, Supports HMAC (configured as <code>hmac-based</code>) and RSA, ECDSA (configured as <code>public-key</code>).
 
-- public_key: <code>string()</code>
-  The public key used to verify the JWT.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>public-key</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>public_key</h4>
+The public key used to verify the JWT.
 
-- mechanism: <code>jwt</code>
-  Authentication mechanism.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- acl_claim_name: <code>binary()</code>
-  * default: 
-  `"acl"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>jwt</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>acl_claim_name</h4>
+JWT claim name to use for getting ACL rules.
 
-  JWT claim name to use for getting ACL rules.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"acl"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>verify_claims</h4>
 
-- verify_claims: <code>[term()]</code>
-  * default: 
-  `{}`
+A list of custom claims to validate, which is a list of name/value pairs.
+Values can use the following placeholders:
+- <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
+- <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
+Authentication will verify that the value of claims in the JWT (taken from the Password field) matches what is required in <code>verify_claims</code>.
 
-  A list of custom claims to validate, which is a list of name/value pairs.
-  Values can use the following placeholders:
-  - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
-  - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-  Authentication will verify that the value of claims in the JWT (taken from the Password field) matches what is required in <code>verify_claims</code>.
 
-- from: <code>username | password</code>
-  * default: 
-  `password`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[term()]</code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>from</h4>
+Field to take JWT from.
 
-  Field to take JWT from.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>username | password</code></td></tr><tr><td><strong>Default</strong></td><td><code>password</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
 
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
-
+</ul>
 
 ## authn-mongodb:replica-set <a id='authn-mongodb-replica-set'></a>
 Configuration of authenticator using MongoDB (Replica Set) as authentication data source.
@@ -543,114 +836,217 @@ Configuration of authenticator using MongoDB (Replica Set) as authentication dat
 
 **Fields**
 
-- mechanism: <code>password_based</code>
-  Authentication mechanism.
+<ul class="field-list">
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- backend: <code>mongodb</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>password_based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- collection: <code>binary()</code>
-  Collection used to store authentication data.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>mongodb</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>collection</h4>
+Collection used to store authentication data.
 
-- filter: <code>map()</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>filter</h4>
 
-  Conditional expression that defines the filter condition in the query.
-  Filter supports the following placeholders:
-  - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
-  - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
-- password_hash_field: <code>binary()</code>
-  * default: 
-  `"password_hash"`
-
-  Document field that contains password hash.
-
-- salt_field: <code>binary()</code>
-  * default: 
-  `"salt"`
-
-  Document field that contains the password salt.
-
-- is_superuser_field: <code>binary()</code>
-  * default: 
-  `"is_superuser"`
-
-  Document field that defines if the user has superuser privileges.
-
-- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
-  * default: 
-  `{name = sha256, salt_position = prefix}`
-
-  Options for password hash verification.
-
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
-
-- mongo_type: <code>rs</code>
-  * default: 
-  `rs`
-
-  Replica set.
-
-- servers: <code>[term()]</code>
-  A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
-  For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
-  A host entry has the following form: `Host[:Port]`.
-  The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
-- w_mode: <code>unsafe | safe</code>
-  * default: 
-  `unsafe`
-
-  Write mode.
-
-- r_mode: <code>master | slave_ok</code>
-  * default: 
-  `master`
-
-  Read mode.
-
-- replica_set_name: <code>binary()</code>
-  Name of the replica set.
-
-- srv_record: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Use DNS SRV record.
-
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
-
-  Size of the connection pool.
-
-- username: <code>binary()</code>
-  EMQX's username in the external database.
-
-- password: <code>binary()</code>
-  EMQX's password in the external database.
-
-- auth_source: <code>binary()</code>
-  Database name associated with the user's credentials.
-
-- database: <code>binary()</code>
-  Database name.
-
-- topology: <code>[topology](others.md#topology)</code>
+Conditional expression that defines the filter condition in the query.
+Filter supports the following placeholders:
+- <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
+- <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
 
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_field</h4>
+Document field that contains password hash.
 
-  SSL connection settings.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"password_hash"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>salt_field</h4>
+Document field that contains the password salt.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"salt"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>is_superuser_field</h4>
+Document field that defines if the user has superuser privileges.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"is_superuser"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_algorithm</h4>
+Options for password hash verification.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#authn-hash-bcrypt">authn-hash:bcrypt</a> | <a href="others.md#authn-hash-pbkdf2">authn-hash:pbkdf2</a> | <a href="others.md#authn-hash-other_algorithms">authn-hash:other_algorithms</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{name = sha256, salt_position = prefix}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mongo_type</h4>
+Replica set.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>rs</code></td></tr><tr><td><strong>Default</strong></td><td><code>rs</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>servers</h4>
+
+A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
+For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
+A host entry has the following form: `Host[:Port]`.
+The MongoDB default port 27017 is used if `[:Port]` is not specified.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[term()]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>w_mode</h4>
+Write mode.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>unsafe | safe</code></td></tr><tr><td><strong>Default</strong></td><td><code>unsafe</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>r_mode</h4>
+Read mode.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>master | slave_ok</code></td></tr><tr><td><strong>Default</strong></td><td><code>master</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>replica_set_name</h4>
+Name of the replica set.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>srv_record</h4>
+Use DNS SRV record.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>username</h4>
+EMQX's username in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auth_source</h4>
+Database name associated with the user's credentials.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Database name.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>topology</h4>
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#topology">topology</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## authn-mongodb:sharded-cluster <a id='authn-mongodb-sharded-cluster'></a>
 Configuration of authenticator using MongoDB (Sharded Cluster) as authentication data source.
@@ -683,105 +1079,199 @@ Configuration of authenticator using MongoDB (Sharded Cluster) as authentication
 
 **Fields**
 
-- mechanism: <code>password_based</code>
-  Authentication mechanism.
+<ul class="field-list">
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- backend: <code>mongodb</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>password_based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- collection: <code>binary()</code>
-  Collection used to store authentication data.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>mongodb</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>collection</h4>
+Collection used to store authentication data.
 
-- filter: <code>map()</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>filter</h4>
 
-  Conditional expression that defines the filter condition in the query.
-  Filter supports the following placeholders:
-  - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
-  - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
-- password_hash_field: <code>binary()</code>
-  * default: 
-  `"password_hash"`
-
-  Document field that contains password hash.
-
-- salt_field: <code>binary()</code>
-  * default: 
-  `"salt"`
-
-  Document field that contains the password salt.
-
-- is_superuser_field: <code>binary()</code>
-  * default: 
-  `"is_superuser"`
-
-  Document field that defines if the user has superuser privileges.
-
-- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
-  * default: 
-  `{name = sha256, salt_position = prefix}`
-
-  Options for password hash verification.
-
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
-
-- mongo_type: <code>sharded</code>
-  * default: 
-  `sharded`
-
-  Sharded cluster.
-
-- servers: <code>[term()]</code>
-  A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
-  For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
-  A host entry has the following form: `Host[:Port]`.
-  The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
-- w_mode: <code>unsafe | safe</code>
-  * default: 
-  `unsafe`
-
-  Write mode.
-
-- srv_record: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Use DNS SRV record.
-
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
-
-  Size of the connection pool.
-
-- username: <code>binary()</code>
-  EMQX's username in the external database.
-
-- password: <code>binary()</code>
-  EMQX's password in the external database.
-
-- auth_source: <code>binary()</code>
-  Database name associated with the user's credentials.
-
-- database: <code>binary()</code>
-  Database name.
-
-- topology: <code>[topology](others.md#topology)</code>
+Conditional expression that defines the filter condition in the query.
+Filter supports the following placeholders:
+- <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
+- <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
 
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_field</h4>
+Document field that contains password hash.
 
-  SSL connection settings.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"password_hash"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>salt_field</h4>
+Document field that contains the password salt.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"salt"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>is_superuser_field</h4>
+Document field that defines if the user has superuser privileges.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"is_superuser"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_algorithm</h4>
+Options for password hash verification.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#authn-hash-bcrypt">authn-hash:bcrypt</a> | <a href="others.md#authn-hash-pbkdf2">authn-hash:pbkdf2</a> | <a href="others.md#authn-hash-other_algorithms">authn-hash:other_algorithms</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{name = sha256, salt_position = prefix}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mongo_type</h4>
+Sharded cluster.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>sharded</code></td></tr><tr><td><strong>Default</strong></td><td><code>sharded</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>servers</h4>
+
+A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
+For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
+A host entry has the following form: `Host[:Port]`.
+The MongoDB default port 27017 is used if `[:Port]` is not specified.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[term()]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>w_mode</h4>
+Write mode.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>unsafe | safe</code></td></tr><tr><td><strong>Default</strong></td><td><code>unsafe</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>srv_record</h4>
+Use DNS SRV record.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>username</h4>
+EMQX's username in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auth_source</h4>
+Database name associated with the user's credentials.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Database name.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>topology</h4>
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#topology">topology</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## authn-mongodb:standalone <a id='authn-mongodb-standalone'></a>
 Configuration of authenticator using MongoDB (Standalone) as authentication data source.
@@ -814,104 +1304,198 @@ Configuration of authenticator using MongoDB (Standalone) as authentication data
 
 **Fields**
 
-- mechanism: <code>password_based</code>
-  Authentication mechanism.
+<ul class="field-list">
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- backend: <code>mongodb</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>password_based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- collection: <code>binary()</code>
-  Collection used to store authentication data.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>mongodb</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>collection</h4>
+Collection used to store authentication data.
 
-- filter: <code>map()</code>
-  * default: 
-  `{}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>filter</h4>
 
-  Conditional expression that defines the filter condition in the query.
-  Filter supports the following placeholders:
-  - <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
-  - <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
-
-- password_hash_field: <code>binary()</code>
-  * default: 
-  `"password_hash"`
-
-  Document field that contains password hash.
-
-- salt_field: <code>binary()</code>
-  * default: 
-  `"salt"`
-
-  Document field that contains the password salt.
-
-- is_superuser_field: <code>binary()</code>
-  * default: 
-  `"is_superuser"`
-
-  Document field that defines if the user has superuser privileges.
-
-- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
-  * default: 
-  `{name = sha256, salt_position = prefix}`
-
-  Options for password hash verification.
-
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
-
-- mongo_type: <code>single</code>
-  * default: 
-  `single`
-
-  Standalone instance.
-
-- server: <code>emqx_schema:host_port()</code>
-  The IPv4 or IPv6 address or the hostname to connect to.<br/>
-  A host entry has the following form: `Host[:Port]`.<br/>
-  The MongoDB default port 27017 is used if `[:Port]` is not specified.
-
-- w_mode: <code>unsafe | safe</code>
-  * default: 
-  `unsafe`
-
-  Write mode.
-
-- srv_record: <code>boolean()</code>
-  * default: 
-  `false`
-
-  Use DNS SRV record.
-
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
-
-  Size of the connection pool.
-
-- username: <code>binary()</code>
-  EMQX's username in the external database.
-
-- password: <code>binary()</code>
-  EMQX's password in the external database.
-
-- auth_source: <code>binary()</code>
-  Database name associated with the user's credentials.
-
-- database: <code>binary()</code>
-  Database name.
-
-- topology: <code>[topology](others.md#topology)</code>
+Conditional expression that defines the filter condition in the query.
+Filter supports the following placeholders:
+- <code>${username}</code>: Will be replaced at runtime with <code>Username</code> used by the client when connecting
+- <code>${clientid}</code>: Will be replaced at runtime with <code>Client ID</code> used by the client when connecting
 
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>map()</code></td></tr><tr><td><strong>Default</strong></td><td><code>{}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_field</h4>
+Document field that contains password hash.
 
-  SSL connection settings.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"password_hash"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>salt_field</h4>
+Document field that contains the password salt.
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"salt"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>is_superuser_field</h4>
+Document field that defines if the user has superuser privileges.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"is_superuser"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_algorithm</h4>
+Options for password hash verification.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#authn-hash-bcrypt">authn-hash:bcrypt</a> | <a href="others.md#authn-hash-pbkdf2">authn-hash:pbkdf2</a> | <a href="others.md#authn-hash-other_algorithms">authn-hash:other_algorithms</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{name = sha256, salt_position = prefix}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mongo_type</h4>
+Standalone instance.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>single</code></td></tr><tr><td><strong>Default</strong></td><td><code>single</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server</h4>
+
+The IPv4 or IPv6 address or the hostname to connect to.<br/>
+A host entry has the following form: `Host[:Port]`.<br/>
+The MongoDB default port 27017 is used if `[:Port]` is not specified.
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:host_port()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>w_mode</h4>
+Write mode.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>unsafe | safe</code></td></tr><tr><td><strong>Default</strong></td><td><code>unsafe</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>srv_record</h4>
+Use DNS SRV record.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>false</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>username</h4>
+EMQX's username in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auth_source</h4>
+Database name associated with the user's credentials.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Database name.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>topology</h4>
+
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#topology">topology</a></code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
+
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
 
 ## authn-mysql:authentication <a id='authn-mysql-authentication'></a>
 Configuration of authenticator using MySQL as authentication data source.
@@ -944,65 +1528,130 @@ Configuration of authenticator using MySQL as authentication data source.
 
 **Fields**
 
-- mechanism: <code>password_based</code>
-  Authentication mechanism.
+<ul class="field-list">
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- backend: <code>mysql</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>password_based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
-  * default: 
-  `{name = sha256, salt_position = prefix}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>mysql</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_algorithm</h4>
+Options for password hash verification.
 
-  Options for password hash verification.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#authn-hash-bcrypt">authn-hash:bcrypt</a> | <a href="others.md#authn-hash-pbkdf2">authn-hash:pbkdf2</a> | <a href="others.md#authn-hash-other_algorithms">authn-hash:other_algorithms</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{name = sha256, salt_position = prefix}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>query</h4>
+SQL used to query data for authentication, such as password hash.
 
-- query: <code>string()</code>
-  SQL used to query data for authentication, such as password hash.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>query_timeout</h4>
+Timeout for the SQL query.
 
-- query_timeout: <code>emqx_schema:duration_ms()</code>
-  * default: 
-  `"5s"`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:duration_ms()</code></td></tr><tr><td><strong>Default</strong></td><td><code>"5s"</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-  Timeout for the SQL query.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server</h4>
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+The IPv4 or IPv6 address or the hostname to connect to.<br/>
+A host entry has the following form: `Host[:Port]`.<br/>
+The MySQL default port 3306 is used if `[:Port]` is not specified.
 
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-- server: <code>emqx_schema:host_port()</code>
-  The IPv4 or IPv6 address or the hostname to connect to.<br/>
-  A host entry has the following form: `Host[:Port]`.<br/>
-  The MySQL default port 3306 is used if `[:Port]` is not specified.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:host_port()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Database name.
 
-- database: <code>binary()</code>
-  Database name.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>username</h4>
+EMQX's username in the external database.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
 
-- username: <code>binary()</code>
-  EMQX's username in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_reconnect</h4>
+Enable automatic reconnect to the database.
 
-- password: <code>binary()</code>
-  EMQX's password in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-- auto_reconnect: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
 
-  Enable automatic reconnect to the database.
-
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
-
-  SSL connection settings.
-
+</ul>
 
 ## authn-postgresql:authentication <a id='authn-postgresql-authentication'></a>
 Configuration of authenticator using PostgreSQL as authentication data source.
@@ -1035,59 +1684,121 @@ Configuration of authenticator using PostgreSQL as authentication data source.
 
 **Fields**
 
-- mechanism: <code>password_based</code>
-  Authentication mechanism.
+<ul class="field-list">
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- backend: <code>postgresql</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>password_based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
-  * default: 
-  `{name = sha256, salt_position = prefix}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>postgresql</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_algorithm</h4>
+Options for password hash verification.
 
-  Options for password hash verification.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#authn-hash-bcrypt">authn-hash:bcrypt</a> | <a href="others.md#authn-hash-pbkdf2">authn-hash:pbkdf2</a> | <a href="others.md#authn-hash-other_algorithms">authn-hash:other_algorithms</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{name = sha256, salt_position = prefix}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>query</h4>
+SQL used to query data for authentication, such as password hash.
 
-- query: <code>string()</code>
-  SQL used to query data for authentication, such as password hash.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server</h4>
 
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
+The IPv4 or IPv6 address or the hostname to connect to.<br/>
+A host entry has the following form: `Host[:Port]`.<br/>
+The PostgreSQL default port 5432 is used if `[:Port]` is not specified.
 
-- server: <code>emqx_schema:host_port()</code>
-  The IPv4 or IPv6 address or the hostname to connect to.<br/>
-  A host entry has the following form: `Host[:Port]`.<br/>
-  The PostgreSQL default port 5432 is used if `[:Port]` is not specified.
 
-- database: <code>binary()</code>
-  Database name.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:host_port()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Database name.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>username</h4>
+EMQX's username in the external database.
 
-- username: <code>binary()</code>
-  EMQX's username in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
 
-- password: <code>binary()</code>
-  EMQX's password in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_reconnect</h4>
+Enable automatic reconnect to the database.
 
-- auto_reconnect: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-  Enable automatic reconnect to the database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
 
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
-
-  SSL connection settings.
-
+</ul>
 
 ## authn-redis:cluster <a id='authn-redis-cluster'></a>
 Configuration of authenticator using Redis (Cluster) as authentication data source.
@@ -1120,60 +1831,113 @@ Configuration of authenticator using Redis (Cluster) as authentication data sour
 
 **Fields**
 
-- mechanism: <code>password_based</code>
-  Authentication mechanism.
+<ul class="field-list">
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- backend: <code>redis</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>password_based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- cmd: <code>string()</code>
-  The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>redis</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>cmd</h4>
+The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
-  * default: 
-  `{name = sha256, salt_position = prefix}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_algorithm</h4>
+Options for password hash verification.
 
-  Options for password hash verification.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#authn-hash-bcrypt">authn-hash:bcrypt</a> | <a href="others.md#authn-hash-pbkdf2">authn-hash:pbkdf2</a> | <a href="others.md#authn-hash-other_algorithms">authn-hash:other_algorithms</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{name = sha256, salt_position = prefix}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>servers</h4>
 
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
+A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
+For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
+A host entry has the following form: `Host[:Port]`.
+The MongoDB default port 27017 is used if `[:Port]` is not specified.
 
-- servers: <code>[term()]</code>
-  A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
-  For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
-  A host entry has the following form: `Host[:Port]`.
-  The MongoDB default port 27017 is used if `[:Port]` is not specified.
 
-- redis_type: <code>cluster</code>
-  * default: 
-  `cluster`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[term()]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>redis_type</h4>
+Cluster mode
 
-  Cluster mode
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>cluster</code></td></tr><tr><td><strong>Default</strong></td><td><code>cluster</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_reconnect</h4>
+Enable automatic reconnect to the database.
 
-- password: <code>binary()</code>
-  EMQX's password in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-- auto_reconnect: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
 
-  Enable automatic reconnect to the database.
-
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
-
-  SSL connection settings.
-
+</ul>
 
 ## authn-redis:sentinel <a id='authn-redis-sentinel'></a>
 Configuration of authenticator using Redis (Sentinel) as authentication data source.
@@ -1206,69 +1970,131 @@ Configuration of authenticator using Redis (Sentinel) as authentication data sou
 
 **Fields**
 
-- mechanism: <code>password_based</code>
-  Authentication mechanism.
+<ul class="field-list">
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- backend: <code>redis</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>password_based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- cmd: <code>string()</code>
-  The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>redis</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>cmd</h4>
+The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
-  * default: 
-  `{name = sha256, salt_position = prefix}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_algorithm</h4>
+Options for password hash verification.
 
-  Options for password hash verification.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#authn-hash-bcrypt">authn-hash:bcrypt</a> | <a href="others.md#authn-hash-pbkdf2">authn-hash:pbkdf2</a> | <a href="others.md#authn-hash-other_algorithms">authn-hash:other_algorithms</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{name = sha256, salt_position = prefix}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>servers</h4>
 
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
+A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
+For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
+A host entry has the following form: `Host[:Port]`.
+The MongoDB default port 27017 is used if `[:Port]` is not specified.
 
-- servers: <code>[term()]</code>
-  A Node list for Cluster to connect to. The nodes should be separated with commas, such as: `Node[,Node].`
-  For each Node should be: The IPv4 or IPv6 address or the hostname to connect to.
-  A host entry has the following form: `Host[:Port]`.
-  The MongoDB default port 27017 is used if `[:Port]` is not specified.
 
-- redis_type: <code>sentinel</code>
-  * default: 
-  `sentinel`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>[term()]</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>redis_type</h4>
+Sentinel mode
 
-  Sentinel mode
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>sentinel</code></td></tr><tr><td><strong>Default</strong></td><td><code>sentinel</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>sentinel</h4>
+The cluster name in Redis sentinel mode.
 
-- sentinel: <code>string()</code>
-  The cluster name in Redis sentinel mode.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Redis database ID.
 
-- password: <code>binary()</code>
-  EMQX's password in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_reconnect</h4>
+Enable automatic reconnect to the database.
 
-- database: <code>integer()</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-  Redis database ID.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
 
-- auto_reconnect: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Enable automatic reconnect to the database.
-
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
-
-  SSL connection settings.
-
+</ul>
 
 ## authn-redis:standalone <a id='authn-redis-standalone'></a>
 Configuration of authenticator using Redis (Standalone) as authentication data source.
@@ -1301,65 +2127,121 @@ Configuration of authenticator using Redis (Standalone) as authentication data s
 
 **Fields**
 
-- mechanism: <code>password_based</code>
-  Authentication mechanism.
+<ul class="field-list">
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- backend: <code>redis</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>password_based</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- cmd: <code>string()</code>
-  The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>redis</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>cmd</h4>
+The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
-  * default: 
-  `{name = sha256, salt_position = prefix}`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>string()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password_hash_algorithm</h4>
+Options for password hash verification.
 
-  Options for password hash verification.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="others.md#authn-hash-bcrypt">authn-hash:bcrypt</a> | <a href="others.md#authn-hash-pbkdf2">authn-hash:pbkdf2</a> | <a href="others.md#authn-hash-other_algorithms">authn-hash:other_algorithms</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{name = sha256, salt_position = prefix}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>server</h4>
 
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
+The IPv4 or IPv6 address or the hostname to connect to.<br/>
+A host entry has the following form: `Host[:Port]`.<br/>
+The Redis default port 6379 is used if `[:Port]` is not specified.
 
-- server: <code>emqx_schema:host_port()</code>
-  The IPv4 or IPv6 address or the hostname to connect to.<br/>
-  A host entry has the following form: `Host[:Port]`.<br/>
-  The Redis default port 6379 is used if `[:Port]` is not specified.
 
-- redis_type: <code>single</code>
-  * default: 
-  `single`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>emqx_schema:host_port()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>redis_type</h4>
+Single mode
 
-  Single mode
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>single</code></td></tr><tr><td><strong>Default</strong></td><td><code>single</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>pool_size</h4>
+Size of the connection pool.
 
-- pool_size: <code>pos_integer()</code>
-  * default: 
-  `8`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>pos_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>8</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>password</h4>
+EMQX's password in the external database.
 
-  Size of the connection pool.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>binary()</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>database</h4>
+Redis database ID.
 
-- password: <code>binary()</code>
-  EMQX's password in the external database.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>0</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>auto_reconnect</h4>
+Enable automatic reconnect to the database.
 
-- database: <code>integer()</code>
-  * default: 
-  `0`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>ssl</h4>
+SSL connection settings.
 
-  Redis database ID.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code><a href="emqx.md#broker-ssl_client_opts">broker:ssl_client_opts</a></code></td></tr><tr><td><strong>Default</strong></td><td><code>{enable = false}</code></td></tr></tbody>
+</table>
+</li>
 
-- auto_reconnect: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Enable automatic reconnect to the database.
-
-- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
-  * default: 
-  `{enable = false}`
-
-  SSL connection settings.
-
+</ul>
 
 ## authn-scram-builtin_db:authentication <a id='authn-scram-builtin_db-authentication'></a>
 Settings for Salted Challenge Response Authentication Mechanism
@@ -1393,27 +2275,51 @@ Settings for Salted Challenge Response Authentication Mechanism
 
 **Fields**
 
-- mechanism: <code>scram</code>
-  Authentication mechanism.
+<ul class="field-list">
+<li>
+<h4>mechanism</h4>
+Authentication mechanism.
 
-- backend: <code>built_in_database</code>
-  Backend type.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>scram</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>backend</h4>
+Backend type.
 
-- algorithm: <code>sha256 | sha512</code>
-  * default: 
-  `sha256`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>built_in_database</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>algorithm</h4>
+Hashing algorithm.
 
-  Hashing algorithm.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>sha256 | sha512</code></td></tr><tr><td><strong>Default</strong></td><td><code>sha256</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>iteration_count</h4>
+Iteration count.
 
-- iteration_count: <code>non_neg_integer()</code>
-  * default: 
-  `4096`
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>non_neg_integer()</code></td></tr><tr><td><strong>Default</strong></td><td><code>4096</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>enable</h4>
+Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
-  Iteration count.
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>boolean()</code></td></tr><tr><td><strong>Default</strong></td><td><code>true</code></td></tr></tbody>
+</table>
+</li>
 
-- enable: <code>boolean()</code>
-  * default: 
-  `true`
-
-  Set to <code>true</code> or <code>false</code> to disable this auth provider.
-
+</ul>

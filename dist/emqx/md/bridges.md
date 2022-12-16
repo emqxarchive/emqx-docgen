@@ -10,9 +10,24 @@ Configuration for MQTT bridges.
 
 **Fields**
 
-- webhook: <code>{$name -> [bridge_webhook:config](others.md#bridge_webhook-config)}</code>
-  WebHook to an HTTP server.
+<ul class="field-list">
+<li>
+<h4>webhook</h4>
+WebHook to an HTTP server.
 
-- mqtt: <code>{$name -> [bridge_mqtt:config](others.md#bridge_mqtt-config)}</code>
-  MQTT bridges to/from another MQTT broker
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>{$name -> <a href="others.md#bridge_webhook-config">bridge_webhook:config</a>}</code></td></tr></tbody>
+</table>
+</li>
+<li>
+<h4>mqtt</h4>
+MQTT bridges to/from another MQTT broker
 
+<table>
+<tbody>
+<tr><td><strong>Type</strong></td><td><code>{$name -> <a href="others.md#bridge_mqtt-config">bridge_mqtt:config</a>}</code></td></tr></tbody>
+</table>
+</li>
+
+</ul>
