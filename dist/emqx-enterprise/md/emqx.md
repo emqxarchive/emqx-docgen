@@ -1,25 +1,25 @@
 # EMQX
 
-## Root Config Keys
+## Root Config Keys <a id='root-config-keys'></a>
 
 
 
 
 **Fields**
 
-- listeners: <code>[broker:listeners](#broker-listeners)</code>
+- listeners: <code>[broker:listeners](others.md#broker-listeners)</code>
 
 
-- zones: <code>{$name -> [broker:zone](#broker-zone)}</code>
+- zones: <code>{$name -> [broker:zone](others.md#broker-zone)}</code>
   A zone is a set of configs grouped by the zone <code>name</code>.
   For flexible configuration mapping, the <code>name</code> can be set to a listener's <code>zone</code> config.
   NOTE: A built-in zone named <code>default</code> is auto created and can not be deleted.
 
-- mqtt: <code>[broker:mqtt](#broker-mqtt)</code>
+- mqtt: <code>[broker:mqtt](others.md#broker-mqtt)</code>
   Global MQTT configuration.
   The configs here work as default values which can be overridden in <code>zone</code> configs
 
-- authentication: <code>[[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)]</code>
+- authentication: <code>[[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)]</code>
   Default authentication configs for all MQTT listeners.
   For per-listener overrides see <code>authentication</code> in listener configs
   This option can be configured with:
@@ -54,101 +54,101 @@
 - rpc: <code>[rpc](#rpc)</code>
 
 
-- broker: <code>[broker](#broker)</code>
+- broker: <code>[broker](others.md#broker)</code>
   Message broker options.
 
-- sys_topics: <code>[broker:sys_topics](#broker-sys_topics)</code>
+- sys_topics: <code>[broker:sys_topics](others.md#broker-sys_topics)</code>
   System topics configuration.
 
-- force_shutdown: <code>[broker:force_shutdown](#broker-force_shutdown)</code>
+- force_shutdown: <code>[broker:force_shutdown](others.md#broker-force_shutdown)</code>
 
 
-- overload_protection: <code>[broker:overload_protection](#broker-overload_protection)</code>
+- overload_protection: <code>[broker:overload_protection](others.md#broker-overload_protection)</code>
 
 
-- force_gc: <code>[broker:force_gc](#broker-force_gc)</code>
+- force_gc: <code>[broker:force_gc](others.md#broker-force_gc)</code>
 
 
-- conn_congestion: <code>[broker:conn_congestion](#broker-conn_congestion)</code>
+- conn_congestion: <code>[broker:conn_congestion](others.md#broker-conn_congestion)</code>
 
 
-- stats: <code>[broker:stats](#broker-stats)</code>
+- stats: <code>[broker:stats](others.md#broker-stats)</code>
 
 
-- sysmon: <code>[broker:sysmon](#broker-sysmon)</code>
+- sysmon: <code>[broker:sysmon](others.md#broker-sysmon)</code>
 
 
-- alarm: <code>[broker:alarm](#broker-alarm)</code>
+- alarm: <code>[broker:alarm](others.md#broker-alarm)</code>
 
 
-- flapping_detect: <code>[broker:flapping_detect](#broker-flapping_detect)</code>
+- flapping_detect: <code>[broker:flapping_detect](others.md#broker-flapping_detect)</code>
 
 
-- persistent_session_store: <code>[broker:persistent_session_store](#broker-persistent_session_store)</code>
+- persistent_session_store: <code>[broker:persistent_session_store](others.md#broker-persistent_session_store)</code>
 
 
-- trace: <code>[broker:trace](#broker-trace)</code>
+- trace: <code>[broker:trace](others.md#broker-trace)</code>
 
 
-- bridges: <code>[bridge:bridges](#bridge-bridges)</code>
+- bridges: <code>[bridge:bridges](bridges.md#bridge-bridges)</code>
 
 
-- retainer: <code>[retainer](#retainer)</code>
+- retainer: <code>[retainer](others.md#retainer)</code>
 
 
-- statsd: <code>[statsd](#statsd)</code>
+- statsd: <code>[statsd](others.md#statsd)</code>
 
 
-- auto_subscribe: <code>[auto_subscribe](#auto_subscribe)</code>
+- auto_subscribe: <code>[auto_subscribe](others.md#auto_subscribe)</code>
 
 
-- delayed: <code>[modules:delayed](#modules-delayed)</code>
+- delayed: <code>[modules:delayed](others.md#modules-delayed)</code>
 
 
-- telemetry: <code>[modules:telemetry](#modules-telemetry)</code>
+- telemetry: <code>[modules:telemetry](others.md#modules-telemetry)</code>
 
 
-- rewrite: <code>[[modules:rewrite](#modules-rewrite)]</code>
+- rewrite: <code>[[modules:rewrite](others.md#modules-rewrite)]</code>
   List of topic rewrite rules.
 
-- topic_metrics: <code>[[modules:topic_metrics](#modules-topic_metrics)]</code>
+- topic_metrics: <code>[[modules:topic_metrics](others.md#modules-topic_metrics)]</code>
   List of topics whose metrics are reported.
 
-- plugins: <code>[plugin:plugins](#plugin-plugins)</code>
+- plugins: <code>[plugin:plugins](others.md#plugin-plugins)</code>
 
 
-- dashboard: <code>[dashboard](#dashboard)</code>
+- dashboard: <code>[dashboard](others.md#dashboard)</code>
 
 
-- gateway: <code>[gateway](#gateway)</code>
+- gateway: <code>[gateway](gateway.md#gateway)</code>
 
 
-- prometheus: <code>[prometheus](#prometheus)</code>
+- prometheus: <code>[prometheus](others.md#prometheus)</code>
 
 
-- rule_engine: <code>[rule_engine](#rule_engine)</code>
+- rule_engine: <code>[rule_engine](rule.md#rule_engine)</code>
 
 
-- exhook: <code>[exhook](#exhook)</code>
+- exhook: <code>[exhook](others.md#exhook)</code>
 
 
-- psk_authentication: <code>[authn-psk:psk_authentication](#authn-psk-psk_authentication)</code>
+- psk_authentication: <code>[authn-psk:psk_authentication](others.md#authn-psk-psk_authentication)</code>
 
 
-- limiter: <code>[limiter](#limiter)</code>
+- limiter: <code>[limiter](others.md#limiter)</code>
 
 
-- slow_subs: <code>[slow_subs](#slow_subs)</code>
+- slow_subs: <code>[slow_subs](others.md#slow_subs)</code>
 
 
-- license: <code>[key_license](#key_license)</code>
+- license: <code>[key_license](license.md#key_license)</code>
   Defines the EMQX Enterprise license. 
   The default license has 1000 connections limit, it is issued on 2022-04-19 and valid for 5 years (1825 days).
   EMQX comes with a default trial license.  For production use, please 
   visit https://www.emqx.com/apply-licenses/emqx to apply.
 
 
-## cluster_dns
+## cluster_dns <a id='cluster_dns'></a>
 Service discovery via DNS SRV records.
 
 
@@ -177,7 +177,7 @@ Service discovery via DNS SRV records.
   DNS record type. 
 
 
-## cluster_etcd
+## cluster_etcd <a id='cluster_etcd'></a>
 Service discovery using 'etcd' service.
 
 
@@ -209,11 +209,11 @@ Service discovery using 'etcd' service.
   It is refreshed automatically, as long as the node is alive.
             
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   Options for the TLS connection to the etcd cluster.
 
 
-## cluster_k8s
+## cluster_k8s <a id='cluster_k8s'></a>
 Service discovery via Kubernetes API server.
 
 
@@ -263,7 +263,7 @@ Service discovery via Kubernetes API server.
   or <code>hostname</code>.
 
 
-## cluster_mcast
+## cluster_mcast <a id='cluster_mcast'></a>
 Service discovery via UDP multicast.
 
 
@@ -329,7 +329,7 @@ Service discovery via UDP multicast.
   Size of the user-level buffer.
 
 
-## cluster_static
+## cluster_static <a id='cluster_static'></a>
 Service discovery via static nodes.
 The new node joins the cluster by connecting to one of the bootstrap nodes.
 
@@ -352,7 +352,7 @@ The new node joins the cluster by connecting to one of the bootstrap nodes.
   List EMQX node names in the static cluster. See <code>node.name</code>.
 
 
-## authorization
+## authorization <a id='authorization'></a>
 Settings that control client authorization.
 
 
@@ -382,10 +382,10 @@ Settings that control client authorization.
 
   The action when the authorization check rejects an operation.
 
-- cache: <code>[broker:cache](#broker-cache)</code>
+- cache: <code>[broker:cache](others.md#broker-cache)</code>
 
 
-- sources: <code>[[authz:file](#authz-file) | [authz:http_get](#authz-http_get) | [authz:http_post](#authz-http_post) | [authz:mnesia](#authz-mnesia) | [authz:mongo_single](#authz-mongo_single) | [authz:mongo_rs](#authz-mongo_rs) | [authz:mongo_sharded](#authz-mongo_sharded) | [authz:mysql](#authz-mysql) | [authz:postgresql](#authz-postgresql) | [authz:redis_single](#authz-redis_single) | [authz:redis_sentinel](#authz-redis_sentinel) | [authz:redis_cluster](#authz-redis_cluster)]</code>
+- sources: <code>[[authz:file](authz.md#authz-file) | [authz:http_get](authz.md#authz-http_get) | [authz:http_post](authz.md#authz-http_post) | [authz:mnesia](authz.md#authz-mnesia) | [authz:mongo_single](authz.md#authz-mongo_single) | [authz:mongo_rs](authz.md#authz-mongo_rs) | [authz:mongo_sharded](authz.md#authz-mongo_sharded) | [authz:mysql](authz.md#authz-mysql) | [authz:postgresql](authz.md#authz-postgresql) | [authz:redis_single](authz.md#authz-redis_single) | [authz:redis_sentinel](authz.md#authz-redis_sentinel) | [authz:redis_cluster](authz.md#authz-redis_cluster)]</code>
   * default: 
   `[]`
 
@@ -405,7 +405,7 @@ Settings that control client authorization.
   It is NOT allowed to configure two or more sources of the same type.
 
 
-## cluster
+## cluster <a id='cluster'></a>
 EMQX nodes can form a cluster to scale up the total capacity.<br/>
       Here holds the configs to instruct how individual nodes can discover each other.
 
@@ -493,7 +493,7 @@ EMQX nodes can form a cluster to scale up the total capacity.<br/>
 
 
 
-## cluster_call
+## cluster_call <a id='cluster_call'></a>
 Options for the 'cluster call' feature that allows to execute a callback on all nodes in the cluster.
 
 
@@ -528,7 +528,7 @@ Options for the 'cluster call' feature that allows to execute a callback on all 
   Ensure that the number of completed transactions is less than the <code>max_history</code>.
 
 
-## console_handler
+## console_handler <a id='console_handler'></a>
 Log handler that prints log events to the EMQX console.
 
 
@@ -636,7 +636,7 @@ Log handler that prints log events to the EMQX console.
   Maximum depth for Erlang term log formatting and Erlang process message queue inspection.
 
 
-## log
+## log <a id='log'></a>
 EMQX logging supports multiple sinks for the log events.
 Each sink is represented by a _log handler_, which can be configured independently.
 
@@ -659,7 +659,7 @@ Each sink is represented by a _log handler_, which can be configured independent
   File-based log handlers.
 
 
-## log_burst_limit
+## log_burst_limit <a id='log_burst_limit'></a>
 Large bursts of log events produced in a short time can potentially cause problems, such as:
  - Log files grow very large
  - Log files are rotated too quickly, and useful information gets overwritten
@@ -700,7 +700,7 @@ Log burst limit feature can temporarily disable logging to avoid these issues.
   See <code>max_count</code>.
 
 
-## log_file_handler
+## log_file_handler <a id='log_file_handler'></a>
 Log handler that prints log events to files.
 
 
@@ -820,7 +820,7 @@ Log handler that prints log events to files.
   Maximum depth for Erlang term log formatting and Erlang process message queue inspection.
 
 
-## log_overload_kill
+## log_overload_kill <a id='log_overload_kill'></a>
 
 Log overload kill features an overload protection that activates when the log handlers use too much memory or have too many buffered log messages.<br/>
 When the overload is detected, the log handler is terminated and restarted after a cooldown period.
@@ -865,7 +865,7 @@ When the overload is detected, the log handler is terminated and restarted after
   If the handler is terminated, it restarts automatically after a delay specified in milliseconds. The value `infinity` prevents restarts.
 
 
-## log_rotation
+## log_rotation <a id='log_rotation'></a>
 
 By default, the logs are stored in `./log` directory (for installation from zip file) or in `/var/log/emqx` (for binary installation).<br/>
 This section of the configuration controls the number of files kept for each log handler.
@@ -896,7 +896,7 @@ This section of the configuration controls the number of files kept for each log
   Maximum number of log files.
 
 
-## node
+## node <a id='node'></a>
 Node name, cookie, config & data directories and the Erlang virtual machine (BEAM) boot parameters.
 
 
@@ -1113,7 +1113,7 @@ Node name, cookie, config & data directories and the Erlang virtual machine (BEA
   transaction log entry.
 
 
-## rpc
+## rpc <a id='rpc'></a>
 EMQX uses a library called <code>gen_rpc</code> for inter-broker communication.<br/>
 Most of the time the default config should work,
 but in case you need to do performance fine-tuning or experiment a bit,

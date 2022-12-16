@@ -327,6 +327,6 @@ ciphers =
 - [Bridges](./bridges.md)
 - [Rule Engine](./rule.md)
 - [Gateways](./gateway.md)
-- [Gateways](./gateway.md)
+- [License](./license.md)
 - [Other Configurations](./others.md)
 

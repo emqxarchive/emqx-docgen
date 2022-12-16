@@ -16,7 +16,7 @@ defmodule SchemaMD do
 
   def format_struct(weight, %{full_name: full_name, paths: paths, fields: fields} = item, opts) do
     [
-      MD.h(weight, full_name),
+      MD.h(weight, full_name, %{id: MD.anchor(full_name)}),
       Map.get(item, :desc, ""),
       "\n\n",
       format_paths(paths),
@@ -67,7 +67,7 @@ defmodule SchemaMD do
     end
   end
 
-  def format_field(field, _opts) do
+  def format_field(field, opts) do
     %{name: name, type: type} = field
     default = format_default(field[:default])
     mapping = format_mapping(field[:mapping])
@@ -78,7 +78,7 @@ defmodule SchemaMD do
         name,
         ": ",
         type
-        |> type()
+        |> type(opts)
         |> MD.code(),
         "\n"
       ],
@@ -112,27 +112,37 @@ defmodule SchemaMD do
     end
   end
 
-  def type(%{kind: "primitive", name: name}) do
+  def type(%{kind: "primitive", name: name}, _opts) do
     name
   end
-  def type(%{kind: "singleton", name: name}) do
+  def type(%{kind: "singleton", name: name}, _opts) do
     name
   end
-  def type(%{kind: "struct", name: ref}) do
-    MD.local_link(ref, ref)
+  def type(%{kind: "struct", name: ref}, opts) do
+    %{
+      current_slug: current_slug,
+      header_index: header_index,
+    } = opts
+    ref_slug = Map.fetch!(header_index, ref)
+    if ref_slug == current_slug do
+      MD.local_link(ref, ref)
+    else
+      anchor = MD.anchor(ref)
+      MD.link(ref, "#{ref_slug}.md##{anchor}")
+    end
   end
-  def type(%{kind: "array", elements: elem_type}) do
-    ["[", type(elem_type), "]"]
+  def type(%{kind: "array", elements: elem_type}, opts) do
+    ["[", type(elem_type, opts), "]"]
   end
-  def type(%{kind: "union", members: types}) do
+  def type(%{kind: "union", members: types}, opts) do
     types
-    |> Enum.map(&type/1)
+    |> Enum.map(&type(&1, opts))
     |> Enum.join(" | ")
   end
-  def type(%{kind: "enum", symbols: types}) do
+  def type(%{kind: "enum", symbols: types}, _opts) do
     Enum.join(types, " | ")
   end
-  def type(%{kind: "map", name: name, values: val_type}) do
-    ["{$", name, " -> ", type(val_type), "}"]
+  def type(%{kind: "map", name: name, values: val_type}, opts) do
+    ["{$", name, " -> ", type(val_type, opts), "}"]
   end
 end

@@ -1,6 +1,6 @@
 # Gateways
 
-## gateway:clientinfo_override
+## gateway:clientinfo_override <a id='gateway-clientinfo_override'></a>
 ClientInfo override.
 
 
@@ -33,7 +33,7 @@ ClientInfo override.
   Template for overriding clientid.
 
 
-## gateway:coap
+## gateway:coap <a id='gateway-coap'></a>
 The CoAP protocol gateway provides EMQX with the access capability of the CoAP protocol.
 It allows publishing, subscribing, and receiving messages to EMQX in accordance
 with a certain defined CoAP message format.
@@ -128,12 +128,12 @@ with a certain defined CoAP message format.
 - clientinfo_override: <code>[gateway:clientinfo_override](#gateway-clientinfo_override)</code>
   ClientInfo override.
 
-- authentication: <code>[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)</code>
+- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
   Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
    in listener configs
 
 
-## gateway:dtls_listener
+## gateway:dtls_listener <a id='gateway-dtls_listener'></a>
 Settings for the DTLS listener.
 
 
@@ -184,7 +184,7 @@ Settings for the DTLS listener.
 
   Maximum connections per second.
 
-- authentication: <code>[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)</code>
+- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
   Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
    in listener configs
 
@@ -214,7 +214,7 @@ Settings for the DTLS listener.
   DTLS socket options
 
 
-## gateway:dtls_opts
+## gateway:dtls_opts <a id='gateway-dtls_opts'></a>
 Settings for the DTLS protocol.
 
 
@@ -386,7 +386,7 @@ Settings for the DTLS protocol.
   the TLS/SSL handshake.
 
 
-## gateway:exproto
+## gateway:exproto <a id='gateway-exproto'></a>
 Settings for EMQX extension protocol (exproto).
 
 
@@ -439,12 +439,12 @@ Settings for EMQX extension protocol (exproto).
 - clientinfo_override: <code>[gateway:clientinfo_override](#gateway-clientinfo_override)</code>
   ClientInfo override.
 
-- authentication: <code>[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)</code>
+- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
   Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
    in listener configs
 
 
-## gateway:exproto_grpc_handler
+## gateway:exproto_grpc_handler <a id='gateway-exproto_grpc_handler'></a>
 Settings for the exproto gRPC connection handler.
 
 
@@ -462,11 +462,11 @@ Settings for the exproto gRPC connection handler.
 - address: <code>binary()</code>
   gRPC server address.
 
-- ssl_options: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl_options: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   SSL configuration for the gRPC client.
 
 
-## gateway:exproto_grpc_server
+## gateway:exproto_grpc_server <a id='gateway-exproto_grpc_server'></a>
 Settings for the exproto gRPC server.
 
 
@@ -488,7 +488,7 @@ Settings for the exproto gRPC server.
   SSL configuration for the gRPC server.
 
 
-## gateway
+## gateway <a id='gateway'></a>
 EMQX Gateway configuration root.
 
 
@@ -522,7 +522,7 @@ EMQX Gateway configuration root.
   The Extension Protocol configuration
 
 
-## gateway:lwm2m
+## gateway:lwm2m <a id='gateway-lwm2m'></a>
 The LwM2M protocol gateway.
 
 
@@ -608,12 +608,12 @@ The LwM2M protocol gateway.
 - clientinfo_override: <code>[gateway:clientinfo_override](#gateway-clientinfo_override)</code>
   ClientInfo override.
 
-- authentication: <code>[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)</code>
+- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
   Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
    in listener configs
 
 
-## gateway:lwm2m_translators
+## gateway:lwm2m_translators <a id='gateway-lwm2m_translators'></a>
 MQTT topics that correspond to LwM2M events.
 
 
@@ -646,7 +646,7 @@ MQTT topics that correspond to LwM2M events.
   The topic for gateway to publish the update events from LwM2M client
 
 
-## gateway:mqttsn
+## gateway:mqttsn <a id='gateway-mqttsn'></a>
 The MQTT-SN (MQTT for Sensor Networks) protocol gateway.
 
 
@@ -726,12 +726,12 @@ The MQTT-SN (MQTT for Sensor Networks) protocol gateway.
 - clientinfo_override: <code>[gateway:clientinfo_override](#gateway-clientinfo_override)</code>
   ClientInfo override.
 
-- authentication: <code>[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)</code>
+- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
   Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
    in listener configs
 
 
-## gateway:mqttsn_predefined
+## gateway:mqttsn_predefined <a id='gateway-mqttsn_predefined'></a>
 The pre-defined topic name corresponding to the pre-defined topic
 ID of N.
 
@@ -756,7 +756,7 @@ Note: the pre-defined topic ID of 0 is reserved.
   Topic Name
 
 
-## gateway:ssl_listener
+## gateway:ssl_listener <a id='gateway-ssl_listener'></a>
 Settings for the SSL listener.
 
 
@@ -779,7 +779,7 @@ Settings for the SSL listener.
 
   Size of the acceptor pool.
 
-- tcp_options: <code>[broker:tcp_opts](#broker-tcp_opts)</code>
+- tcp_options: <code>[broker:tcp_opts](others.md#broker-tcp_opts)</code>
   Setting the TCP socket options.
 
 - proxy_protocol: <code>boolean()</code>
@@ -817,7 +817,7 @@ Settings for the SSL listener.
 
   Maximum connections per second.
 
-- authentication: <code>[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)</code>
+- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
   Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
    in listener configs
 
@@ -843,11 +843,11 @@ Settings for the SSL listener.
   The access control rules for this listener.
   See: https://github.com/emqtt/esockd#allowdeny
 
-- ssl_options: <code>[broker:listener_ssl_opts](#broker-listener_ssl_opts)</code>
+- ssl_options: <code>[broker:listener_ssl_opts](others.md#broker-listener_ssl_opts)</code>
   SSL Socket options.
 
 
-## gateway:ssl_server_opts
+## gateway:ssl_server_opts <a id='gateway-ssl_server_opts'></a>
 SSL configuration for the server.
 
 
@@ -1006,7 +1006,7 @@ SSL configuration for the server.
   Maximum time duration allowed for the handshake to complete
 
 
-## gateway:stomp
+## gateway:stomp <a id='gateway-stomp'></a>
 The STOMP protocol gateway provides EMQX with the ability to access STOMP
 (Simple (or Streaming) Text Orientated Messaging Protocol) protocol.
 
@@ -1057,12 +1057,12 @@ The STOMP protocol gateway provides EMQX with the ability to access STOMP
 - clientinfo_override: <code>[gateway:clientinfo_override](#gateway-clientinfo_override)</code>
   ClientInfo override.
 
-- authentication: <code>[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)</code>
+- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
   Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
    in listener configs
 
 
-## gateway:stomp_frame
+## gateway:stomp_frame <a id='gateway-stomp_frame'></a>
 Size limits for the STOMP frames.
 
 
@@ -1096,7 +1096,7 @@ Size limits for the STOMP frames.
   Maximum number of bytes of Body allowed per Stomp packet
 
 
-## gateway:tcp_listener
+## gateway:tcp_listener <a id='gateway-tcp_listener'></a>
 Settings for the TCP listener.
 
 
@@ -1119,7 +1119,7 @@ Settings for the TCP listener.
 
   Size of the acceptor pool.
 
-- tcp_options: <code>[broker:tcp_opts](#broker-tcp_opts)</code>
+- tcp_options: <code>[broker:tcp_opts](others.md#broker-tcp_opts)</code>
   Setting the TCP socket options.
 
 - proxy_protocol: <code>boolean()</code>
@@ -1157,7 +1157,7 @@ Settings for the TCP listener.
 
   Maximum connections per second.
 
-- authentication: <code>[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)</code>
+- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
   Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
    in listener configs
 
@@ -1184,7 +1184,7 @@ Settings for the TCP listener.
   See: https://github.com/emqtt/esockd#allowdeny
 
 
-## gateway:tcp_listeners
+## gateway:tcp_listeners <a id='gateway-tcp_listeners'></a>
 Settings for the TCP listeners.
 
 
@@ -1206,7 +1206,7 @@ Settings for the TCP listeners.
    
 
 
-## gateway:tcp_udp_listeners
+## gateway:tcp_udp_listeners <a id='gateway-tcp_udp_listeners'></a>
 Settings for the listeners.
 
 
@@ -1234,7 +1234,7 @@ Settings for the listeners.
    
 
 
-## gateway:translator
+## gateway:translator <a id='gateway-translator'></a>
 MQTT topic that corresponds to a particular type of event.
 
 
@@ -1267,7 +1267,7 @@ MQTT topic that corresponds to a particular type of event.
   QoS Level
 
 
-## gateway:udp_listener
+## gateway:udp_listener <a id='gateway-udp_listener'></a>
 Settings for the UDP listener.
 
 
@@ -1312,7 +1312,7 @@ Settings for the UDP listener.
 
   Maximum connections per second.
 
-- authentication: <code>[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)</code>
+- authentication: <code>[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)</code>
   Default authentication configs for all the gateway listeners. For per-listener overrides see <code>authentication</code>
    in listener configs
 
@@ -1339,7 +1339,7 @@ Settings for the UDP listener.
   See: https://github.com/emqtt/esockd#allowdeny
 
 
-## gateway:udp_listeners
+## gateway:udp_listeners <a id='gateway-udp_listeners'></a>
 Settings for the UDP listeners.
 
 
@@ -1365,7 +1365,7 @@ Settings for the UDP listeners.
    
 
 
-## gateway:udp_opts
+## gateway:udp_opts <a id='gateway-udp_opts'></a>
 Settings for the UDP sockets.
 
 

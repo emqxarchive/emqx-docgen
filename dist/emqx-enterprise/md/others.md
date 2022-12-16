@@ -1,6 +1,6 @@
 # Other Configurations
 
-## broker:alarm
+## broker:alarm <a id='broker-alarm'></a>
 Settings for the alarms.
 
 
@@ -39,7 +39,7 @@ Settings for the alarms.
   when deactivated, but after the retention time.
 
 
-## broker
+## broker <a id='broker'></a>
 Message broker options.
 
 
@@ -103,7 +103,7 @@ Message broker options.
   special characters are allowed.
 
 
-## broker:broker_perf
+## broker:broker_perf <a id='broker-broker_perf'></a>
 Broker performance tuning parameters.
 
 
@@ -139,7 +139,7 @@ Broker performance tuning parameters.
   NOTE: This is a cluster-wide configuration. It requires all nodes to be stopped before changing it.
 
 
-## broker:cache
+## broker:cache <a id='broker-cache'></a>
 Settings for the authorization cache.
 
 
@@ -173,7 +173,7 @@ Settings for the authorization cache.
   Time to live for the cached data.  
 
 
-## broker:conn_congestion
+## broker:conn_congestion <a id='broker-conn_congestion'></a>
 Settings for `conn_congestion` alarm.
 
 Sometimes the MQTT connection (usually an MQTT subscriber) may
@@ -214,7 +214,7 @@ and `<Username>` is the username or `unknown_user`.
   Minimal time before clearing the alarm.<br/>The alarm is cleared only when there's no pending data in<br/>the queue, and at least <code>min_alarm_sustain_duration</code>milliseconds passed since the last time we considered the connection 'congested'.<br/>This is to avoid clearing and raising the alarm again too often.
 
 
-## broker:deflate_opts
+## broker:deflate_opts <a id='broker-deflate_opts'></a>
 Compression options.
 
 
@@ -272,7 +272,7 @@ Compression options.
   Specifies the size of the compression context for the client.
 
 
-## broker:event_names
+## broker:event_names <a id='broker-event_names'></a>
 Enable or disable client lifecycle event publishing.
 
 The following options affect MQTT clients as well as
@@ -322,7 +322,7 @@ are distinguished by the topic prefix:
   Enable to publish event message that client unsubscribed a topic successfully.
 
 
-## broker:flapping_detect
+## broker:flapping_detect <a id='broker-flapping_detect'></a>
 This config controls the allowed maximum number of `CONNECT` packets received
 from the same clientid in a time frame defined by `window_time`.
 After the limit is reached, successive `CONNECT` requests are forbidden
@@ -365,7 +365,7 @@ After the limit is reached, successive `CONNECT` requests are forbidden
   How long the flapping clientid will be banned.
 
 
-## broker:force_gc
+## broker:force_gc <a id='broker-force_gc'></a>
 Force garbage collection in MQTT connection process after
  they process certain number of messages or bytes of data.
 
@@ -400,7 +400,7 @@ Force garbage collection in MQTT connection process after
   GC the process after specified number of bytes have passed through.
 
 
-## broker:force_shutdown
+## broker:force_shutdown <a id='broker-force_shutdown'></a>
 When the process message queue length, or the memory bytes
 reaches a certain value, the process is forced to close.
 
@@ -438,7 +438,7 @@ of the Erlang process, not the `mqueue` of QoS 1 and QoS 2.
   Total heap size
 
 
-## broker:listener_ssl_opts
+## broker:listener_ssl_opts <a id='broker-listener_ssl_opts'></a>
 Socket options for SSL connections.
 
 
@@ -608,7 +608,7 @@ Socket options for SSL connections.
   the TLS/SSL handshake.
 
 
-## broker:listener_wss_opts
+## broker:listener_wss_opts <a id='broker-listener_wss_opts'></a>
 Socket options for WebSocket/SSL connections.
 
 
@@ -767,7 +767,7 @@ Socket options for WebSocket/SSL connections.
   Maximum time duration allowed for the handshake to complete
 
 
-## broker:listeners
+## broker:listeners <a id='broker-listeners'></a>
 MQTT listeners identified by their protocol type and assigned names
 
 
@@ -798,7 +798,7 @@ MQTT listeners identified by their protocol type and assigned names
   QUIC listeners.
 
 
-## broker:mqtt
+## broker:mqtt <a id='broker-mqtt'></a>
 Global MQTT configuration.<br/>The configs here work as default values which can be overridden
 in <code>zone</code> configs
 
@@ -1009,7 +1009,7 @@ in <code>zone</code> configs
   - <code>md5</code>: Take the MD5 value of the content of the <code>DER</code> or <code>PEM</code> certificate as Client ID
 
 
-## broker:mqtt_quic_listener
+## broker:mqtt_quic_listener <a id='broker-mqtt_quic_listener'></a>
 Settings for the MQTT over QUIC listener.
 
 
@@ -1149,7 +1149,7 @@ Settings for the MQTT over QUIC listener.
   anonymous clients early.
 
 
-## broker:mqtt_ssl_listener
+## broker:mqtt_ssl_listener <a id='broker-mqtt_ssl_listener'></a>
 Settings for the MQTT over SSL listener.
 
 
@@ -1253,7 +1253,7 @@ Settings for the MQTT over SSL listener.
 
   Timeout for proxy protocol. EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
 
-- authentication: <code>[[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)]</code>
+- authentication: <code>[[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)]</code>
   Per-listener authentication override.
   Authentication can be one single authenticator instance or a chain of authenticators as an array.
   When authenticating a login (username, client ID, etc.) the authenticators are checked in the configured order.<br/>
@@ -1265,7 +1265,7 @@ Settings for the MQTT over SSL listener.
 
 
 
-## broker:mqtt_tcp_listener
+## broker:mqtt_tcp_listener <a id='broker-mqtt_tcp_listener'></a>
 Settings for the MQTT over TCP listener.
 
 
@@ -1369,7 +1369,7 @@ Settings for the MQTT over TCP listener.
 
   Timeout for proxy protocol. EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
 
-- authentication: <code>[[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)]</code>
+- authentication: <code>[[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)]</code>
   Per-listener authentication override.
   Authentication can be one single authenticator instance or a chain of authenticators as an array.
   When authenticating a login (username, client ID, etc.) the authenticators are checked in the configured order.<br/>
@@ -1378,7 +1378,7 @@ Settings for the MQTT over TCP listener.
 
 
 
-## broker:mqtt_ws_listener
+## broker:mqtt_ws_listener <a id='broker-mqtt_ws_listener'></a>
 Settings for the MQTT over WebSocket listener.
 
 
@@ -1482,7 +1482,7 @@ Settings for the MQTT over WebSocket listener.
 
   Timeout for proxy protocol. EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
 
-- authentication: <code>[[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)]</code>
+- authentication: <code>[[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)]</code>
   Per-listener authentication override.
   Authentication can be one single authenticator instance or a chain of authenticators as an array.
   When authenticating a login (username, client ID, etc.) the authenticators are checked in the configured order.<br/>
@@ -1494,7 +1494,7 @@ Settings for the MQTT over WebSocket listener.
 
 
 
-## broker:mqtt_wss_listener
+## broker:mqtt_wss_listener <a id='broker-mqtt_wss_listener'></a>
 Settings for the MQTT over WebSocket/SSL listener.
 
 
@@ -1598,7 +1598,7 @@ Settings for the MQTT over WebSocket/SSL listener.
 
   Timeout for proxy protocol. EMQX will close the TCP connection if proxy protocol packet is not received within the timeout.
 
-- authentication: <code>[[authn-builtin_db:authentication](#authn-builtin_db-authentication) | [authn-mysql:authentication](#authn-mysql-authentication) | [authn-postgresql:authentication](#authn-postgresql-authentication) | [authn-mongodb:standalone](#authn-mongodb-standalone) | [authn-mongodb:replica-set](#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](#authn-mongodb-sharded-cluster) | [authn-redis:standalone](#authn-redis-standalone) | [authn-redis:cluster](#authn-redis-cluster) | [authn-redis:sentinel](#authn-redis-sentinel) | [authn-http:get](#authn-http-get) | [authn-http:post](#authn-http-post) | [authn-jwt:hmac-based](#authn-jwt-hmac-based) | [authn-jwt:public-key](#authn-jwt-public-key) | [authn-jwt:jwks](#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](#authn-scram-builtin_db-authentication)]</code>
+- authentication: <code>[[authn-builtin_db:authentication](authn.md#authn-builtin_db-authentication) | [authn-mysql:authentication](authn.md#authn-mysql-authentication) | [authn-postgresql:authentication](authn.md#authn-postgresql-authentication) | [authn-mongodb:standalone](authn.md#authn-mongodb-standalone) | [authn-mongodb:replica-set](authn.md#authn-mongodb-replica-set) | [authn-mongodb:sharded-cluster](authn.md#authn-mongodb-sharded-cluster) | [authn-redis:standalone](authn.md#authn-redis-standalone) | [authn-redis:cluster](authn.md#authn-redis-cluster) | [authn-redis:sentinel](authn.md#authn-redis-sentinel) | [authn-http:get](authn.md#authn-http-get) | [authn-http:post](authn.md#authn-http-post) | [authn-jwt:hmac-based](authn.md#authn-jwt-hmac-based) | [authn-jwt:public-key](authn.md#authn-jwt-public-key) | [authn-jwt:jwks](authn.md#authn-jwt-jwks) | [authn-scram-builtin_db:authentication](authn.md#authn-scram-builtin_db-authentication)]</code>
   Per-listener authentication override.
   Authentication can be one single authenticator instance or a chain of authenticators as an array.
   When authenticating a login (username, client ID, etc.) the authenticators are checked in the configured order.<br/>
@@ -1613,7 +1613,7 @@ Settings for the MQTT over WebSocket/SSL listener.
 
 
 
-## broker:overload_protection
+## broker:overload_protection <a id='broker-overload_protection'></a>
 Overload protection mechanism monitors the load of the system and temporarily
 disables some features (such as accepting new connections) when the load is high.
 
@@ -1660,7 +1660,7 @@ disables some features (such as accepting new connections) when the load is high
   When at high load, close new incoming connections.
 
 
-## broker:persistent_session_builtin
+## broker:persistent_session_builtin <a id='broker-persistent_session_builtin'></a>
 Settings for the built-in storage engine of persistent messages.
 
 
@@ -1691,7 +1691,7 @@ Settings for the built-in storage engine of persistent messages.
   Performance tuning options for built-in messages table.
 
 
-## broker:persistent_session_store
+## broker:persistent_session_store <a id='broker-persistent_session_store'></a>
 Settings for message persistence.
 
 
@@ -1767,7 +1767,7 @@ Settings for message persistence.
   of persistent session messages.
 
 
-## broker:persistent_table_mria_opts
+## broker:persistent_table_mria_opts <a id='broker-persistent_table_mria_opts'></a>
 Tuning options for the mria table.
 
 
@@ -1793,7 +1793,7 @@ Tuning options for the mria table.
   Maintain a copy of the data in RAM for faster access.
 
 
-## broker:shared_subscription_group
+## broker:shared_subscription_group <a id='broker-shared_subscription_group'></a>
 Per group dispatch strategy for shared subscription
 
 
@@ -1823,7 +1823,7 @@ Per group dispatch strategy for shared subscription
   subscriber was not found, send to a random subscriber cluster-wide
 
 
-## broker:ssl_client_opts
+## broker:ssl_client_opts <a id='broker-ssl_client_opts'></a>
 Socket options for SSL clients.
 
 
@@ -2028,7 +2028,7 @@ Socket options for SSL clients.
   verification check.
 
 
-## broker:stats
+## broker:stats <a id='broker-stats'></a>
 Enable/disable statistic data collection.
 Statistic data such as message receive/send count/rate etc. It provides insights of system performance and helps to diagnose issues. You can find statistic data from the dashboard, or from the '/stats' API.
 
@@ -2051,7 +2051,7 @@ Statistic data such as message receive/send count/rate etc. It provides insights
   Enable/disable statistic data collection.
 
 
-## broker:sys_topics
+## broker:sys_topics <a id='broker-sys_topics'></a>
 The EMQX Broker periodically publishes its own status, message statistics,
 client online and offline events to the system topic starting with `$SYS/`.
 
@@ -2087,7 +2087,7 @@ The following options control the behavior of `$SYS` topics.
   Client events messages.
 
 
-## broker:sysmon
+## broker:sysmon <a id='broker-sysmon'></a>
 Features related to system monitoring and introspection.
 
 
@@ -2112,7 +2112,7 @@ Features related to system monitoring and introspection.
 
 
 
-## broker:sysmon_os
+## broker:sysmon_os <a id='broker-sysmon_os'></a>
 This part of the configuration is responsible for monitoring
  the host OS health, such as free memory, disk space, CPU load, etc.
 
@@ -2170,7 +2170,7 @@ This part of the configuration is responsible for monitoring
    the corresponding alarm is raised.
 
 
-## broker:sysmon_top
+## broker:sysmon_top <a id='broker-sysmon_top'></a>
 This part of the configuration is responsible for monitoring
  the Erlang processes in the VM. This information can be sent to an external
  PostgreSQL database. This feature is inactive unless the PostgreSQL sink is configured.
@@ -2261,7 +2261,7 @@ This part of the configuration is responsible for monitoring
   PostgreSQL database name
 
 
-## broker:sysmon_vm
+## broker:sysmon_vm <a id='broker-sysmon_vm'></a>
 This part of the configuration is responsible for collecting
  BEAM VM events, such as long garbage collection, traffic congestion in the inter-broker
  communication, etc.
@@ -2331,7 +2331,7 @@ This part of the configuration is responsible for collecting
   Enable Busy Port monitoring.
 
 
-## broker:tcp_opts
+## broker:tcp_opts <a id='broker-tcp_opts'></a>
 TCP listener options.
 
 
@@ -2418,7 +2418,7 @@ TCP listener options.
   The SO_REUSEADDR flag for the connections.
 
 
-## broker:trace
+## broker:trace <a id='broker-trace'></a>
 Real-time filtering logs for the ClientID or Topic or IP for debugging.
 
 
@@ -2444,7 +2444,7 @@ Real-time filtering logs for the ClientID or Topic or IP for debugging.
   `hidden`: payload is obfuscated as `******`
 
 
-## broker:ws_opts
+## broker:ws_opts <a id='broker-ws_opts'></a>
 WebSocket listener options.
 
 
@@ -2548,7 +2548,7 @@ WebSocket listener options.
 
 
 
-## broker:zone
+## broker:zone <a id='broker-zone'></a>
 A `Zone` defines a set of configuration items (such as the maximum number of connections) that can be shared between multiple listeners.
 
 `Listener` can refer to a `Zone` through the configuration item <code>listener.\<Protocol>.\<Listener Name>.zone</code>.
@@ -2617,7 +2617,7 @@ All the global configs that can be overridden in zones are:
 
 
 
-## connector_hstreamdb:config
+## connector_hstreamdb:config <a id='connector_hstreamdb-config'></a>
 HStreamDB connection config
 
 
@@ -2645,7 +2645,7 @@ HStreamDB connection config
   HStreamDB Pool Size
 
 
-## dashboard
+## dashboard <a id='dashboard'></a>
 Configuration for EMQX dashboard.
 
 
@@ -2713,7 +2713,7 @@ Configuration for EMQX dashboard.
   Initialize users file.
 
 
-## dashboard:http
+## dashboard:http <a id='dashboard-http'></a>
 Configuration for the dashboard listener (plaintext).
 
 
@@ -2777,7 +2777,7 @@ Configuration for the dashboard listener (plaintext).
   Disable IPv4-to-IPv6 mapping for the listener.
 
 
-## dashboard:https
+## dashboard:https <a id='dashboard-https'></a>
 Configuration for the dashboard listener (TLS).
 
 
@@ -2974,7 +2974,7 @@ Configuration for the dashboard listener (TLS).
   Maximum time duration allowed for the handshake to complete
 
 
-## dashboard:listeners
+## dashboard:listeners <a id='dashboard-listeners'></a>
 Configuration for the dashboard listener.
 
 
@@ -2996,7 +2996,7 @@ Configuration for the dashboard listener.
   SSL listeners
 
 
-## exhook
+## exhook <a id='exhook'></a>
 External hook (exhook) configuration.
 
 
@@ -3018,7 +3018,7 @@ External hook (exhook) configuration.
   List of exhook servers
 
 
-## exhook:server
+## exhook:server <a id='exhook-server'></a>
 gRPC server configuration.
 
 
@@ -3080,7 +3080,7 @@ gRPC server configuration.
   The process pool size for gRPC client
 
 
-## exhook:socket_options
+## exhook:socket_options <a id='exhook-socket_options'></a>
 Connection socket options
 
 
@@ -3116,7 +3116,7 @@ Connection socket options
   The minimum size of send buffer to use for the socket
 
 
-## exhook:ssl_conf
+## exhook:ssl_conf <a id='exhook-ssl_conf'></a>
 SSL client configuration.
 
 
@@ -3243,7 +3243,7 @@ SSL client configuration.
   verification check.
 
 
-## limiter:bucket_opts
+## limiter:bucket_opts <a id='limiter-bucket_opts'></a>
 Settings for the bucket.
 
 
@@ -3315,7 +3315,7 @@ Settings for the bucket.
   The initial number of tokens for this bucket.
 
 
-## limiter:client_fields
+## limiter:client_fields <a id='limiter-client_fields'></a>
 Fields of the client level.
 
 
@@ -3369,7 +3369,7 @@ Fields of the client level.
   Limiter for EMQX internal app.
 
 
-## limiter:client_opts
+## limiter:client_opts <a id='limiter-client_opts'></a>
 Settings for the client in bucket level.
 
 
@@ -3478,7 +3478,7 @@ Settings for the client in bucket level.
   The strategy when all the retries failed.
 
 
-## limiter:internal
+## limiter:internal <a id='limiter-internal'></a>
 Internal limiter.
 
 
@@ -3515,7 +3515,7 @@ Internal limiter.
   The rate limit for each user of the bucket
 
 
-## limiter
+## limiter <a id='limiter'></a>
 Settings for the rate limiter.
 
 
@@ -3583,7 +3583,7 @@ Settings for the rate limiter.
   The rate limit for each user of the bucket
 
 
-## limiter:listener_client_fields
+## limiter:listener_client_fields <a id='limiter-listener_client_fields'></a>
 Fields of the client level of the listener.
 
 
@@ -3627,7 +3627,7 @@ Fields of the client level of the listener.
   Once the limit is reached, new publish will be refused
 
 
-## limiter:listener_fields
+## limiter:listener_fields <a id='limiter-listener_fields'></a>
 Fields of the listener.
 
 
@@ -3674,7 +3674,7 @@ Fields of the listener.
   The rate limit for each user of the bucket
 
 
-## limiter:node_opts
+## limiter:node_opts <a id='limiter-node_opts'></a>
 Settings for the limiter of the node level.
 
 
@@ -3711,7 +3711,7 @@ Settings for the limiter of the node level.
    This value + rate = the maximum limit that can be achieved when limiter burst.
 
 
-## modules:delayed
+## modules:delayed <a id='modules-delayed'></a>
 Settings for the delayed module.
 
 
@@ -3739,7 +3739,7 @@ Settings for the delayed module.
   Maximum number of delayed messages (0 is no limit).
 
 
-## modules:rewrite
+## modules:rewrite <a id='modules-rewrite'></a>
 The topic rewriting function of EMQX supports rewriting topic A to topic B when the client subscribes to topics, publishes messages, and cancels subscriptions according to user-configured rules.
 Each rewrite rule consists of three parts: subject filter, regular expression, and target expression.
 Under the premise that the subject rewriting function is enabled, when EMQX receives a subject-based MQTT message such as a `PUBLISH` message,
@@ -3780,7 +3780,7 @@ Therefore, users need to carefully design MQTT message topics and topic rewritin
   Regular expressions
 
 
-## modules:telemetry
+## modules:telemetry <a id='modules-telemetry'></a>
 Settings for the telemetry module.
 
 
@@ -3802,7 +3802,7 @@ Settings for the telemetry module.
   Enable telemetry.
 
 
-## modules:topic_metrics
+## modules:topic_metrics <a id='modules-topic_metrics'></a>
 
 
 
@@ -3821,7 +3821,7 @@ Settings for the telemetry module.
   Collect metrics for the topic.
 
 
-## topology
+## topology <a id='topology'></a>
 Topology of MongoDB.
 
 
@@ -3926,7 +3926,7 @@ Topology of MongoDB.
   Time interval, such as timeout or TTL.
 
 
-## zone:conn_congestion
+## zone:conn_congestion <a id='zone-conn_congestion'></a>
 Settings for `conn_congestion` alarm.
 
 Sometimes the MQTT connection (usually an MQTT subscriber) may
@@ -3961,7 +3961,7 @@ and `<Username>` is the username or `unknown_user`.
   Minimal time before clearing the alarm.<br/>The alarm is cleared only when there's no pending data in<br/>the queue, and at least <code>min_alarm_sustain_duration</code>milliseconds passed since the last time we considered the connection 'congested'.<br/>This is to avoid clearing and raising the alarm again too often.
 
 
-## zone:flapping_detect
+## zone:flapping_detect <a id='zone-flapping_detect'></a>
 This config controls the allowed maximum number of `CONNECT` packets received
 from the same clientid in a time frame defined by `window_time`.
 After the limit is reached, successive `CONNECT` requests are forbidden
@@ -3992,7 +3992,7 @@ After the limit is reached, successive `CONNECT` requests are forbidden
   How long the flapping clientid will be banned.
 
 
-## zone:force_gc
+## zone:force_gc <a id='zone-force_gc'></a>
 Force garbage collection in MQTT connection process after
  they process certain number of messages or bytes of data.
 
@@ -4018,7 +4018,7 @@ Force garbage collection in MQTT connection process after
   GC the process after specified number of bytes have passed through.
 
 
-## zone:force_shutdown
+## zone:force_shutdown <a id='zone-force_shutdown'></a>
 When the process message queue length, or the memory bytes
 reaches a certain value, the process is forced to close.
 
@@ -4047,7 +4047,7 @@ of the Erlang process, not the `mqueue` of QoS 1 and QoS 2.
   Total heap size
 
 
-## zone:mqtt
+## zone:mqtt <a id='zone-mqtt'></a>
 Global MQTT configuration.<br/>The configs here work as default values which can be overridden
 in <code>zone</code> configs
 
@@ -4171,7 +4171,7 @@ in <code>zone</code> configs
   - <code>md5</code>: Take the MD5 value of the content of the <code>DER</code> or <code>PEM</code> certificate as Client ID
 
 
-## zone:overload_protection
+## zone:overload_protection <a id='zone-overload_protection'></a>
 Overload protection mechanism monitors the load of the system and temporarily
 disables some features (such as accepting new connections) when the load is high.
 
@@ -4203,7 +4203,7 @@ disables some features (such as accepting new connections) when the load is high
   When at high load, close new incoming connections.
 
 
-## zone:stats
+## zone:stats <a id='zone-stats'></a>
 Enable/disable statistic data collection.
 Statistic data such as message receive/send count/rate etc. It provides insights of system performance and helps to diagnose issues. You can find statistic data from the dashboard, or from the '/stats' API.
 
@@ -4223,7 +4223,7 @@ Statistic data such as message receive/send count/rate etc. It provides insights
   Enable/disable statistic data collection.
 
 
-## authn-hash:bcrypt
+## authn-hash:bcrypt <a id='authn-hash-bcrypt'></a>
 Settings for bcrypt password hashing algorithm.
 
 
@@ -4284,7 +4284,7 @@ Settings for bcrypt password hashing algorithm.
   BCRYPT password hashing.
 
 
-## authn-hash:bcrypt_rw
+## authn-hash:bcrypt_rw <a id='authn-hash-bcrypt_rw'></a>
 Settings for bcrypt password hashing algorithm (for DB backends with write capability).
 
 
@@ -4351,7 +4351,7 @@ Settings for bcrypt password hashing algorithm (for DB backends with write capab
   Salt rounds for BCRYPT password generation.
 
 
-## authn-hash:other_algorithms
+## authn-hash:other_algorithms <a id='authn-hash-other_algorithms'></a>
 Settings for other password hashing algorithms.
 
 
@@ -4418,7 +4418,7 @@ Settings for other password hashing algorithms.
   Salt position for PLAIN, MD5, SHA, SHA256 and SHA512 algorithms.
 
 
-## authn-hash:pbkdf2
+## authn-hash:pbkdf2 <a id='authn-hash-pbkdf2'></a>
 Settings for PBKDF2 password hashing algorithm.
 
 
@@ -4488,7 +4488,7 @@ Settings for PBKDF2 password hashing algorithm.
   Derived length for PBKDF2 hashing algorithm. If not specified, calculated automatically based on `mac_fun`.
 
 
-## authn-psk:psk_authentication
+## authn-psk:psk_authentication <a id='authn-psk-psk_authentication'></a>
 PSK stands for 'Pre-Shared Keys'.
 This config to enable TLS-PSK authentication.
 
@@ -4536,7 +4536,7 @@ The IDs and secrets can be provided from a file which is configurable by the <co
   The size of each chunk used to import to the built-in database from PSK file
 
 
-## auto_subscribe
+## auto_subscribe <a id='auto_subscribe'></a>
 After the device logs in successfully, the subscription is automatically completed for the device through the pre-defined subscription representation. Supports the use of placeholders.
 
 
@@ -4558,7 +4558,7 @@ After the device logs in successfully, the subscription is automatically complet
   After the device logs in successfully, the subscription is automatically completed for the device through the pre-defined subscription representation. Supports the use of placeholders.
 
 
-## auto_subscribe:topic
+## auto_subscribe:topic <a id='auto_subscribe-topic'></a>
 Topic name, placeholders are supported. For example: client/${clientid}/username/${username}/host/${host}/port/${port}
 Required field, and cannot be empty string
 
@@ -4611,7 +4611,7 @@ Required field, and cannot be empty string
   MQTT v5: if you set this option as 1 when subscribing, the server will not forward the message you published to you.
 
 
-## bridge_gcp_pubsub:config
+## bridge_gcp_pubsub:config <a id='bridge_gcp_pubsub-config'></a>
 Configuration for a GCP PubSub bridge.
 
 
@@ -4689,7 +4689,7 @@ Configuration for a GCP PubSub bridge.
   When a GCP Service Account is created (as described in https://developers.google.com/identity/protocols/oauth2/service-account#creatinganaccount), you have the option of downloading the credentials in JSON form.  That's the file needed.
 
 
-## bridge_hstreamdb:config
+## bridge_hstreamdb:config <a id='bridge_hstreamdb-config'></a>
 Configuration for an HStreamDB bridge.
 
 
@@ -4733,7 +4733,7 @@ Configuration for an HStreamDB bridge.
   Generic configuration for the connector.
 
 
-## bridge_influxdb:influxdb_api_v1
+## bridge_influxdb:influxdb_api_v1 <a id='bridge_influxdb-influxdb_api_v1'></a>
 InfluxDB's protocol. Support InfluxDB v1.8 and before.
 
 
@@ -4806,7 +4806,7 @@ InfluxDB's protocol. Support InfluxDB v1.8 and before.
   SSL connection settings.
 
 
-## bridge_influxdb:influxdb_api_v2
+## bridge_influxdb:influxdb_api_v2 <a id='bridge_influxdb-influxdb_api_v2'></a>
 InfluxDB's protocol. Support InfluxDB v2.0 and after.
 
 
@@ -4879,7 +4879,7 @@ InfluxDB's protocol. Support InfluxDB v2.0 and after.
   SSL connection settings.
 
 
-## bridge_kafka:auth_gssapi_kerberos
+## bridge_kafka:auth_gssapi_kerberos <a id='bridge_kafka-auth_gssapi_kerberos'></a>
 Use GSSAPI/Kerberos authentication.
 
 
@@ -4901,7 +4901,7 @@ Use GSSAPI/Kerberos authentication.
   SASL GSSAPI authentication Kerberos keytab file path. NOTE: This file has to be placed in EMQX nodes, and the EMQX service runner user requires read permission.
 
 
-## bridge_kafka:auth_username_password
+## bridge_kafka:auth_username_password <a id='bridge_kafka-auth_username_password'></a>
 Username/password based authentication.
 
 
@@ -4926,7 +4926,7 @@ Username/password based authentication.
   SASL authentication password.
 
 
-## bridge_kafka:kafka_message
+## bridge_kafka:kafka_message <a id='bridge_kafka-kafka_message'></a>
 Template to render a Kafka message.
 
 
@@ -4960,7 +4960,7 @@ Template to render a Kafka message.
   Which timestamp to use. The timestamp is expected to be a millisecond precision Unix epoch which can be in string format, e.g. <code>1661326462115</code> or <code>'1661326462115'</code>. When the desired data field for this template is not found, or if the found data is not a valid integer, the current system timestamp will be used.
 
 
-## bridge_kafka:producer_buffer
+## bridge_kafka:producer_buffer <a id='bridge_kafka-producer_buffer'></a>
 Configure producer message buffer.
 
 Tell Kafka producer how to buffer messages when EMQX has more messages to send than Kafka can keep up, or when Kafka is down.
@@ -5009,7 +5009,7 @@ Tell Kafka producer how to buffer messages when EMQX has more messages to send t
   EMQX will drop old cached messages under high memory pressure. The high memory threshold is defined in config <code>sysmon.os.sysmem_high_watermark</code>.
 
 
-## bridge_kafka:producer_kafka_opts
+## bridge_kafka:producer_kafka_opts <a id='bridge_kafka-producer_kafka_opts'></a>
 Kafka producer configs.
 
 
@@ -5078,7 +5078,7 @@ Kafka producer configs.
   Tell Kafka producer how to buffer messages when EMQX has more messages to send than Kafka can keep up, or when Kafka is down.
 
 
-## bridge_kafka:producer_mqtt_opts
+## bridge_kafka:producer_mqtt_opts <a id='bridge_kafka-producer_mqtt_opts'></a>
 MQTT data source. Optional when used as a rule-engine action.
 
 
@@ -5097,7 +5097,7 @@ MQTT data source. Optional when used as a rule-engine action.
   MQTT topic or topic as data source (bridge input).
 
 
-## bridge_kafka:producer_opts
+## bridge_kafka:producer_opts <a id='bridge_kafka-producer_opts'></a>
 Local MQTT data source and Kafka bridge configs.
 
 
@@ -5119,7 +5119,7 @@ Local MQTT data source and Kafka bridge configs.
   Kafka producer configs.
 
 
-## bridge_kafka:socket_opts
+## bridge_kafka:socket_opts <a id='bridge_kafka-socket_opts'></a>
 Extra socket options.
 
 
@@ -5153,7 +5153,7 @@ Extra socket options.
   When set to 'true', TCP buffer sent as soon as possible. Otherwise, the OS kernel may buffer small TCP packets for a while (40 ms by default).
 
 
-## bridge_kafka:config
+## bridge_kafka:config <a id='bridge_kafka-config'></a>
 Configuration for a Kafka bridge.
 
 
@@ -5214,7 +5214,7 @@ Configuration for a Kafka bridge.
   SSL connection settings.
 
 
-## bridge_mongodb:mongodb_rs
+## bridge_mongodb:mongodb_rs <a id='bridge_mongodb-mongodb_rs'></a>
 MongoDB (Replica Set) configuration
 
 
@@ -5302,7 +5302,7 @@ MongoDB (Replica Set) configuration
   The collection where data will be stored into
 
 
-## bridge_mongodb:mongodb_sharded
+## bridge_mongodb:mongodb_sharded <a id='bridge_mongodb-mongodb_sharded'></a>
 MongoDB (Sharded) configuration
 
 
@@ -5381,7 +5381,7 @@ MongoDB (Sharded) configuration
   The collection where data will be stored into
 
 
-## bridge_mongodb:mongodb_single
+## bridge_mongodb:mongodb_single <a id='bridge_mongodb-mongodb_single'></a>
 MongoDB (Standalone) configuration
 
 
@@ -5459,7 +5459,7 @@ MongoDB (Standalone) configuration
   The collection where data will be stored into
 
 
-## bridge_mqtt:config
+## bridge_mqtt:config <a id='bridge_mqtt-config'></a>
 The config for MQTT Bridges.
 
 
@@ -5586,7 +5586,7 @@ The config for MQTT Bridges.
   'local.topic' will be forwarded.
 
 
-## bridge_mqtt:creation_opts
+## bridge_mqtt:creation_opts <a id='bridge_mqtt-creation_opts'></a>
 Creation options.
 
 
@@ -5644,7 +5644,7 @@ Creation options.
   Maximum queue storage.
 
 
-## bridge_mysql:config
+## bridge_mysql:config <a id='bridge_mysql-config'></a>
 Configuration for an HStreamDB bridge.
 
 
@@ -5717,7 +5717,7 @@ Configuration for an HStreamDB bridge.
   SSL connection settings.
 
 
-## bridge_mysql:creation_opts
+## bridge_mysql:creation_opts <a id='bridge_mysql-creation_opts'></a>
 Creation options.
 
 
@@ -5787,7 +5787,7 @@ Creation options.
   Maximum queue storage.
 
 
-## bridge_redis:redis_cluster
+## bridge_redis:redis_cluster <a id='bridge_redis-redis_cluster'></a>
 Cluster mode
 
 
@@ -5858,7 +5858,7 @@ Cluster mode
   SSL connection settings.
 
 
-## bridge_redis:redis_sentinel
+## bridge_redis:redis_sentinel <a id='bridge_redis-redis_sentinel'></a>
 Sentinel mode
 
 
@@ -5938,7 +5938,7 @@ Sentinel mode
   SSL connection settings.
 
 
-## bridge_redis:redis_single
+## bridge_redis:redis_single <a id='bridge_redis-redis_single'></a>
 Single mode
 
 
@@ -6014,7 +6014,7 @@ Single mode
   SSL connection settings.
 
 
-## bridge_webhook:config
+## bridge_webhook:config <a id='bridge_webhook-config'></a>
 Configuration for an HTTP bridge.
 
 
@@ -6135,7 +6135,7 @@ Configuration for an HTTP bridge.
   HTTP request timeout.
 
 
-## bridge_webhook:creation_opts
+## bridge_webhook:creation_opts <a id='bridge_webhook-creation_opts'></a>
 Creation options.
 
 
@@ -6193,7 +6193,7 @@ Creation options.
   Maximum queue storage.
 
 
-## connector-http:request
+## connector-http:request <a id='connector-http-request'></a>
 
 
 
@@ -6273,7 +6273,7 @@ Creation options.
   HTTP request timeout.
 
 
-## connector-mqtt:egress
+## connector-mqtt:egress <a id='connector-mqtt-egress'></a>
 The egress config defines how this bridge forwards messages from the local broker to the remote broker.<br/>
 Template with variables is allowed in 'remote.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>
 NOTE: if this bridge is used as the action of a rule, and also 'local.topic'
@@ -6299,7 +6299,7 @@ is configured, then both the data got from the rule and the MQTT messages that m
   The configs about sending message to the remote broker.
 
 
-## connector-mqtt:egress_local
+## connector-mqtt:egress_local <a id='connector-mqtt-egress_local'></a>
 The configs about receiving messages from local broker.
 
 
@@ -6318,7 +6318,7 @@ The configs about receiving messages from local broker.
   The local topic to be forwarded to the remote broker
 
 
-## connector-mqtt:egress_remote
+## connector-mqtt:egress_remote <a id='connector-mqtt-egress_remote'></a>
 The configs about sending message to the remote broker.
 
 
@@ -6350,7 +6350,7 @@ The configs about sending message to the remote broker.
   Template with variables is allowed.
 
 
-## connector-mqtt:ingress
+## connector-mqtt:ingress <a id='connector-mqtt-ingress'></a>
 The ingress config defines how this bridge receive messages from the remote MQTT broker, and then
         send them to the local broker.<br/>
         Template with variables is allowed in 'remote.qos', 'local.topic', 'local.qos', 'local.retain', 'local.payload'.<br/>
@@ -6377,7 +6377,7 @@ The ingress config defines how this bridge receive messages from the remote MQTT
   The configs about sending message to the local broker.
 
 
-## connector-mqtt:ingress_local
+## connector-mqtt:ingress_local <a id='connector-mqtt-ingress_local'></a>
 The configs about sending message to the local broker.
 
 
@@ -6415,7 +6415,7 @@ The configs about sending message to the local broker.
   Template with variables is allowed.
 
 
-## connector-mqtt:ingress_remote
+## connector-mqtt:ingress_remote <a id='connector-mqtt-ingress_remote'></a>
 The configs about subscribing to the remote broker.
 
 
@@ -6440,7 +6440,7 @@ The configs about subscribing to the remote broker.
   The QoS level to be used when subscribing to the remote broker
 
 
-## plugin:plugins
+## plugin:plugins <a id='plugin-plugins'></a>
 
 Manage EMQX plugins.<br/>
 Plugins can be pre-built as a part of EMQX package,
@@ -6487,7 +6487,7 @@ The standalone-installed plugins are referred to as 'external' plugins.
   if the results of 3 consecutive checks are not consistent, then alarm.
 
 
-## plugin:state
+## plugin:state <a id='plugin-state'></a>
 A per-plugin config to describe the desired state of the plugin.
 
 
@@ -6511,7 +6511,7 @@ A per-plugin config to describe the desired state of the plugin.
   Set to 'true' to enable this plugin
 
 
-## prometheus
+## prometheus <a id='prometheus'></a>
 Settings for reporting metrics to Prometheus
 
 
@@ -6545,7 +6545,7 @@ Settings for reporting metrics to Prometheus
   Turn Prometheus data pushing on or off
 
 
-## resource_schema:creation_opts
+## resource_schema:creation_opts <a id='resource_schema-creation_opts'></a>
 Creation options.
 
 
@@ -6631,7 +6631,7 @@ Creation options.
   Maximum queue storage.
 
 
-## retainer:flow_control
+## retainer:flow_control <a id='retainer-flow_control'></a>
 Retainer batching and rate limiting.
 
 
@@ -6665,7 +6665,7 @@ Retainer batching and rate limiting.
   If this field is empty, limiter is not used.
 
 
-## retainer:mnesia_config
+## retainer:mnesia_config <a id='retainer-mnesia_config'></a>
 Configuration of the internal database storing retained messages.
 
 
@@ -6712,7 +6712,7 @@ Configuration of the internal database storing retained messages.
   Retainer index specifications: list of arrays of positive ascending integers. Each array specifies an index. Numbers in an index specification are 1-based word positions in topics. Words from specified positions will be used for indexing.<br/>For example, it is good to have <code>[2, 4]</code> index to optimize <code>+/X/+/Y/...</code> topic wildcard subscriptions.
 
 
-## retainer
+## retainer <a id='retainer'></a>
 Configuration related to handling `PUBLISH` packets with a `retain` flag set to 1.
 
 
@@ -6772,7 +6772,7 @@ Configuration related to handling `PUBLISH` packets with a `retain` flag set to 
   Settings for the database storing the retained messages.
 
 
-## slow_subs
+## slow_subs <a id='slow_subs'></a>
 Configuration for `slow_subs` feature.
 
 
@@ -6818,7 +6818,7 @@ Configuration for `slow_subs` feature.
   The method to calculate the latency
 
 
-## statsd
+## statsd <a id='statsd'></a>
 StatsD metrics collection and push configuration.
 
 

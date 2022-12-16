@@ -1,6 +1,6 @@
 # Authorization
 
-## authz:file
+## authz:file <a id='authz-file'></a>
 Authorization using a static file.
 
 
@@ -34,7 +34,7 @@ Authorization using a static file.
   and the old file will not be used anymore.
 
 
-## authz:http_get
+## authz:http_get <a id='authz-http_get'></a>
 Authorization using an external HTTP server (via GET requests).
 
 
@@ -91,14 +91,14 @@ Authorization using an external HTTP server (via GET requests).
 
   The pool size.
 
-- request: <code>[connector-http:request](#connector-http-request)</code>
+- request: <code>[connector-http:request](others.md#connector-http-request)</code>
   If the request is provided, the caller can send HTTP requests via
   <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
 - retry_interval: <code>emqx_schema:duration()</code>
   Deprecated since 5.0.4.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -124,7 +124,7 @@ Authorization using an external HTTP server (via GET requests).
   List of HTTP headers (without <code>content-type</code>).
 
 
-## authz:http_post
+## authz:http_post <a id='authz-http_post'></a>
 Authorization using an external HTTP server (via POST requests).
 
 
@@ -181,14 +181,14 @@ Authorization using an external HTTP server (via POST requests).
 
   The pool size.
 
-- request: <code>[connector-http:request](#connector-http-request)</code>
+- request: <code>[connector-http:request](others.md#connector-http-request)</code>
   If the request is provided, the caller can send HTTP requests via
   <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
 - retry_interval: <code>emqx_schema:duration()</code>
   Deprecated since 5.0.4.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -215,7 +215,7 @@ Authorization using an external HTTP server (via POST requests).
   List of HTTP Headers.
 
 
-## authz:mnesia
+## authz:mnesia <a id='authz-mnesia'></a>
 Authorization using a built-in database (mnesia).
 
 
@@ -240,7 +240,7 @@ Authorization using a built-in database (mnesia).
   Set to <code>true</code> or <code>false</code> to disable this ACL provider
 
 
-## authz:mongo_rs
+## authz:mongo_rs <a id='authz-mongo_rs'></a>
 Authorization using a MongoDB replica set.
 
 
@@ -327,17 +327,17 @@ Authorization using a MongoDB replica set.
 - database: <code>binary()</code>
   Database name.
 
-- topology: <code>[topology](#topology)</code>
+- topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authz:mongo_sharded
+## authz:mongo_sharded <a id='authz-mongo_sharded'></a>
 Authorization using a sharded MongoDB cluster.
 
 
@@ -415,17 +415,17 @@ Authorization using a sharded MongoDB cluster.
 - database: <code>binary()</code>
   Database name.
 
-- topology: <code>[topology](#topology)</code>
+- topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authz:mongo_single
+## authz:mongo_single <a id='authz-mongo_single'></a>
 Authorization using a single MongoDB instance.
 
 
@@ -502,17 +502,17 @@ Authorization using a single MongoDB instance.
 - database: <code>binary()</code>
   Database name.
 
-- topology: <code>[topology](#topology)</code>
+- topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authz:mysql
+## authz:mysql <a id='authz-mysql'></a>
 Authorization using a MySQL database.
 
 
@@ -562,7 +562,7 @@ Authorization using a MySQL database.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -575,7 +575,7 @@ Authorization using a MySQL database.
   Database query used to retrieve authorization data.
 
 
-## authz:postgresql
+## authz:postgresql <a id='authz-postgresql'></a>
 Authorization using a PostgreSQL database.
 
 
@@ -625,7 +625,7 @@ Authorization using a PostgreSQL database.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -638,7 +638,7 @@ Authorization using a PostgreSQL database.
   Database query used to retrieve authorization data.
 
 
-## authz:redis_cluster
+## authz:redis_cluster <a id='authz-redis_cluster'></a>
 Authorization using a Redis cluster.
 
 
@@ -689,7 +689,7 @@ Authorization using a Redis cluster.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -699,7 +699,7 @@ Authorization using a Redis cluster.
   Database query used to retrieve authorization data.
 
 
-## authz:redis_sentinel
+## authz:redis_sentinel <a id='authz-redis_sentinel'></a>
 Authorization using a Redis Sentinel.
 
 
@@ -759,7 +759,7 @@ Authorization using a Redis Sentinel.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -769,7 +769,7 @@ Authorization using a Redis Sentinel.
   Database query used to retrieve authorization data.
 
 
-## authz:redis_single
+## authz:redis_single <a id='authz-redis_single'></a>
 Authorization using a single Redis instance.
 
 
@@ -825,7 +825,7 @@ Authorization using a single Redis instance.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 

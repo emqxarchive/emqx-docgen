@@ -1,8 +1,10 @@
 defmodule MD do
-  def h(weight, text) do
+  def h(weight, text, opts \\ %{}) do
+    id = opts[:id]
+    id_tag = if id, do: "<a id='#{id}'></a>"
     markup = String.duplicate("#", weight)
 
-    "#{markup} #{text}\n"
+    "#{markup} #{text} #{id_tag}\n"
   end
 
   def h1(txt), do: h(1, txt)
@@ -18,17 +20,14 @@ defmodule MD do
     Enum.map(items, & "- #{&1}\n")
   end
 
-  ## ref: https://gist.github.com/asabaylus/3071099
-  ## GitHub flavored markdown likes ':' being removed
-  ## VuePress likes ':' being replaced by '-'
-  def anchor(ref) do
+  def anchor(header_title) do
     %{
       ~r/\./ => "",
       ~r/'/ => "",
       ~r/:/ => "-",
       ~r/\s/ => "-",
     }
-    |> Enum.reduce(String.downcase(ref), fn {find, replace}, acc ->
+    |> Enum.reduce(String.downcase(header_title), fn {find, replace}, acc ->
       String.replace(acc, find, replace)
     end)
   end

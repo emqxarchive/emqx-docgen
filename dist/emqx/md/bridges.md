@@ -1,6 +1,6 @@
 # Bridges
 
-## bridge:bridges
+## bridge:bridges <a id='bridge-bridges'></a>
 Configuration for MQTT bridges.
 
 
@@ -15,9 +15,9 @@ Configuration for MQTT bridges.
 
 **Fields**
 
-- webhook: <code>{$name -> [bridge_webhook:config](#bridge_webhook-config)}</code>
+- webhook: <code>{$name -> [bridge_webhook:config](others.md#bridge_webhook-config)}</code>
   WebHook to an HTTP server.
 
-- mqtt: <code>{$name -> [bridge_mqtt:config](#bridge_mqtt-config)}</code>
+- mqtt: <code>{$name -> [bridge_mqtt:config](others.md#bridge_mqtt-config)}</code>
   MQTT bridges to/from another MQTT broker
 

@@ -1,23 +1,16 @@
-License
+# License
 
-## key_license
+## key_license <a id='key_license'></a>
 License provisioned as a string.
-
-
-**Tags**
-
- - <code>License</code>
 
 
 **Config paths**
 
  - <code>license</code>
 
-
 **Env overrides**
 
  - <code>EMQX_LICENSE</code>
-
 
 
 **Fields**
@@ -39,5 +32,4 @@ License provisioned as a string.
   `"80%"`
 
   High watermark limit above which license connection quota usage alarms are activated
-
 

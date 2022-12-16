@@ -68,8 +68,8 @@ defmodule Main do
       common_sections ++
       [
         %{
-          slug: "gateway",
-          title: "Gateways"
+          slug: "license",
+          title: "License"
         }
       ] ++ generic_section
 
@@ -97,6 +97,35 @@ defmodule Main do
     """
   end
 
+  @doc """
+  Creates an index mapping full names to files/sections, as they will
+  be cross-referenced by fields/structs in different sections.
+  """
+  def index_full_names(dist_dir, sections) do
+    for %{slug: slug, title: _title} <- sections,
+        %{full_name: full_name} <- read_structs!(dist_dir, slug),
+        reduce: %{} do
+      acc ->
+          if Map.has_key?(acc, full_name) and acc[full_name] != slug do
+            ctx = %{
+              full_name: full_name,
+              acc: acc,
+              slug: slug,
+              existing: acc[full_name],
+            }
+            raise "repeated header! #{inspect(ctx, pretty: true)}"
+          end
+          Map.put(acc, full_name, slug)
+    end
+  end
+
+  def read_structs!(dist_dir, slug) do
+    [dist_dir, "json", "#{slug}.json"]
+    |> Path.join()
+    |> File.read!()
+    |> Jason.decode!(keys: :atoms)
+  end
+
   def generate_markdown(opts) do
     dist_dir_ce = "dist/emqx/"
     dist_dir_ee = "dist/emqx-enterprise/"
@@ -116,14 +145,19 @@ defmodule Main do
         outfile = Path.join([dist_dir, "md", "index.md"])
         File.write!(outfile, index)
 
+        header_index = index_full_names(dist_dir, sections)
         body = Map.get(section, :body, "")
 
         md =
-          [dist_dir, "json", "#{slug}.json"]
-          |> Path.join()
-          |> File.read!()
-          |> Jason.decode!(keys: :atoms)
-          |> SchemaMD.gen_from_structs(%{title: "# #{title}", body: body, env_prefix: "EMQX_"})
+          dist_dir
+          |> read_structs!(slug)
+          |> SchemaMD.gen_from_structs(%{
+              title: "# #{title}",
+              body: body,
+              env_prefix: "EMQX_",
+              header_index: header_index,
+              current_slug: slug,
+            })
 
         outfile = Path.join([dist_dir, "md", "#{slug}.md"])
         File.write!(outfile, md)

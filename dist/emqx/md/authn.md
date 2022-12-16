@@ -1,6 +1,6 @@
 # Authentication
 
-## authn-builtin_db:authentication
+## authn-builtin_db:authentication <a id='authn-builtin_db-authentication'></a>
 Configuration of authenticator using built-in database as data source.
 
 
@@ -69,7 +69,7 @@ Configuration of authenticator using built-in database as data source.
 
   Specify whether to use `clientid` or `username` for authentication.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt_rw](#authn-hash-bcrypt_rw) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
+- password_hash_algorithm: <code>[authn-hash:bcrypt_rw](others.md#authn-hash-bcrypt_rw) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
   * default: 
   `{name = sha256, salt_position = prefix}`
 
@@ -82,7 +82,7 @@ Configuration of authenticator using built-in database as data source.
   Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
 
-## authn-http:get
+## authn-http:get <a id='authn-http-get'></a>
 Configuration of authenticator using HTTP Server as authentication service (Using GET request).
 
 
@@ -203,21 +203,21 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
 
   The pool size.
 
-- request: <code>[connector-http:request](#connector-http-request)</code>
+- request: <code>[connector-http:request](others.md#connector-http-request)</code>
   If the request is provided, the caller can send HTTP requests via
   <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
 - retry_interval: <code>emqx_schema:duration()</code>
   Deprecated since 5.0.4.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authn-http:post
+## authn-http:post <a id='authn-http-post'></a>
 Configuration of authenticator using HTTP Server as authentication service (Using POST request).
 
 
@@ -339,21 +339,21 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
 
   The pool size.
 
-- request: <code>[connector-http:request](#connector-http-request)</code>
+- request: <code>[connector-http:request](others.md#connector-http-request)</code>
   If the request is provided, the caller can send HTTP requests via
   <code>emqx_resource:query(ResourceId, {send_message, BridgeId, Message})</code>
 
 - retry_interval: <code>emqx_schema:duration()</code>
   Deprecated since 5.0.4.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authn-jwt:hmac-based
+## authn-jwt:hmac-based <a id='authn-jwt-hmac-based'></a>
 Configuration when the JWT for authentication is issued using the HMAC algorithm.
 
 
@@ -457,7 +457,7 @@ Configuration when the JWT for authentication is issued using the HMAC algorithm
   Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
 
-## authn-jwt:jwks
+## authn-jwt:jwks <a id='authn-jwt-jwks'></a>
 Configuration when JWTs used for authentication need to be fetched from the JWKS endpoint.
 
 
@@ -532,7 +532,7 @@ Configuration when JWTs used for authentication need to be fetched from the JWKS
 
   JWKS refresh interval.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -570,7 +570,7 @@ Configuration when JWTs used for authentication need to be fetched from the JWKS
   Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
 
-## authn-jwt:public-key
+## authn-jwt:public-key <a id='authn-jwt-public-key'></a>
 Configuration when the JWT for authentication is issued using RSA or ECDSA algorithm.
 
 
@@ -668,7 +668,7 @@ Configuration when the JWT for authentication is issued using RSA or ECDSA algor
   Set to <code>true</code> or <code>false</code> to disable this auth provider.
 
 
-## authn-mongodb:replica-set
+## authn-mongodb:replica-set <a id='authn-mongodb-replica-set'></a>
 Configuration of authenticator using MongoDB (Replica Set) as authentication data source.
 
 
@@ -761,7 +761,7 @@ Configuration of authenticator using MongoDB (Replica Set) as authentication dat
 
   Document field that defines if the user has superuser privileges.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
+- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
   * default: 
   `{name = sha256, salt_position = prefix}`
 
@@ -824,17 +824,17 @@ Configuration of authenticator using MongoDB (Replica Set) as authentication dat
 - database: <code>binary()</code>
   Database name.
 
-- topology: <code>[topology](#topology)</code>
+- topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authn-mongodb:sharded-cluster
+## authn-mongodb:sharded-cluster <a id='authn-mongodb-sharded-cluster'></a>
 Configuration of authenticator using MongoDB (Sharded Cluster) as authentication data source.
 
 
@@ -927,7 +927,7 @@ Configuration of authenticator using MongoDB (Sharded Cluster) as authentication
 
   Document field that defines if the user has superuser privileges.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
+- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
   * default: 
   `{name = sha256, salt_position = prefix}`
 
@@ -981,17 +981,17 @@ Configuration of authenticator using MongoDB (Sharded Cluster) as authentication
 - database: <code>binary()</code>
   Database name.
 
-- topology: <code>[topology](#topology)</code>
+- topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authn-mongodb:standalone
+## authn-mongodb:standalone <a id='authn-mongodb-standalone'></a>
 Configuration of authenticator using MongoDB (Standalone) as authentication data source.
 
 
@@ -1084,7 +1084,7 @@ Configuration of authenticator using MongoDB (Standalone) as authentication data
 
   Document field that defines if the user has superuser privileges.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
+- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
   * default: 
   `{name = sha256, salt_position = prefix}`
 
@@ -1137,17 +1137,17 @@ Configuration of authenticator using MongoDB (Standalone) as authentication data
 - database: <code>binary()</code>
   Database name.
 
-- topology: <code>[topology](#topology)</code>
+- topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authn-mysql:authentication
+## authn-mysql:authentication <a id='authn-mysql-authentication'></a>
 Configuration of authenticator using MySQL as authentication data source.
 
 
@@ -1210,7 +1210,7 @@ Configuration of authenticator using MySQL as authentication data source.
 - backend: <code>mysql</code>
   Backend type.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
+- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
   * default: 
   `{name = sha256, salt_position = prefix}`
 
@@ -1257,14 +1257,14 @@ Configuration of authenticator using MySQL as authentication data source.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authn-postgresql:authentication
+## authn-postgresql:authentication <a id='authn-postgresql-authentication'></a>
 Configuration of authenticator using PostgreSQL as authentication data source.
 
 
@@ -1327,7 +1327,7 @@ Configuration of authenticator using PostgreSQL as authentication data source.
 - backend: <code>postgresql</code>
   Backend type.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
+- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
   * default: 
   `{name = sha256, salt_position = prefix}`
 
@@ -1368,14 +1368,14 @@ Configuration of authenticator using PostgreSQL as authentication data source.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authn-redis:cluster
+## authn-redis:cluster <a id='authn-redis-cluster'></a>
 Configuration of authenticator using Redis (Cluster) as authentication data source.
 
 
@@ -1441,7 +1441,7 @@ Configuration of authenticator using Redis (Cluster) as authentication data sour
 - cmd: <code>string()</code>
   The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
+- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
   * default: 
   `{name = sha256, salt_position = prefix}`
 
@@ -1480,14 +1480,14 @@ Configuration of authenticator using Redis (Cluster) as authentication data sour
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authn-redis:sentinel
+## authn-redis:sentinel <a id='authn-redis-sentinel'></a>
 Configuration of authenticator using Redis (Sentinel) as authentication data source.
 
 
@@ -1553,7 +1553,7 @@ Configuration of authenticator using Redis (Sentinel) as authentication data sou
 - cmd: <code>string()</code>
   The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
+- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
   * default: 
   `{name = sha256, salt_position = prefix}`
 
@@ -1601,14 +1601,14 @@ Configuration of authenticator using Redis (Sentinel) as authentication data sou
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authn-redis:standalone
+## authn-redis:standalone <a id='authn-redis-standalone'></a>
 Configuration of authenticator using Redis (Standalone) as authentication data source.
 
 
@@ -1674,7 +1674,7 @@ Configuration of authenticator using Redis (Standalone) as authentication data s
 - cmd: <code>string()</code>
   The Redis Command used to query data for authentication such as password hash, currently only supports <code>HGET</code> and <code>HMGET</code>.
 
-- password_hash_algorithm: <code>[authn-hash:bcrypt](#authn-hash-bcrypt) | [authn-hash:pbkdf2](#authn-hash-pbkdf2) | [authn-hash:other_algorithms](#authn-hash-other_algorithms)</code>
+- password_hash_algorithm: <code>[authn-hash:bcrypt](others.md#authn-hash-bcrypt) | [authn-hash:pbkdf2](others.md#authn-hash-pbkdf2) | [authn-hash:other_algorithms](others.md#authn-hash-other_algorithms)</code>
   * default: 
   `{name = sha256, salt_position = prefix}`
 
@@ -1718,14 +1718,14 @@ Configuration of authenticator using Redis (Standalone) as authentication data s
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
   SSL connection settings.
 
 
-## authn-scram-builtin_db:authentication
+## authn-scram-builtin_db:authentication <a id='authn-scram-builtin_db-authentication'></a>
 Settings for Salted Challenge Response Authentication Mechanism
 (SCRAM) authentication.
 
