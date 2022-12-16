@@ -98,7 +98,7 @@ Authorization using an external HTTP server (via GET requests).
 - retry_interval: <code>emqx_schema:duration()</code>
   Deprecated since 5.0.4.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -188,7 +188,7 @@ Authorization using an external HTTP server (via POST requests).
 - retry_interval: <code>emqx_schema:duration()</code>
   Deprecated since 5.0.4.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -330,7 +330,7 @@ Authorization using a MongoDB replica set.
 - topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -418,7 +418,7 @@ Authorization using a sharded MongoDB cluster.
 - topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -505,7 +505,7 @@ Authorization using a single MongoDB instance.
 - topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -562,7 +562,7 @@ Authorization using a MySQL database.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -625,7 +625,7 @@ Authorization using a PostgreSQL database.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -689,7 +689,7 @@ Authorization using a Redis cluster.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -759,7 +759,7 @@ Authorization using a Redis Sentinel.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -825,7 +825,7 @@ Authorization using a single Redis instance.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 

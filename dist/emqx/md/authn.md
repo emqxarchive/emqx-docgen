@@ -210,7 +210,7 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
 - retry_interval: <code>emqx_schema:duration()</code>
   Deprecated since 5.0.4.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -346,7 +346,7 @@ Configuration of authenticator using HTTP Server as authentication service (Usin
 - retry_interval: <code>emqx_schema:duration()</code>
   Deprecated since 5.0.4.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -532,7 +532,7 @@ Configuration when JWTs used for authentication need to be fetched from the JWKS
 
   JWKS refresh interval.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -827,7 +827,7 @@ Configuration of authenticator using MongoDB (Replica Set) as authentication dat
 - topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -984,7 +984,7 @@ Configuration of authenticator using MongoDB (Sharded Cluster) as authentication
 - topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -1140,7 +1140,7 @@ Configuration of authenticator using MongoDB (Standalone) as authentication data
 - topology: <code>[topology](others.md#topology)</code>
 
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -1257,7 +1257,7 @@ Configuration of authenticator using MySQL as authentication data source.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -1368,7 +1368,7 @@ Configuration of authenticator using PostgreSQL as authentication data source.
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -1480,7 +1480,7 @@ Configuration of authenticator using Redis (Cluster) as authentication data sour
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -1601,7 +1601,7 @@ Configuration of authenticator using Redis (Sentinel) as authentication data sou
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 
@@ -1718,7 +1718,7 @@ Configuration of authenticator using Redis (Standalone) as authentication data s
 
   Enable automatic reconnect to the database.
 
-- ssl: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   * default: 
   `{enable = false}`
 

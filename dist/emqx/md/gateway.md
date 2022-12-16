@@ -462,7 +462,7 @@ Settings for the exproto gRPC connection handler.
 - address: <code>binary()</code>
   gRPC server address.
 
-- ssl_options: <code>[broker:ssl_client_opts](others.md#broker-ssl_client_opts)</code>
+- ssl_options: <code>[broker:ssl_client_opts](emqx.md#broker-ssl_client_opts)</code>
   SSL configuration for the gRPC client.
 
 
@@ -779,7 +779,7 @@ Settings for the SSL listener.
 
   Size of the acceptor pool.
 
-- tcp_options: <code>[broker:tcp_opts](others.md#broker-tcp_opts)</code>
+- tcp_options: <code>[broker:tcp_opts](emqx.md#broker-tcp_opts)</code>
   Setting the TCP socket options.
 
 - proxy_protocol: <code>boolean()</code>
@@ -843,7 +843,7 @@ Settings for the SSL listener.
   The access control rules for this listener.
   See: https://github.com/emqtt/esockd#allowdeny
 
-- ssl_options: <code>[broker:listener_ssl_opts](others.md#broker-listener_ssl_opts)</code>
+- ssl_options: <code>[broker:listener_ssl_opts](emqx.md#broker-listener_ssl_opts)</code>
   SSL Socket options.
 
 
@@ -1119,7 +1119,7 @@ Settings for the TCP listener.
 
   Size of the acceptor pool.
 
-- tcp_options: <code>[broker:tcp_opts](others.md#broker-tcp_opts)</code>
+- tcp_options: <code>[broker:tcp_opts](emqx.md#broker-tcp_opts)</code>
   Setting the TCP socket options.
 
 - proxy_protocol: <code>boolean()</code>
