@@ -6,84 +6,140 @@ Mix.install([
   :jason
 ])
 
-lang =
-  case OptionParser.parse!(System.argv(), strict: [lang: :string]) do
-    {[lang: lang], _} ->
-      lang
+defmodule Main do
+  def parse_args!(args) do
+    lang =
+      case OptionParser.parse!(args, strict: [lang: :string]) do
+        {[lang: lang], _} ->
+          lang
 
-    _ ->
-      Mix.raise("usage: generate-markdown.exs --lang {en,zh}")
+        _ ->
+          Mix.raise("usage: generate-markdown.exs --lang {en,zh}")
+      end
+
+    unless lang in ["en", "zh"] do
+      Mix.raise("Invalid language #{lang}; options are `en`, `zh`")
+    end
+
+    %{lang: lang}
   end
 
-unless lang in ["en", "zh"] do
-  Mix.raise("Invalid language #{lang}; options are `en`, `zh`")
-end
+  def sections() do
+    generic_section = [
+      %{
+        slug: "others",
+        title: "Other Configurations"
+      }
+    ]
 
-generic_section = [
-  %{
-    slug: "others",
-    title: "Other Configurations"
-  }
-]
-
-common_sections = [
-  %{
-    slug: "emqx",
-    title: "EMQX",
-    body: File.read!("preamble.#{lang}.md")
-  },
-  %{
-    slug: "authn",
-    title: "Authentication"
-  },
-  %{
-    slug: "authz",
-    title: "Authorization"
-  },
-  %{
-    slug: "bridges",
-    title: "Bridges"
-  },
-  %{
-    slug: "rule",
-    title: "Rule Engine"
-  },
-  %{
-    slug: "gateway",
-    title: "Gateways"
-  }
-]
-
-sections_ce = common_sections ++ generic_section
-
-sections_ee =
-  common_sections ++
-    [
+    common_sections = [
+      %{
+        slug: "emqx",
+        title: "EMQX",
+      },
+      %{
+        slug: "authn",
+        title: "Authentication"
+      },
+      %{
+        slug: "authz",
+        title: "Authorization"
+      },
+      %{
+        slug: "bridges",
+        title: "Bridges"
+      },
+      %{
+        slug: "rule",
+        title: "Rule Engine"
+      },
       %{
         slug: "gateway",
         title: "Gateways"
       }
-    ] ++ generic_section
+    ]
 
-dist_dir_ce = "dist/emqx/"
-dist_dir_ee = "dist/emqx-enterprise/"
+    sections_ce = common_sections ++ generic_section
 
-[
-  {dist_dir_ce, sections_ce},
-  {dist_dir_ee, sections_ee}
-]
-|> Enum.each(fn {dist_dir, sections} ->
-  Enum.each(sections, fn %{slug: slug, title: title} = section ->
-    body = Map.get(section, :body, "")
+    sections_ee =
+      common_sections ++
+      [
+        %{
+          slug: "gateway",
+          title: "Gateways"
+        }
+      ] ++ generic_section
 
-    md =
-      [dist_dir, "json", "#{slug}.json"]
-      |> Path.join()
-      |> File.read!()
-      |> Jason.decode!(keys: :atoms)
-      |> :hocon_schema_md.gen_from_structs(%{title: "# #{title}", body: body, env_prefix: "EMQX_"})
+    %{
+      sections_ce: sections_ce,
+      sections_ee: sections_ee,
+    }
+  end
 
-    outfile = Path.join([dist_dir, "md", "#{slug}.md"])
-    File.write!(outfile, md)
-  end)
-end)
+  def make_index(sections, lang) do
+    preamble = File.read!("preamble.#{lang}.md")
+    entries =
+      sections
+      |> Enum.map(fn %{slug: slug, title: title} ->
+        link(title, "./#{slug}.md")
+      end)
+      |> ul()
+
+    """
+    #{preamble}
+
+    # Sections
+
+    #{entries}
+    """
+  end
+
+  def link(text, path), do: "[#{text}](#{path})"
+  def ul(items) do
+    items
+    |> Enum.map(& "- #{&1}")
+    |> Enum.join("\n")
+  end
+
+  def generate_markdown(opts) do
+    dist_dir_ce = "dist/emqx/"
+    dist_dir_ee = "dist/emqx-enterprise/"
+    %{lang: lang} = opts
+    %{
+      sections_ce: sections_ce,
+      sections_ee: sections_ee,
+    } = sections()
+
+    [
+      {dist_dir_ce, sections_ce},
+      {dist_dir_ee, sections_ee}
+    ]
+    |> Enum.each(fn {dist_dir, sections} ->
+      Enum.each(sections, fn %{slug: slug, title: title} = section ->
+        index = make_index(sections, lang)
+        outfile = Path.join([dist_dir, "md", "index.md"])
+        File.write!(outfile, index)
+
+        body = Map.get(section, :body, "")
+
+        md =
+          [dist_dir, "json", "#{slug}.json"]
+          |> Path.join()
+          |> File.read!()
+          |> Jason.decode!(keys: :atoms)
+          |> :hocon_schema_md.gen_from_structs(%{title: "# #{title}", body: body, env_prefix: "EMQX_"})
+
+        outfile = Path.join([dist_dir, "md", "#{slug}.md"])
+        File.write!(outfile, md)
+      end)
+    end)
+  end
+
+  def main() do
+    System.argv()
+    |> parse_args!()
+    |> generate_markdown()
+  end
+end
+
+Main.main()
